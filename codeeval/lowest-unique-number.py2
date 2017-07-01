@@ -1,0 +1,49 @@
+import sys
+
+NUMBERS = None
+
+class NumberInfo(object):
+    def __init__(self, index):
+        self.count = 1
+        self.index = index
+
+    def increment(self):
+        self.count += 1
+
+    def pick_winner(self, winning_index):
+        if self.count == 1:
+            if winning_index == -1:
+                return self.index
+        return winning_index
+
+def play():
+    d = {}
+
+    for index, number in enumerate(NUMBERS):
+        if number in d:
+            d[number].increment()
+        else:
+            d[number] = NumberInfo(index)
+
+    winning_index = -1
+    for number in d:
+        winning_index = d[number].pick_winner(winning_index)
+
+    return winning_index + 1
+
+def handle_line(line):
+    global NUMBERS
+    NUMBERS = map(int, line.split())
+    print play()
+
+
+if __name__ == '__main__':
+    if len(sys.argv) == 1:
+        print "Usage: python {} <filename>".format(sys.argv[0])
+        sys.exit(1)
+    filename = sys.argv[1]
+    with open(filename) as f:
+        for line in f:
+            handle_line(line)
+
+
