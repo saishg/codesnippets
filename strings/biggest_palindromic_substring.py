@@ -1,32 +1,19 @@
 
 
 INPUT = "sanfranciscoxxyxxabcdefghijkllkjihgfedcblasvegas"
+LENGTH = len(INPUT)
 
-def find_odd_palindrome(index):
-    for i in range(min(index, len(INPUT)-index)):
-        if INPUT[index-i] != INPUT[index+i]:
-            break
-    else:
-        return ''
-    return INPUT[index-i+1 : index+i]
-
-def find_even_palindrome(index):
-    if index != len(INPUT) - 1:
-        if INPUT[index] == INPUT[index + 1]:
-            for i in range(min(index, len(INPUT)-index-1)):
-                if index - i < 0 or index + i + 1 >= len(INPUT):
-                    break
-                if INPUT[index-i] != INPUT[index+i+1]:
-                    break
-            else:
-                 return ''
-            return INPUT[index-i+1 : index+i+1]
-    return ''
-
-for i in xrange(len(INPUT)):
-    palindrome = find_odd_palindrome(i)
+def check_palindrome(index1, index2):
+    while INPUT[index1] == INPUT[index2]:
+        index1 -= 1
+        index2 += 1
+    palindrome = INPUT[index1+1:index2]
     if len(palindrome) > 1:
         print palindrome
-    palindrome = find_even_palindrome(i)
-    if len(palindrome) > 2:
-        print palindrome
+
+for i in xrange(LENGTH):
+    try:
+        check_palindrome(i, i)
+        check_palindrome(i, i + 1)
+    except IndexError:
+        pass
