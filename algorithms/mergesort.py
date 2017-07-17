@@ -20,10 +20,7 @@ def mergesort(input_list):
 
     return output_list + sorted1 + sorted2
 
-def generate_random(num=10):
-    for i in xrange(num):
-        yield random.randint(0, num * 3)
-
-
 if __name__ == '__main__':
-    print mergesort(collections.deque(generate_random()))
+    numbers = range(100)
+    random.shuffle(numbers)
+    print mergesort(numbers)
