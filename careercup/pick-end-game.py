@@ -1,29 +1,46 @@
 # https://www.careercup.com/question?id=8758252
 
-def playOpp(numbers, my_num, opp_num):
+class Player:
+    def __init__(self, name, nums=()):
+        self.name = name
+        self.nums = nums
+        self.total = sum(self.nums)
+
+    def add(self, num):
+        return Player(self.name, self.nums + (num,))
+
+    def __repr__(self):
+        return "[Player-{} {} Sum:{}]".format(self.name, self.nums, self.total)
+
+
+def play2(numbers, player1, player2):
     if not numbers:
-        print my_num, sum(my_num[1:]), opp_num, sum(opp_num[1:])
-        return sum(opp_num[1:])
+        print "tail", player1, player2
+        return player1, player2
 
-    value1 = play(numbers[1:], my_num, opp_num+(numbers[0],))
-    value2 = 0
-    if len(numbers) > 1:
-        value2 = play(numbers[:-1], my_num, opp_num+(numbers[-1],))
-    return max(value1, value2)
+    o1player1, o1player2 = play1(numbers[1:], player1, player2.add(numbers[0]))
+    o2player1, o2player2 = play1(numbers[:-1], player1, player2.add(numbers[-1]))
+    if o1player2.total > o2player2.total:
+        return o1player1, o1player2
+    else:
+        return o2player1, o2player2
 
 
-def play(numbers, my_num=('A',), opp_num=('B',)):
+def play1(numbers, player1, player2):
     if not numbers:
-        print my_num, sum(my_num[1:]), opp_num, sum(opp_num[1:])
-        return
+        print "tail", player1, player2
+        return player1, player2
 
-    value1 = playOpp(numbers[1:], my_num+(numbers[0],), opp_num)
-    value2 = 0
-    if len(numbers) > 1:
-        value2 = playOpp(numbers[:-1], my_num+(numbers[-1],), opp_num)
-    return max(value1, value2)
-
+    o1player1, o1player2 = play2(numbers[1:], player1.add(numbers[0]), player2)
+    o2player1, o2player2 = play2(numbers[:-1], player1.add(numbers[-1],), player2)
+    if o1player1.total > o2player1.total:
+        return o1player1, o1player2
+    else:
+        return o2player1, o2player2
 
 
 if __name__ == '__main__':
-    play((12, 24, 10, 5))
+#   Player("One").add(1).display()
+
+#    print play1((12, 24, 10, 5), Player("One"), Player("Two"))
+    print play1((1, 2, 3, 4, 5, 6, 7, 8, 7, 6, 5, 4, 3), Player("One"), Player("Two"))
