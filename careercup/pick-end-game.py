@@ -43,4 +43,4 @@ if __name__ == '__main__':
 #   Player("One").add(1).display()
 
 #    print play1((12, 24, 10, 5), Player("One"), Player("Two"))
-    print play1((1, 2, 3, 4, 5, 6, 7, 8, 7, 6, 5, 4, 3), Player("One"), Player("Two"))
+    print play1((1, 3, 2), Player("One"), Player("Two"))
