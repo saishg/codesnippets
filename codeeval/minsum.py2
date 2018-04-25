@@ -1,0 +1,32 @@
+import sys
+
+MAXINT = 65535
+
+def findpath(matrix, r=0, c=0, sum=0):
+    N = len(matrix)
+    if r == N-1 and c == N-1:
+        return sum + matrix[r][c]
+    elif r >= N or c >= N:
+        return MAXINT
+
+    return min(findpath(matrix, r+1, c, sum + matrix[r][c]),
+                findpath(matrix, r, c+1, sum + matrix[r][c]))
+
+def parseFile(filename):
+    f = open(filename, 'r')
+    while True:
+        N = f.readline()
+        if not N:
+            break
+        N = int(N)
+        matrix = [[None] * N for i in xrange(N)]
+        for r in xrange(N):
+            row = map(int,  f.readline().split(','))
+            i = 0
+            for c in xrange(N):
+                matrix[r][c] = row[i]
+                i += 1
+        print findpath(matrix)
+
+parseFile(sys.argv[1])
+

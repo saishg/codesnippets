@@ -1,0 +1,20 @@
+
+LIMIT = 1000
+
+def is_palindrome(x):
+    x = str(x)
+    return x == x[::-1]
+
+def is_prime(x):
+    for i in xrange(2, int(x ** 0.5) + 1):
+        if x % i == 0:
+            return False
+    else:
+        return True
+
+def find_prime_palindrome():
+    for i in xrange(LIMIT, 0, -1):
+        if is_palindrome(i) and is_prime(i):
+            return i
+
+print find_prime_palindrome()

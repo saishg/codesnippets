@@ -1,0 +1,24 @@
+
+import sys
+
+def calc_primes(start, end):
+    non_primes = {}
+    primes = []
+    for i in xrange(2, end):
+        if i not in non_primes:
+            if i >= start:
+                primes.append(str(i))
+            for j in range(2, end/i + 1):
+                non_primes[i * j] = False
+#    print ','.join(primes)
+    return len(primes)
+
+def parseFile(filename):
+    f = open(filename, 'r')
+    for l in f:
+        start, end = map(int, l.strip().split(','))
+        print calc_primes(start, end+1)
+
+
+parseFile(sys.argv[1])
+

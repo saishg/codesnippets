@@ -1,0 +1,54 @@
+import sys
+
+
+def ismine(matrix, i, j, R, C):
+    if 0 <= i < R and 0 <= j < C and matrix[i][j] == '*':
+        return 1
+    else:
+        return 0
+
+def calc(matrix, i, j, R, C):
+    if matrix[i][j] == '*':
+        return '*'
+
+    sum = 0
+    sum += ismine(matrix, i, j+1, R, C)
+    sum += ismine(matrix, i, j-1, R, C)
+    sum += ismine(matrix, i+1, j, R, C)
+    sum += ismine(matrix, i+1, j+1, R, C)
+    sum += ismine(matrix, i+1, j-1, R, C)
+    sum += ismine(matrix, i-1, j, R, C)
+    sum += ismine(matrix, i-1, j+1, R, C)
+    sum += ismine(matrix, i-1, j-1, R, C)
+    return str(sum)
+
+
+def findmines(mines, R, C):
+    matrix = []
+    index = 0
+    while index < len(mines):
+        row = []
+        for i in xrange(C):
+            row.append(mines[index])
+            index = index + 1
+        matrix.append(row)
+
+    for i in xrange(R):
+        for j in xrange(C):
+            matrix[i][j] = calc(matrix, i, j, R, C)
+
+    print "".join(map("".join, matrix))
+
+
+
+
+def parseFile(filename):
+    f = open(filename, 'r')
+    for l in f:
+        coords, mines = l.strip().split(';')
+        R, C = coords.split(',')
+        findmines(mines, int(R), int(C))
+
+
+parseFile(sys.argv[1])
+

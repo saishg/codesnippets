@@ -1,0 +1,26 @@
+import sys
+
+def sim(size, step):
+    i = 0
+    array = range(size)
+
+    while True:
+        l = len(array)
+        if l > 0:
+            i = (i + step - 1) % len(array)
+        else:
+            break
+        print array.pop(i),
+
+    print
+
+
+def parseFile(filename):
+    f = open(filename, 'r')
+    for l in f:
+        size, step = map(int, l.split(','))
+        sim(size, step)
+
+
+parseFile(sys.argv[1])
+

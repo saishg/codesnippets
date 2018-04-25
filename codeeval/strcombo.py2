@@ -1,0 +1,23 @@
+import sys
+
+def getcombos(N, charset, stringlist=[], string=""):
+    if (N == 0):
+        stringlist.append(string)
+        return stringlist
+
+    for i in xrange(len(charset)):
+        getcombos(N-1, charset, stringlist, string + charset[i])
+
+    return stringlist
+
+def parseFile(filename):
+    f = open(filename, 'r')
+    for l in f:
+        N, charset = l.strip().split(',')
+        N = int(N)
+        charset = sorted(set(charset))
+        stringlist = []
+        print ','.join(getcombos(N, charset, stringlist))
+
+parseFile(sys.argv[1])
+

@@ -1,0 +1,13 @@
+import sys
+
+def parseFile(filename):
+    f = open(filename, 'r')
+    for l in f:
+        a, b = l.strip().split(',')
+        if a.endswith(b):
+            print 1
+        else:
+            print 0
+
+parseFile(sys.argv[1])
+

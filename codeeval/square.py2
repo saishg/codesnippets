@@ -1,0 +1,37 @@
+import sys
+
+
+def point(p):
+    return map(int, p.split(','))
+
+def check_distance(p1, p2):
+    x1, y1 = p1
+    x2, y2 = p2
+    return (x1 - x2) ** 2 + (y1 - y2) ** 2
+
+
+def check_distances(points):
+    for i in xrange(4):
+        distances = []
+        for j in xrange(4):
+            if i != j:
+                distances.append(check_distance(points[i], points[j]))
+        distances.sort()
+        if distances[0] != distances[1]:
+            return "false"
+    return "true"
+                
+
+        
+
+def parseFile(filename):
+    f = open(filename, 'r')
+    for l in f:
+        l = l.replace("(", "")
+        l = l.replace(")", "")
+        points = map(point, l.strip().split(", "))
+        print check_distances(points)
+
+
+parseFile(sys.argv[1])
+

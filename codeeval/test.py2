@@ -1,0 +1,10 @@
+import sys
+
+def parseFile(filename):
+    f = open(filename, 'r')
+    m = []
+    for l in  f:
+        m.append(l)
+    print m
+
+parseFile(sys.argv[1])

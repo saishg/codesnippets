@@ -1,0 +1,29 @@
+import sys
+
+LIMIT = 2147483647
+SQUARES_DICT = {}
+
+for i in xrange(int(LIMIT ** 0.5)):
+    SQUARES_DICT[i * i] = True
+
+def findSquares(x):
+    if x in (0, 1):
+        return 1
+
+    count = 0
+    for i in xrange(int((x/2) ** 0.5) + 1):
+        j = i * i
+        if j in SQUARES_DICT and (x - j) in SQUARES_DICT:
+#            print i, j, x-j
+            count += 1
+    return count
+
+def parseFile(filename):
+    f = open(filename, 'r')
+    f.readline()
+    for i in f:
+        if i.strip():
+            print findSquares(int(i))
+
+parseFile(sys.argv[1])
+

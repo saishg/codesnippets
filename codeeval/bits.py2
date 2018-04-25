@@ -1,0 +1,18 @@
+import sys
+
+def setbits(i):
+    count = 0
+    while i > 0:
+        count += i & 0x01;
+        i >>= 1;
+    return count
+        
+
+def parseFile(filename):
+    f = open(filename, 'r')
+    for l in f:
+        print setbits(int(l))
+
+
+parseFile(sys.argv[1])
+

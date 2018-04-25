@@ -1,0 +1,22 @@
+
+import sys
+
+def calc_primes(LIMIT):
+    non_primes = {}
+    primes = []
+    for i in xrange(2, LIMIT):
+        if i not in non_primes:
+            primes.append(str(i))
+            for j in range(2, LIMIT/i + 1):
+                non_primes[i * j] = False
+    print ','.join(primes)
+
+
+def parseFile(filename):
+    f = open(filename, 'r')
+    for l in f:
+        calc_primes(int(l.strip()))
+
+
+parseFile(sys.argv[1])
+

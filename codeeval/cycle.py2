@@ -1,0 +1,38 @@
+import sys
+
+def checkcycle(array, i, j):
+    cycle_length = j - i
+    if cycle_length < 2:
+        return False
+
+    if (j + cycle_length) > len(array):
+        return False
+
+    for k in xrange(cycle_length):
+        if array[i + k] != array[j + k]:
+            return False
+
+    print " ".join(map(str, array[i:j]))
+    return True
+
+def search(array, i):
+    try:
+        j = array.index(array[i], i + 1)
+        if checkcycle(array, i, j):
+            return True
+    except ValueError:
+        return False
+
+def pickelement(array):
+    for i in xrange(len(array)):
+        if search(array, i):
+            return
+
+def parseFile(filename):
+    f = open(filename, 'r')
+    for l in f:
+        pickelement(map(int, l.split()))
+
+
+parseFile(sys.argv[1])
+

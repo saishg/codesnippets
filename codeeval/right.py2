@@ -1,0 +1,14 @@
+import sys
+
+def parseFile(filename):
+    f = open(filename, 'r')
+    for l in f:
+        line, c = l.split(',')
+        try:
+            print line.rindex(c.strip())
+        except ValueError:
+            print -1
+
+
+parseFile(sys.argv[1])
+

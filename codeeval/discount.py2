@@ -1,0 +1,83 @@
+import sys
+
+NUMBERS = '1234567890'
+SPECIAL = '-&.'
+LETTERS = 'abcdefghijklmnopqrstuvwxyz' + NUMBERS
+VOWELS = 'aeiou'
+CONSONANTS = 'bcdfghjklmnpqrstvwxyz'
+
+SUITABILITY_SCORES = {}
+CUSTOMER = {}
+COMMON_FACTORS = {}
+
+def common_factors(n1, n2):
+    if (n1, n2) not in COMMON_FACTORS:
+        for i in xrange(2, min(n1, n2) + 1):
+            if (n1 % i == 0) and (n2 % i == 0):
+                COMMON_FACTORS[(n1, n2)] = True
+                break
+        else:
+            COMMON_FACTORS[(n1, n2)] = False
+
+    return COMMON_FACTORS[(n1, n2)]
+
+def suitability(customer, product):
+    product_len = len(product)
+    if (customer, product_len) not in SUITABILITY_SCORES:
+        suitability_score = 0
+        if product_len % 2 == 0:
+             suitability_score = 1.5 * CUSTOMER[customer]["vowels"]
+        else:
+             suitability_score = 1.0 * CUSTOMER[customer]["consonants"]
+
+        if common_factors(product_len, CUSTOMER[customer]["length"]):
+            suitability_score *= 1.5
+
+        SUITABILITY_SCORES[(customer, product_len)] = suitability_score
+    return SUITABILITY_SCORES[(customer, product_len)]
+
+def combos(customers, products, score=0.0):
+    if not customers or not products:
+        return score
+
+    max_score = 0.0
+    if len(customers) <= len(products):
+        j = 0
+        for i in xrange(len(products)):
+            temp = combos(customers[:j] + customers[j+1:], products[:i] + products[i+1:],
+                          score + suitability(customers[j], products[i]))
+            max_score = max(temp, max_score)
+    else:
+        i = 0
+        for j in xrange(len(customers)):
+            temp = combos(customers[:j] + customers[j+1:], products[:i] + products[i+1:],
+                          score + suitability(customers[j], products[i]))
+            max_score = max(temp, max_score)
+
+    return max_score
+
+
+def transformcustomer(customer):
+    customer = filter(lambda x:x in LETTERS, customer.strip().lower())
+    CUSTOMER[customer] = {
+                          "length" : len(customer),
+                          "vowels" : len(filter(lambda x:x in VOWELS, customer)),
+                          "consonants" : len(filter(lambda x:x in CONSONANTS, customer)),
+                          }
+    return customer
+
+def transformproduct(product):
+    return filter(lambda x:x in LETTERS, product.strip().lower())
+
+def parseFile(filename):
+    f = open(filename, 'r')
+    for l in f:
+        customers, products = l.split(';')
+        customers = map(transformcustomer, customers.split(','))
+        products = map(transformproduct, products.split(','))
+        print combos(customers, products)
+
+
+parseFile(sys.argv[1])
+
+#print suitability("abcd", "ab")

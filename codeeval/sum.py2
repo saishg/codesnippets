@@ -1,0 +1,21 @@
+import sys
+
+def parseFile(filename):
+    SUM = 0
+    f = open(filename, 'r')
+    for l in f:
+        if l.strip():
+            SUM += int(l)
+    print SUM
+
+
+
+
+parseFile(sys.argv[1])
+
+
+
+
+
+
+

@@ -1,0 +1,19 @@
+import sys
+
+def mod(x, y):
+    modulus = x
+    multiple = y
+    while multiple <= x :
+        modulus = x - multiple
+        multiple += y
+    return modulus
+
+def parseFile(filename):
+    f = open(filename, 'r')
+    for l in f:
+        x, y = map(int, l.split(','))
+        print mod(x, y)
+
+
+parseFile(sys.argv[1])
+

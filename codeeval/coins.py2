@@ -1,0 +1,28 @@
+import sys
+
+COINS = [5, 3, 1]
+MAX_INT = 65535
+
+
+def mincombo(amount, count=0):
+    if amount < 0:
+        return MAX_INT
+    elif amount == 0:
+        return count
+
+    sol = MAX_INT
+
+    for i in COINS:
+        sol = min(sol, mincombo(amount - i, count + 1))
+
+    return sol
+
+
+def parseFile(filename):
+    f = open(filename, 'r')
+    for l in f:
+        print mincombo(int(l))
+
+
+parseFile(sys.argv[1])
+

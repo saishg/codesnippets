@@ -1,0 +1,47 @@
+import sys
+import re
+
+def is_ugly(n):
+    return (n % 2 == 0 or n % 3 == 0 or n % 5 == 0 or n % 7 == 0)
+
+def clean(s):
+    s = re.sub(r'^0+([1-9])', r'\1', s)
+    s = re.sub(r'([\+\-])0+([1-9])', r'\1\2', s)
+    return s
+
+def combinations(n, op_list, index, limit):
+    if index == limit:
+        expression = n[0]
+        for i in xrange(limit):
+            expression += op_list[i]
+            expression += n[i+1]
+
+#        print expression, is_ugly(eval(clean(expression)))
+        if is_ugly(eval(clean(expression))):
+            return 1
+        else:
+            return 0
+
+    count = 0
+    for op in ('+', '-', ''):
+        op_list[index] = op
+        count += combinations(n, op_list, index + 1, limit)
+    return count
+
+def compute(n):
+    multiplier = 1
+    while n != '0' and n.startswith('0'):
+        n = n[1:]
+        multiplier *= 3
+
+    limit = len(n) - 1
+    op_list = [' '] * limit
+    return multiplier * combinations(n, op_list, 0, limit)
+
+def parseFile(filename):
+    f = open(filename, 'r')
+    for l in  f:
+        print compute(l.strip())
+
+parseFile(sys.argv[1])
+#compute('109')

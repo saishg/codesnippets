@@ -1,0 +1,26 @@
+import sys
+
+def normalize(uri):
+    uri_parts = map(str.lower, uri.split('/'))
+    if ':' not in uri_parts[2]:
+        uri_parts[2] += ':80'
+    elif uri_parts[2].endswith(':'):
+        uri_parts[2] += '80'
+
+    uri = '/'.join(uri_parts)
+    while r'%' in uri:
+        i = uri.find(r'%')
+        s = uri[i:i+3]
+        r = chr(int(uri[i+1:i+3], 16))
+        uri = uri.replace(s, r)
+
+    return uri
+
+def parseFile(filename):
+    f = open(filename, 'r')
+    for l in f:
+        uri1, uri2 = map(normalize, l.strip().split(';'))
+        print uri1 == uri2
+
+parseFile(sys.argv[1])
+

@@ -1,0 +1,31 @@
+
+
+LIMIT = 10000
+primes = [True] * LIMIT
+prime_count = 0
+prime_sum = 0
+
+def calc_primes():
+    global prime_count, prime_sum
+    for i in xrange(2, LIMIT):
+        if primes[i]:
+            prime_count += 1
+            if prime_count > 1000:
+                print prime_sum
+                break
+            else:
+                prime_sum += i
+
+            for j in xrange(i, LIMIT):
+                if (i * j) < LIMIT:
+                    primes[i * j] = False
+                else:
+                    break
+
+
+def main():
+    calc_primes()
+
+if __name__ == "__main__":
+    main()
+

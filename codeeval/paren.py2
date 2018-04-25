@@ -1,0 +1,27 @@
+import sys
+
+OPEN_PAREN = '({['
+CLOSE_PAREN = ')}]'
+PAREN_MATCH = dict(zip(OPEN_PAREN, CLOSE_PAREN))
+
+def check(s):
+    stack = []
+
+    for c in s:
+        if c in OPEN_PAREN:
+            stack.append(c)
+        if c in CLOSE_PAREN:
+            if not stack or c != PAREN_MATCH[stack.pop()]:
+                return False
+
+    return True
+
+
+def parseFile(filename):
+    f = open(filename, 'r')
+    for l in f:
+        print check(l.strip())
+
+
+parseFile(sys.argv[1])
+

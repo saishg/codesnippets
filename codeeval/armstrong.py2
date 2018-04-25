@@ -1,0 +1,19 @@
+import sys
+
+def isarmstrong(x):
+    n = len(x)
+    sum = 0
+    for i in x:
+        sum += int(i) ** n
+
+    return sum == int(x)
+
+def parseFile(filename):
+    f = open(filename, 'r')
+    for l in f:
+        if l.strip():
+            print isarmstrong(l.strip())
+
+
+parseFile(sys.argv[1])
+

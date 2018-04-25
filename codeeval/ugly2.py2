@@ -1,0 +1,60 @@
+import sys
+import re
+
+UGLY_DICT = {}
+COMBO_DICT = {}
+
+def is_ugly(n):
+    if n not in UGLY_DICT:
+        UGLY_DICT[n] = (n % 2 == 0 or n % 3 == 0 or n % 5 == 0 or n % 7 == 0)
+    return UGLY_DICT[n]
+
+def evaluate(n, op_list, limit):
+    part1 = 0
+    part2 = int(n[0])
+    sign = 1
+
+    for i in xrange(0, limit):
+        if op_list[i] == 0:
+            part2 = part2 * 10 + int(n[i + 1])
+        else:
+            part1 = part1 + sign * part2
+            part2 = int(n[i + 1])
+            sign = op_list[i]
+
+    return part1 + sign * part2
+
+def get_combos(limit):
+    if limit not in COMBO_DICT:
+        COMBO_DICT[limit] = []
+        gen_combos([], limit)
+    return COMBO_DICT[limit]
+
+def gen_combos(combo, limit):
+    if len(combo) == limit:
+        COMBO_DICT[limit].append(combo)
+        return
+
+    for op in (1, -1, 0):
+        gen_combos(combo + [op], limit)
+
+def combinations(n):
+    count = 0
+    multiplier = 1
+    while n != '0' and n.startswith('0'):
+        n = n[1:]
+        multiplier *= 3
+    limit = len(n) - 1
+
+    for op_list in get_combos(limit):
+#        print evaluate(n, op_list, limit), is_ugly(evaluate(n, op_list, limit))
+        if is_ugly(evaluate(n, op_list, limit)):
+            count += 1
+    return count * multiplier
+
+def parseFile(filename):
+    f = open(filename, 'r')
+    for l in  f:
+        print combinations(l.strip())
+
+parseFile(sys.argv[1])

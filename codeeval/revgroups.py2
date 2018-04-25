@@ -1,0 +1,23 @@
+import sys
+
+def revgroup(num_list, group_size):
+    i = 0
+    N = len(num_list)
+    while (i + group_size) <= N:
+        partial_list = num_list[i : i + group_size]
+        partial_list = partial_list[::-1]
+        num_list = num_list[:i] +partial_list + num_list[i + group_size:]
+        i += group_size
+    return ','.join(num_list)
+
+def parseFile(filename):
+    f = open(filename, 'r')
+    for l in f:
+        num_list, group_size = l.split(';')
+        group_size = int(group_size)
+        num_list = num_list.split(',')
+        print revgroup(num_list, group_size)
+
+
+parseFile(sys.argv[1])
+

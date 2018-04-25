@@ -1,0 +1,27 @@
+import sys
+
+
+def checkjolly(l):
+    N = len(l)
+
+    diffdict = {}
+    for i in xrange(1, N):
+        diff = abs(l[i] - l[i-1])
+        if diff >= N:
+            return False
+        if diff in diffdict:
+            return False
+        diffdict[diff] = True
+
+    return True
+
+def parseFile(filename):
+    f = open(filename, 'r')
+    for l in f:
+        if checkjolly(map(int, l.split()[1:])):
+            print "Jolly"
+        else:
+            print "Not jolly"
+
+parseFile(sys.argv[1])
+

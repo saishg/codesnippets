@@ -1,0 +1,22 @@
+import sys
+
+def stack(l):
+    L = []
+
+    for i in l:
+        L.append(i)
+
+    while L:
+        print L.pop(),
+        if L:
+            L.pop()
+    print
+
+def parseFile(filename):
+    f = open(filename, 'r')
+    for l in f:
+        stack(l.split())
+
+
+parseFile(sys.argv[1])
+

@@ -1,0 +1,10 @@
+import sys
+
+def parseFile(filename):
+    f = open(filename, 'r')
+    for l in f:
+        print int(l, 16)
+
+
+parseFile(sys.argv[1])
+

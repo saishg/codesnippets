@@ -1,0 +1,13 @@
+import sys
+
+def parseFile(filename):
+    f = open(filename, 'r')
+    for l in f:
+        set1, set2 = l.split(';')
+        set1 = set(map(int, set1.split(',')))
+        set2 = set(map(int, set2.split(',')))
+        print ','.join(map(str, set1 & set2))
+
+
+parseFile(sys.argv[1])
+

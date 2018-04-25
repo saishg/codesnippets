@@ -1,0 +1,27 @@
+import sys
+
+def prefix(exp, i=0):
+    c = exp.pop(i)
+    if c in '+*/':
+        operand1 = prefix(exp, i)
+        operand2 = prefix(exp, i)
+        if c == '+':
+            return operand1 + operand2
+        elif c == '*':
+            return operand1 * operand2
+        elif c == '/':
+            return operand1 / operand2
+    else:
+        return int(c)
+
+
+
+
+def parseFile(filename):
+    f = open(filename, 'r')
+    for l in f:
+        print prefix(l.split())
+
+
+parseFile(sys.argv[1])
+

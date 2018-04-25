@@ -1,0 +1,36 @@
+SIZE = 4
+GRID = [([0] * SIZE) for i in xrange(SIZE)]
+
+#START = 1
+PATH = 2
+END = 3
+
+#GRID[0][0] = START
+GRID[-1][-1] = END
+
+def findPaths(x, y, pathlen):
+    if x < 0 or y < 0:
+        return 0
+    elif x >= SIZE or y >= SIZE:
+        return 0
+    elif GRID[x][y] == PATH:
+        return 0
+    elif GRID[x][y] == END:
+        return 1
+
+    count = 0
+    temp = GRID[x][y]
+    GRID[x][y] = PATH
+    count += findPaths(x + 1, y, pathlen + 1)
+    count += findPaths(x - 1, y, pathlen + 1)
+    count += findPaths(x, y + 1, pathlen + 1)
+    count += findPaths(x, y - 1, pathlen + 1)
+    GRID[x][y] = temp
+
+    return count
+
+print findPaths(0, 0, 0)
+
+
+
+

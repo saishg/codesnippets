@@ -1,0 +1,15 @@
+import sys
+
+
+def sumofdigits(l):
+    return reduce(lambda x, y: int(x)+int(y), l.strip())
+
+
+def parseFile(filename):
+    f = open(filename, 'r')
+    for l in f:
+        if l:
+            print sumofdigits(l)
+
+parseFile(sys.argv[1])
+

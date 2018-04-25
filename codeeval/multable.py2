@@ -1,0 +1,11 @@
+
+LIMIT = 12
+
+for i in xrange(1, LIMIT + 1):
+    for j in xrange(1, LIMIT + 1):
+        if j == 1:
+            print i,
+        else:
+            print "%3d" % (i * j),
+    print
+

@@ -1,0 +1,36 @@
+import sys
+
+
+def find(string, c):
+    index = -1
+    while True:
+        index = string.find(c, index + 1)
+        if index == -1:
+           break
+        else:
+            yield index
+
+
+def lcs(string1, string2, lcs_string=""):
+    if not string1 or not string2:
+        return lcs_string
+
+    final_string = lcs_string
+    for i in xrange(len(string1)):
+        for j in find(string2, string1[i]):
+            candidate_string = lcs(string1[i+1:], string2[j+1:], lcs_string + string1[i])
+            if len(candidate_string) > len(final_string):
+                final_string = candidate_string
+    return final_string
+
+
+def parseFile(filename):
+    f = open(filename, 'r')
+    for l in f:
+        if l.strip():
+            string1, string2 = l.strip().split(';')
+            print lcs(string1, string2)
+
+
+parseFile(sys.argv[1])
+

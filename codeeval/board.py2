@@ -1,0 +1,45 @@
+import sys
+
+BOARD = [
+            list('ABCE'),
+            list('SFCS'),
+            list('ADEE')
+        ]
+R = len(BOARD)
+C = len(BOARD[0])
+
+def findnextletter(i, j, word):
+    if not word:
+        return True
+    elif 0 <= i < R and 0 <= j < C and BOARD[i][j] == word[0]:
+        truncated_word = word[1:]
+        temp = BOARD[i][j]
+        BOARD[i][j] = ""
+        try:
+            if (findnextletter(i + 1, j, truncated_word) or 
+                findnextletter(i - 1, j, truncated_word) or
+                findnextletter(i, j + 1, truncated_word) or
+                findnextletter(i, j - 1, truncated_word)):
+                return True
+        finally:
+            BOARD[i][j] = temp
+    else:
+        return False
+
+def findword(word):
+    c = word[0]
+    for i in xrange(R):
+        for j in xrange(C):
+            if BOARD[i][j] == c:
+                if findnextletter(i, j, word):
+                    return True
+    return False
+
+def parseFile(filename):
+    f = open(filename, 'r')
+    for l in f:
+        print findword(l.strip())
+
+
+parseFile(sys.argv[1])
+

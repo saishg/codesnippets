@@ -1,0 +1,17 @@
+import sys
+import re
+
+PATTERN = '^[a-zA-Z0-9\._]+@[a-zA-Z0-9\.]+$'
+
+def isemail(l):
+    return re.match(PATTERN, l) is not None
+
+
+def parseFile(filename):
+    f = open(filename, 'r')
+    for l in f:
+        print str(isemail(l.strip())).lower()
+
+
+parseFile(sys.argv[1])
+
