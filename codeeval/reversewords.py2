@@ -1,0 +1,15 @@
+import sys
+
+def reversewords(l):
+    words = l.split()
+    return ' '.join(words[::-1])
+
+def parseFile(filename):
+    f = open(filename, 'r')
+    for l in f:
+        if l.strip():
+            print reversewords(l)
+
+
+parseFile(sys.argv[1])
+

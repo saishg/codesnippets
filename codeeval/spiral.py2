@@ -1,0 +1,50 @@
+import sys
+
+DIRECTIONS = {
+    'right' : {'next': 'down', 'proceed': lambda (x, y): (x, y+1)},
+    'left'  : {'next': 'up', 'proceed': lambda (x, y): (x, y-1)},
+    'up'    : {'next': 'right', 'proceed': lambda (x, y): (x-1, y)},
+    'down'  : {'next': 'left', 'proceed': lambda (x, y): (x+1, y)},
+
+}
+
+
+def checkdirection(matrix, R, C, r, c, direction):
+    r, c = DIRECTIONS[direction]['proceed']((r, c))
+    if 0 <= r < R and 0 <= c < C and matrix[r][c] is not None:
+        return direction
+    else:
+        return DIRECTIONS[direction]['next']
+
+def spiral_advance(matrix, R, C, r=0, c=0, direction='right'):
+    num_list = []
+
+    while True:
+        if matrix[r][c] is None:
+            break
+        num_list.append(matrix[r][c])
+        matrix[r][c] = None
+        direction = checkdirection(matrix, R, C, r, c, direction)
+        r, c = DIRECTIONS[direction]['proceed']((r, c))
+    return num_list
+
+
+def parseFile(filename):
+    f = open(filename, 'r')
+    for l in f:
+        R, C, num_list = l.strip().split(';')
+        R, C = int(R), int(C)
+        num_list = num_list.split()
+
+        matrix = [[None] * C for i in xrange(R)]
+
+        i = 0
+        for r in xrange(R):
+            for c in xrange(C):
+                matrix[r][c] = num_list[i]
+                i += 1
+        print ' '.join(spiral_advance(matrix, R, C))
+
+
+parseFile(sys.argv[1])
+

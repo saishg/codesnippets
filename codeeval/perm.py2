@@ -1,0 +1,23 @@
+import sys
+
+def findperm(char_list, perm_list, current_perm=""):
+    if not char_list:
+        perm_list.append(current_perm)
+        return
+
+    for c in char_list:
+        findperm(char_list.replace(c, ""), perm_list, current_perm + c)
+
+
+def parseFile(filename):
+    f = open(filename, 'r')
+    for l in f:
+        char_list = sorted(list(l.strip()))
+        char_list = "".join(char_list)
+
+        perm_list = []
+        findperm(char_list, perm_list)
+        print ",".join(perm_list)
+
+parseFile(sys.argv[1])
+

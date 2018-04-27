@@ -1,0 +1,23 @@
+import sys
+import string
+
+def getmissing(l):
+    missing = ""
+    for c in string.ascii_lowercase:
+        if c not in l:
+            missing += c
+
+    if missing:
+        return missing
+    else:
+        return "NULL"
+
+
+def parseFile(filename):
+    f = open(filename, 'r')
+    for l in f:
+        print getmissing(set(l.lower()))
+
+
+parseFile(sys.argv[1])
+

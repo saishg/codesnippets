@@ -1,0 +1,22 @@
+MAX_PRIME = 8000
+
+
+
+
+def findprimes():
+    global MAX_PRIME
+    LIMIT = 1000
+    NON_PRIMES = {}
+    SUM_OF_PRIMES = 0
+    PRIME_COUNT = 0
+    for i in xrange(2, MAX_PRIME):
+        if i not in NON_PRIMES:
+            SUM_OF_PRIMES += i
+            PRIME_COUNT += 1
+            if PRIME_COUNT >= LIMIT:
+                return SUM_OF_PRIMES
+
+            for j in xrange(2, MAX_PRIME/i):
+                    NON_PRIMES[j * i] = False
+
+print findprimes()

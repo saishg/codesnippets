@@ -1,0 +1,51 @@
+import sys
+
+class Node:
+    def __init__(self, value, left=None, right=None):
+        self.value = value
+        self.left = left
+        self.right = right
+
+    def find(self, value1, value2):
+        count = 0
+        if value1 == self.value or value2 == self.value:
+           count += 1 
+
+        if self.left:
+            count += self.left.find(value1, value2)
+
+        if self.right:
+            count += self.right.find(value1, value2)
+        
+        if count == 2:
+            print self.value
+            return 0
+        else:
+            return count
+
+    def printtree(self):
+        if self.left:
+            self.left.printtree()
+        print self.value
+        if self.right:
+            self.right.printtree()
+
+
+n1 = Node(20, Node(10), Node(29))
+n2 = Node(8, Node(3), n1)
+n3 = Node(30, n2, Node(52))
+TREE = n3
+
+
+def parseFile(filename):
+    f = open(filename, 'r')
+    for l in f:
+        if l.strip():
+            value1, value2 = l.split()
+            TREE.find(int(value1), int(value2))
+
+
+parseFile(sys.argv[1])
+#TREE.printtree()
+#TREE.find(3, 29)
+

@@ -1,0 +1,26 @@
+import sys
+
+
+def play(a, b, N):
+    l = []
+    c = a * b
+    for i in xrange(1, N+1):
+        next = str(i)
+        if i % c == 0:
+            next = 'FB'
+        elif i % a == 0:
+            next = 'F'
+        elif i % b == 0:
+            next = 'B'
+        l.append(next)
+
+    print ' '.join(l)
+
+
+def parseFile(filename):
+    f = open(filename, 'r')
+    for l in f:
+        a, b, N = map(int, l.split())
+        play(a, b, N)
+
+parseFile(sys.argv[1])

@@ -1,0 +1,10 @@
+import sys
+
+def parseFile(filename):
+    f = open(filename, 'r')
+    for l in f:
+        print ','.join(sorted(set(l.strip().split(','))))
+
+
+parseFile(sys.argv[1])
+

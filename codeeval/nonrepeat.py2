@@ -1,0 +1,15 @@
+import sys
+
+def firstnonrepeated(l):
+    for c in l:
+        if l.count(c) == 1:
+            return c
+
+def parseFile(filename):
+    f = open(filename, 'r')
+    for l in f:
+        print firstnonrepeated(l)
+
+
+parseFile(sys.argv[1])
+

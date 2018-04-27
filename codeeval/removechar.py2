@@ -1,0 +1,16 @@
+import sys
+
+def remove(string, chars):
+    for c in chars:
+        string = string.replace(c, "")
+    return string
+
+def parseFile(filename):
+    f = open(filename, 'r')
+    for l in f:
+        string, chars = l.split(',')
+        print remove(string.strip(), chars.strip())
+
+
+parseFile(sys.argv[1])
+

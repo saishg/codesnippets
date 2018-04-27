@@ -1,0 +1,19 @@
+import sys
+
+def mthlast(l):
+    l, m = l.rsplit(' ', 1)
+
+    l = l.split()
+    m = int(m)
+
+    if m <= len(l):
+        print l[-m]
+
+def parseFile(filename):
+    f = open(filename, 'r')
+    for l in f:
+        mthlast(l)
+
+
+parseFile(sys.argv[1])
+

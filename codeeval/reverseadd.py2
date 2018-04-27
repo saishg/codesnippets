@@ -1,0 +1,40 @@
+import sys
+
+ITER_LIMIT = 1000
+
+def reverse1(x):
+    y = 0
+
+    while x > 0:
+        y = y * 10 + x % 10
+        x = x / 10
+
+    return y
+
+def reverse(x):
+    return int(str(x)[::-1])
+
+def check(x):
+    for i in xrange(ITER_LIMIT):
+        y = reverse(x)
+        if x == y:
+            print i, x
+            return
+        else:
+            x = x + y
+
+def parseFile(filename):
+    f = open(filename, 'r')
+    for l in f:
+        if l.strip():
+            check(int(l))
+
+
+parseFile(sys.argv[1])
+
+
+
+
+
+
+

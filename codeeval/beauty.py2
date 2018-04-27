@@ -1,0 +1,32 @@
+import sys
+
+MAX = 26
+
+def maxbeauty(s):
+    char_frequency_dict = {}
+    unique_char_set = set(s)
+    for c in unique_char_set:
+        char_frequency_dict[c] = s.count(c)
+
+    ordered_frequency_list = char_frequency_dict.items()
+    ordered_frequency_list.sort(key = lambda x: x[1], reverse = True)
+
+    beauty = 0
+    char_beauty = MAX
+    for c, count in ordered_frequency_list:
+        if c.isalpha():
+#            print c, char_beauty, count
+            beauty += char_beauty * count
+            char_beauty -= 1
+
+    return beauty
+
+
+def parseFile(filename):
+    f = open(filename, 'r')
+    for l in f:
+        print maxbeauty(l.strip().lower())
+
+
+parseFile(sys.argv[1])
+

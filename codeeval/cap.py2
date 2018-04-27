@@ -1,0 +1,17 @@
+import sys
+
+def cap(l):
+    words = l.split()
+    for i in xrange(len(words)):
+        words[i] = words[i][0].upper() + words[i][1:]
+    return " ".join(words)
+
+
+def parseFile(filename):
+    f = open(filename, 'r')
+    for l in f:
+        print cap(l.strip())
+
+
+parseFile(sys.argv[1])
+

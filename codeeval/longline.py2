@@ -1,0 +1,14 @@
+import sys
+
+def parseFile(filename):
+    f = open(filename, 'r')
+    N = int(f.readline())
+    lines = []
+    for l in f:
+        lines.append(l.strip())
+    lines.sort(key = lambda x:len(x), reverse = True)
+    print "\n".join(lines[:N])
+
+
+parseFile(sys.argv[1])
+

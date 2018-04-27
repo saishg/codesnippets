@@ -1,0 +1,27 @@
+import sys
+
+def search(haystack, needle):
+    if not needle:
+        return 1
+    if not haystack:
+        return 0
+
+    count = 0
+    nextchar = needle[0]
+
+    for i in xrange(len(haystack)):
+        if haystack[i] == nextchar:
+            count += search(haystack[i+1:], needle[1:])
+
+    return count
+
+
+def parseFile(filename):
+    f = open(filename, 'r')
+    for l in f:
+        haystack, needle = l.strip().split(',')
+        print search(haystack, needle)
+
+
+parseFile(sys.argv[1])
+

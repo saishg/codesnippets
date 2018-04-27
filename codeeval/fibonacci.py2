@@ -1,0 +1,22 @@
+import sys
+
+def fibonacci(n):
+    if n in (0, 1):
+        return n
+
+    x = 0
+    y = 1
+
+    for i in xrange(n - 1):
+        x, y = y, x + y
+
+    return y
+
+def parseFile(filename):
+    f = open(filename, 'r')
+    for l in f:
+        if l.strip():
+            print fibonacci(int(l))
+
+parseFile(sys.argv[1])
+

@@ -1,0 +1,19 @@
+import sys
+
+
+def next(i):
+    s1 = sorted(i.replace('0', ''))
+    i = int(i)
+    while True:
+        i += 1
+        if sorted(str(i).replace('0', '')) == s1:
+            return i
+
+def parseFile(filename):
+    f = open(filename, 'r')
+    for l in f:
+        print next(l.strip())
+
+
+parseFile(sys.argv[1])
+

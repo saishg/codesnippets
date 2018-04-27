@@ -1,0 +1,62 @@
+import sys
+
+NUM_DICT = {
+           1 : "One",
+           2 : "Two",
+           3 : "Three",
+           4 : "Four",
+           5 : "Five",
+           6 : "Six",
+           7 : "Seven",
+           8 : "Eighty",
+           9 : "Nine",
+           10 : "Ten",
+           11 : "Eleven",
+           12 : "Twelve",
+           13 : "Thirteen",
+           14 : "Fourteen",
+           15 : "Fifteen",
+           16 : "Sixteen",
+           17 : "Seventeen",
+           18 : "Eighteen",
+           19 : "Nineteen",
+           20 : "Twenty",
+           30 : "Thirty",
+           40 : "Forty",
+           50 : "Fifty",
+           60 : "Sixty",
+           70 : "Seventy",
+           80 : "Eighty",
+           90 : "Ninety",
+}
+
+BIGNUM_DICT = {
+           100 : "Hundred",
+           1000 : "Thousand",
+           1000000 : "Million",
+           1000000000 : "Billion",
+}
+
+NUM_KEYS = sorted(NUM_DICT.keys(), reverse=True)
+BIGNUM_KEYS = sorted(BIGNUM_DICT.keys(), reverse=True)
+
+def numtext(num):
+    if num == 0:
+        return ""
+
+    for i in BIGNUM_KEYS:
+        if i <= num:
+            return numtext(num/i) + BIGNUM_DICT[i] + numtext(num%i)
+
+    for i in NUM_KEYS:
+        if i <= num:
+            return NUM_DICT[i] + numtext(num%i)
+
+
+def parseFile(filename):
+    f = open(filename, 'r')
+    for l in f:
+        print numtext(int(l)) + "Dollars"
+
+#parseFile(sys.argv[1])
+print numtext(19)

@@ -1,0 +1,38 @@
+import sys
+
+SIZE = 256
+BOARD = [[0] * SIZE for x in xrange(SIZE) ]
+
+def SetCol(args):
+    col, x = map(int, args.split())
+    for i in xrange(SIZE):
+        BOARD[i][col] = x
+
+def SetRow(args):
+    row, x = map(int, args.split())
+    for i in xrange(SIZE):
+        BOARD[row][i] = x
+
+def QueryRow(row):
+    row = int(row)
+    sum = 0
+    for i in xrange(SIZE):
+        sum += BOARD[row][i]
+    print sum
+
+def QueryCol(col):
+    col = int(col)
+    sum = 0
+    for i in xrange(SIZE):
+        sum += BOARD[i][col]
+    print sum
+
+def parseFile(filename):
+    f = open(filename, 'r')
+    for l in f:
+        command, args = l.split(' ', 1)
+#        print globals()
+        globals()[command](args)
+
+parseFile(sys.argv[1])
+

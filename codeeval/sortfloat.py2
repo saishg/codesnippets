@@ -1,0 +1,12 @@
+import sys
+
+def parseFile(filename):
+    f = open(filename, 'r')
+    for l in f:
+        num = l.split()
+        num.sort(key=lambda x:float(x))
+        print ' '.join(num)
+
+
+parseFile(sys.argv[1])
+

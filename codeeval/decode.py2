@@ -1,0 +1,27 @@
+import sys
+
+def isvalid(i):
+    return (1 <= int(i) <= 26)
+
+def combo(s, l=[]):
+    if not s:
+        return 1
+
+    count = 0
+
+    if isvalid(s[0]):
+        count += combo(s[1:], l + [s[0]])
+    if len(s) > 1 and isvalid(s[0:2]):
+        count += combo(s[3:], l + [s[0:2]])
+
+    return count
+
+
+def parseFile(filename):
+    f = open(filename, 'r')
+    for l in f:
+        print combo(l.strip())
+
+
+parseFile(sys.argv[1])
+

@@ -1,0 +1,8 @@
+import sys
+import os
+
+def parseFile(filename):
+    print os.stat(filename).st_size
+
+parseFile(sys.argv[1])
+

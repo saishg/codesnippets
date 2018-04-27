@@ -1,0 +1,43 @@
+import sys
+
+def distance(point1, point2):
+    x1, y1 = point1
+    x2, y2 = point2
+
+    return ((x1 - x2)**2 + (y1 - y2)**2) ** 0.5
+
+def shortest(points):
+    N = len(points)
+    SHORTEST = 10000
+    for i in xrange(N):
+        for j in xrange(N):
+            if i != j:
+                D = distance(points[i], points[j])
+                if D == 0:
+                    return 0
+                else:
+                    SHORTEST = min(D, SHORTEST)
+
+    if SHORTEST >= 10000:
+        return "INFINITY"
+    else:
+        return "%0.4f" % SHORTEST
+
+
+def parseFile(filename):
+    f = open(filename, 'r')
+    while True:
+        N = int(f.readline())
+        if N == 0:
+            break
+        points = []
+        for i in xrange(N):
+            coords = map(int, f.readline().split())
+            points.append(coords)
+        print shortest(points)
+            
+
+
+
+parseFile(sys.argv[1])
+

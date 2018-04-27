@@ -1,0 +1,33 @@
+import sys
+
+KEYS = [
+       '0',
+       '1',
+       'abc',
+       'def',
+       'ghi',
+       'jkl',
+       'mno',
+       'pqrs',
+       'tuv',
+       'wxyz',
+        ]
+
+
+def getcombos(nums, stringlist, string=""):
+    if not nums:
+        stringlist.append(string)
+        return stringlist
+
+    for c in KEYS[nums[0]]:
+        getcombos(nums[1:], stringlist, string+c)
+
+    return stringlist
+
+def parseFile(filename):
+    f = open(filename, 'r')
+    for l in f:
+        print ','.join(getcombos(map(int, l.strip()), []))
+
+parseFile(sys.argv[1])
+

@@ -1,0 +1,17 @@
+import sys
+
+def findrepeated(array):
+    for i in array:
+        if array.count(i) > 1:
+            return i
+
+def parseFile(filename):
+    f = open(filename, 'r')
+    for l in f:
+        if l.strip():
+            length, array = l.strip().split(';')
+            print findrepeated(array.split(','))
+
+
+parseFile(sys.argv[1])
+

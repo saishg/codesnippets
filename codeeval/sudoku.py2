@@ -1,0 +1,55 @@
+import sys
+
+def evaluate_columns(matrix, N):
+    for c in xrange(N):
+        num_array = [False] * N
+        for r in xrange(N):
+            if matrix[r][c] > N or matrix[r][c] <= 0:
+                # absurd value
+                return False
+            elif num_array[matrix[r][c] - 1]:
+#                print matrix[r][c], "present twice in column", r
+                return False
+            else:
+                num_array[matrix[r][c] - 1] = True
+    return True
+
+def evaluate_rows(matrix, N):
+    for r in xrange(N):
+        num_array = [False] * N
+        for c in xrange(N):
+            if matrix[r][c] > N or matrix[r][c] <= 0:
+                # absurd value
+                return False
+            elif num_array[matrix[r][c] - 1]:
+#                print matrix[r][c], "present twice in row", r
+                return False
+            else:
+                num_array[matrix[r][c] - 1] = True
+    return True
+
+def evaluate(matrix, N):
+    return evaluate_rows(matrix, N)
+
+
+def parseFile(filename):
+    f = open(filename, 'r')
+    for l in f:
+        N, num_list = l.split(';')
+
+        N = int(N)
+        matrix = [[None] * N for i in xrange(N)]
+
+        num_list = map(int, num_list.split(','))
+        i = 0
+        for r in xrange(N):
+            for c in xrange(N):
+                matrix[r][c] = num_list[i]
+                i += 1
+
+
+        print evaluate(matrix, N)
+
+
+parseFile(sys.argv[1])
+

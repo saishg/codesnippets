@@ -1,0 +1,25 @@
+import sys
+
+def checkrotate(string1, string2):
+    if string1 == string2:
+        return True
+
+    if len(string1) != len(string2):
+        return False
+
+    for i in xrange(len(string1)):
+        temp = string2[i:] + string2[:i]
+        if temp == string1:
+            return True
+    return False
+
+
+def parseFile(filename):
+    f = open(filename, 'r')
+    for l in f:
+        string1, string2 = l.strip().split(',')
+        print checkrotate(string1, string2)
+
+
+parseFile(sys.argv[1])
+

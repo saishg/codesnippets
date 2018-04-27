@@ -1,0 +1,11 @@
+import sys
+
+def parseFile(filename):
+    f = open(filename, 'r')
+    for l in f:
+#        print ' '.join(map(str.capitalize, l.split()))
+        print l
+
+
+parseFile(sys.argv[1])
+

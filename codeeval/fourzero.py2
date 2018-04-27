@@ -1,0 +1,30 @@
+import sys
+
+def zerocombo(array, length=4, sum=0, sol=[]):
+    count = 0
+    if length == 0:
+        if sum == 0:
+#            print sol
+            return 1
+        else:
+            return 0
+
+    for i in xrange(len(array) - length + 1):
+        sol.append(array[i])
+        count += zerocombo(array[i+1:], length - 1, sum + array[i], sol[:]) 
+        sol = sol[:-1]
+
+    return count
+
+
+
+def parseFile(filename):
+    f = open(filename, 'r')
+    for l in f:
+        print zerocombo(map(int, l.split(',')))
+
+
+parseFile(sys.argv[1])
+#print zerocombo([2, 3, 1, 0, -4, -1])
+#print zerocombo([1, 2, 3], length=2)
+

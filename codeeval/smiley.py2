@@ -1,0 +1,42 @@
+import sys
+
+def search(string, count=0):
+    if not string:
+        return (count == 0)
+    if count < 0:
+        return False
+
+    i = 0
+    for c in string:
+        if c == ':':
+            break
+        if c == '(':
+            count += 1
+        if c == ')':
+            count -= 1
+            if count < 0:
+                return False
+        i += 1
+    else:
+        return (count == 0)
+
+    if len(string) >= i+2 and string[i+1] in '()' and search(string[i+2:], count):
+        return True
+
+    if search(string[i+1:], count):
+        return True
+
+    return False
+
+
+
+SOL_DICT = {True: "YES", False: "NO"}
+
+
+def parseFile(filename):
+    f = open(filename, 'r')
+    for l in f:
+        print SOL_DICT[search(l.strip())]
+
+parseFile(sys.argv[1])
+

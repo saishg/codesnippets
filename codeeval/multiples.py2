@@ -1,0 +1,15 @@
+import sys
+
+def check(x, n):
+    while n < x:
+        n += n
+    return n
+
+def parseFile(filename):
+    f = open(filename, 'r')
+    for l in f:
+        x, n = map(int, l.split(','))
+        print check(x, n)
+
+parseFile(sys.argv[1])
+

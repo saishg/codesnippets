@@ -1,0 +1,9 @@
+import sys
+
+def parseFile(filename):
+    f = open(filename, 'r')
+    for l in f:
+        print l.lower(),
+
+parseFile(sys.argv[1])
+

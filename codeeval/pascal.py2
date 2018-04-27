@@ -1,0 +1,40 @@
+import sys
+
+
+def show(triangle):
+    for row in triangle:
+        for i in row:
+            print i,
+    print
+
+
+def pascal(n):
+    triangle = [[1]]
+#    print "  " * n, 1
+    for i in xrange(1, n):
+        row = []
+        previous_row = triangle[-1]
+        triangle.append(row)
+        for j in xrange(i+1):
+            if j == 0:
+                left = 0
+            else:
+                left = previous_row[j-1]
+            if j >= i:
+                right = 0
+            else:
+                right = previous_row[j]
+            row.append(left + right)
+#        print "  " * (n - i), '   '.join(map(str, row))
+
+    show(triangle)
+
+
+def parseFile(filename):
+    f = open(filename, 'r')
+    for l in f:
+        pascal(int(l))
+
+
+parseFile(sys.argv[1])
+

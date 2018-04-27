@@ -1,0 +1,23 @@
+import sys
+
+
+def calc(stairs):
+    if stairs < 0:
+        return 0
+    elif stairs == 0:
+        return 1
+   
+    count = 0 
+    count += calc(stairs - 1)
+    count += calc(stairs - 2)
+
+    return count
+
+def parseFile(filename):
+    f = open(filename, 'r')
+    for l in f:
+        print calc(int(l))
+
+
+parseFile(sys.argv[1])
+

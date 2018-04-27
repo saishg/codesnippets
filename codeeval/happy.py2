@@ -1,0 +1,32 @@
+import sys
+
+
+def sumofsquaresofdigits(x):
+    sum = 0
+
+    while x > 0:
+        sum += (x % 10) ** 2
+        x = x / 10
+
+    return sum
+
+def ishappy(x):
+    NUMS = {}
+
+    while True:
+        if x == 1:
+            return 1
+        NUMS[x] = True
+        x = sumofsquaresofdigits(x)
+        if x in NUMS:
+            return 0
+        
+
+def parseFile(filename):
+    f = open(filename, 'r')
+    for l in f:
+        print ishappy(int(l))
+
+
+parseFile(sys.argv[1])
+

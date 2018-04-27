@@ -1,0 +1,74 @@
+import sys
+
+FRIENDS = {}
+CONNECTED_FRIENDS = {}
+CONNECTED_GROUPS = []
+
+def connectedto(person, group):
+    for friend in group:
+        if friend not in CONNECTED_FRIENDS[person]:
+            return False
+    else:
+        return True
+
+
+def findconnectedgrps():
+    global CONNECTED_FRIENDS, CONNECTED_GROUPS
+ 
+    for person, friends in CONNECTED_FRIENDS.iteritems():
+        group = [] 
+        group.append(person)
+        for friend in friends:
+            if connectedto(friend, group):
+                group.append(friend)
+        if len(group) > 2:
+            CONNECTED_GROUPS.append(sorted(group))
+
+def addconnection(sender, receiver):
+    global FRIENDS, CONNECTED_FRIENDS
+
+    if sender not in CONNECTED_FRIENDS:
+        CONNECTED_FRIENDS[sender] = {}
+    elif receiver in CONNECTED_FRIENDS[sender]:
+        return
+
+    if receiver not in CONNECTED_FRIENDS:
+        CONNECTED_FRIENDS[receiver] = {}
+    if sender not in FRIENDS:
+        FRIENDS[sender] = {}
+    if receiver not in FRIENDS:
+        FRIENDS[receiver] = {}
+
+    FRIENDS[sender][receiver] = True
+    if sender in FRIENDS[receiver]:
+        CONNECTED_FRIENDS[sender][receiver] = True
+        CONNECTED_FRIENDS[receiver][sender] = True
+    
+
+def sortgroups():
+    global CONNECTED_GROUPS
+
+    GROUP_DICT = {}
+
+    for group in CONNECTED_GROUPS:
+        GROUP_DICT[', '.join(group)] = True
+
+    print '\n'.join(sorted(GROUP_DICT.keys()))
+
+def parseFile(filename):
+    f = open(filename, 'r')
+    for l in f:
+        sender, receiver = l.split()[-2:]
+        addconnection(sender, receiver)
+    findconnectedgrps()
+    sortgroups()
+
+
+
+parseFile(sys.argv[1])
+
+#for (key, value) in CONNECTED_FRIENDS.iteritems():
+#    print key, ":", value.keys()
+#for group in CONNECTED_GROUPS:
+#    print group
+   

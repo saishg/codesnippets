@@ -1,0 +1,27 @@
+import sys
+
+def getpairs(array, sum):
+    num_dict = dict(zip(array, array))
+    pairs = []
+    for i in array:
+        if i > sum/2:
+            break
+        if i != sum - i and (sum - i) in num_dict:
+            pairs.append("%d,%d" % (i, sum-i))
+    if pairs:
+        print ";".join(pairs)
+    else:
+        print "NULL"
+
+
+def parseFile(filename):
+    f = open(filename, 'r')
+    for l in f:
+        if l.strip():
+            array, sum = l.strip().split(';')
+            getpairs(map(int, array.split(',')), int(sum))
+        
+
+
+parseFile(sys.argv[1])
+
