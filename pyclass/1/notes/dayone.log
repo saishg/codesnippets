@@ -1,0 +1,2576 @@
+﻿Python 2.7.8 (v2.7.8:ee879c0ffa11, Jun 29 2014, 21:07:35) 
+[GCC 4.2.1 (Apple Inc. build 5666) (dot 3)] on darwin
+Type "copyright", "credits" or "license()" for more information.
+>>> # learn to drive the editor
+>>> print 'hello world'
+hello world
+>>> for i in range(10):
+	print 'goodbye cruel world'
+	print '-------------------'
+
+	
+goodbye cruel world
+-------------------
+goodbye cruel world
+-------------------
+goodbye cruel world
+-------------------
+goodbye cruel world
+-------------------
+goodbye cruel world
+-------------------
+goodbye cruel world
+-------------------
+goodbye cruel world
+-------------------
+goodbye cruel world
+-------------------
+goodbye cruel world
+-------------------
+goodbye cruel world
+-------------------
+>>> def square(x):
+	'Compute a value times itself'
+	return x * x
+
+>>> square(4)
+16
+>>> square(4.5)
+20.25
+>>> square(4.5 + 10j)
+(-79.75+90j)
+>>> from fractions import Fraction
+>>> def square(x):
+	'Compute a value times itself'
+	return x*x
+
+>>> square(4.5)
+20.25
+>>> import this
+The Zen of Python, by Tim Peters
+
+Beautiful is better than ugly.
+Explicit is better than implicit.
+Simple is better than complex.
+Complex is better than complicated.
+Flat is better than nested.
+Sparse is better than dense.
+Readability counts.
+Special cases aren't special enough to break the rules.
+Although practicality beats purity.
+Errors should never pass silently.
+Unless explicitly silenced.
+In the face of ambiguity, refuse the temptation to guess.
+There should be one-- and preferably only one --obvious way to do it.
+Although that way may not be obvious at first unless you're Dutch.
+Now is better than never.
+Although never is often better than *right* now.
+If the implementation is hard to explain, it's a bad idea.
+If the implementation is easy to explain, it may be a good idea.
+Namespaces are one honking great idea -- let's do more of those!
+>>> 
+>>> 
+>>> 
+>>> from fractions import Fraction
+>>> 
+>>> # Mac -- Controlling
+>>> # Windows -- Alternative
+>>> 
+>>> # Ctnl-Prev    Cntl-Next
+>>> def square(x):
+	'Compute a value times itself'
+	return x * x
+
+>>> square('hello')
+
+Traceback (most recent call last):
+  File "<pyshell#29>", line 1, in <module>
+    square('hello')
+  File "<pyshell#28>", line 3, in square
+    return x * x
+TypeError: can't multiply sequence by non-int of type 'str'
+>>> square(None)
+
+Traceback (most recent call last):
+  File "<pyshell#30>", line 1, in <module>
+    square(None)
+  File "<pyshell#28>", line 3, in square
+    return x * x
+TypeError: unsupported operand type(s) for *: 'NoneType' and 'NoneType'
+>>> 
+>>> 
+>>> square(25, 3)
+
+Traceback (most recent call last):
+  File "<pyshell#33>", line 1, in <module>
+    square(25, 3)
+TypeError: square() takes exactly 1 argument (2 given)
+>>> square()
+
+Traceback (most recent call last):
+  File "<pyshell#34>", line 1, in <module>
+    square()
+TypeError: square() takes exactly 1 argument (0 given)
+>>> square(25)
+625
+>>> 
+>>> # Comments are for programmers who need to know
+>>> # WHY the code was written the way it was
+>>> 
+>>> # Docstrings are for the users of the code who need to know
+>>> # WHAT it does.
+>>> 
+>>> 
+>>> 
+>>> x = 10
+>>> x
+10
+>>> y
+
+Traceback (most recent call last):
+  File "<pyshell#47>", line 1, in <module>
+    y
+NameError: name 'y' is not defined
+>>> 
+>>> 
+>>> 
+>>> abc
+
+Traceback (most recent call last):
+  File "<pyshell#51>", line 1, in <module>
+    abc
+NameError: name 'abc' is not defined
+>>> abc = 12
+>>> abc
+12
+>>> 30 + 40
+70
+>>> _ * 5
+350
+>>> _ / 7
+50
+>>> _ * 11
+
+550
+>>> type(_)
+<type 'int'>
+>>> 3.5 * 7
+24.5
+>>> type(_)
+<type 'float'>
+>>> 
+>>> True
+True
+>>> False
+False
+>>> type(_)
+<type 'bool'>
+>>> 
+>>> 
+>>> 3 + 4j
+(3+4j)
+>>> type(_)
+<type 'complex'>
+>>> 
+>>> # (resistance + reactange * j)
+>>> 
+>>> # i <- imaginary
+>>> # i <- current C
+>>> # e <- voltage V
+>>> 
+>>> 
+>>> from fractions import Fraction
+>>> square(Fraction(2, 3))
+Fraction(4, 9)
+>>> square(Fraction(2, 3)) - Fraction(1, 9)
+Fraction(1, 3)
+>>> Fraction(1, 2) + Fraction(2, 3) - Fraction(1, 6)
+Fraction(1, 1)
+>>> Fraction(1, 2) + Fraction(2, 3) - Fraction(1, 6) == 1
+True
+>>> 11 + 22 == 33
+True
+>>> 1.1 + 2.2 == 3.3
+False
+>>> 1.1 + 2.2
+3.3000000000000003
+>>> s = 1.1 + 2.2
+>>> t = 3.3
+>>> s == t
+False
+>>> abs(s - t) < 0.0000001
+True
+>>> from decimal import Decimal
+>>> Decimal('1.1') + Decimal('2.2') == Decimal('3.3')
+True
+>>> 
+>>> print 'hello'
+hello
+>>> print "hello"
+hello
+>>> print '''hello'''
+hello
+>>> print """hello"""
+hello
+>>> """hello"""
+'hello'
+>>> # We have four quoting characters to save us from escaping
+>>> print u'hello'
+hello
+>>> type(u'hello')
+<type 'unicode'>
+>>> type('hello')
+<type 'str'>
+>>> type(u'Hello\N{trademark sign}')
+SyntaxError: (unicode error) 'unicodeescape' codec can't decode bytes in position 5-22: unknown Unicode character name
+>>> print u'Hello\N{trade mark sign}'
+Hello™
+>>> 
+>>> s = [10, 20, 14, 18]
+>>> type(s)
+<type 'list'>
+>>> s.append(21)
+>>> s
+[10, 20, 14, 18, 21]
+>>> s.pop()
+21
+>>> # You can make a LIFO stack using append() and pop()
+>>> s.pop()
+18
+>>> s
+[10, 20, 14]
+>>> s[0]
+10
+>>> s[1]
+20
+>>> s[2]
+14
+>>> s[-1]
+14
+>>> s[-2]
+20
+>>> s[-3]
+10
+>>> 
+
+>>> # I typed something different than you and got a different result.
+>>> # I believe you.
+>>> ================================ RESTART ================================
+>>> 
+>>> d = {'raymond': 'red', 'rachel': 'blue'}
+>>> type(d)
+<type 'dict'>
+>>> d['raymond']
+'red'
+>>> d['rachel']
+'blue'
+>>> d['roger']
+
+Traceback (most recent call last):
+  File "<pyshell#126>", line 1, in <module>
+    d['roger']
+KeyError: 'roger'
+>>> d['blue']
+
+Traceback (most recent call last):
+  File "<pyshell#127>", line 1, in <module>
+    d['blue']
+KeyError: 'blue'
+>>> 
+>>> 
+>>> class Furniture:
+	pass                 # NOP or placeholder  ;
+
+>>> Furniture
+<class __main__.Furniture at 0x102f17120>
+>>> f = Furniture()
+>>> g = Furniture()
+>>> 
+>>> f
+<__main__.Furniture instance at 0x102e5c248>
+>>> g
+<__main__.Furniture instance at 0x102e59fc8>
+>>> 
+>>> x = 10
+>>> print X
+
+Traceback (most recent call last):
+  File "<pyshell#141>", line 1, in <module>
+    print X
+NameError: name 'X' is not defined
+>>> 
+>>> 
+>>> print 30 + 40
+70
+>>> ================================ RESTART ================================
+>>> 
+70
+ 0
+  1
+   4
+    9
+     16
+      25
+       36
+        49
+         64
+          81
+>>> n
+10
+>>> i
+9
+>>> ================================ RESTART ================================
+>>> 
+70
+ 0
+  1
+   4
+    9
+     16
+      25
+       36
+        49
+         64
+          81
+           100
+            121
+             144
+              169
+               196
+>>> ================================ RESTART ================================
+>>> 
+Howdy!
+70
+ 0
+  1
+   4
+    9
+     16
+      25
+       36
+        49
+         64
+          81
+           100
+            121
+             144
+              169
+               196
+>>> ================================ RESTART ================================
+>>> 
+Howdy!
+70
+ 0
+  1
+   4
+    9
+     16
+      25
+       36
+        49
+         64
+          81
+           100
+            121
+             144
+              169
+               196
+                225
+                 256
+                  289
+                   324
+                    361
+C-ya!
+>>> ================================ RESTART ================================
+>>> 
+Howdy!
+70
+ 0
+  1
+   4
+    9
+     16
+      25
+       36
+        49
+         64
+          81
+           100
+            121
+             144
+              169
+               196
+                225
+                 256
+                  289
+                   324
+                    361
+C-ya!
+>>> # Go to website:   bit.ly/python-sj93
+>>> # Select download.py
+>>> # Cmd-A  Cmd-C  Cmd-Tab Cmd-N  Cmd-V  Cmd-S download.py F5
+>>> ================================ RESTART ================================
+>>> 
+=============================== Source: http://dl.dropbox.com/u/3967849/sj93/links.txt ==============================
+                                    Starting download at Mon Aug 25 14:37:34 2014                                    
+200* OK               https://dl.dropbox.com/u/3967849/sj93/links.txt         --> notes/links.txt           (updated) 
+200  OK               https://dl.dropbox.com/u/3967849/sj93/dayfour.log       --> notes/dayfour.log         (updated) 
+200* OK               https://dl.dropbox.com/u/3967849/shared/call_by_object.txt --> notes/call_by_object.txt  (updated) 
+200* OK               https://dl.dropbox.com/u/3967849/shared/books.json      --> notes/books.json          (updated) 
+200  OK               https://dl.dropbox.com/u/3967849/shared/norvig_corrector.py --> notes/norvig_corrector.py (updated) 
+200  OK               https://dl.dropbox.com/u/3967849/shared/Raymond_Hettinger.vcf --> notes/Raymond_Hettinger.vcf (updated) 
+200* OK               https://dl.dropbox.com/u/3967849/shared/ipv4_int_bri.txt --> notes/ipv4_int_bri.txt    (updated) 
+200  OK               https://dl.dropbox.com/u/3967849/sj93/daythree.log      --> notes/daythree.log        (updated) 
+200* OK               https://dl.dropbox.com/u/3967849/sj93/dayone.log        --> notes/dayone.log          (updated) 
+200  OK               https://dl.dropbox.com/u/3967849/shared/raisin_team.csv --> notes/raisin_team.csv     (updated) 
+200  OK               https://dl.dropbox.com/u/3967849/sj93/daytwo.log        --> notes/daytwo.log          (updated) 
+200  OK               https://dl.dropbox.com/u/3967849/shared/Raymond_Hettinger.png --> notes/Raymond_Hettinger.png (updated) 
+200  OK               https://dl.dropbox.com/u/3967849/shared/__init__.py     --> notes/__init__.py         (updated) 
+200  OK               https://dl.dropbox.com/u/3967849/shared/highlight.py    --> notes/highlight.py        (updated) 
+200* OK               https://dl.dropbox.com/u/3967849/sj93/text_formats.txt  --> notes/text_formats.txt    (updated) 
+200  OK               https://dl.dropbox.com/u/3967849/shared/picirc.py       --> notes/picirc.py           (updated) 
+200  OK               https://dl.dropbox.com/u/3967849/shared/banner.py       --> notes/banner.py           (updated) 
+200  OK               https://dl.dropbox.com/u/3967849/shared/publish.py      --> notes/publish.py          (updated) 
+200  OK               https://dl.dropbox.com/u/3967849/shared/pexpect.py      --> notes/pexpect.py          (updated) 
+200  OK               https://dl.dropbox.com/u/3967849/shared/BeautifulSoup.py --> notes/BeautifulSoup.py    (updated) 
+200  OK               https://dl.dropbox.com/u/3967849/shared/islands.pdf     --> notes/islands.pdf         (updated) 
+200  OK               https://dl.dropbox.com/u/3967849/shared/PythonAwesome.pdf --> notes/PythonAwesome.pdf   (updated) 
+200  OK               https://dl.dropbox.com/u/3967849/shared/IntroPython.pdf --> notes/IntroPython.pdf     (updated) 
+200  OK               https://dl.dropbox.com/u/3967849/shared/dns_servers.json --> notes/dns_servers.json    (updated) 
+200  OK               https://dl.dropbox.com/u/3967849/shared/show_controllers.txt --> notes/show_controllers.txt (updated) 
+200  OK               https://dl.dropbox.com/u/3967849/shared/stocks.txt      --> notes/stocks.txt          (updated) 
+200* OK               https://dl.dropbox.com/u/3967849/shared/books.xml       --> notes/books.xml           (updated) 
+200  OK               https://dl.dropbox.com/u/3967849/shared/team_history.json --> notes/team_history.json   (updated) 
+200  OK               https://dl.dropbox.com/u/3967849/shared/team_history.txt --> notes/team_history.txt    (updated) 
+200* OK               https://dl.dropbox.com/u/3967849/shared/re.txt          --> notes/re.txt              (updated) 
+200  OK               https://dl.dropbox.com/u/3967849/shared/email.txt       --> notes/email.txt           (updated) 
+200  OK               https://dl.dropbox.com/u/3967849/shared/CSRRESTAPI.pdf  --> notes/CSRRESTAPI.pdf      (updated) 
+200  OK               https://dl.dropbox.com/u/3967849/shared/corpus.dat      --> notes/corpus.dat          (updated) 
+>>> 
+>>> 
+>>> # strings
+>>> 
+>>> # There are four quoting characters in Python:  ' " ''' """
+>>> print 'Hi Raymond'
+Hi Raymond
+>>> print "Hi Raymond"
+Hi Raymond
+>>> print '''Hi Raymond'''
+Hi Raymond
+>>> print """Hi Raymond"""
+Hi Raymond
+>>> # The first quoting character seen IS the quoting character
+>>> # The rest are just part of the string
+>>> 
+>>> print "Don't you forget about me."
+Don't you forget about me.
+>>> print 'Don\'t you forget about me.'
+Don't you forget about me.
+>>> 
+>>> # She said, "Hello Raymond!"
+>>> print 'She said, "Hello Raymond!'
+She said, "Hello Raymond!
+>>> print 'She said, "Hello Raymond!"'
+She said, "Hello Raymond!"
+>>> 
+>>> 
+>>> # She said, "Don't you forget about me."
+>>> print '''She said, "Don't you forget about me."'''
+She said, "Don't you forget about me."
+>>> print """She said, "Don't you forget about me.""""
+SyntaxError: EOL while scanning string literal
+>>> print """She said, "Don't you forget about me.""" "
+SyntaxError: EOL while scanning string literal
+>>> print """She said, "Don't you forget about me." """
+She said, "Don't you forget about me." 
+>>> import this
+The Zen of Python, by Tim Peters
+
+Beautiful is better than ugly.
+Explicit is better than implicit.
+Simple is better than complex.
+Complex is better than complicated.
+Flat is better than nested.
+Sparse is better than dense.
+Readability counts.
+Special cases aren't special enough to break the rules.
+Although practicality beats purity.
+Errors should never pass silently.
+Unless explicitly silenced.
+In the face of ambiguity, refuse the temptation to guess.
+There should be one-- and preferably only one --obvious way to do it.
+Although that way may not be obvious at first unless you're Dutch.
+Now is better than never.
+Although never is often better than *right* now.
+If the implementation is hard to explain, it's a bad idea.
+If the implementation is easy to explain, it may be a good idea.
+Namespaces are one honking great idea -- let's do more of those!
+>>> print "She said, \"Don't you forget about me.\""
+She said, "Don't you forget about me."
+>>> 
+\
+>>> 
+\
+>>> print 'Three\nblind\nmice\n'
+Three
+blind
+mice
+
+>>> print '''Three
+blind
+mice
+'''
+Three
+blind
+mice
+
+>>> 
+>>> # 3:14:15.9  Pi time!
+>>> print 'Three\\nblind\\nmice\\n'
+Three\nblind\nmice\n
+>>> print r'Three\nblind\nmice\n'
+Three\nblind\nmice\n
+>>> # C:\\My Documents and Settings\Developers\Bios\raymond.txt
+>>> print r'C:\\My Documents and Settings\Developers\Bios\raymond.txt'
+C:\\My Documents and Settings\Developers\Bios\raymond.txt
+>>> print 'C:\\\\My Documents and Settings\\Developers\\Bios\\raymond.txt'
+C:\\My Documents and Settings\Developers\Bios\raymond.txt
+>>> print r"Three\nblind\nmice\n"
+Three\nblind\nmice\n
+>>> 
+>>> 
+>>> print u'Hello'
+Hello
+>>> print 'Hello'
+Hello
+>>> type('hello')
+<type 'str'>
+>>> # "stir"
+>>> type(u'hello')
+<type 'unicode'>
+>>> 
+>>> # The str type is stored as an array of bytes (0 <= x <= 255)
+>>> # str is good for:
+>>> #   1) holding ASCII text (0 <= x <= 127)
+>>> #   2) holding LATIN-1 text (0 <= x <= 255)
+>>> #   3) holding binary data (array of bytes with values 0 - 255)
+>>> 
+>>> # unicode is an array of multi-byte sequences
+>>> # unicode is good for:  holding unicode code points
+>>> 
+>>> print u'The answer is \u0664\u0662 today!'
+The answer is ٤٢ today!
+>>> print u'\N{snowman}'
+☃
+>>> print u'\N{snowman}\N{comet}'
+☃☄
+>>> print u'\N{snowman}\N{umbrella}\N{comet}'
+☃☂☄
+>>> print u'\N{snowman}\N{umbrella}\N{comet}\u2122'
+☃☂☄™
+>>> 
+>>> s = 'the tale of two cities'
+>>> type(s)
+<type 'str'>
+>>> dir(s)
+['__add__', '__class__', '__contains__', '__delattr__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__', '__getnewargs__', '__getslice__', '__gt__', '__hash__', '__init__', '__le__', '__len__', '__lt__', '__mod__', '__mul__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__rmod__', '__rmul__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '_formatter_field_name_split', '_formatter_parser', 'capitalize', 'center', 'count', 'decode', 'encode', 'endswith', 'expandtabs', 'find', 'format', 'index', 'isalnum', 'isalpha', 'isdigit', 'islower', 'isspace', 'istitle', 'isupper', 'join', 'ljust', 'lower', 'lstrip', 'partition', 'replace', 'rfind', 'rindex', 'rjust', 'rpartition', 'rsplit', 'rstrip', 'split', 'splitlines', 'startswith', 'strip', 'swapcase', 'title', 'translate', 'upper', 'zfill']
+>>> help(str)
+Help on class str in module __builtin__:
+
+class str(basestring)
+ |  str(object='') -> string
+ |  
+ |  Return a nice string representation of the object.
+ |  If the argument is a string, the return value is the same object.
+ |  
+ |  Method resolution order:
+ |      str
+ |      basestring
+ |      object
+ |  
+ |  Methods defined here:
+ |  
+ |  __add__(...)
+ |      x.__add__(y) <==> x+y
+ |  
+ |  __contains__(...)
+ |      x.__contains__(y) <==> y in x
+ |  
+ |  __eq__(...)
+ |      x.__eq__(y) <==> x==y
+ |  
+ |  __format__(...)
+ |      S.__format__(format_spec) -> string
+ |      
+ |      Return a formatted version of S as described by format_spec.
+ |  
+ |  __ge__(...)
+ |      x.__ge__(y) <==> x>=y
+ |  
+ |  __getattribute__(...)
+ |      x.__getattribute__('name') <==> x.name
+ |  
+ |  __getitem__(...)
+ |      x.__getitem__(y) <==> x[y]
+ |  
+ |  __getnewargs__(...)
+ |  
+ |  __getslice__(...)
+ |      x.__getslice__(i, j) <==> x[i:j]
+ |      
+ |      Use of negative indices is not supported.
+ |  
+ |  __gt__(...)
+ |      x.__gt__(y) <==> x>y
+ |  
+ |  __hash__(...)
+ |      x.__hash__() <==> hash(x)
+ |  
+ |  __le__(...)
+ |      x.__le__(y) <==> x<=y
+ |  
+ |  __len__(...)
+ |      x.__len__() <==> len(x)
+ |  
+ |  __lt__(...)
+ |      x.__lt__(y) <==> x<y
+ |  
+ |  __mod__(...)
+ |      x.__mod__(y) <==> x%y
+ |  
+ |  __mul__(...)
+ |      x.__mul__(n) <==> x*n
+ |  
+ |  __ne__(...)
+ |      x.__ne__(y) <==> x!=y
+ |  
+ |  __repr__(...)
+ |      x.__repr__() <==> repr(x)
+ |  
+ |  __rmod__(...)
+ |      x.__rmod__(y) <==> y%x
+ |  
+ |  __rmul__(...)
+ |      x.__rmul__(n) <==> n*x
+ |  
+ |  __sizeof__(...)
+ |      S.__sizeof__() -> size of S in memory, in bytes
+ |  
+ |  __str__(...)
+ |      x.__str__() <==> str(x)
+ |  
+ |  capitalize(...)
+ |      S.capitalize() -> string
+ |      
+ |      Return a copy of the string S with only its first character
+ |      capitalized.
+ |  
+ |  center(...)
+ |      S.center(width[, fillchar]) -> string
+ |      
+ |      Return S centered in a string of length width. Padding is
+ |      done using the specified fill character (default is a space)
+ |  
+ |  count(...)
+ |      S.count(sub[, start[, end]]) -> int
+ |      
+ |      Return the number of non-overlapping occurrences of substring sub in
+ |      string S[start:end].  Optional arguments start and end are interpreted
+ |      as in slice notation.
+ |  
+ |  decode(...)
+ |      S.decode([encoding[,errors]]) -> object
+ |      
+ |      Decodes S using the codec registered for encoding. encoding defaults
+ |      to the default encoding. errors may be given to set a different error
+ |      handling scheme. Default is 'strict' meaning that encoding errors raise
+ |      a UnicodeDecodeError. Other possible values are 'ignore' and 'replace'
+ |      as well as any other name registered with codecs.register_error that is
+ |      able to handle UnicodeDecodeErrors.
+ |  
+ |  encode(...)
+ |      S.encode([encoding[,errors]]) -> object
+ |      
+ |      Encodes S using the codec registered for encoding. encoding defaults
+ |      to the default encoding. errors may be given to set a different error
+ |      handling scheme. Default is 'strict' meaning that encoding errors raise
+ |      a UnicodeEncodeError. Other possible values are 'ignore', 'replace' and
+ |      'xmlcharrefreplace' as well as any other name registered with
+ |      codecs.register_error that is able to handle UnicodeEncodeErrors.
+ |  
+ |  endswith(...)
+ |      S.endswith(suffix[, start[, end]]) -> bool
+ |      
+ |      Return True if S ends with the specified suffix, False otherwise.
+ |      With optional start, test S beginning at that position.
+ |      With optional end, stop comparing S at that position.
+ |      suffix can also be a tuple of strings to try.
+ |  
+ |  expandtabs(...)
+ |      S.expandtabs([tabsize]) -> string
+ |      
+ |      Return a copy of S where all tab characters are expanded using spaces.
+ |      If tabsize is not given, a tab size of 8 characters is assumed.
+ |  
+ |  find(...)
+ |      S.find(sub [,start [,end]]) -> int
+ |      
+ |      Return the lowest index in S where substring sub is found,
+ |      such that sub is contained within S[start:end].  Optional
+ |      arguments start and end are interpreted as in slice notation.
+ |      
+ |      Return -1 on failure.
+ |  
+ |  format(...)
+ |      S.format(*args, **kwargs) -> string
+ |      
+ |      Return a formatted version of S, using substitutions from args and kwargs.
+ |      The substitutions are identified by braces ('{' and '}').
+ |  
+ |  index(...)
+ |      S.index(sub [,start [,end]]) -> int
+ |      
+ |      Like S.find() but raise ValueError when the substring is not found.
+ |  
+ |  isalnum(...)
+ |      S.isalnum() -> bool
+ |      
+ |      Return True if all characters in S are alphanumeric
+ |      and there is at least one character in S, False otherwise.
+ |  
+ |  isalpha(...)
+ |      S.isalpha() -> bool
+ |      
+ |      Return True if all characters in S are alphabetic
+ |      and there is at least one character in S, False otherwise.
+ |  
+ |  isdigit(...)
+ |      S.isdigit() -> bool
+ |      
+ |      Return True if all characters in S are digits
+ |      and there is at least one character in S, False otherwise.
+ |  
+ |  islower(...)
+ |      S.islower() -> bool
+ |      
+ |      Return True if all cased characters in S are lowercase and there is
+ |      at least one cased character in S, False otherwise.
+ |  
+ |  isspace(...)
+ |      S.isspace() -> bool
+ |      
+ |      Return True if all characters in S are whitespace
+ |      and there is at least one character in S, False otherwise.
+ |  
+ |  istitle(...)
+ |      S.istitle() -> bool
+ |      
+ |      Return True if S is a titlecased string and there is at least one
+ |      character in S, i.e. uppercase characters may only follow uncased
+ |      characters and lowercase characters only cased ones. Return False
+ |      otherwise.
+ |  
+ |  isupper(...)
+ |      S.isupper() -> bool
+ |      
+ |      Return True if all cased characters in S are uppercase and there is
+ |      at least one cased character in S, False otherwise.
+ |  
+ |  join(...)
+ |      S.join(iterable) -> string
+ |      
+ |      Return a string which is the concatenation of the strings in the
+ |      iterable.  The separator between elements is S.
+ |  
+ |  ljust(...)
+ |      S.ljust(width[, fillchar]) -> string
+ |      
+ |      Return S left-justified in a string of length width. Padding is
+ |      done using the specified fill character (default is a space).
+ |  
+ |  lower(...)
+ |      S.lower() -> string
+ |      
+ |      Return a copy of the string S converted to lowercase.
+ |  
+ |  lstrip(...)
+ |      S.lstrip([chars]) -> string or unicode
+ |      
+ |      Return a copy of the string S with leading whitespace removed.
+ |      If chars is given and not None, remove characters in chars instead.
+ |      If chars is unicode, S will be converted to unicode before stripping
+ |  
+ |  partition(...)
+ |      S.partition(sep) -> (head, sep, tail)
+ |      
+ |      Search for the separator sep in S, and return the part before it,
+ |      the separator itself, and the part after it.  If the separator is not
+ |      found, return S and two empty strings.
+ |  
+ |  replace(...)
+ |      S.replace(old, new[, count]) -> string
+ |      
+ |      Return a copy of string S with all occurrences of substring
+ |      old replaced by new.  If the optional argument count is
+ |      given, only the first count occurrences are replaced.
+ |  
+ |  rfind(...)
+ |      S.rfind(sub [,start [,end]]) -> int
+ |      
+ |      Return the highest index in S where substring sub is found,
+ |      such that sub is contained within S[start:end].  Optional
+ |      arguments start and end are interpreted as in slice notation.
+ |      
+ |      Return -1 on failure.
+ |  
+ |  rindex(...)
+ |      S.rindex(sub [,start [,end]]) -> int
+ |      
+ |      Like S.rfind() but raise ValueError when the substring is not found.
+ |  
+ |  rjust(...)
+ |      S.rjust(width[, fillchar]) -> string
+ |      
+ |      Return S right-justified in a string of length width. Padding is
+ |      done using the specified fill character (default is a space)
+ |  
+ |  rpartition(...)
+ |      S.rpartition(sep) -> (head, sep, tail)
+ |      
+ |      Search for the separator sep in S, starting at the end of S, and return
+ |      the part before it, the separator itself, and the part after it.  If the
+ |      separator is not found, return two empty strings and S.
+ |  
+ |  rsplit(...)
+ |      S.rsplit([sep [,maxsplit]]) -> list of strings
+ |      
+ |      Return a list of the words in the string S, using sep as the
+ |      delimiter string, starting at the end of the string and working
+ |      to the front.  If maxsplit is given, at most maxsplit splits are
+ |      done. If sep is not specified or is None, any whitespace string
+ |      is a separator.
+ |  
+ |  rstrip(...)
+ |      S.rstrip([chars]) -> string or unicode
+ |      
+ |      Return a copy of the string S with trailing whitespace removed.
+ |      If chars is given and not None, remove characters in chars instead.
+ |      If chars is unicode, S will be converted to unicode before stripping
+ |  
+ |  split(...)
+ |      S.split([sep [,maxsplit]]) -> list of strings
+ |      
+ |      Return a list of the words in the string S, using sep as the
+ |      delimiter string.  If maxsplit is given, at most maxsplit
+ |      splits are done. If sep is not specified or is None, any
+ |      whitespace string is a separator and empty strings are removed
+ |      from the result.
+ |  
+ |  splitlines(...)
+ |      S.splitlines(keepends=False) -> list of strings
+ |      
+ |      Return a list of the lines in S, breaking at line boundaries.
+ |      Line breaks are not included in the resulting list unless keepends
+ |      is given and true.
+ |  
+ |  startswith(...)
+ |      S.startswith(prefix[, start[, end]]) -> bool
+ |      
+ |      Return True if S starts with the specified prefix, False otherwise.
+ |      With optional start, test S beginning at that position.
+ |      With optional end, stop comparing S at that position.
+ |      prefix can also be a tuple of strings to try.
+ |  
+ |  strip(...)
+ |      S.strip([chars]) -> string or unicode
+ |      
+ |      Return a copy of the string S with leading and trailing
+ |      whitespace removed.
+ |      If chars is given and not None, remove characters in chars instead.
+ |      If chars is unicode, S will be converted to unicode before stripping
+ |  
+ |  swapcase(...)
+ |      S.swapcase() -> string
+ |      
+ |      Return a copy of the string S with uppercase characters
+ |      converted to lowercase and vice versa.
+ |  
+ |  title(...)
+ |      S.title() -> string
+ |      
+ |      Return a titlecased version of S, i.e. words start with uppercase
+ |      characters, all remaining cased characters have lowercase.
+ |  
+ |  translate(...)
+ |      S.translate(table [,deletechars]) -> string
+ |      
+ |      Return a copy of the string S, where all characters occurring
+ |      in the optional argument deletechars are removed, and the
+ |      remaining characters have been mapped through the given
+ |      translation table, which must be a string of length 256 or None.
+ |      If the table argument is None, no translation is applied and
+ |      the operation simply removes the characters in deletechars.
+ |  
+ |  upper(...)
+ |      S.upper() -> string
+ |      
+ |      Return a copy of the string S converted to uppercase.
+ |  
+ |  zfill(...)
+ |      S.zfill(width) -> string
+ |      
+ |      Pad a numeric string S with zeros on the left, to fill a field
+ |      of the specified width.  The string S is never truncated.
+ |  
+ |  ----------------------------------------------------------------------
+ |  Data and other attributes defined here:
+ |  
+ |  __new__ = <built-in method __new__ of type object>
+ |      T.__new__(S, ...) -> a new object with type S, a subtype of T
+
+>>> help(str.upper)
+Help on method_descriptor:
+
+upper(...)
+    S.upper() -> string
+    
+    Return a copy of the string S converted to uppercase.
+
+>>> dir(str)
+['__add__', '__class__', '__contains__', '__delattr__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__', '__getnewargs__', '__getslice__', '__gt__', '__hash__', '__init__', '__le__', '__len__', '__lt__', '__mod__', '__mul__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__rmod__', '__rmul__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '_formatter_field_name_split', '_formatter_parser', 'capitalize', 'center', 'count', 'decode', 'encode', 'endswith', 'expandtabs', 'find', 'format', 'index', 'isalnum', 'isalpha', 'isdigit', 'islower', 'isspace', 'istitle', 'isupper', 'join', 'ljust', 'lower', 'lstrip', 'partition', 'replace', 'rfind', 'rindex', 'rjust', 'rpartition', 'rsplit', 'rstrip', 'split', 'splitlines', 'startswith', 'strip', 'swapcase', 'title', 'translate', 'upper', 'zfill']
+>>> help(str)
+Help on class str in module __builtin__:
+
+class str(basestring)
+ |  str(object='') -> string
+ |  
+ |  Return a nice string representation of the object.
+ |  If the argument is a string, the return value is the same object.
+ |  
+ |  Method resolution order:
+ |      str
+ |      basestring
+ |      object
+ |  
+ |  Methods defined here:
+ |  
+ |  __add__(...)
+ |      x.__add__(y) <==> x+y
+ |  
+ |  __contains__(...)
+ |      x.__contains__(y) <==> y in x
+ |  
+ |  __eq__(...)
+ |      x.__eq__(y) <==> x==y
+ |  
+ |  __format__(...)
+ |      S.__format__(format_spec) -> string
+ |      
+ |      Return a formatted version of S as described by format_spec.
+ |  
+ |  __ge__(...)
+ |      x.__ge__(y) <==> x>=y
+ |  
+ |  __getattribute__(...)
+ |      x.__getattribute__('name') <==> x.name
+ |  
+ |  __getitem__(...)
+ |      x.__getitem__(y) <==> x[y]
+ |  
+ |  __getnewargs__(...)
+ |  
+ |  __getslice__(...)
+ |      x.__getslice__(i, j) <==> x[i:j]
+ |      
+ |      Use of negative indices is not supported.
+ |  
+ |  __gt__(...)
+ |      x.__gt__(y) <==> x>y
+ |  
+ |  __hash__(...)
+ |      x.__hash__() <==> hash(x)
+ |  
+ |  __le__(...)
+ |      x.__le__(y) <==> x<=y
+ |  
+ |  __len__(...)
+ |      x.__len__() <==> len(x)
+ |  
+ |  __lt__(...)
+ |      x.__lt__(y) <==> x<y
+ |  
+ |  __mod__(...)
+ |      x.__mod__(y) <==> x%y
+ |  
+ |  __mul__(...)
+ |      x.__mul__(n) <==> x*n
+ |  
+ |  __ne__(...)
+ |      x.__ne__(y) <==> x!=y
+ |  
+ |  __repr__(...)
+ |      x.__repr__() <==> repr(x)
+ |  
+ |  __rmod__(...)
+ |      x.__rmod__(y) <==> y%x
+ |  
+ |  __rmul__(...)
+ |      x.__rmul__(n) <==> n*x
+ |  
+ |  __sizeof__(...)
+ |      S.__sizeof__() -> size of S in memory, in bytes
+ |  
+ |  __str__(...)
+ |      x.__str__() <==> str(x)
+ |  
+ |  capitalize(...)
+ |      S.capitalize() -> string
+ |      
+ |      Return a copy of the string S with only its first character
+ |      capitalized.
+ |  
+ |  center(...)
+ |      S.center(width[, fillchar]) -> string
+ |      
+ |      Return S centered in a string of length width. Padding is
+ |      done using the specified fill character (default is a space)
+ |  
+ |  count(...)
+ |      S.count(sub[, start[, end]]) -> int
+ |      
+ |      Return the number of non-overlapping occurrences of substring sub in
+ |      string S[start:end].  Optional arguments start and end are interpreted
+ |      as in slice notation.
+ |  
+ |  decode(...)
+ |      S.decode([encoding[,errors]]) -> object
+ |      
+ |      Decodes S using the codec registered for encoding. encoding defaults
+ |      to the default encoding. errors may be given to set a different error
+ |      handling scheme. Default is 'strict' meaning that encoding errors raise
+ |      a UnicodeDecodeError. Other possible values are 'ignore' and 'replace'
+ |      as well as any other name registered with codecs.register_error that is
+ |      able to handle UnicodeDecodeErrors.
+ |  
+ |  encode(...)
+ |      S.encode([encoding[,errors]]) -> object
+ |      
+ |      Encodes S using the codec registered for encoding. encoding defaults
+ |      to the default encoding. errors may be given to set a different error
+ |      handling scheme. Default is 'strict' meaning that encoding errors raise
+ |      a UnicodeEncodeError. Other possible values are 'ignore', 'replace' and
+ |      'xmlcharrefreplace' as well as any other name registered with
+ |      codecs.register_error that is able to handle UnicodeEncodeErrors.
+ |  
+ |  endswith(...)
+ |      S.endswith(suffix[, start[, end]]) -> bool
+ |      
+ |      Return True if S ends with the specified suffix, False otherwise.
+ |      With optional start, test S beginning at that position.
+ |      With optional end, stop comparing S at that position.
+ |      suffix can also be a tuple of strings to try.
+ |  
+ |  expandtabs(...)
+ |      S.expandtabs([tabsize]) -> string
+ |      
+ |      Return a copy of S where all tab characters are expanded using spaces.
+ |      If tabsize is not given, a tab size of 8 characters is assumed.
+ |  
+ |  find(...)
+ |      S.find(sub [,start [,end]]) -> int
+ |      
+ |      Return the lowest index in S where substring sub is found,
+ |      such that sub is contained within S[start:end].  Optional
+ |      arguments start and end are interpreted as in slice notation.
+ |      
+ |      Return -1 on failure.
+ |  
+ |  format(...)
+ |      S.format(*args, **kwargs) -> string
+ |      
+ |      Return a formatted version of S, using substitutions from args and kwargs.
+ |      The substitutions are identified by braces ('{' and '}').
+ |  
+ |  index(...)
+ |      S.index(sub [,start [,end]]) -> int
+ |      
+ |      Like S.find() but raise ValueError when the substring is not found.
+ |  
+ |  isalnum(...)
+ |      S.isalnum() -> bool
+ |      
+ |      Return True if all characters in S are alphanumeric
+ |      and there is at least one character in S, False otherwise.
+ |  
+ |  isalpha(...)
+ |      S.isalpha() -> bool
+ |      
+ |      Return True if all characters in S are alphabetic
+ |      and there is at least one character in S, False otherwise.
+ |  
+ |  isdigit(...)
+ |      S.isdigit() -> bool
+ |      
+ |      Return True if all characters in S are digits
+ |      and there is at least one character in S, False otherwise.
+ |  
+ |  islower(...)
+ |      S.islower() -> bool
+ |      
+ |      Return True if all cased characters in S are lowercase and there is
+ |      at least one cased character in S, False otherwise.
+ |  
+ |  isspace(...)
+ |      S.isspace() -> bool
+ |      
+ |      Return True if all characters in S are whitespace
+ |      and there is at least one character in S, False otherwise.
+ |  
+ |  istitle(...)
+ |      S.istitle() -> bool
+ |      
+ |      Return True if S is a titlecased string and there is at least one
+ |      character in S, i.e. uppercase characters may only follow uncased
+ |      characters and lowercase characters only cased ones. Return False
+ |      otherwise.
+ |  
+ |  isupper(...)
+ |      S.isupper() -> bool
+ |      
+ |      Return True if all cased characters in S are uppercase and there is
+ |      at least one cased character in S, False otherwise.
+ |  
+ |  join(...)
+ |      S.join(iterable) -> string
+ |      
+ |      Return a string which is the concatenation of the strings in the
+ |      iterable.  The separator between elements is S.
+ |  
+ |  ljust(...)
+ |      S.ljust(width[, fillchar]) -> string
+ |      
+ |      Return S left-justified in a string of length width. Padding is
+ |      done using the specified fill character (default is a space).
+ |  
+ |  lower(...)
+ |      S.lower() -> string
+ |      
+ |      Return a copy of the string S converted to lowercase.
+ |  
+ |  lstrip(...)
+ |      S.lstrip([chars]) -> string or unicode
+ |      
+ |      Return a copy of the string S with leading whitespace removed.
+ |      If chars is given and not None, remove characters in chars instead.
+ |      If chars is unicode, S will be converted to unicode before stripping
+ |  
+ |  partition(...)
+ |      S.partition(sep) -> (head, sep, tail)
+ |      
+ |      Search for the separator sep in S, and return the part before it,
+ |      the separator itself, and the part after it.  If the separator is not
+ |      found, return S and two empty strings.
+ |  
+ |  replace(...)
+ |      S.replace(old, new[, count]) -> string
+ |      
+ |      Return a copy of string S with all occurrences of substring
+ |      old replaced by new.  If the optional argument count is
+ |      given, only the first count occurrences are replaced.
+ |  
+ |  rfind(...)
+ |      S.rfind(sub [,start [,end]]) -> int
+ |      
+ |      Return the highest index in S where substring sub is found,
+ |      such that sub is contained within S[start:end].  Optional
+ |      arguments start and end are interpreted as in slice notation.
+ |      
+ |      Return -1 on failure.
+ |  
+ |  rindex(...)
+ |      S.rindex(sub [,start [,end]]) -> int
+ |      
+ |      Like S.rfind() but raise ValueError when the substring is not found.
+ |  
+ |  rjust(...)
+ |      S.rjust(width[, fillchar]) -> string
+ |      
+ |      Return S right-justified in a string of length width. Padding is
+ |      done using the specified fill character (default is a space)
+ |  
+ |  rpartition(...)
+ |      S.rpartition(sep) -> (head, sep, tail)
+ |      
+ |      Search for the separator sep in S, starting at the end of S, and return
+ |      the part before it, the separator itself, and the part after it.  If the
+ |      separator is not found, return two empty strings and S.
+ |  
+ |  rsplit(...)
+ |      S.rsplit([sep [,maxsplit]]) -> list of strings
+ |      
+ |      Return a list of the words in the string S, using sep as the
+ |      delimiter string, starting at the end of the string and working
+ |      to the front.  If maxsplit is given, at most maxsplit splits are
+ |      done. If sep is not specified or is None, any whitespace string
+ |      is a separator.
+ |  
+ |  rstrip(...)
+ |      S.rstrip([chars]) -> string or unicode
+ |      
+ |      Return a copy of the string S with trailing whitespace removed.
+ |      If chars is given and not None, remove characters in chars instead.
+ |      If chars is unicode, S will be converted to unicode before stripping
+ |  
+ |  split(...)
+ |      S.split([sep [,maxsplit]]) -> list of strings
+ |      
+ |      Return a list of the words in the string S, using sep as the
+ |      delimiter string.  If maxsplit is given, at most maxsplit
+ |      splits are done. If sep is not specified or is None, any
+ |      whitespace string is a separator and empty strings are removed
+ |      from the result.
+ |  
+ |  splitlines(...)
+ |      S.splitlines(keepends=False) -> list of strings
+ |      
+ |      Return a list of the lines in S, breaking at line boundaries.
+ |      Line breaks are not included in the resulting list unless keepends
+ |      is given and true.
+ |  
+ |  startswith(...)
+ |      S.startswith(prefix[, start[, end]]) -> bool
+ |      
+ |      Return True if S starts with the specified prefix, False otherwise.
+ |      With optional start, test S beginning at that position.
+ |      With optional end, stop comparing S at that position.
+ |      prefix can also be a tuple of strings to try.
+ |  
+ |  strip(...)
+ |      S.strip([chars]) -> string or unicode
+ |      
+ |      Return a copy of the string S with leading and trailing
+ |      whitespace removed.
+ |      If chars is given and not None, remove characters in chars instead.
+ |      If chars is unicode, S will be converted to unicode before stripping
+ |  
+ |  swapcase(...)
+ |      S.swapcase() -> string
+ |      
+ |      Return a copy of the string S with uppercase characters
+ |      converted to lowercase and vice versa.
+ |  
+ |  title(...)
+ |      S.title() -> string
+ |      
+ |      Return a titlecased version of S, i.e. words start with uppercase
+ |      characters, all remaining cased characters have lowercase.
+ |  
+ |  translate(...)
+ |      S.translate(table [,deletechars]) -> string
+ |      
+ |      Return a copy of the string S, where all characters occurring
+ |      in the optional argument deletechars are removed, and the
+ |      remaining characters have been mapped through the given
+ |      translation table, which must be a string of length 256 or None.
+ |      If the table argument is None, no translation is applied and
+ |      the operation simply removes the characters in deletechars.
+ |  
+ |  upper(...)
+ |      S.upper() -> string
+ |      
+ |      Return a copy of the string S converted to uppercase.
+ |  
+ |  zfill(...)
+ |      S.zfill(width) -> string
+ |      
+ |      Pad a numeric string S with zeros on the left, to fill a field
+ |      of the specified width.  The string S is never truncated.
+ |  
+ |  ----------------------------------------------------------------------
+ |  Data and other attributes defined here:
+ |  
+ |  __new__ = <built-in method __new__ of type object>
+ |      T.__new__(S, ...) -> a new object with type S, a subtype of T
+
+>>> 
+>>> 
+>>> s = 'the tale of two cities'
+>>> s.upper()
+'THE TALE OF TWO CITIES'
+>>> s.lower()
+'the tale of two cities'
+>>> s.title()
+'The Tale Of Two Cities'
+>>> s.capitalize()
+'The tale of two cities'
+>>> 
+>>> 
+>>> 
+>>> s.upper()
+'THE TALE OF TWO CITIES'
+>>> s.lower()
+'the tale of two cities'
+>>> s.title()
+'The Tale Of Two Cities'
+>>> s.capitalize()
+'The tale of two cities'
+>>> 
+>>> s.capitalize()
+'The tale of two cities'
+>>> KeyError
+<type 'exceptions.KeyError'>
+>>> f = open('notes/stocks.txt')
+>>> print f.read()
+CSCO,100,18.04
+WLP,200,45.03
+CSCO,150,19.05
+MSFT,250,80.56
+IBM,500,22.01
+WLP,250,44.23
+GOOG,200,501.45
+CSCO,175,19.56
+MSFT,75,80.81
+GOOG,300,502.65
+IBM,150,25.01
+
+>>> s.ljust(50)
+'the tale of two cities                            '
+>>> s.rjust(50)
+'                            the tale of two cities'
+>>> s.center(50)
+'              the tale of two cities              '
+>>> 
+>>> s.ljust(50, '=')
+'the tale of two cities============================'
+>>> s.rjust(50, '=')
+'============================the tale of two cities'
+>>> s.center(50, '=')
+'==============the tale of two cities=============='
+>>> s
+'the tale of two cities'
+>>> 
+>>> 
+>>> # Strings are IMMUTABLE, UNCHANGEABLE, and READ-ONLY
+>>> # String methods produce NEW strings
+>>> 
+>>> # Save the new ones to a variable
+>>> t = s.center(50, '*')
+>>> s
+'the tale of two cities'
+>>> t
+'**************the tale of two cities**************'
+>>> s = s.center(50, '*')
+>>> s
+'**************the tale of two cities**************'
+>>> x = 10
+>>> x = 12
+>>> x
+12
+>>> s
+'**************the tale of two cities**************'
+>>> s = 'the tale of two cities'
+>>> s.split()
+['the', 'tale', 'of', 'two', 'cities']
+>>> type(_)
+<type 'list'>
+>>> s.split('e')
+['th', ' tal', ' of two citi', 's']
+>>> t = s.split('e')
+>>> type(t)
+<type 'list'>
+>>> print 'E'.join(t)
+thE talE of two citiEs
+>>> 
+>>> 
+>>> t
+['th', ' tal', ' of two citi', 's']
+>>> 
+>>> s
+'the tale of two cities'
+>>> s.replace('two', 'three')
+'the tale of three cities'
+>>> s
+'the tale of two cities'
+>>> t = s.replace('two', 'three')
+>>> s
+'the tale of two cities'
+>>> t
+'the tale of three cities'
+>>> 
+>>> 
+>>> s
+'the tale of two cities'
+>>> s.startswith('th')
+True
+>>> s.endswith('ties')
+True
+>>> dir(str)
+['__add__', '__class__', '__contains__', '__delattr__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__', '__getnewargs__', '__getslice__', '__gt__', '__hash__', '__init__', '__le__', '__len__', '__lt__', '__mod__', '__mul__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__rmod__', '__rmul__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '_formatter_field_name_split', '_formatter_parser', 'capitalize', 'center', 'count', 'decode', 'encode', 'endswith', 'expandtabs', 'find', 'format', 'index', 'isalnum', 'isalpha', 'isdigit', 'islower', 'isspace', 'istitle', 'isupper', 'join', 'ljust', 'lower', 'lstrip', 'partition', 'replace', 'rfind', 'rindex', 'rjust', 'rpartition', 'rsplit', 'rstrip', 'split', 'splitlines', 'startswith', 'strip', 'swapcase', 'title', 'translate', 'upper', 'zfill']
+>>> 
+>>> s.count('t')
+4
+>>> s
+'the tale of two cities'
+>>> s.count('z')
+0
+>>> s.count('e')
+3
+>>> 
+>>> s[0]
+'t'
+>>> s[1]
+'h'
+>>> s[2]
+'e'
+>>> 
+>>> s[50]
+
+Traceback (most recent call last):
+  File "<pyshell#297>", line 1, in <module>
+    s[50]
+IndexError: string index out of range
+>>> len(s)
+22
+>>> s
+'the tale of two cities'
+>>> s[len(s) - 1]
+'s'
+>>> s[len(s) - 2]
+'e'
+>>> s[len(s) - 3]
+'i'
+>>> s[-1]
+'s'
+>>> s[-2]
+'e'
+>>> s[-3]
+'i'
+>>> # The interpretation of a negative index is that len(s) gets added automatically
+>>> 
+>>> s[-3] == s[-3 + len(s)]
+True
+>>> 
+>>> 'hello' + ' world'
+'hello world'
+>>> s
+'the tale of two cities'
+>>> s[0] + s[1] + s[2]
+'the'
+>>> s[0:3]
+'the'
+>>> # Slicing uses half-open intervals
+>>> # The slice[i:j] starts with i but goes to j-1, the j is excluded
+>>> s[:3]
+'the'
+>>> # The starting point of zero is implied
+>>> s[3: len(s)]
+' tale of two cities'
+>>> s[3:]
+' tale of two cities'
+>>> # The ending point of len(s) is implied
+>>> s[:]
+'the tale of two cities'
+>>> 25 - 17
+8
+>>> 25 - 17 + 1
+9
+>>> # start work on the 17th
+>>> # become available for more work on the 26th
+>>> 26 - 17
+9
+>>> 
+>>> s
+'the tale of two cities'
+>>> s[0:4]
+'the '
+>>> len(s[0:4])
+4
+>>> s[4:8]
+'tale'
+>>> len(s[4:8])
+4
+
+>>> s[0:4] + s[4:8] == s[0:8]
+True
+>>> # Slice invariant    s[i:j] + s[j:k] == s[i:k]
+>>> #                   (j - i) + (k - j) == (k - i)
+>>> 
+>>> 
+>>> s[:4] + s[4:] == s[:]
+True
+>>> 
+>>> s
+'the tale of two cities'
+>>> len(s)
+22
+>>> 22 - 6
+16
+>>> s[16]
+'c'
+>>> s[16:]
+'cities'
+>>> s[22-6:]
+'cities'
+>>> s[len(s)-6:]
+'cities'
+>>> s[-6:]
+'cities'
+>>> s[:8]
+'the tale'
+>>> 
+>>> s = [10, 20, 30, 40, 50]
+>>> type(s)
+<type 'list'>
+>>> s[0]
+10
+>>> s[2]
+30
+>>> s[0:2]
+[10, 20]
+>>> s[:2]
+[10, 20]
+>>> s[2:]
+[30, 40, 50]
+>>> s[-2:]
+[40, 50]
+>>> s[:2]
+[10, 20]
+>>> len(s)
+5
+>>> 
+>>> 
+>>> range(2, 10)
+[2, 3, 4, 5, 6, 7, 8, 9]
+>>> len(range(2, 10))
+8
+>>> 
+>>> s
+[10, 20, 30, 40, 50]
+>>> s[-2]
+40
+>>> s[len(s) -2]
+40
+>>> len(s)
+5
+>>> 
+>>> s[-2]
+40
+>>> s[3]
+40
+>>> 
+>>> s[-2:]
+[40, 50]
+>>> 
+>>> s[3]
+40
+>>> range(2, 10)
+[2, 3, 4, 5, 6, 7, 8, 9]
+>>> for i in range(2, 10):
+	print i ** 2
+
+	
+4
+9
+16
+25
+36
+49
+64
+81
+>>> 
+>>> 
+>>> 30 + 40
+70
+>>> 30 - 40
+-10
+>>> 30 * 50
+1500
+>>> 32 / 5
+6
+>>> # Max mad beyond thunderdome:  (int / int) -> int
+>>> # Mix types, floats win        (float / int ) -> float
+>>> 32.0 / 5
+6.4
+>>> 32 / 5.0
+6.4
+>>> from __future__ import division
+>>> 32 / 5
+6.4
+>>> 32 % 5
+2
+>>> divmod(32, 5)
+(6, 2)
+>>> #                    gazinta
+>>> 
+>>> # You all  ya'll
+>>> 
+>>> 
+>>> 
+>>> 
+>>> 2 ** 5
+32
+>>> 2 ^ 5
+7
+>>> # ^ bitwise XOR
+>>> 2 & 5
+0
+>>> 2 | 5
+7
+>>> 5 << 1
+10
+>>> 49 >> 1
+24
+>>> bin(50)
+'0b110010'
+>>> oct(50)
+'062'
+>>> hex(50)
+'0x32'
+>>> 
+>>> 0x32
+50
+>>> 0x32 << 1
+100
+>>> 50 << 1
+100
+>>> 0x32 == 50
+True
+>>> "hello" == 'hello'
+True
+>>> 5 << 2
+20
+>>> # You can enter a number is several ways:
+>>> # 50           decimal
+>>> # 062          octal
+>>> # 0110010      binary
+>>> # 0x32
+>>> 
+>>> 50 << 4
+800
+>>> 062 << 4
+800
+>>> 0110010 << 4
+589952
+>>> 0b110010 << 4
+800
+>>> 0x32 << 4
+800
+>>> hex(50)
+'0x32'
+>>> 
+>>> 2 ** 5
+32
+>>> bin(pow(2, 5))
+'0b100000'
+>>> (2 ** 5).bit_length()
+6
+>>> 
+>>> 2 ** 200 - 1
+1606938044258990275541962092341162602522202993782792835301375L
+>>> 
+>>> 
+>>> pow(2, 5)
+32
+>>> 2 ** 5
+32
+>>> 2 + 3 - 1
+4
+>>> 2 ** 5 % 3
+2
+>>> 2 ** 5 % 3
+2
+>>> pow(2, 5, 3)
+2
+>>> 
+>>> 
+>>> msg = 8675309
+>>> code = pow(msg, 65537, 5551201688147)
+>>> code
+4394401618973L
+>>> 
+>>> pow(code, 109182490673, 5551201688147)
+8675309L
+>>> 
+>>> Counter()
+
+Traceback (most recent call last):
+  File "<pyshell#452>", line 1, in <module>
+    Counter()
+NameError: name 'Counter' is not defined
+>>> import collections
+>>> Counter()
+
+Traceback (most recent call last):
+  File "<pyshell#454>", line 1, in <module>
+    Counter()
+NameError: name 'Counter' is not defined
+>>> import collections
+>>> c = collections.Counter()
+>>> c['z'] += 100
+>>> c['a'] += 5
+>>> c
+Counter({'z': 100, 'a': 5})
+>>> 
+>>> import urllib
+>>> u = urllib.urlopen('http://www.jython.org')
+>>> page = u.read()
+>>> type(page)
+<type 'str'>
+>>> len(page)
+17860
+>>> print page[:300]
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf
+>>> ================================ RESTART ================================
+>>> 
+>>> f
+<open file 'notes/raisin_team.csv', mode 'r' at 0x102d48660>
+>>> __name__          # If the module is first, the __name__ is '__main__'
+'__main__'
+>>> # If the module is imported, the __name__ is 'vcard'
+>>> ================================ RESTART ================================
+>>> 
+My name is __main__
+>>> ================================ RESTART ================================
+>>> import vcard
+My name is vcard
+>>> vcard.__name__
+'vcard'
+>>> __doc__
+>>> ================================ RESTART ================================
+>>> 
+My name is __main__
+My docstring is  A true, but old tale of Python
+    involving commas, brothers-in-law, raisins,
+    checkerboards, and business cards.
+
+>>> f
+<open file 'notes/raisin_team.csv', mode 'r' at 0x102c48660>
+>>> __name__
+'__main__'
+>>> __doc__
+' A true, but old tale of Python\n    involving commas, brothers-in-law, raisins,\n    checkerboards, and business cards.\n'
+>>> ================================ RESTART ================================
+>>> 
+My name is __main__
+My docstring is  A true, but old tale of Python
+    involving commas, brothers-in-law, raisins,
+    checkerboards, and business cards.
+
+Woohoo! I was run first!
+>>> ================================ RESTART ================================
+>>> import vcard
+My name is vcard
+My docstring is  A true, but old tale of Python
+    involving commas, brothers-in-law, raisins,
+    checkerboards, and business cards.
+
+Oh no!  I was run second.
+>>> 
+>>> 
+>>> dir(str)
+['__add__', '__class__', '__contains__', '__delattr__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__', '__getnewargs__', '__getslice__', '__gt__', '__hash__', '__init__', '__le__', '__len__', '__lt__', '__mod__', '__mul__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__rmod__', '__rmul__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '_formatter_field_name_split', '_formatter_parser', 'capitalize', 'center', 'count', 'decode', 'encode', 'endswith', 'expandtabs', 'find', 'format', 'index', 'isalnum', 'isalpha', 'isdigit', 'islower', 'isspace', 'istitle', 'isupper', 'join', 'ljust', 'lower', 'lstrip', 'partition', 'replace', 'rfind', 'rindex', 'rjust', 'rpartition', 'rsplit', 'rstrip', 'split', 'splitlines', 'startswith', 'strip', 'swapcase', 'title', 'translate', 'upper', 'zfill']
+>>> ================================ RESTART ================================
+>>> 
+>>> __name__
+'__main__'
+>>> __doc__
+' A true, but old tale of Python\n    involving commas, brothers-in-law, raisins,\n    checkerboards, and business cards.\n'
+>>> f
+<open file 'notes/raisin_team.csv', mode 'r' at 0x102c48660>
+>>> dir(f)
+['__class__', '__delattr__', '__doc__', '__enter__', '__exit__', '__format__', '__getattribute__', '__hash__', '__init__', '__iter__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', 'close', 'closed', 'encoding', 'errors', 'fileno', 'flush', 'isatty', 'mode', 'name', 'newlines', 'next', 'read', 'readinto', 'readline', 'readlines', 'seek', 'softspace', 'tell', 'truncate', 'write', 'writelines', 'xreadlines']
+>>> help(f)
+Help on file object:
+
+class file(object)
+ |  file(name[, mode[, buffering]]) -> file object
+ |  
+ |  Open a file.  The mode can be 'r', 'w' or 'a' for reading (default),
+ |  writing or appending.  The file will be created if it doesn't exist
+ |  when opened for writing or appending; it will be truncated when
+ |  opened for writing.  Add a 'b' to the mode for binary files.
+ |  Add a '+' to the mode to allow simultaneous reading and writing.
+ |  If the buffering argument is given, 0 means unbuffered, 1 means line
+ |  buffered, and larger numbers specify the buffer size.  The preferred way
+ |  to open a file is with the builtin open() function.
+ |  Add a 'U' to mode to open the file for input with universal newline
+ |  support.  Any line ending in the input file will be seen as a '\n'
+ |  in Python.  Also, a file so opened gains the attribute 'newlines';
+ |  the value for this attribute is one of None (no newline read yet),
+ |  '\r', '\n', '\r\n' or a tuple containing all the newline types seen.
+ |  
+ |  'U' cannot be combined with 'w' or '+' mode.
+ |  
+ |  Methods defined here:
+ |  
+ |  __delattr__(...)
+ |      x.__delattr__('name') <==> del x.name
+ |  
+ |  __enter__(...)
+ |      __enter__() -> self.
+ |  
+ |  __exit__(...)
+ |      __exit__(*excinfo) -> None.  Closes the file.
+ |  
+ |  __getattribute__(...)
+ |      x.__getattribute__('name') <==> x.name
+ |  
+ |  __init__(...)
+ |      x.__init__(...) initializes x; see help(type(x)) for signature
+ |  
+ |  __iter__(...)
+ |      x.__iter__() <==> iter(x)
+ |  
+ |  __repr__(...)
+ |      x.__repr__() <==> repr(x)
+ |  
+ |  __setattr__(...)
+ |      x.__setattr__('name', value) <==> x.name = value
+ |  
+ |  close(...)
+ |      close() -> None or (perhaps) an integer.  Close the file.
+ |      
+ |      Sets data attribute .closed to True.  A closed file cannot be used for
+ |      further I/O operations.  close() may be called more than once without
+ |      error.  Some kinds of file objects (for example, opened by popen())
+ |      may return an exit status upon closing.
+ |  
+ |  fileno(...)
+ |      fileno() -> integer "file descriptor".
+ |      
+ |      This is needed for lower-level file interfaces, such os.read().
+ |  
+ |  flush(...)
+ |      flush() -> None.  Flush the internal I/O buffer.
+ |  
+ |  isatty(...)
+ |      isatty() -> true or false.  True if the file is connected to a tty device.
+ |  
+ |  next(...)
+ |      x.next() -> the next value, or raise StopIteration
+ |  
+ |  read(...)
+ |      read([size]) -> read at most size bytes, returned as a string.
+ |      
+ |      If the size argument is negative or omitted, read until EOF is reached.
+ |      Notice that when in non-blocking mode, less data than what was requested
+ |      may be returned, even if no size parameter was given.
+ |  
+ |  readinto(...)
+ |      readinto() -> Undocumented.  Don't use this; it may go away.
+ |  
+ |  readline(...)
+ |      readline([size]) -> next line from the file, as a string.
+ |      
+ |      Retain newline.  A non-negative size argument limits the maximum
+ |      number of bytes to return (an incomplete line may be returned then).
+ |      Return an empty string at EOF.
+ |  
+ |  readlines(...)
+ |      readlines([size]) -> list of strings, each a line from the file.
+ |      
+ |      Call readline() repeatedly and return a list of the lines so read.
+ |      The optional size argument, if given, is an approximate bound on the
+ |      total number of bytes in the lines returned.
+ |  
+ |  seek(...)
+ |      seek(offset[, whence]) -> None.  Move to new file position.
+ |      
+ |      Argument offset is a byte count.  Optional argument whence defaults to
+ |      0 (offset from start of file, offset should be >= 0); other values are 1
+ |      (move relative to current position, positive or negative), and 2 (move
+ |      relative to end of file, usually negative, although many platforms allow
+ |      seeking beyond the end of a file).  If the file is opened in text mode,
+ |      only offsets returned by tell() are legal.  Use of other offsets causes
+ |      undefined behavior.
+ |      Note that not all file objects are seekable.
+ |  
+ |  tell(...)
+ |      tell() -> current file position, an integer (may be a long integer).
+ |  
+ |  truncate(...)
+ |      truncate([size]) -> None.  Truncate the file to at most size bytes.
+ |      
+ |      Size defaults to the current file position, as returned by tell().
+ |  
+ |  write(...)
+ |      write(str) -> None.  Write string str to file.
+ |      
+ |      Note that due to buffering, flush() or close() may be needed before
+ |      the file on disk reflects the data written.
+ |  
+ |  writelines(...)
+ |      writelines(sequence_of_strings) -> None.  Write the strings to the file.
+ |      
+ |      Note that newlines are not added.  The sequence can be any iterable object
+ |      producing strings. This is equivalent to calling write() for each string.
+ |  
+ |  xreadlines(...)
+ |      xreadlines() -> returns self.
+ |      
+ |      For backward compatibility. File objects now include the performance
+ |      optimizations previously implemented in the xreadlines module.
+ |  
+ |  ----------------------------------------------------------------------
+ |  Data descriptors defined here:
+ |  
+ |  closed
+ |      True if the file is closed
+ |  
+ |  encoding
+ |      file encoding
+ |  
+ |  errors
+ |      Unicode error handler
+ |  
+ |  mode
+ |      file mode ('r', 'U', 'w', 'a', possibly with 'b' or '+' added)
+ |  
+ |  name
+ |      file name
+ |  
+ |  newlines
+ |      end-of-line convention used in this file
+ |  
+ |  softspace
+ |      flag indicating that a space needs to be printed; used by print
+ |  
+ |  ----------------------------------------------------------------------
+ |  Data and other attributes defined here:
+ |  
+ |  __new__ = <built-in method __new__ of type object>
+ |      T.__new__(S, ...) -> a new object with type S, a subtype of T
+
+>>> help(f.read)
+Help on built-in function read:
+
+read(...)
+    read([size]) -> read at most size bytes, returned as a string.
+    
+    If the size argument is negative or omitted, read until EOF is reached.
+    Notice that when in non-blocking mode, less data than what was requested
+    may be returned, even if no size parameter was given.
+
+>>> 
+>>> ================================ RESTART ================================
+>>> 
+Hettinger,Raymond,VP Raisin Smushing,raymond@example.com,559-555-1212
+Thomas,Mary,Sr. Associate Raisin Design,mary@example.com,559-555-2300
+Davis,Harold,Chief Raisin Picker,harold@example.com,559-555-2318
+Masterson,Martin,Asst Raisin Smusher,martin@example.com,559-555-2348
+Jones,David,Grape Ager,david@example.com,559-555-2379
+Zapata,Luis,VP Grape Sales,luis@example.com,559-555-2301
+Gunter,Fritz,Grape Smusher,fritz@example.com,559-555-2333
+Pichon,Esmerela,Head Raisin Counter,esmerelda@example.com,559-555-2397
+Blain,Marilyn,Raisin Packager,marilyn@example.com,559-555-6565
+Marks,Blair,VP Investor Relations,blair@example.com,559-555-6513
+Schmidt,Gertrude,VP Business Development,gertrude@example.com,559-555-6700
+
+>>> ================================ RESTART ================================
+>>> 
+Hettinger,Raymond,VP Raisin Smushing,raymond@example.com,559-555-1212
+
+Thomas,Mary,Sr. Associate Raisin Design,mary@example.com,559-555-2300
+
+Davis,Harold,Chief Raisin Picker,harold@example.com,559-555-2318
+
+Masterson,Martin,Asst Raisin Smusher,martin@example.com,559-555-2348
+
+Jones,David,Grape Ager,david@example.com,559-555-2379
+
+Zapata,Luis,VP Grape Sales,luis@example.com,559-555-2301
+
+Gunter,Fritz,Grape Smusher,fritz@example.com,559-555-2333
+
+Pichon,Esmerela,Head Raisin Counter,esmerelda@example.com,559-555-2397
+
+Blain,Marilyn,Raisin Packager,marilyn@example.com,559-555-6565
+
+Marks,Blair,VP Investor Relations,blair@example.com,559-555-6513
+
+Schmidt,Gertrude,VP Business Development,gertrude@example.com,559-555-6700
+
+>>> line
+'Schmidt,Gertrude,VP Business Development,gertrude@example.com,559-555-6700\n'
+>>> print 10
+10
+>>> 
+>>> # Newlines are doubled
+>>> # The original line has \n
+>>> # Also, the print adds extra one
+>>> ================================ RESTART ================================
+>>> 
+Hettinger,Raymond,VP Raisin Smushing,raymond@example.com,559-555-1212
+Thomas,Mary,Sr. Associate Raisin Design,mary@example.com,559-555-2300
+Davis,Harold,Chief Raisin Picker,harold@example.com,559-555-2318
+Masterson,Martin,Asst Raisin Smusher,martin@example.com,559-555-2348
+Jones,David,Grape Ager,david@example.com,559-555-2379
+Zapata,Luis,VP Grape Sales,luis@example.com,559-555-2301
+Gunter,Fritz,Grape Smusher,fritz@example.com,559-555-2333
+Pichon,Esmerela,Head Raisin Counter,esmerelda@example.com,559-555-2397
+Blain,Marilyn,Raisin Packager,marilyn@example.com,559-555-6565
+Marks,Blair,VP Investor Relations,blair@example.com,559-555-6513
+Schmidt,Gertrude,VP Business Development,gertrude@example.com,559-555-6700
+>>> ================================ RESTART ================================
+>>> 
+Hettinger,Raymond,VP Raisin Smushing,raymond@example.com,559-555-1212
+
+Thomas,Mary,Sr. Associate Raisin Design,mary@example.com,559-555-2300
+
+Davis,Harold,Chief Raisin Picker,harold@example.com,559-555-2318
+
+Masterson,Martin,Asst Raisin Smusher,martin@example.com,559-555-2348
+
+Jones,David,Grape Ager,david@example.com,559-555-2379
+
+Zapata,Luis,VP Grape Sales,luis@example.com,559-555-2301
+
+Gunter,Fritz,Grape Smusher,fritz@example.com,559-555-2333
+
+Pichon,Esmerela,Head Raisin Counter,esmerelda@example.com,559-555-2397
+
+Blain,Marilyn,Raisin Packager,marilyn@example.com,559-555-6565
+
+Marks,Blair,VP Investor Relations,blair@example.com,559-555-6513
+
+Schmidt,Gertrude,VP Business Development,gertrude@example.com,559-555-6700
+
+>>> line
+'Schmidt,Gertrude,VP Business Development,gertrude@example.com,559-555-6700\n'
+>>> line.rstrip()
+'Schmidt,Gertrude,VP Business Development,gertrude@example.com,559-555-6700'
+>>> ================================ RESTART ================================
+>>> 
+Hettinger,Raymond,VP Raisin Smushing,raymond@example.com,559-555-1212
+Thomas,Mary,Sr. Associate Raisin Design,mary@example.com,559-555-2300
+Davis,Harold,Chief Raisin Picker,harold@example.com,559-555-2318
+Masterson,Martin,Asst Raisin Smusher,martin@example.com,559-555-2348
+Jones,David,Grape Ager,david@example.com,559-555-2379
+Zapata,Luis,VP Grape Sales,luis@example.com,559-555-2301
+Gunter,Fritz,Grape Smusher,fritz@example.com,559-555-2333
+Pichon,Esmerela,Head Raisin Counter,esmerelda@example.com,559-555-2397
+Blain,Marilyn,Raisin Packager,marilyn@example.com,559-555-6565
+Marks,Blair,VP Investor Relations,blair@example.com,559-555-6513
+Schmidt,Gertrude,VP Business Development,gertrude@example.com,559-555-6700
+>>> line
+'Schmidt,Gertrude,VP Business Development,gertrude@example.com,559-555-6700'
+>>> line = 'this line has two\n\n'
+>>> line[:-1]
+'this line has two\n'
+>>> line.rstrip()
+'this line has two'
+>>> line = 'this line has CRLF\r\n'
+>>> line[:-1]
+'this line has CRLF\r'
+>>> line.rstrip()
+'this line has CRLF'
+>>> line
+'this line has CRLF\r\n'
+>>> ================================ RESTART ================================
+>>> 
+Hettinger,Raymond,VP Raisin Smushing,raymond@example.com,559-555-1212
+Thomas,Mary,Sr. Associate Raisin Design,mary@example.com,559-555-2300
+Davis,Harold,Chief Raisin Picker,harold@example.com,559-555-2318
+Masterson,Martin,Asst Raisin Smusher,martin@example.com,559-555-2348
+Jones,David,Grape Ager,david@example.com,559-555-2379
+Zapata,Luis,VP Grape Sales,luis@example.com,559-555-2301
+Gunter,Fritz,Grape Smusher,fritz@example.com,559-555-2333
+Pichon,Esmerela,Head Raisin Counter,esmerelda@example.com,559-555-2397
+Blain,Marilyn,Raisin Packager,marilyn@example.com,559-555-6565
+Marks,Blair,VP Investor Relations,blair@example.com,559-555-6513
+Schmidt,Gertrude,VP Business Development,gertrude@example.com,559-555-6700
+>>> line
+'Schmidt,Gertrude,VP Business Development,gertrude@example.com,559-555-6700'
+>>> ================================ RESTART ================================
+>>> 
+['Hettinger,Raymond,VP', 'Raisin', 'Smushing,raymond@example.com,559-555-1212']
+['Thomas,Mary,Sr.', 'Associate', 'Raisin', 'Design,mary@example.com,559-555-2300']
+['Davis,Harold,Chief', 'Raisin', 'Picker,harold@example.com,559-555-2318']
+['Masterson,Martin,Asst', 'Raisin', 'Smusher,martin@example.com,559-555-2348']
+['Jones,David,Grape', 'Ager,david@example.com,559-555-2379']
+['Zapata,Luis,VP', 'Grape', 'Sales,luis@example.com,559-555-2301']
+['Gunter,Fritz,Grape', 'Smusher,fritz@example.com,559-555-2333']
+['Pichon,Esmerela,Head', 'Raisin', 'Counter,esmerelda@example.com,559-555-2397']
+['Blain,Marilyn,Raisin', 'Packager,marilyn@example.com,559-555-6565']
+['Marks,Blair,VP', 'Investor', 'Relations,blair@example.com,559-555-6513']
+['Schmidt,Gertrude,VP', 'Business', 'Development,gertrude@example.com,559-555-6700']
+>>> line
+'Schmidt,Gertrude,VP Business Development,gertrude@example.com,559-555-6700'
+>>> ================================ RESTART ================================
+>>> 
+['Hettinger', 'Raymond', 'VP Raisin Smushing', 'raymond@example.com', '559-555-1212']
+['Thomas', 'Mary', 'Sr. Associate Raisin Design', 'mary@example.com', '559-555-2300']
+['Davis', 'Harold', 'Chief Raisin Picker', 'harold@example.com', '559-555-2318']
+['Masterson', 'Martin', 'Asst Raisin Smusher', 'martin@example.com', '559-555-2348']
+['Jones', 'David', 'Grape Ager', 'david@example.com', '559-555-2379']
+['Zapata', 'Luis', 'VP Grape Sales', 'luis@example.com', '559-555-2301']
+['Gunter', 'Fritz', 'Grape Smusher', 'fritz@example.com', '559-555-2333']
+['Pichon', 'Esmerela', 'Head Raisin Counter', 'esmerelda@example.com', '559-555-2397']
+['Blain', 'Marilyn', 'Raisin Packager', 'marilyn@example.com', '559-555-6565']
+['Marks', 'Blair', 'VP Investor Relations', 'blair@example.com', '559-555-6513']
+['Schmidt', 'Gertrude', 'VP Business Development', 'gertrude@example.com', '559-555-6700']
+>>> ================================ RESTART ================================
+>>> 
+>>> type(fields)
+<type 'list'>
+>>> fields
+['Schmidt', 'Gertrude', 'VP Business Development', 'gertrude@example.com', '559-555-6700']
+>>> fields[0]
+'Schmidt'
+>>> fields[1]
+'Gertrude'
+>>> 
+>>> ================================ RESTART ================================
+>>> 
+VP Raisin Smushing Raymond
+Sr. Associate Raisin Design Mary
+Chief Raisin Picker Harold
+Asst Raisin Smusher Martin
+Grape Ager David
+VP Grape Sales Luis
+Grape Smusher Fritz
+Head Raisin Counter Esmerela
+Raisin Packager Marilyn
+VP Investor Relations Blair
+VP Business Development Gertrude
+>>> f
+<open file 'notes/raisin_team.csv', mode 'r' at 0x102d48660>
+>>> ================================ RESTART ================================
+>>> 
+VP Raisin Smushing Raymond
+Sr. Associate Raisin Design Mary
+Chief Raisin Picker Harold
+Asst Raisin Smusher Martin
+Grape Ager David
+VP Grape Sales Luis
+Grape Smusher Fritz
+Head Raisin Counter Esmerela
+Raisin Packager Marilyn
+VP Investor Relations Blair
+VP Business Development Gertrude
+>>> f
+<closed file 'notes/raisin_team.csv', mode 'r' at 0x102e5f420>
+>>> ================================ RESTART ================================
+>>> 
+
+Traceback (most recent call last):
+  File "/Users/raymond/Dropbox/Public/sj93/vcard.py", line 9, in <module>
+    lname, fname, title, email = line.split(',')
+ValueError: too many values to unpack
+>>> f
+<open file 'notes/raisin_team.csv', mode 'r' at 0x102c48660>
+>>> ================================ RESTART ================================
+>>> 
+
+Traceback (most recent call last):
+  File "/Users/raymond/Dropbox/Public/sj93/vcard.py", line 10, in <module>
+    lname, fname, title, email = line.split(',')
+ValueError: too many values to unpack
+>>> f
+<closed file 'notes/raisin_team.csv', mode 'r' at 0x102d5f420>
+>>> ================================ RESTART ================================
+>>> 
+
+Traceback (most recent call last):
+  File "/Users/raymond/Dropbox/Public/sj93/vcard.py", line 9, in <module>
+    lname, fname, title, email = line.split(',')
+ValueError: too many values to unpack
+>>> f
+<closed file 'notes/raisin_team.csv', mode 'r' at 0x103648660>
+>>> line = '"Hettinger","Raymond",42,VP Raisin Smushing,raymond@example.com,559-555-1212'
+>>> fields = line.split(',')
+>>> fields[0]
+'"Hettinger"'
+>>> ================================ RESTART ================================
+>>> 
+['Hettinger', 'Raymond', 'VP Raisin Smushing', 'raymond@example.com', '559-555-1212']
+['Thomas', 'Mary', 'Sr. Associate Raisin Design', 'mary@example.com', '559-555-2300']
+['Davis', 'Harold', 'Chief Raisin Picker', 'harold@example.com', '559-555-2318']
+['Masterson', 'Martin', 'Asst Raisin Smusher', 'martin@example.com', '559-555-2348']
+['Jones', 'David', 'Grape Ager', 'david@example.com', '559-555-2379']
+['Zapata', 'Luis', 'VP Grape Sales', 'luis@example.com', '559-555-2301']
+['Gunter', 'Fritz', 'Grape Smusher', 'fritz@example.com', '559-555-2333']
+['Pichon', 'Esmerela', 'Head Raisin Counter', 'esmerelda@example.com', '559-555-2397']
+['Blain', 'Marilyn', 'Raisin Packager', 'marilyn@example.com', '559-555-6565']
+['Marks', 'Blair', 'VP Investor Relations', 'blair@example.com', '559-555-6513']
+['Schmidt', 'Gertrude', 'VP Business Development', 'gertrude@example.com', '559-555-6700']
+>>> type(row)
+<type 'list'>
+>>> row[0]
+'Schmidt'
+>>> row[1]
+'Gertrude'
+>>> ================================ RESTART ================================
+>>> 
+Raymond raymond@example.com
+Mary mary@example.com
+Harold harold@example.com
+Martin martin@example.com
+David david@example.com
+Luis luis@example.com
+Fritz fritz@example.com
+Esmerela esmerelda@example.com
+Marilyn marilyn@example.com
+Blair blair@example.com
+Gertrude gertrude@example.com
+>>> ================================ RESTART ================================
+>>> 
+Raymond raymond@example.com
+Mary mary@example.com
+Harold harold@example.com
+Martin martin@example.com
+David david@example.com
+Luis luis@example.com
+Fritz fritz@example.com
+Esmerela esmerelda@example.com
+Marilyn marilyn@example.com
+Blair blair@example.com
+Gertrude gertrude@example.com
+>>> ================================ RESTART ================================
+>>> 
+Raymond raymond@example.com
+Mary mary@example.com
+Harold harold@example.com
+Martin martin@example.com
+David david@example.com
+Luis luis@example.com
+Fritz fritz@example.com
+Esmerela esmerelda@example.com
+Marilyn marilyn@example.com
+Blair blair@example.com
+Gertrude gertrude@example.com
+>>> print 'The answer is %d today' % 10
+The answer is 10 today
+>>> print 'The answer is %d today but was %d yesterday' % (10, 15)
+The answer is 10 today but was 15 yesterday
+>>> ================================ RESTART ================================
+>>> 
+Raymond Hettinger has an email address at raymond@example.com
+Mary Thomas has an email address at mary@example.com
+Harold Davis has an email address at harold@example.com
+Martin Masterson has an email address at martin@example.com
+David Jones has an email address at david@example.com
+Luis Zapata has an email address at luis@example.com
+Fritz Gunter has an email address at fritz@example.com
+Esmerela Pichon has an email address at esmerelda@example.com
+Marilyn Blain has an email address at marilyn@example.com
+Blair Marks has an email address at blair@example.com
+Gertrude Schmidt has an email address at gertrude@example.com
+>>> ================================ RESTART ================================
+>>> 
+Raymond Hettinger has an email address at raymond@example.com.
+Mary Thomas has an email address at mary@example.com.
+Harold Davis has an email address at harold@example.com.
+Martin Masterson has an email address at martin@example.com.
+David Jones has an email address at david@example.com.
+Luis Zapata has an email address at luis@example.com.
+Fritz Gunter has an email address at fritz@example.com.
+Esmerela Pichon has an email address at esmerelda@example.com.
+Marilyn Blain has an email address at marilyn@example.com.
+Blair Marks has an email address at blair@example.com.
+Gertrude Schmidt has an email address at gertrude@example.com.
+BEGIN:VCARD
+VERSION:3.0
+N:Gump;Forrest;;Mr.
+FN:Forrest Gump
+ORG:Bubba Gump Shrimp Co.
+TITLE:Shrimp Man
+PHOTO;VALUE=URL;TYPE=GIF:http://www.example.com/dir_photos/my_photo.gif
+TEL;TYPE=WORK,VOICE:(111) 555-12121
+TEL;TYPE=HOME,VOICE:(404) 555-1212
+ADR;TYPE=WORK:;;100 Waters Edge;Baytown;LA;30314;United States of America
+LABEL;TYPE=WORK:100 Waters Edge
+Baytown, LA 30314
+United States of America
+ADR;TYPE=HOME:;;42 Plantation St.;Baytown;LA;30314;United States of America
+LABEL;TYPE=HOME:42 Plantation St.
+Baytown, LA 30314
+United States of America
+EMAIL;TYPE=PREF,INTERNET:forrestgump@example.com
+REV:2008-04-24T19:52:43Z
+END:VCARD
+
+>>> ================================ RESTART ================================
+>>> 
+Raymond Hettinger has an email address at raymond@example.com.
+Mary Thomas has an email address at mary@example.com.
+Harold Davis has an email address at harold@example.com.
+Martin Masterson has an email address at martin@example.com.
+David Jones has an email address at david@example.com.
+Luis Zapata has an email address at luis@example.com.
+Fritz Gunter has an email address at fritz@example.com.
+Esmerela Pichon has an email address at esmerelda@example.com.
+Marilyn Blain has an email address at marilyn@example.com.
+Blair Marks has an email address at blair@example.com.
+Gertrude Schmidt has an email address at gertrude@example.com.
+
+Traceback (most recent call last):
+  File "/Users/raymond/Dropbox/Public/sj93/vcard.py", line 25, in <module>
+    print vcard % (lname, fname, fname, lname, title, phone, email)
+NameError: name 'vcard' is not defined
+>>> ================================ RESTART ================================
+>>> 
+Raymond Hettinger has an email address at raymond@example.com.
+Mary Thomas has an email address at mary@example.com.
+Harold Davis has an email address at harold@example.com.
+Martin Masterson has an email address at martin@example.com.
+David Jones has an email address at david@example.com.
+Luis Zapata has an email address at luis@example.com.
+Fritz Gunter has an email address at fritz@example.com.
+Esmerela Pichon has an email address at esmerelda@example.com.
+Marilyn Blain has an email address at marilyn@example.com.
+Blair Marks has an email address at blair@example.com.
+Gertrude Schmidt has an email address at gertrude@example.com.
+BEGIN:VCARD
+VERSION:3.0
+N:Schmidt;Gertrude
+FN:Gertrude Schmidt
+ORG:Raisins R Us, Inc
+TITLE:VP Business Development
+TEL;TYPE=WORK,VOICE:559-555-6700
+LABEL;TYPE=WORK:100 Flat Grape Dr
+Fresno, CA 95555
+United States of America
+EMAIL;TYPE=PREF,INTERNET:gertrude@example.com
+REV:2014-04-24T19:52:43Z
+END:VCARD
+
+>>> ================================ RESTART ================================
+>>> 
+BEGIN:VCARD
+VERSION:3.0
+N:Hettinger;Raymond
+FN:Raymond Hettinger
+ORG:Raisins R Us, Inc
+TITLE:VP Raisin Smushing
+TEL;TYPE=WORK,VOICE:559-555-1212
+LABEL;TYPE=WORK:100 Flat Grape Dr
+Fresno, CA 95555
+United States of America
+EMAIL;TYPE=PREF,INTERNET:raymond@example.com
+REV:2014-04-24T19:52:43Z
+END:VCARD
+
+BEGIN:VCARD
+VERSION:3.0
+N:Thomas;Mary
+FN:Mary Thomas
+ORG:Raisins R Us, Inc
+TITLE:Sr. Associate Raisin Design
+TEL;TYPE=WORK,VOICE:559-555-2300
+LABEL;TYPE=WORK:100 Flat Grape Dr
+Fresno, CA 95555
+United States of America
+EMAIL;TYPE=PREF,INTERNET:mary@example.com
+REV:2014-04-24T19:52:43Z
+END:VCARD
+
+BEGIN:VCARD
+VERSION:3.0
+N:Davis;Harold
+FN:Harold Davis
+ORG:Raisins R Us, Inc
+TITLE:Chief Raisin Picker
+TEL;TYPE=WORK,VOICE:559-555-2318
+LABEL;TYPE=WORK:100 Flat Grape Dr
+Fresno, CA 95555
+United States of America
+EMAIL;TYPE=PREF,INTERNET:harold@example.com
+REV:2014-04-24T19:52:43Z
+END:VCARD
+
+BEGIN:VCARD
+VERSION:3.0
+N:Masterson;Martin
+FN:Martin Masterson
+ORG:Raisins R Us, Inc
+TITLE:Asst Raisin Smusher
+TEL;TYPE=WORK,VOICE:559-555-2348
+LABEL;TYPE=WORK:100 Flat Grape Dr
+Fresno, CA 95555
+United States of America
+EMAIL;TYPE=PREF,INTERNET:martin@example.com
+REV:2014-04-24T19:52:43Z
+END:VCARD
+
+BEGIN:VCARD
+VERSION:3.0
+N:Jones;David
+FN:David Jones
+ORG:Raisins R Us, Inc
+TITLE:Grape Ager
+TEL;TYPE=WORK,VOICE:559-555-2379
+LABEL;TYPE=WORK:100 Flat Grape Dr
+Fresno, CA 95555
+United States of America
+EMAIL;TYPE=PREF,INTERNET:david@example.com
+REV:2014-04-24T19:52:43Z
+END:VCARD
+
+BEGIN:VCARD
+VERSION:3.0
+N:Zapata;Luis
+FN:Luis Zapata
+ORG:Raisins R Us, Inc
+TITLE:VP Grape Sales
+TEL;TYPE=WORK,VOICE:559-555-2301
+LABEL;TYPE=WORK:100 Flat Grape Dr
+Fresno, CA 95555
+United States of America
+EMAIL;TYPE=PREF,INTERNET:luis@example.com
+REV:2014-04-24T19:52:43Z
+END:VCARD
+
+BEGIN:VCARD
+VERSION:3.0
+N:Gunter;Fritz
+FN:Fritz Gunter
+ORG:Raisins R Us, Inc
+TITLE:Grape Smusher
+TEL;TYPE=WORK,VOICE:559-555-2333
+LABEL;TYPE=WORK:100 Flat Grape Dr
+Fresno, CA 95555
+United States of America
+EMAIL;TYPE=PREF,INTERNET:fritz@example.com
+REV:2014-04-24T19:52:43Z
+END:VCARD
+
+BEGIN:VCARD
+VERSION:3.0
+N:Pichon;Esmerela
+FN:Esmerela Pichon
+ORG:Raisins R Us, Inc
+TITLE:Head Raisin Counter
+TEL;TYPE=WORK,VOICE:559-555-2397
+LABEL;TYPE=WORK:100 Flat Grape Dr
+Fresno, CA 95555
+United States of America
+EMAIL;TYPE=PREF,INTERNET:esmerelda@example.com
+REV:2014-04-24T19:52:43Z
+END:VCARD
+
+BEGIN:VCARD
+VERSION:3.0
+N:Blain;Marilyn
+FN:Marilyn Blain
+ORG:Raisins R Us, Inc
+TITLE:Raisin Packager
+TEL;TYPE=WORK,VOICE:559-555-6565
+LABEL;TYPE=WORK:100 Flat Grape Dr
+Fresno, CA 95555
+United States of America
+EMAIL;TYPE=PREF,INTERNET:marilyn@example.com
+REV:2014-04-24T19:52:43Z
+END:VCARD
+
+BEGIN:VCARD
+VERSION:3.0
+N:Marks;Blair
+FN:Blair Marks
+ORG:Raisins R Us, Inc
+TITLE:VP Investor Relations
+TEL;TYPE=WORK,VOICE:559-555-6513
+LABEL;TYPE=WORK:100 Flat Grape Dr
+Fresno, CA 95555
+United States of America
+EMAIL;TYPE=PREF,INTERNET:blair@example.com
+REV:2014-04-24T19:52:43Z
+END:VCARD
+
+BEGIN:VCARD
+VERSION:3.0
+N:Schmidt;Gertrude
+FN:Gertrude Schmidt
+ORG:Raisins R Us, Inc
+TITLE:VP Business Development
+TEL;TYPE=WORK,VOICE:559-555-6700
+LABEL;TYPE=WORK:100 Flat Grape Dr
+Fresno, CA 95555
+United States of America
+EMAIL;TYPE=PREF,INTERNET:gertrude@example.com
+REV:2014-04-24T19:52:43Z
+END:VCARD
+
+>>> 
+>>> ================================ RESTART ================================
+>>> 
+=============================== Source: http://dl.dropbox.com/u/3967849/sj93/links.txt ==============================
+                                    Starting download at Mon Aug 25 17:36:22 2014                                    
+200* OK               https://dl.dropbox.com/u/3967849/shared/call_by_object.txt --> notes/call_by_object.txt  (current) 
+304  NOT MODIFIED     https://dl.dropbox.com/u/3967849/shared/banner.py
+200* OK               https://dl.dropbox.com/u/3967849/shared/ipv4_int_bri.txt --> notes/ipv4_int_bri.txt    (current) 
+200  OK               https://dl.dropbox.com/u/3967849/sj93/dayfour.log       --> notes/dayfour.log         (current) 
+304  NOT MODIFIED     https://dl.dropbox.com/u/3967849/sj93/vcard.py
+304  NOT MODIFIED     https://dl.dropbox.com/u/3967849/shared/publish.py
+304  NOT MODIFIED     https://dl.dropbox.com/u/3967849/shared/picirc.py
+200  OK               https://dl.dropbox.com/u/3967849/sj93/daytwo.log        --> notes/daytwo.log          (current) 
+304  NOT MODIFIED     https://dl.dropbox.com/u/3967849/shared/highlight.py
+304  NOT MODIFIED     https://dl.dropbox.com/u/3967849/shared/Raymond_Hettinger.vcf
+200* OK               https://dl.dropbox.com/u/3967849/sj93/links.txt         --> notes/links.txt           (current) 
+304  NOT MODIFIED     https://dl.dropbox.com/u/3967849/shared/norvig_corrector.py
+304  NOT MODIFIED     https://dl.dropbox.com/u/3967849/shared/Raymond_Hettinger.png
+304  NOT MODIFIED     https://dl.dropbox.com/u/3967849/shared/islands.pdf
+304  NOT MODIFIED     https://dl.dropbox.com/u/3967849/shared/IntroPython.pdf
+200  OK               https://dl.dropbox.com/u/3967849/sj93/daythree.log      --> notes/daythree.log        (current) 
+304  NOT MODIFIED     https://dl.dropbox.com/u/3967849/shared/__init__.py
+200* OK               https://dl.dropbox.com/u/3967849/sj93/dayone.log        --> notes/dayone.log          (current) 
+304  NOT MODIFIED     https://dl.dropbox.com/u/3967849/shared/PythonAwesome.pdf
+304  NOT MODIFIED     https://dl.dropbox.com/u/3967849/shared/corpus.dat
+304  NOT MODIFIED     https://dl.dropbox.com/u/3967849/shared/pexpect.py
+200* OK               https://dl.dropbox.com/u/3967849/sj93/text_formats.txt  --> notes/text_formats.txt    (current) 
+304  NOT MODIFIED     https://dl.dropbox.com/u/3967849/shared/show_controllers.txt
+304  NOT MODIFIED     https://dl.dropbox.com/u/3967849/shared/BeautifulSoup.py
+304  NOT MODIFIED     https://dl.dropbox.com/u/3967849/shared/raisin_team.csv
+200* OK               https://dl.dropbox.com/u/3967849/shared/books.json      --> notes/books.json          (current) 
+304  NOT MODIFIED     https://dl.dropbox.com/u/3967849/shared/dns_servers.json
+200* OK               https://dl.dropbox.com/u/3967849/shared/books.xml       --> notes/books.xml           (current) 
+304  NOT MODIFIED     https://dl.dropbox.com/u/3967849/shared/team_history.json
+200* OK               https://dl.dropbox.com/u/3967849/shared/re.txt          --> notes/re.txt              (current) 
+304  NOT MODIFIED     https://dl.dropbox.com/u/3967849/shared/email.txt
+304  NOT MODIFIED     https://dl.dropbox.com/u/3967849/shared/CSRRESTAPI.pdf
+304  NOT MODIFIED     https://dl.dropbox.com/u/3967849/shared/team_history.txt
+304  NOT MODIFIED     https://dl.dropbox.com/u/3967849/shared/stocks.txt
+>>> ================================ RESTART ================================
+>>> 
+=============================== Source: http://dl.dropbox.com/u/3967849/sj93/links.txt ==============================
+                                    Starting download at Mon Aug 25 17:41:03 2014                                    
+200* OK               https://dl.dropbox.com/u/3967849/sj93/links.txt         --> notes/links.txt           (current) 
+304  NOT MODIFIED     https://dl.dropbox.com/u/3967849/shared/Raymond_Hettinger.png
+304  NOT MODIFIED     https://dl.dropbox.com/u/3967849/shared/highlight.py
+200* OK               https://dl.dropbox.com/u/3967849/sj93/text_formats.txt  --> notes/text_formats.txt    (current) 
+304  NOT MODIFIED     https://dl.dropbox.com/u/3967849/shared/norvig_corrector.py
+304  NOT MODIFIED     https://dl.dropbox.com/u/3967849/sj93/vcard.py
+304  NOT MODIFIED     https://dl.dropbox.com/u/3967849/shared/publish.py
+304  NOT MODIFIED     https://dl.dropbox.com/u/3967849/shared/picirc.py
+200  OK               https://dl.dropbox.com/u/3967849/sj93/daytwo.log        --> notes/daytwo.log          (current) 
+200  OK               https://dl.dropbox.com/u/3967849/sj93/dayfour.log       --> notes/dayfour.log         (current) 
+200* OK               https://dl.dropbox.com/u/3967849/shared/ipv4_int_bri.txt --> notes/ipv4_int_bri.txt    (current) 
+304  NOT MODIFIED     https://dl.dropbox.com/u/3967849/shared/__init__.py
+200  OK               https://dl.dropbox.com/u/3967849/sj93/daythree.log      --> notes/daythree.log        (current) 
+304  NOT MODIFIED     https://dl.dropbox.com/u/3967849/shared/IntroPython.pdf
+304  NOT MODIFIED     https://dl.dropbox.com/u/3967849/shared/BeautifulSoup.py
+304  NOT MODIFIED     https://dl.dropbox.com/u/3967849/shared/Raymond_Hettinger.vcf
+304  NOT MODIFIED     https://dl.dropbox.com/u/3967849/shared/pexpect.py
+304  NOT MODIFIED     https://dl.dropbox.com/u/3967849/shared/islands.pdf
+304  NOT MODIFIED     https://dl.dropbox.com/u/3967849/shared/PythonAwesome.pdf
+200* OK               https://dl.dropbox.com/u/3967849/sj93/dayone.log        --> notes/dayone.log          (current) 
+304  NOT MODIFIED     https://dl.dropbox.com/u/3967849/shared/corpus.dat
+304  NOT MODIFIED     https://dl.dropbox.com/u/3967849/shared/show_controllers.txt
+304  NOT MODIFIED     https://dl.dropbox.com/u/3967849/shared/banner.py
+200* OK               https://dl.dropbox.com/u/3967849/shared/call_by_object.txt --> notes/call_by_object.txt  (current) 
+304  NOT MODIFIED     https://dl.dropbox.com/u/3967849/shared/raisin_team.csv
+304  NOT MODIFIED     https://dl.dropbox.com/u/3967849/shared/email.txt
+200* OK               https://dl.dropbox.com/u/3967849/shared/books.json      --> notes/books.json          (current) 
+200* OK               https://dl.dropbox.com/u/3967849/shared/books.xml       --> notes/books.xml           (current) 
+304  NOT MODIFIED     https://dl.dropbox.com/u/3967849/shared/team_history.txt
+200* OK               https://dl.dropbox.com/u/3967849/shared/re.txt          --> notes/re.txt              (current) 
+304  NOT MODIFIED     https://dl.dropbox.com/u/3967849/shared/stocks.txt
+304  NOT MODIFIED     https://dl.dropbox.com/u/3967849/shared/dns_servers.json
+304  NOT MODIFIED     https://dl.dropbox.com/u/3967849/shared/team_history.json
+304  NOT MODIFIED     https://dl.dropbox.com/u/3967849/shared/CSRRESTAPI.pdf
+>>> 
+>>> 

@@ -1,0 +1,263 @@
+Big code -> big projects -> failed
+
+Alan Kay -- head of Xerox Parc Labs 
+            invented OOP and Smalltalk
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+The old days
+
+Data:
+-----
+a = 5
+b = [10, 20, 30]
+c = 6
+d = [5, -10, 7]
+e = [[1,2],
+     [3,4],
+     [5,6]]
+f = [[1, 4, 6],
+     [6, 4, 1],
+     [3, 2, 3]]
+g = 'hello'
+h = [10, -5]
+i = 'goodbye'
+j = open('somefile.txt')
+k = u'howdy'
+l = urlopen('http://www.python.org')
+k = open('altfile.txt')
+
+Functions:
+----------
+mul(x, y)
+mmul(x, y)
+dot(x, y)
+write(x)
+urlread(x)
+msize(x)
+minv(m)
+close(x)
+vsize(x)
+uniupper(x)
+strlen(x)
+read(x)
+cross(x, y)
+eigs(x)
+unistrlen(x)
+write(x)
+upper(x)
+
+Calls
+-----
+verb(noun, noun)
+mul(a, c)
+mmul(e, f)
+
+
+Problem: which functions go with which data
+Problem : organization
+Partial Solution:  type checking (partial electronic defense for bad calls)
+Problem: introspection, learnability problems
+
+
+
+
+
+Objects (data was directly associated with functions that operate on the data)
+-----
+a = 5                                  [mul, abs]
+b = [10, 20, 30]                       [dot, vlen, cross]
+c = 6                                  [mul, abs]
+d = [5, -10, 7]                        [dot, vlen, cross]
+e = [[1,2],                            [msize, mmul]
+     [3,4],
+     [5,6]]
+f = [[1, 4, 6],                        [msize, mmul, minv, eigs] 
+     [6, 4, 1],
+     [3, 2, 3]]
+g = 'hello'                            [strlen, upper]
+h = [10, -5]                           [dot, vlen]
+i = 'goodbye'                          [strlen, upper]
+j = open('somefile.txt')               [read, write, close]
+k = u'howdy'                           [unistrlen, uniupper]
+l = urlopen('http://www.python.org')   [urlread]
+k = open('altfile.txt')                [read, write, close]
+m = color.red                          [set_backgound]
+
+
+noun.verb(noun)
+a.mul(c) 
+e.mmul(e.tr)
+f.msize()
+'hello'.upper()
+
+
+
+
+
+
+
+
+Classes
+---------------------------------------------
+a = 5                                  scalar             
+b = [10, 20, 30]                       vector3
+c = 6                                  scalar
+d = [5, -10, 7]                        vector3
+e = [[1,2],                            matrix
+     [3,4],
+     [5,6]]
+f = [[1, 4, 6],                        smatrix
+     [6, 4, 1],
+     [3, 2, 3]]
+g = 'hello'                            str
+h = [10, -5]                           vector
+i = 'goodbye'                          str
+j = open('somefile.txt')               file
+k = u'howdy'                           unicode
+l = urlopen('http://www.python.org')   url
+k = open('altfile.txt')                file
+
+
+Classes
+=======
+scalar:     [mul, abs]
+vector:     [dot, vlen]
+vector3:    [dot, vlen, cross]
+matrix:     [msize, mmul]
+smatrix:    [msize, mmul, minv, eigs]
+str:        [strlen, upper]
+unicode:    [unistrlen, uniupper]
+file:       [read, write, close]
+url:        [urlread]
+
+
+
+
+Classes with Inheritance
+========================
+
+a = 5              scalar             
+b = [10, 20, 30]   vector3
+c = 6              scalar
+d = [5, -10, 7]    vector3
+e = [[1,2],        matrix
+     [3,4],
+     [5,6]]
+f = [[1, 4, 6],    smatrix
+     [6, 4, 1],
+     [3, 2, 3]]
+g = 'hello'        str
+h = [10, -5]       vector
+i = 'goodbye'      str
+
+scalar:            [mul, abs]
+vector:            [dot, vlen]
+vector3(vector):   [cross]
+matrix:            [msize, mmul]
+smatrix(matrix):   [minv, eigs]
+str:               [strlen, upper]
+unicode:           [unistrlen, uniupper]
+file:              [read, write, close]
+url:               [urlread]
+
+g.strlen()
+d.vlen()
+f.msize()
+
+
+
+Classes with Inheritance and Polymorphism
+=========================================
+scalar:     [mul, abs]
+vector:     [dot, len]
+vector3:    [vector, cross]
+matrix:     [len, mul]
+smartrix:   [matrix, minv, eigs]
+str:        [len, upper]
+unicode:    [len, upper]
+file:       [read, write, close]
+url:        [read]
+tuple:      [len]
+
+g.len()
+h.len()
+f.len()
+a.mul(c)
+f.mul(e)
+
+
+
+
+
+
+for x in [mat1, vec1, mat2, str3]:
+    if kind(x) == Matrix:
+        print msize(x)
+    elif kind(x) == Vector:
+        print vlen(x)
+    elif kind(x) == Str:
+        print strlen(x)
+    elif kind(x) == Mapping:
+        print mapping_size(x)
+    elif kind(x) == ByteArray:
+        print byte_size(x)
+    else:
+        error('unknown kind')
+        
+
+
+
+
+
+
+
+
+
+
+
+
+for obj in [mat1, vec1, mat2, str3, uni4, tuple5, bytearray1, set1]:
+    print obj.len()
+
+
+
+Summary
+==============
+Object:  data associated with the functions that operate on that data
+Class:   a named group of related of functions and shared data (methods and class variables)
+Inheritance:  code reuse of one class by another
+Polymorphism:  same name in multiple namespaces
+               for improved learnability and saved client from big if-elif-chains
+

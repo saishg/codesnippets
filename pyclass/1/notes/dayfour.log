@@ -1,0 +1,3166 @@
+﻿Python 2.7.8 (v2.7.8:ee879c0ffa11, Jun 29 2014, 21:07:35) 
+[GCC 4.2.1 (Apple Inc. build 5666) (dot 3)] on darwin
+Type "copyright", "credits" or "license()" for more information.
+>>> ================================ RESTART ================================
+>>> 
+Woof! Fido is barking at the moon.
+Woof! Buddy is barking at the moon.
+Woof! Checkers is barking at the moon.
+Woof! Rex is barking at the moon.
+Woof! Fido is barking at the moon.
+Meow! Socks is purring at the door.
+>>> ================================ RESTART ================================
+>>> 
+Woof! Fido is barking at the moon.
+Woof! Buddy is barking at the moon.
+>>> animal
+<__main__.Dog instance at 0x102e5c2d8>
+>>> animal.name
+'Buddy'
+>>> 
+>>> 
+>>> a = [10, 20]
+>>> b = [0, a, a, 30]
+>>> 
+>>> b
+[0, [10, 20], [10, 20], 30]
+>>> a[0] = 11
+>>> b
+[0, [11, 20], [11, 20], 30]
+>>> 
+>>> 
+>>> [0] * 10
+[0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+>>> 
+>>> s = [ [] ] * 10
+>>> s
+[[], [], [], [], [], [], [], [], [], []]
+>>> s[0].append('gotcha')
+>>> s
+[['gotcha'], ['gotcha'], ['gotcha'], ['gotcha'], ['gotcha'], ['gotcha'], ['gotcha'], ['gotcha'], ['gotcha'], ['gotcha']]
+>>> 
+>>> 
+>>> 
+>>> s = []
+>>> for i in range(5)"
+SyntaxError: EOL while scanning string literal
+>>> for i in range(5):
+	s.append([])
+
+	
+>>> 
+>>> 
+>>> 
+>>> s = []
+>>> for i in range(5):
+	s.append([])
+
+	
+>>> s[0].append('expected')
+>>> s
+[['expected'], [], [], [], []]
+>>> s = [ [] ] * 10
+>>> s[0].append('gotcha')
+>>> s
+[['gotcha'], ['gotcha'], ['gotcha'], ['gotcha'], ['gotcha'], ['gotcha'], ['gotcha'], ['gotcha'], ['gotcha'], ['gotcha']]
+>>> 
+>>> 
+>>> 
+>>> 
+>>> 
+>>> # Looping idioms
+>>> 
+>>> names = 'raymond rachel matthew'.split()
+>>> colors = 'red blue yellow green'.split()
+>>> 
+>>> len(names)
+3
+>>> len(colors)
+4
+>>> # Dr.  Leonard Hoftstadter
+>>> 
+>>> # Task 1:  Print out the colors
+>>> 
+>>> for i in [0, 1, 2, 3]:
+	print color[i]
+
+	
+
+Traceback (most recent call last):
+  File "<pyshell#55>", line 2, in <module>
+    print color[i]
+NameError: name 'color' is not defined
+>>> for i in [0, 1, 2, 3]:
+	print colors[i]
+
+	
+red
+blue
+yellow
+green
+>>> range(4)
+[0, 1, 2, 3]
+>>> len(colors)
+4
+>>> 
+>>> for i in range(len(colors)):
+	print colors[i]
+
+	
+red
+blue
+yellow
+green
+>>> for color in colors:
+	print color
+
+	
+red
+blue
+yellow
+green
+>>> # Task 2: Show colors backwards
+>>> 
+>>> for i in [3, 2, 1, 0]:
+	print colors[i]
+
+	
+green
+yellow
+blue
+red
+>>> range(10)
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+>>> len(range(10))
+10
+>>> 
+>>> range(2, 10)
+[2, 3, 4, 5, 6, 7, 8, 9]
+>>> range(2, 10, 3)
+[2, 5, 8]
+>>> # start stop step
+>>> 
+>>> [3, 2, 1, 0
+]
+[3, 2, 1, 0]
+>>> range(3, 0, -1)
+[3, 2, 1]
+>>> range(3, -1, -1)
+[3, 2, 1, 0]
+>>> len(colors)
+4
+>>> for i in range(len(colors)-1, -1, -1):
+	print colors[i]
+
+	
+green
+yellow
+blue
+red
+>>> for color in reversed(colors):
+	print color
+
+	
+green
+yellow
+blue
+red
+>>> for i in range(len(colors)):
+	print '%s -> %s' % (i, colors[i])
+
+	
+0 -> red
+1 -> blue
+2 -> yellow
+3 -> green
+>>> for i, color in enumerate(colors):
+	print '%s -> %s' % (i, colors)
+
+	
+0 -> ['red', 'blue', 'yellow', 'green']
+1 -> ['red', 'blue', 'yellow', 'green']
+2 -> ['red', 'blue', 'yellow', 'green']
+3 -> ['red', 'blue', 'yellow', 'green']
+>>> 
+>>> 
+
+
+>>> 
+
+
+
+
+>>> 
+
+
+>>> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+>>> 
+
+
+>>> 
+
+
+
+>>> for i in range(len(colors)):
+	print '%s -> %s' % (i, colors[i])
+
+	
+0 -> red
+1 -> blue
+2 -> yellow
+3 -> green
+>>> for i, color in enumerate(colors):
+	print '%s -> %s' % (i, color)
+
+	
+0 -> red
+1 -> blue
+2 -> yellow
+3 -> green
+>>> names
+['raymond', 'rachel', 'matthew']
+>>> colors
+['red', 'blue', 'yellow', 'green']
+>>> 
+>>> 
+>>> 
+>>> 
+>>> 
+>>> # C:    <cond>  ?  <posres>  :  <negres>
+>>> # Excel @if(<cond>, <posres>, <negres>)
+>>> # Python:    <posres> if <cond> else <negres>
+>>> 
+>>> score = 55
+>>> 
+>>> print 'pass' if score >= 70 else 'fail'
+fail
+>>> import this
+The Zen of Python, by Tim Peters
+
+Beautiful is better than ugly.
+Explicit is better than implicit.
+Simple is better than complex.
+Complex is better than complicated.
+Flat is better than nested.
+Sparse is better than dense.
+Readability counts.
+Special cases aren't special enough to break the rules.
+Although practicality beats purity.
+Errors should never pass silently.
+Unless explicitly silenced.
+In the face of ambiguity, refuse the temptation to guess.
+There should be one-- and preferably only one --obvious way to do it.
+Although that way may not be obvious at first unless you're Dutch.
+Now is better than never.
+Although never is often better than *right* now.
+If the implementation is hard to explain, it's a bad idea.
+If the implementation is easy to explain, it may be a good idea.
+Namespaces are one honking great idea -- let's do more of those!
+>>> 
+>>> 
+>>> # Today, I will go shopping if my paycheck clears, otherwise, I'll stay home.
+>>> # 'shopping' if clears(check) else 'home'
+>>> 
+>>> 'A' if score >= 90 else 'B' if score >= 80 else 'C' if score >= 70 else 'F'
+'F'
+>>> 
+>>> score
+55
+>>> score = 75
+>>> 'A' if score >= 90 else 'B' if score >= 80 else 'C' if score >= 70 else 'F'
+'C'
+>>> score = 90
+>>> 'A' if score >= 90 else 'B' if score >= 80 else 'C' if score >= 70 else 'F'
+'A'
+>>> # Why does Python do ______?  Because Guido said so.
+>>> # (cond ((> score 90) 'A) ((>score 80) 'B) 'F)
+>>> 
+>>> 
+>>> 
+>>> n = len(names) if len(names) < len(colors) else len(colors)
+>>> for i in range(n):
+	print names[i], '-->', colors[i]
+
+	
+raymond --> red
+rachel --> blue
+matthew --> yellow
+>>> min(10, 3, 20)
+3
+>>> n = len(names) if len(names) < len(colors) else len(colors)
+>>> n = min(len(names), len(colors))
+>>> for i in range(n):
+	print names[i], '-->', colors[i]
+
+	
+raymond --> red
+rachel --> blue
+matthew --> yellow
+>>> 
+>>> # lockstep iteration
+>>> # 50 by John McCarthy
+>>> # mapcar(names, colors)
+>>> # zip(names, colors)
+>>> 
+>>> zip(names, colors)
+[('raymond', 'red'), ('rachel', 'blue'), ('matthew', 'yellow')]
+>>> 
+>>> 
+>>> n = len(names) if len(names) < len(colors) else len(colors)
+>>> for i in range(n):
+	print names[i], '-->', colors[i]
+
+	
+raymond --> red
+rachel --> blue
+matthew --> yellow
+>>> for name, color in zip(names, colors):
+	print name, '-->', color
+
+	
+raymond --> red
+rachel --> blue
+matthew --> yellow
+>>> 
+>>> # alphabetical order
+>>> for color in sorted(colors):
+	print color
+
+	
+blue
+green
+red
+yellow
+>>> # reverse alphabetical order
+>>> for color in sorted(colors, reverse=True):
+	print color
+
+	
+yellow
+red
+green
+blue
+>>> len('red')
+3
+>>> # strlen("red")
+>>> map(len, colors)
+[3, 4, 6, 5]
+>>> colors
+['red', 'blue', 'yellow', 'green']
+>>> 
+>>> 
+>>> # sort by the length of the color
+>>> for color in sorted(colors, key=len):
+	print color
+
+	
+red
+blue
+green
+yellow
+>>> # SELECT color FROM Colors ORDER BY LENGTH(color);
+>>> import this
+>>> ================================ RESTART ================================
+>>> import this
+The Zen of Python, by Tim Peters
+
+Beautiful is better than ugly.
+Explicit is better than implicit.
+Simple is better than complex.
+Complex is better than complicated.
+Flat is better than nested.
+Sparse is better than dense.
+Readability counts.
+Special cases aren't special enough to break the rules.
+Although practicality beats purity.
+Errors should never pass silently.
+Unless explicitly silenced.
+In the face of ambiguity, refuse the temptation to guess.
+There should be one-- and preferably only one --obvious way to do it.
+Although that way may not be obvious at first unless you're Dutch.
+Now is better than never.
+Although never is often better than *right* now.
+If the implementation is hard to explain, it's a bad idea.
+If the implementation is easy to explain, it may be a good idea.
+Namespaces are one honking great idea -- let's do more of those!
+>>> 
+>>> 
+>>> 
+>>> 
+>>> 
+>>> 
+>>> 
+>>> colors = 'red green red blue green blue'.split()
+>>> for color in set(colors):
+	print color
+
+	
+blue
+green
+red
+>>> for color in sorted(set(colors)):
+	print color
+
+	
+blue
+green
+red
+>>> # SELECT DISTINCT color FROM Colors ORDER BY color;
+>>> # cat colors | sort | uniq
+>>> 
+>>> 
+>>> {1, 2, 3, 4}
+set([1, 2, 3, 4])
+>>> set(range(20))
+set([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19])
+>>> set(range(0,20,2))
+set([0, 2, 4, 6, 8, 10, 12, 14, 16, 18])
+>>> set(range(0,40,2))
+set([0, 32, 2, 4, 38, 6, 8, 10, 12, 34, 14, 16, 18, 20, 22, 24, 36, 26, 28, 30])
+>>> 
+>>> 
+>>> s = [10, 5, 17]
+>>> min(s)
+5
+>>> max(s)
+17
+>>> sorted(s)
+[5, 10, 17]
+>>> sorted(s)[0]
+5
+>>> sorted(s)[0] == min(s)
+True
+>>> sorted(s)[-1]
+17
+>>> max(s)
+17
+>>> sorted(s)[0] == min(s)
+True
+>>> sorted(s)[-1] == max(s)
+True
+>>> 
+>>> sorted(s)[:2]
+[5, 10]
+>>> from heapq import nsmallest
+>>> nsmallest(2, s)
+[5, 10]
+>>> nsmallest(2, s) == sorted(s)[:2]
+True
+>>> 
+>>> 
+>>> from heapq import nlargest
+>>> nlargest(2, s)
+[17, 10]
+>>> 
+>>> 
+>>> 
+>>> 
+>>> 
+>>> 
+>>> s
+[10, 5, 17]
+>>> sum(s)
+32
+>>> range(10)
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+>>> sum(range(10))
+45
+>>> 
+>>> sum(range(100000000))
+4999999950000000
+>>> 
+>>> r = range(10)
+>>> r
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+>>> for x in r:
+	print x**2
+
+	
+0
+1
+4
+9
+16
+25
+36
+49
+64
+81
+>>> 
+>>> 
+>>> 
+>>> r = xrange(10)
+>>> r
+xrange(10)
+>>> it = iter(r)
+>>> next(it)
+0
+>>> next(it)
+1
+>>> next(it)
+2
+>>> next(it)
+3
+>>> 
+>>> 
+>>> for i in xrange(10):
+	print i**2
+
+	
+0
+1
+4
+9
+16
+25
+36
+49
+64
+81
+>>> sum(xrange(100000000))
+4999999950000000
+>>> enumerate('abc')
+<enumerate object at 0x102c43aa0>
+>>> it = enumerate('abc')
+>>> next(it)
+(0, 'a')
+>>> next(it)
+(1, 'b')
+>>> next(it)
+(2, 'c')
+>>> next(it)
+
+Traceback (most recent call last):
+  File "<pyshell#265>", line 1, in <module>
+    next(it)
+StopIteration
+>>> for i, letter in enumerate('abc'):
+	print i, letter
+
+	
+0 a
+1 b
+2 c
+>>> reversed('abcdef')
+<reversed object at 0x103237390>
+>>> it = reversed('abcdef')
+>>> next(it)
+'f'
+>>> next(it)
+'e'
+>>> next(it)
+'d'
+>>> list(reversed('abcdef'))
+['f', 'e', 'd', 'c', 'b', 'a']
+>>> list(enumerate('abc'))
+[(0, 'a'), (1, 'b'), (2, 'c')]
+>>> zip('abcdef', range(20))
+[('a', 0), ('b', 1), ('c', 2), ('d', 3), ('e', 4), ('f', 5)]
+>>> from itertools import izip
+>>> izip('abcdef', range(20))
+<itertools.izip object at 0x102d6acb0>
+>>> it = izip('abcdef', range(20))
+>>> next(it)
+('a', 0)
+>>> next(it)
+('b', 1)
+>>> next(it)
+('c', 2)
+>>> sorted(colors)
+['blue', 'blue', 'green', 'green', 'red', 'red']
+>>> 
+>>> 
+>>> f = open('notes/stocks.txt')
+>>> next(f)
+'CSCO,100,18.04\n'
+>>> next(f)
+'WLP,200,45.03\n'
+>>> next(f)
+'CSCO,150,19.05\n'
+>>> 
+>>> f = open('notes/stocks.txt')
+>>> for line in f:
+	print line
+
+	
+CSCO,100,18.04
+
+WLP,200,45.03
+
+CSCO,150,19.05
+
+MSFT,250,80.56
+
+IBM,500,22.01
+
+WLP,250,44.23
+
+GOOG,200,501.45
+
+CSCO,175,19.56
+
+MSFT,75,80.81
+
+GOOG,300,502.65
+
+IBM,150,25.01
+
+>>> f = open('notes/stocks.txt')
+>>> f.readlines()
+['CSCO,100,18.04\n', 'WLP,200,45.03\n', 'CSCO,150,19.05\n', 'MSFT,250,80.56\n', 'IBM,500,22.01\n', 'WLP,250,44.23\n', 'GOOG,200,501.45\n', 'CSCO,175,19.56\n', 'MSFT,75,80.81\n', 'GOOG,300,502.65\n', 'IBM,150,25.01\n']
+>>> d = {'raymond': 'red', 'rachel': 'blue', 'matthew': 'yellow'}
+>>> d.keys()
+['matthew', 'rachel', 'raymond']
+>>> d.values()
+['yellow', 'blue', 'red']
+>>> d.items()
+[('matthew', 'yellow'), ('rachel', 'blue'), ('raymond', 'red')]
+>>> 
+>>> it = d.itervalues()
+>>> it
+<dictionary-valueiterator object at 0x1032381b0>
+>>> next(it)
+'yellow'
+>>> next(it)
+'blue'
+>>> next(it)
+'red'
+>>> for k in d:
+	print k
+
+	
+matthew
+rachel
+raymond
+>>> # Two ways to be iterable:
+>>> #   Sequences are iterable with __getitem__   s[0], s[1], ... IndexError
+>>> #   Everything else is iterable with __iter__  next(it), next(it), ... StopIteration
+>>> 
+>>> dir(f)
+['__class__', '__delattr__', '__doc__', '__enter__', '__exit__', '__format__', '__getattribute__', '__hash__', '__init__', '__iter__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', 'close', 'closed', 'encoding', 'errors', 'fileno', 'flush', 'isatty', 'mode', 'name', 'newlines', 'next', 'read', 'readinto', 'readline', 'readlines', 'seek', 'softspace', 'tell', 'truncate', 'write', 'writelines', 'xreadlines']
+>>> dir({})
+['__class__', '__cmp__', '__contains__', '__delattr__', '__delitem__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__', '__gt__', '__hash__', '__init__', '__iter__', '__le__', '__len__', '__lt__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__setitem__', '__sizeof__', '__str__', '__subclasshook__', 'clear', 'copy', 'fromkeys', 'get', 'has_key', 'items', 'iteritems', 'iterkeys', 'itervalues', 'keys', 'pop', 'popitem', 'setdefault', 'update', 'values', 'viewitems', 'viewkeys', 'viewvalues']
+>>> dir(str)
+['__add__', '__class__', '__contains__', '__delattr__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__', '__getnewargs__', '__getslice__', '__gt__', '__hash__', '__init__', '__le__', '__len__', '__lt__', '__mod__', '__mul__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__rmod__', '__rmul__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '_formatter_field_name_split', '_formatter_parser', 'capitalize', 'center', 'count', 'decode', 'encode', 'endswith', 'expandtabs', 'find', 'format', 'index', 'isalnum', 'isalpha', 'isdigit', 'islower', 'isspace', 'istitle', 'isupper', 'join', 'ljust', 'lower', 'lstrip', 'partition', 'replace', 'rfind', 'rindex', 'rjust', 'rpartition', 'rsplit', 'rstrip', 'split', 'splitlines', 'startswith', 'strip', 'swapcase', 'title', 'translate', 'upper', 'zfill']
+>>> 
+>>> 
+>>> 
+>>> 
+>>> 
+>>> # ITERATOR PROTOCOL
+>>> s = 'cat'
+>>> t1 = iter(s)
+>>> t2 = iter(s)
+>>> 
+>>> id(s)
+4297993232
+>>> id(t1)
+4343188816
+>>> id(t2)
+4343227344
+>>> type(s)
+<type 'str'>
+>>> type(t1)
+<type 'iterator'>
+>>> type(t2)
+<type 'iterator'>
+>>> 
+>>> next(t1)
+'c'
+>>> next(t1)
+'a'
+>>> next(t1)
+'t'
+>>> next(t2)
+'c'
+>>> next(t1)
+
+Traceback (most recent call last):
+  File "<pyshell#338>", line 1, in <module>
+    next(t1)
+StopIteration
+>>> next(t2)
+'a'
+>>> next(t2)
+'t'
+>>> next(t2)
+
+Traceback (most recent call last):
+  File "<pyshell#341>", line 1, in <module>
+    next(t2)
+StopIteration
+
+>>> 
+>>> 
+>>> s = 'cat'
+>>> it = iter(s)
+>>> while True:
+	try:
+		letter = next(it)
+	except StopIteration:
+		break
+	print letter
+
+	
+c
+a
+t
+>>> for i in range(10):
+    print i
+    i = 5
+
+    
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+>>> 
+>>> 
+>>> it = iter('cat')
+>>> next(it)
+'c'
+>>> next(it)
+'a'
+>>> next(it)
+'t'
+>>> next(it)
+
+Traceback (most recent call last):
+  File "<pyshell#361>", line 1, in <module>
+    next(it)
+StopIteration
+>>> next(it)
+
+Traceback (most recent call last):
+  File "<pyshell#362>", line 1, in <module>
+    next(it)
+StopIteration
+>>> next(it)
+
+Traceback (most recent call last):
+  File "<pyshell#363>", line 1, in <module>
+    next(it)
+StopIteration
+>>> it = iter('cat')
+>>> next(it)
+'c'
+>>> next(it)
+'a'
+>>> next(it)
+'t'
+>>> next(it)
+
+Traceback (most recent call last):
+  File "<pyshell#368>", line 1, in <module>
+    next(it)
+StopIteration
+>>> 
+>>> 
+>>> 
+>>> 
+>>> def f(x):
+	x += 10
+	print x
+	x += 100
+	print x
+	x += 1000
+	print x
+
+	
+>>> f(1)
+11
+111
+1111
+>>> def f(x):
+	x += 10
+	return x
+	x += 100
+	return x
+	x += 1000
+	return x
+
+>>> f(1)
+11
+>>> f(1)
+11
+>>> def f(x):
+	x += 10
+	yield x
+	x += 100
+	yield x
+	x += 1000
+	yield x
+
+	
+>>> g = f(1)
+>>> g
+<generator object f at 0x102c43c30>
+>>> next(g)
+11
+>>> next(g)
+111
+>>> next(g)
+1111
+>>> next(g)
+
+Traceback (most recent call last):
+  File "<pyshell#393>", line 1, in <module>
+    next(g)
+StopIteration
+>>> 
+>>> 
+>>> # Write a simple, plain function using "print"
+>>> # and test it.
+>>> # Once it works, convert the "print" to "yield"
+>>> # to make a memory efficient iterator
+>>> 
+>>> def f():
+	print 10
+	print 20
+	print 30
+
+	
+>>> f()
+10
+20
+30
+>>> x = f()
+10
+20
+30
+>>> type(x)
+<type 'NoneType'>
+>>> x == None
+True
+>>> 
+>>> def f():
+	return 10
+	return 20
+	return 30
+
+>>> x = f()
+>>> x
+10
+>>> def f():
+	yield 10
+	yield 20
+	yield 30
+
+	
+>>> g = f()
+>>> g
+<generator object f at 0x102e0afa0>
+>>> next(g)
+10
+>>> next(g)
+20
+>>> next(g)
+30
+>>> next(g)
+
+Traceback (most recent call last):
+  File "<pyshell#422>", line 1, in <module>
+    next(g)
+StopIteration
+>>> 
+>>> 
+>>> def f():
+	yield 10
+	yield 20
+	yield 30
+
+	
+>>> for x in f():
+	print x**2
+
+	
+100
+400
+900
+>>> sum(f())
+60
+>>> min(f())
+10
+>>> list(f())
+[10, 20, 30]
+>>> tuple(f())
+(10, 20, 30)
+>>> sorted(f())
+[10, 20, 30]
+>>> set(f())
+set([10, 20, 30])
+>>> 
+>>> 
+>>> # Generators are a kind of iterator that runs code on-demand
+>>> # Iterators are the glue that holds the language together.
+>>> # Iterators are memory efficient, typically run in L1 and are really fast
+>>> 
+>>> 
+>>> sum(xrange(100000000))
+4999999950000000
+>>> 
+>>> def myxrange(stop):
+	i = 0
+	while i < stop:
+		print i
+		i += 1
+
+		
+>>> 
+>>> myxrange(5)
+0
+1
+2
+3
+4
+>>> def myxrange(stop):
+	i = 0
+	while i < stop:
+		yield i
+		i += 1
+
+		
+>>> myxrange(5)
+<generator object myxrange at 0x102c43c30>
+>>> g = myxrange(5)
+>>> next(g)
+0
+>>> next(g)
+1
+>>> next(g)
+2
+>>> next(g)
+3
+>>> next(g)
+4
+>>> next(g)
+
+Traceback (most recent call last):
+  File "<pyshell#462>", line 1, in <module>
+    next(g)
+StopIteration
+>>> 
+>>> def myxrange(stop):
+	i = 0
+	while i < stop:
+		yield i
+		i += 1
+
+		
+>>> for i in myxrange(5):
+	print i**2
+
+	
+0
+1
+4
+9
+16
+>>> sum(myxrange(100000000))
+4999999950000000
+>>> 
+>>> 
+>>> # List comps and Gen expr
+>>> # 2:00
+>>> 
+>>> 
+>>> 
+
+>>> 
+>>> # sum of squares
+>>> n = 10
+>>> squares = []
+>>> for i in range(n):
+	squares.append(i * i)
+
+	
+>>> squares
+[0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
+>>> sum(squares)
+285
+>>> 
+>>> [i**2 for i in range(10)]
+[0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
+>>> sum([i**2 for i in range(10)])
+285
+>>> # List comprehensions are great at math!
+>>> 
+>>> names = 'manny mo jack'.split()
+>>> names
+['manny', 'mo', 'jack']
+>>> [name.title() for name in names]
+['Manny', 'Mo', 'Jack']
+>>> [name.title() for name in names if name.startswith('m')]
+['Manny', 'Mo']
+>>> 
+>>> # List comprehensions are string processing!
+>>> 
+>>> chr(65)                # Lookup in the ASCII
+'A'
+>>> chr(66)
+'B'
+>>> chr(32)
+' '
+>>> ord('A')
+65
+>>> ord(' ')
+32
+>>> 
+>>> chr(ord(chr(ord(chr(ord(chr(66)))))))
+'B'
+>>> 
+>>> [ord(c) for c in 'Raymond']
+[82, 97, 121, 109, 111, 110, 100]
+>>> [ord(c)+13 for c in 'Raymond']
+[95, 110, 134, 122, 124, 123, 113]
+>>> [chr(ord(c)+13) for c in 'Raymond']
+['_', 'n', '\x86', 'z', '|', '{', 'q']
+>>> code = ''.join([chr(ord(c)+13) for c in 'Raymond'])
+>>> print code
+_nﾆz|{q
+>>> ================================ RESTART ================================
+>>> 
+================================ RESTART ================================
+SyntaxError: invalid syntax
+>>> 
+>>> 
+>>> 
+>>> [82, 97, 121, 109, 111, 110, 100]
+[82, 97, 121, 109, 111, 110, 100]
+
+>>> 
+>>> 
+>>> ================================ RESTART ================================
+>>> ================================ RESTART ================================
+>>> 
+﻿Python 2.7.8 (v2.7.8:ee879c0ffa11, Jun 29 2014, 21:07:35) 
+[GCC 4.2.1 (Apple Inc. build 5666) (dot 3)] on darwin
+Type "copyright", "credits" or "license()" for more information.
+>>> [chr(ord(c) + 13) for c in 'Raymond']
+['_', 'n', '\x86', 'z', '|', '{', 'q']
+>>> ''.join([chr(ord(c) + 13) for c in 'Raymond'])
+'_n\x86z|{q'
+>>> ''.join([chr(ord(c) - 13) for c in _])
+'Raymond'
+>>> 
+
+>>> [len(line) for line in open('notes/stocks.txt')]
+[15, 14, 15, 15, 14, 14, 16, 15, 14, 16, 14]
+>>> len([len(line) for line in open('notes/stocks.txt')])
+11
+>>> min([len(line) for line in open('notes/stocks.txt')])
+14
+>>> max([len(line) for line in open('notes/stocks.txt')])
+16
+>>> sum([len(line) for line in open('notes/stocks.txt')])
+162
+>>> # List comprehensions have WC-like capability
+>>> 
+>>> [line for line in open('notes/stocks.txt') if 'CSCO' in line]
+['CSCO,100,18.04\n', 'CSCO,150,19.05\n', 'CSCO,175,19.56\n']
+>>> print '\n'.join([line for line in open('notes/stocks.txt') if 'CSCO' in line])
+CSCO,100,18.04
+
+CSCO,150,19.05
+
+CSCO,175,19.56
+
+>>> print ''.join([line for line in open('notes/stocks.txt') if 'CSCO' in line])
+CSCO,100,18.04
+CSCO,150,19.05
+CSCO,175,19.56
+
+>>> # List comprehensions have GREP-like capability
+>>> [line.split(',') for line in open('notes/stocks.txt')]
+[['CSCO', '100', '18.04\n'], ['WLP', '200', '45.03\n'], ['CSCO', '150', '19.05\n'], ['MSFT', '250', '80.56\n'], ['IBM', '500', '22.01\n'], ['WLP', '250', '44.23\n'], ['GOOG', '200', '501.45\n'], ['CSCO', '175', '19.56\n'], ['MSFT', '75', '80.81\n'], ['GOOG', '300', '502.65\n'], ['IBM', '150', '25.01\n']]
+>>> [line.split(',')[1] for line in open('notes/stocks.txt')]
+['100', '200', '150', '250', '500', '250', '200', '175', '75', '300', '150']
+>>> [int(line.split(',')[1]) for line in open('notes/stocks.txt')]
+[100, 200, 150, 250, 500, 250, 200, 175, 75, 300, 150]
+>>> sum([int(line.split(',')[1]) for line in open('notes/stocks.txt')])
+2350
+>>> sum([int(line.split(',')[1]) for line in open('notes/stocks.txt') if 'CSCO' in line])
+425
+>>> # List comprehensions have AWK-like capability
+>>> 
+>>> 
+>>> 
+>>> 
+>>> # List comprehensions have WC-like capability
+>>> # List comprehensions have GREP-like capability
+>>> # List comprehensions have AWK-like capability
+>>> # List comprehensions have ROT-13 encryption capability
+>>> # List comprehensions have string processing
+>>> # List comprehensions have math like capability
+>>> ================================ RESTART ================================
+>>> 
+285
+>>> ================================ RESTART ================================
+>>> 
+285
+>>> ================================ RESTART ================================
+>>> 
+285
+285
+>>> ================================ RESTART ================================
+>>> 
+285
+285
+285
+>>> ================================ RESTART ================================
+>>> 
+333332833333500000
+333332833333500000
+333332833333500000
+>>> ================================ RESTART ================================
+>>> 
+333332833333500000
+333332833333500000
+333332833333500000
+333332833333500000
+>>> 
+>>> 
+>>> 
+>>> n = 10
+>>> 
+>>> s = [i**2 for i in range(n)]
+>>> s
+[0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
+>>> s[0]
+0
+>>> s[-1]
+81
+>>> s = (i**2 for i in range(n))
+>>> s
+<generator object <genexpr> at 0x102443aa0>
+>>> next(s)
+0
+>>> next(s)
+1
+>>> next(s)
+4
+>>> next(s)
+9
+>>> next(s)
+16
+>>> 
+>>> 
+>>> 
+>>> [i**2 for i in range(n)]
+[0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
+>>> 
+>>> {i**2 for i in range(n)}
+set([0, 1, 4, 81, 64, 9, 16, 49, 25, 36])
+>>> {i**2 for i in range(-n, n)}
+set([64, 1, 100, 0, 49, 9, 16, 81, 25, 4, 36])
+>>> 
+>>> sqrt = {i**2 : i for i in range(n)}
+>>> sqrt
+{0: 0, 1: 1, 4: 2, 81: 9, 64: 8, 9: 3, 16: 4, 49: 7, 25: 5, 36: 6}
+>>> 
+>>> sqrt[81]
+9
+>>> sqrt[64]
+8
+>>> sqrt = {i**2 : i for i in xrange(n)}
+>>> 
+>>> 
+>>> sum([i**2 for i in range(n)])
+285
+>>> range(n)
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+>>> [i**2 for i in range(n)]
+[0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
+>>> 
+>>> [i**2 for i in xrange(n)]
+[0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
+>>> 
+>>> 
+
+>>> import time
+>>> time.time()
+1409266414.468689
+>>> time.time()
+1409266416.223007
+>>> 
+>>> time.ctime()
+'Thu Aug 28 15:53:49 2014'
+>>> 
+>>> 
+>>> ships = {'B4', 'B5', 'B6', 'B7',
+	     'C2', 'D2', 'D3'}
+>>> guess = 'G4'
+>>> 'Hit!' if guess in ships else 'Miss!'
+'Miss!'
+>>> guess = 'D2'
+>>> 'Hit!' if guess in ships else 'Miss!'
+'Hit!'
+>>> 
+>>> 
+>>> ================================ RESTART ================================
+>>> 
+HTTP/1.1 200 OK
+Server: nginx
+Date: Thu, 28 Aug 2014 23:18:53 GMT
+ETag: "53f8f71a-45c4"
+Accept-Ranges: bytes
+Content-Length: 17860
+Content-Type: text/html
+Last-Modified: Sat, 23 Aug 2014 20:18:34 GMT
+Via: 1.1 sjck-dmz-wsa-8-mgmt.cisco.com:80 (Cisco-WSA/8.5.0-333)
+Connection: close
+
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.12: http://docutils.sourceforge.net/" />
+<title>The Jython Project</title>
+<link rel="stylesheet" href="../cssold/html4css1.css" type="text/css" />
+<link type="text/css" href="css/newstyle.css" rel="stylesheet"> 
+<!--[if lt IE 7]>
+<script defer type="text/javascript" src="css/pngfix.js"></script>
+<![endif]-->
+<script src="css/twitter-1.12.2.js" type="text/javascript" charset="utf-8"></script>
+                <script type="text/javascript" charset="utf-8">
+                getSearchTwitters('tweet', { 
+                  id: 'jython', 
+                  count: 10, 
+                  enableLinks: true, 
+                  ignoreReplies: false, 
+                  clearContents: true,
+                  template: '%text%'
+                });
+                </script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+<script type="text/javascript" src="css/ddaccordion.js">
+/***********************************************
+* Accordion Content script- (c) Dynamic Drive DHTML code library (www.dynamicdrive.com)
+* Visit http://www.dynamicDrive.com for hundreds of DHTML scripts
+* This notice must stay intact for legal use
+***********************************************/
+</script>
+<script type="text/javascript">
+        ddaccordion.init({
+	headerclass: "silverheader", //Shared CSS class name of headers group
+	contentclass: "submenu", //Shared CSS class name of contents group
+	revealtype: "mouseover", //Reveal content when user clicks or onmouseover the header? Valid value: "click", "clickgo", or "mouseover"
+	mouseoverdelay: 200, //if revealtype="mouseover", set delay in milliseconds before header expands onMouseover
+	collapseprev: true, //Collapse previous content (so only one open at any time)? true/false
+	defaultexpanded: [0], //index of content(s) open by default [index1, index2, etc] [] denotes no content
+	onemustopen: true, //Specify whether at least one header should be open always (so never all headers closed)
+	animatedefault: false, //Should contents open by default be animated into view?
+	persiststate: 
+>>> len(page)
+2736
+>>> ================================ RESTART ================================
+>>> 
+HTTP/1.1 200 OK
+Server: nginx
+ETag: "53f8f71a-45c4"
+Accept-Ranges: bytes
+Content-Length: 17860
+Content-Type: text/html
+Last-Modified: Sat, 23 Aug 2014 20:18:34 GMT
+Via: 1.1 sjck-dmz-wsa-8-mgmt.cisco.com:80 (Cisco-WSA/8.5.0-333)
+Connection: close
+
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.12: http://docutils.sourceforge.net/" />
+<title>The Jython Project</title>
+<link rel="stylesheet" href="../cssold/html4css1.css" type="text/css" />
+<link type="text/css" href="css/newstyle.css" rel="stylesheet"> 
+<!--[if lt IE 7]>
+<script defer type="text/javascript" src="css/pngfix.js"></script>
+<![endif]-->
+<script src="css/twitter-1.12.2.js" type="text/javascript" charset="utf-8"></script>
+                <script type="text/javascript" charset="utf-8">
+                getSearchTwitters('tweet', { 
+                  id: 'jython', 
+                  count: 10, 
+                  enableLinks: true, 
+                  ignoreReplies: false, 
+                  clearContents: true,
+                  template: '%text%'
+                });
+                </script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+<script type="text/javascript" src="css/ddaccordion.js">
+/***********************************************
+* Accordion Content script- (c) Dynamic Drive DHTML code library (www.dynamicdrive.com)
+* Visit http://www.dynamicDrive.com for hundreds of DHTML scripts
+* This notice must stay intact for legal use
+***********************************************/
+</script>
+<script type="text/javascript">
+        ddaccordion.init({
+	headerclass: "silverheader", //Shared CSS class name of headers group
+	contentclass: "submenu", //Shared CSS class name of contents group
+	revealtype: "mouseover", //Reveal content when user clicks or onmouseover the header? Valid value: "click", "clickgo", or "mouseover"
+	mouseoverdelay: 200, //if revealtype="mouseover", set delay in milliseconds before header expands onMouseover
+	collapseprev: true, //Collapse previous content (so only one open at any time)? true/false
+	defaultexpanded: [0], //index of content(s) open by default [index1, index2, etc] [] denotes no content
+	onemustopen: true, //Specify whether at least one header should be open always (so never all headers closed)
+	animatedefault: false, //Should contents open by default be animated into view?
+	persiststate: true, //persist state of opened contents within browser session?
+	toggleclass: ["", "selected"], //Two CSS classes to be applied to the header when it's collapsed and expanded, respectively ["class1", "class2"]
+	togglehtml: ["", "", ""], //Additional HTML added to the header when it's collapsed and expanded, respectively  ["position", "html1", "html2"] (see docs)
+	animatespeed: "fast", //speed of animation: integer in milliseconds (ie: 200), or keywords "fast", "normal", or "slow"
+	oninit:function(headers, expandedindices){ //custom code to run when headers have initalized
+		//do nothing
+	},
+	onopenclose:function(header, index, state, isuseractivated){ //custom code to run whenever a header is opened or closed
+		//do nothing
+	}
+            }) 
+        </script>
+</head>
+<body>
+<div id="container">
+<div id="top">
+<div id="header">
+<div id="grouplogo">
+<a href="./" ><img class="logoImage" alt="Jython" style="border: 0px; padding-top: 20px; position:absolute; left: 35px" src="css/jython.png" title="Jython"></a>
+</div>
+<div class="latest_release" style="position:absolute; color:#000; width:180px; top: 15px; right: 30px; padding:0px 10px 10px 30px; font-size:11px; background:url('css/latest_release_bg.png') no-repeat">
+<p style="top: 25px; color:#000">Latest release - 2.5.4rc1<br/>
+<a style="color:#000" href="latest.html">View Release Notes</a><br/>
+Download: <a style="color:#000" href="http://search.maven.org/remotecontent?filepath=org/python/jython-installer/2.5.4-rc1/jython-installer-2.5.4-rc1.jar">.jar</a>
+</div>
+<div class="searchbox">
+<form action="http://www.google.com/search" method="get" class="roundtopsmall">
+<input value="www.jython.org" name="sitesearch" type="hidden"><input size="25" id="searchbox" name="q" id="query" type="text">&nbsp; 
+                    <input name="Search" value="Search" type="submit">
+</form></p>
+</div>
+</div></div>
+<h2 id="topper">Jython: Python for the Java Platform</h2>
+<div id="wrapper">
+<div id="content"><div class="document" id="the-jython-project">
+<h1 class="title">The Jython Project</h1>
+<h2 class="subtitle" id="latest-news">Latest News</h2>
+
+<p><strong>Jython 2.7 Beta 3 Released</strong> (August 2014)</p>
+<p>Please see the <a class="reference external" href="http://hg.python.org/jython/file/744d673392b4/NEWS">NEWS</a>
+file for detailed release notes.</p>
+<p>Read more on <a class="reference external" href="http://fwierzbicki.blogspot.com/2014/08/jython-27-beta3-released.html">Frank Wierzbickis Weblog</a>.</p>
+<p><strong>Jython 2.7 Beta 2 Released</strong> (May 2013)</p>
+<p>Jython 2.7b2 brings us up to language level compatibility with the 2.7 version
+of CPython. We have focused largely on CPython compatibility, and so this
+release of Jython can run more pure Python apps then any previous release.
+Please see the NEWS file for detailed release notes. This is primarily a bugfix
+release, with numerous improvements, including much improvement on Windows
+support.</p>
+<p>Read more on <a class="reference external" href="http://fwierzbicki.blogspot.com/2014/08/jython-27-beta3-released.html">Frank Wierzbickis Weblog</a></p>
+<p><strong>PyDev 3.4.1 Available</strong> (May 2013)</p>
+<p>Please visit the <a class="reference external" href="http://pydev.org">PyDev Site</a> for more information.</p>
+<p><strong>PyDev 3.0 Released</strong> (November 2013)</p>
+<p>From now on, PyDev requires Eclipse 3.7 or 4.3 onwards and Java 7! For older versions, keep using PyDev 2.x.</p>
+<p>Interpreter is now kept up to date with changes to the interpreter, so, pip-installing packages will automatically update internal caches without requiring a manual step.</p>
+<p>Fixed issue connecting to shell for code-completion (which could halt the IDE).
+Please visit the <a class="reference external" href="http://pydev.org">PyDev Site</a> for more information.</p>
+<p><strong>JyNI 2.7-alpha 2 Released</strong> (October 2013)</p>
+<p>JyNI is a compatibility layer with the goal to enable Jython to use native CPython extensions like NumPy or SciPy. This way we aim to enable scientific Python code to run on Jython. Since Java is rather present in industry, while Python is more present in science, JyNI is an important step to lower the cost of using scientific code in industrial environments.</p>
+<p>Our philosophy is to integrate JyNI with Jython and CPython extensions as seamless as possible. So JyNI aims to work without any recompilation of Jython or the desired CPython extensions. It neither requires a customized Jython version, nor customized versions of the CPython extensions (of course your JyNI version must meet the platform your CPython extension was build for). Simply put JyNI.jar on the classpath (along with its native libraries) and Jython should ÒmagicallyÓ be able to load native extensions, as far as the needed Python C-API is already implemented by JyNI.</p>
+<p>Read More at <a class="reference external" href="http://jyni.org">JyNI.org</a></p>
+<p><strong>Jython 2.5.4rc 1 Has Been Released</strong> (February 10, 2013)</p>
+<p>This release fixes numerous bugs since the 2.5.3 release of Jython. Some highlights include:</p>
+<blockquote>
+<p>-The file upload fix for Tomcat and Jetty has been changed</p>
+<p>-Some NullPointerExceptions where fixed.</p>
+</blockquote>
+<p>For more information, see the <a class="reference external" href="http://www.jython.org/latest.html">Release Notes</a>.</p>
+<p><strong>Jython 2.7beta 1 Has Been Released</strong> (February 10, 2013)</p>
+<p>The Jython development team is proud to announce the 2.7beta 1 release!  Jython 2.7b1 brings us up to language level compatibility with the 2.7 version
+of CPython. We have focused largely on CPython compatibility, and so this
+release of Jython can run more pure Python apps then any previous release.</p>
+<p>Some notable new features
+in this release are: a bytearray implementation, a buffer api, memoryview, and a
+bz2 module.  Please see the <a class="reference external" href="http://www.jython.org/latest.html">Release Notes</a> for detailed release notes.</p>
+<p><strong>Jython 2.5.3 Final Has Been Released</strong> (August 13, 2012)</p>
+<p>The Jython development team is proud to announce the final 2.5.3 release!  For a complete listing of changes, please visit the <a class="reference external" href="http://www.jython.org/latest.html">Release Notes</a>.</p>
+<div class="section" id="latest-blogs-and-interesting-stuff">
+<h1>Latest Blogs and Interesting Stuff</h1>
+<p><strong>Jython 101 - A Refreshing Look at a Mature Alternative - Part 2</strong> (May/June 2013)</p>
+<p>Article covering the integration of Jython and Java - Part 2 of 2</p>
+<p>Read <a class="reference external" href="http://www.oraclejavamagazine-digital.com/javamagazine_open/20130506#pg83">Jython 101 - Part 2</a></p>
+<p><strong>Jython 101 - A Refreshing Look at a Mature Alternative</strong> (March/April 2013)</p>
+<p>Article on Jython that was published in Java Magazine - Part 1 of 2</p>
+<p>Read <a class="reference external" href="http://www.oraclejavamagazine-digital.com/javamagazine_open/20130304#pg67">Jython 101 - Part 1</a></p>
+<p><strong>Customizing Jython ProxyMaker</strong> (Wednesday, January 9, 2013)</p>
+<p>I just got a set of patches under &quot;Customizable ProxyMaker&quot; umbrella committed into Jython 2.7. In this post i will try to explain a bit of what Jython's ProxyMaker is and what benefits the ability to customize/override brings for interop with Java.</p>
+<p>Visit Post: <a class="reference external" href="http://darjus.blogspot.com/2013/01/customizing-jython-proxymaker.html">Customizing ProxyMaker</a></p>
+<p><strong>Jython Dev Notes Part 2:  Adding a New Builtin Type</strong> (Monday February 13, 2012)</p>
+<p>Releases of Python (and so releases of Jython) sometimes add new built-in types. In 2.6, a new such buitin is the &quot;bytes&quot; type. In the 2.x series, &quot;bytes&quot; is just a synonym for &quot;str&quot;. In 3.x &quot;bytes&quot; is the name used for 8 bit strings while &quot;str&quot; is a unicode string (and so the &quot;unicode&quot; type disappears in 3.x). This will make it a great example for adding a builtin since there is no added functionality to obscure the basics.  <a class="reference external" href="http://fwierzbicki.blogspot.com/2012/02/jython-dev-notes-part-ii-adding-new.html">Visit Post - Jython Dev Notes Part 2</a></p>
+<p><strong>Jython Dev Notes Part 1:  The Jython Exposer</strong> (Monday January 2, 2012)</p>
+<p>One of my new years resolutions is to make Jython more friendly to new developers. One way to do that is to write up some notes on bits of Jython that are particularly mysterious to newcomers. I've boldly titled this post &quot;Jython dev notes part I&quot; to push myself to create more than one of these :) <a class="reference external" href="http://fwierzbicki.blogspot.com/2012/01/jython-dev-notes-part-i-jython-exposer.html">Visit Post -  Jython Dev Notes Part 1</a></p>
+<p><strong>The Definitive Guide to Jython is Published</strong> (February 6, 2010)</p>
+<p><a class="reference external" href="http://apress.com/book/view/9781430225270">The Definitive Guide to Jython</a> , written by the official Jython team leads, covers the latest Jython 2.5 (or 2.5.x) from the basics to the advanced features. This book begins with a brief introduction to the language and then journeys through Jythons different features and uses.</p>
+<p><a class="reference external" href="http://apress.com/book/view/9781430225270">The Definitive Guide to Jython</a> is organized for beginners as well as advanced users of the language. The book provides a general overview of the Jython language itself, but it also includes intermediate and advanced topics regarding database, web, and GUI applications; frameworks; and integration, concurrency, and parallelism, to name a few.</p>
+<p>This book is available in open-source format at <a class="reference external" href="http://jythonbook.com">jythonbook.com</a>.</p>
+<p><strong>Websphere Application Server Administration Using Jython</strong> (January 30, 2010)</p>
+<p>Utilizing Jython scripting, you can dramatically reduce the effort, resources, and expense associated with managing WebSphere Application Server. WebSphere Application Server Administration Using Jython will show you how.  Read more about it at <a class="reference external" href="http://www.ibmpressbooks.com/bookstore/product.asp?isbn=9780137009527">ibmpressbooks.com</a> today.</p>
+<p><strong>Project Sikuli Released</strong> (January 28, 2010)</p>
+<p>Sikuli is a visual technology to search and automate graphical user interfaces (GUI) using images (screenshots). The first release of Sikuli contains Sikuli Script, a visual scripting API for Jython, and Sikuli IDE, an integrated development environment for writing visual scripts with screenshots easily. Sikuli Script automates anything you see on the screen without internal API's support. You can programmatically control a web page, a desktop application running on Windows/Linux/Mac OS X, or even an iphone application running in an emulator.  For more information, please visit the <a class="reference external" href="http://groups.csail.mit.edu/uid/sikuli/">Sikuli</a> project site.</p>
+<p><strong>Jython Doc Set Updated</strong> (November 08, 2009)</p>
+<p>The Jython <a class="reference external" href="http://jython.org/currentdocs.html">documentation</a> set has been updated to include all modules contained within the Jython standard library.  However, it should be noted that this is still a work in progress since many of these documents have not yet been parsed and tested completely with Jython 2.5.1.  Stay tuned for more updates on the doc set!</p>
+<p>Please report all found bugs to the <a class="reference external" href="http://bugs.jython.org/">jython bug tracker</a>.</p>
+<div class="section" id="jython-2-5-documentation">
+<h2>Jython 2.5 Documentation</h2>
+<p>The documentation for Jython 2.5 is being developed on our <a class="reference external" href="http://wiki.python.org/jython">wiki</a>.  Please help
+Jython by adding content and updating our wiki. As the content matures for 2.5
+it will be pulled back into this website.</p>
+<p>You may also wish to check the <a class="reference external" href="http://sourceforge.net/mailarchive/forum.php?forum_name=jython-users">jython-users</a> mailing list archives as many questions and answers can be found there.</p>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr class="footer" />
+<a class="reference external" href="index.txt">View document source</a>.
+
+</div>
+</div>
+</div>
+<div id="navigation"><div class="navcontainer"><ul class="navlist">
+<li class="menutitle">About</li>
+<li class="menupageitem"><a href="index.html">Welcome</a></li> 
+<li class="menupageitem"><a href="downloads.html">Download</a></li> 
+<li class="menupageitem"><a href="http://wiki.python.org/jython/InstallationInstructions">Installation</a></li> 
+<li class="menupageitem"><a href="http://sourceforge.net/mail/?group_id=12867">Mailing Lists</a></li> 
+<li class="menupageitem"><a href="license.html">License</a></li> 
+<li class="menupageitem"><a href="http://www.python.org/psf/">Foundation</a></li> 
+<li class="menupageitem"><a href="oldsites.html">Archived Sites</a></li> 
+<li class="menupageitem"><a href="acknowledgments.html">Acknowledgments</a></li> 
+<li class="menutitle">Documentation</li>
+<li class="menupageitem"><a href="currentdocs.html">Current Docs</a></li> 
+<li class="menupageitem"><a href="http://www.jython.org/devguide/">Core Development</a></li> 
+<li class="menupageitem"><a href="http://www.jython.org/jythonbook/en/1.0">Jython Book</a></li> 
+<li class="menutitle">Wiki links</li>
+<li class="menupageitem"><a href="http://wiki.python.org/jython/">Front page/News</a></li> 
+<li class="menupageitem"><a href="http://wiki.python.org/jython/JythonFaq">FAQ</a></li> 
+<li class="menupageitem"><a href="http://wiki.python.org/jython/WhyJython">Why Jython?</a></li> 
+<li class="menupageitem"><a href="http://wiki.python.org/jython/UserGuide">User Guide</a></li> 
+<li class="menupageitem"><a href="http://wiki.python.org/jython/JythonBibliography">Books and Articles</a></li> 
+<li class="menupageitem"><a href="http://wiki.python.org/jython/JythonMonthly/Newsletters">Jython Monthly</a></li> 
+<li class="menupageitem"><a href="http://wiki.python.org/jython/ReportingBugs">Reporting Bugs</a></li> 
+</ul>
+</div>
+</div>
+<div id="extra">
+<div class="applemenu">
+<div class="silverheader"><a>Twitter Updates</a></div>
+<div class="submenu"  style="height: 375px;">
+<a style="font-size:8pt; color: green;" href="http://www.twitter.com/jython">Follow Jython</a><br/><br/>
+<div id="tweet">
+<br/>
+</div></div>
+<div class="silverheader"><a>Using Jython</a></div>
+<div class="submenu">
+<iframe src="faq.htm" style="border: 0px; width:100%;height:100%"></iframe>
+</div>
+<div class="silverheader"><a>IRC Chat</a></div>
+<div class="submenu">
+<iframe style="border: 0px; width: 100%; height: 100%" src="JythonIrcLogin.html"></iframe>
+</div>
+<div class="silverheader"><a>Developer Information</a></div>
+<div class="submenu">
+<iframe src="developer.htm" style="border: 0px; width:100%; height:100%"></iframe>
+</div>
+</div>
+<br/><br/>
+</div>
+<div id="footer">
+<ul><li><a href="http://wiki.python.org/jython/JythonFaq">About</a></li>
+<li><a href="http://www.jython.org/jythonpodcast/">Jython Podcast</a></li>
+<li><a href="license.html">License</a>
+</ul>
+</div>
+</div></body>
+
+>>> len(page)
+18117
+>>> page.index('\r\n\r\n')
+253
+>>> 18117 - 253 - 4
+17860
+>>> 
+>>> 
+>>> blocks = []
+>>> blocks.append('Do you u')
+>>> blocks.append('nderst')
+>>> blocks.append('and me now?')
+>>> 
+>>> blocks
+['Do you u', 'nderst', 'and me now?']
+>>> len(blocks)
+3
+>>> print ''.join(blocks)
+Do you understand me now?
+>>> 
+>>> s = ''
+>>> s += 'Do you u'
+>>> s += 'underst'
+>>> s +=
+SyntaxError: invalid syntax
+>>> a
+>>> 
+>>> s += 'and me now?'
+>>> s
+'Do you uunderstand me now?'
+>>> 
+>>> 
+>>> 
+
+>>> import urllib
+>>> u = urllib.urlopen('http://www.jython.org')
+>>> page = u.read()
+>>> print page
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.12: http://docutils.sourceforge.net/" />
+<title>The Jython Project</title>
+<link rel="stylesheet" href="../cssold/html4css1.css" type="text/css" />
+<link type="text/css" href="css/newstyle.css" rel="stylesheet"> 
+<!--[if lt IE 7]>
+<script defer type="text/javascript" src="css/pngfix.js"></script>
+<![endif]-->
+<script src="css/twitter-1.12.2.js" type="text/javascript" charset="utf-8"></script>
+                <script type="text/javascript" charset="utf-8">
+                getSearchTwitters('tweet', { 
+                  id: 'jython', 
+                  count: 10, 
+                  enableLinks: true, 
+                  ignoreReplies: false, 
+                  clearContents: true,
+                  template: '%text%'
+                });
+                </script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+<script type="text/javascript" src="css/ddaccordion.js">
+/***********************************************
+* Accordion Content script- (c) Dynamic Drive DHTML code library (www.dynamicdrive.com)
+* Visit http://www.dynamicDrive.com for hundreds of DHTML scripts
+* This notice must stay intact for legal use
+***********************************************/
+</script>
+<script type="text/javascript">
+        ddaccordion.init({
+	headerclass: "silverheader", //Shared CSS class name of headers group
+	contentclass: "submenu", //Shared CSS class name of contents group
+	revealtype: "mouseover", //Reveal content when user clicks or onmouseover the header? Valid value: "click", "clickgo", or "mouseover"
+	mouseoverdelay: 200, //if revealtype="mouseover", set delay in milliseconds before header expands onMouseover
+	collapseprev: true, //Collapse previous content (so only one open at any time)? true/false
+	defaultexpanded: [0], //index of content(s) open by default [index1, index2, etc] [] denotes no content
+	onemustopen: true, //Specify whether at least one header should be open always (so never all headers closed)
+	animatedefault: false, //Should contents open by default be animated into view?
+	persiststate: true, //persist state of opened contents within browser session?
+	toggleclass: ["", "selected"], //Two CSS classes to be applied to the header when it's collapsed and expanded, respectively ["class1", "class2"]
+	togglehtml: ["", "", ""], //Additional HTML added to the header when it's collapsed and expanded, respectively  ["position", "html1", "html2"] (see docs)
+	animatespeed: "fast", //speed of animation: integer in milliseconds (ie: 200), or keywords "fast", "normal", or "slow"
+	oninit:function(headers, expandedindices){ //custom code to run when headers have initalized
+		//do nothing
+	},
+	onopenclose:function(header, index, state, isuseractivated){ //custom code to run whenever a header is opened or closed
+		//do nothing
+	}
+            }) 
+        </script>
+</head>
+<body>
+<div id="container">
+<div id="top">
+<div id="header">
+<div id="grouplogo">
+<a href="./" ><img class="logoImage" alt="Jython" style="border: 0px; padding-top: 20px; position:absolute; left: 35px" src="css/jython.png" title="Jython"></a>
+</div>
+<div class="latest_release" style="position:absolute; color:#000; width:180px; top: 15px; right: 30px; padding:0px 10px 10px 30px; font-size:11px; background:url('css/latest_release_bg.png') no-repeat">
+<p style="top: 25px; color:#000">Latest release - 2.5.4rc1<br/>
+<a style="color:#000" href="latest.html">View Release Notes</a><br/>
+Download: <a style="color:#000" href="http://search.maven.org/remotecontent?filepath=org/python/jython-installer/2.5.4-rc1/jython-installer-2.5.4-rc1.jar">.jar</a>
+</div>
+<div class="searchbox">
+<form action="http://www.google.com/search" method="get" class="roundtopsmall">
+<input value="www.jython.org" name="sitesearch" type="hidden"><input size="25" id="searchbox" name="q" id="query" type="text">&nbsp; 
+                    <input name="Search" value="Search" type="submit">
+</form></p>
+</div>
+</div></div>
+<h2 id="topper">Jython: Python for the Java Platform</h2>
+<div id="wrapper">
+<div id="content"><div class="document" id="the-jython-project">
+<h1 class="title">The Jython Project</h1>
+<h2 class="subtitle" id="latest-news">Latest News</h2>
+
+<p><strong>Jython 2.7 Beta 3 Released</strong> (August 2014)</p>
+<p>Please see the <a class="reference external" href="http://hg.python.org/jython/file/744d673392b4/NEWS">NEWS</a>
+file for detailed release notes.</p>
+<p>Read more on <a class="reference external" href="http://fwierzbicki.blogspot.com/2014/08/jython-27-beta3-released.html">Frank Wierzbickis Weblog</a>.</p>
+<p><strong>Jython 2.7 Beta 2 Released</strong> (May 2013)</p>
+<p>Jython 2.7b2 brings us up to language level compatibility with the 2.7 version
+of CPython. We have focused largely on CPython compatibility, and so this
+release of Jython can run more pure Python apps then any previous release.
+Please see the NEWS file for detailed release notes. This is primarily a bugfix
+release, with numerous improvements, including much improvement on Windows
+support.</p>
+<p>Read more on <a class="reference external" href="http://fwierzbicki.blogspot.com/2014/08/jython-27-beta3-released.html">Frank Wierzbickis Weblog</a></p>
+<p><strong>PyDev 3.4.1 Available</strong> (May 2013)</p>
+<p>Please visit the <a class="reference external" href="http://pydev.org">PyDev Site</a> for more information.</p>
+<p><strong>PyDev 3.0 Released</strong> (November 2013)</p>
+<p>From now on, PyDev requires Eclipse 3.7 or 4.3 onwards and Java 7! For older versions, keep using PyDev 2.x.</p>
+<p>Interpreter is now kept up to date with changes to the interpreter, so, pip-installing packages will automatically update internal caches without requiring a manual step.</p>
+<p>Fixed issue connecting to shell for code-completion (which could halt the IDE).
+Please visit the <a class="reference external" href="http://pydev.org">PyDev Site</a> for more information.</p>
+<p><strong>JyNI 2.7-alpha 2 Released</strong> (October 2013)</p>
+<p>JyNI is a compatibility layer with the goal to enable Jython to use native CPython extensions like NumPy or SciPy. This way we aim to enable scientific Python code to run on Jython. Since Java is rather present in industry, while Python is more present in science, JyNI is an important step to lower the cost of using scientific code in industrial environments.</p>
+<p>Our philosophy is to integrate JyNI with Jython and CPython extensions as seamless as possible. So JyNI aims to work without any recompilation of Jython or the desired CPython extensions. It neither requires a customized Jython version, nor customized versions of the CPython extensions (of course your JyNI version must meet the platform your CPython extension was build for). Simply put JyNI.jar on the classpath (along with its native libraries) and Jython should ÒmagicallyÓ be able to load native extensions, as far as the needed Python C-API is already implemented by JyNI.</p>
+<p>Read More at <a class="reference external" href="http://jyni.org">JyNI.org</a></p>
+<p><strong>Jython 2.5.4rc 1 Has Been Released</strong> (February 10, 2013)</p>
+<p>This release fixes numerous bugs since the 2.5.3 release of Jython. Some highlights include:</p>
+<blockquote>
+<p>-The file upload fix for Tomcat and Jetty has been changed</p>
+<p>-Some NullPointerExceptions where fixed.</p>
+</blockquote>
+<p>For more information, see the <a class="reference external" href="http://www.jython.org/latest.html">Release Notes</a>.</p>
+<p><strong>Jython 2.7beta 1 Has Been Released</strong> (February 10, 2013)</p>
+<p>The Jython development team is proud to announce the 2.7beta 1 release!  Jython 2.7b1 brings us up to language level compatibility with the 2.7 version
+of CPython. We have focused largely on CPython compatibility, and so this
+release of Jython can run more pure Python apps then any previous release.</p>
+<p>Some notable new features
+in this release are: a bytearray implementation, a buffer api, memoryview, and a
+bz2 module.  Please see the <a class="reference external" href="http://www.jython.org/latest.html">Release Notes</a> for detailed release notes.</p>
+<p><strong>Jython 2.5.3 Final Has Been Released</strong> (August 13, 2012)</p>
+<p>The Jython development team is proud to announce the final 2.5.3 release!  For a complete listing of changes, please visit the <a class="reference external" href="http://www.jython.org/latest.html">Release Notes</a>.</p>
+<div class="section" id="latest-blogs-and-interesting-stuff">
+<h1>Latest Blogs and Interesting Stuff</h1>
+<p><strong>Jython 101 - A Refreshing Look at a Mature Alternative - Part 2</strong> (May/June 2013)</p>
+<p>Article covering the integration of Jython and Java - Part 2 of 2</p>
+<p>Read <a class="reference external" href="http://www.oraclejavamagazine-digital.com/javamagazine_open/20130506#pg83">Jython 101 - Part 2</a></p>
+<p><strong>Jython 101 - A Refreshing Look at a Mature Alternative</strong> (March/April 2013)</p>
+<p>Article on Jython that was published in Java Magazine - Part 1 of 2</p>
+<p>Read <a class="reference external" href="http://www.oraclejavamagazine-digital.com/javamagazine_open/20130304#pg67">Jython 101 - Part 1</a></p>
+<p><strong>Customizing Jython ProxyMaker</strong> (Wednesday, January 9, 2013)</p>
+<p>I just got a set of patches under &quot;Customizable ProxyMaker&quot; umbrella committed into Jython 2.7. In this post i will try to explain a bit of what Jython's ProxyMaker is and what benefits the ability to customize/override brings for interop with Java.</p>
+<p>Visit Post: <a class="reference external" href="http://darjus.blogspot.com/2013/01/customizing-jython-proxymaker.html">Customizing ProxyMaker</a></p>
+<p><strong>Jython Dev Notes Part 2:  Adding a New Builtin Type</strong> (Monday February 13, 2012)</p>
+<p>Releases of Python (and so releases of Jython) sometimes add new built-in types. In 2.6, a new such buitin is the &quot;bytes&quot; type. In the 2.x series, &quot;bytes&quot; is just a synonym for &quot;str&quot;. In 3.x &quot;bytes&quot; is the name used for 8 bit strings while &quot;str&quot; is a unicode string (and so the &quot;unicode&quot; type disappears in 3.x). This will make it a great example for adding a builtin since there is no added functionality to obscure the basics.  <a class="reference external" href="http://fwierzbicki.blogspot.com/2012/02/jython-dev-notes-part-ii-adding-new.html">Visit Post - Jython Dev Notes Part 2</a></p>
+<p><strong>Jython Dev Notes Part 1:  The Jython Exposer</strong> (Monday January 2, 2012)</p>
+<p>One of my new years resolutions is to make Jython more friendly to new developers. One way to do that is to write up some notes on bits of Jython that are particularly mysterious to newcomers. I've boldly titled this post &quot;Jython dev notes part I&quot; to push myself to create more than one of these :) <a class="reference external" href="http://fwierzbicki.blogspot.com/2012/01/jython-dev-notes-part-i-jython-exposer.html">Visit Post -  Jython Dev Notes Part 1</a></p>
+<p><strong>The Definitive Guide to Jython is Published</strong> (February 6, 2010)</p>
+<p><a class="reference external" href="http://apress.com/book/view/9781430225270">The Definitive Guide to Jython</a> , written by the official Jython team leads, covers the latest Jython 2.5 (or 2.5.x) from the basics to the advanced features. This book begins with a brief introduction to the language and then journeys through Jythons different features and uses.</p>
+<p><a class="reference external" href="http://apress.com/book/view/9781430225270">The Definitive Guide to Jython</a> is organized for beginners as well as advanced users of the language. The book provides a general overview of the Jython language itself, but it also includes intermediate and advanced topics regarding database, web, and GUI applications; frameworks; and integration, concurrency, and parallelism, to name a few.</p>
+<p>This book is available in open-source format at <a class="reference external" href="http://jythonbook.com">jythonbook.com</a>.</p>
+<p><strong>Websphere Application Server Administration Using Jython</strong> (January 30, 2010)</p>
+<p>Utilizing Jython scripting, you can dramatically reduce the effort, resources, and expense associated with managing WebSphere Application Server. WebSphere Application Server Administration Using Jython will show you how.  Read more about it at <a class="reference external" href="http://www.ibmpressbooks.com/bookstore/product.asp?isbn=9780137009527">ibmpressbooks.com</a> today.</p>
+<p><strong>Project Sikuli Released</strong> (January 28, 2010)</p>
+<p>Sikuli is a visual technology to search and automate graphical user interfaces (GUI) using images (screenshots). The first release of Sikuli contains Sikuli Script, a visual scripting API for Jython, and Sikuli IDE, an integrated development environment for writing visual scripts with screenshots easily. Sikuli Script automates anything you see on the screen without internal API's support. You can programmatically control a web page, a desktop application running on Windows/Linux/Mac OS X, or even an iphone application running in an emulator.  For more information, please visit the <a class="reference external" href="http://groups.csail.mit.edu/uid/sikuli/">Sikuli</a> project site.</p>
+<p><strong>Jython Doc Set Updated</strong> (November 08, 2009)</p>
+<p>The Jython <a class="reference external" href="http://jython.org/currentdocs.html">documentation</a> set has been updated to include all modules contained within the Jython standard library.  However, it should be noted that this is still a work in progress since many of these documents have not yet been parsed and tested completely with Jython 2.5.1.  Stay tuned for more updates on the doc set!</p>
+<p>Please report all found bugs to the <a class="reference external" href="http://bugs.jython.org/">jython bug tracker</a>.</p>
+<div class="section" id="jython-2-5-documentation">
+<h2>Jython 2.5 Documentation</h2>
+<p>The documentation for Jython 2.5 is being developed on our <a class="reference external" href="http://wiki.python.org/jython">wiki</a>.  Please help
+Jython by adding content and updating our wiki. As the content matures for 2.5
+it will be pulled back into this website.</p>
+<p>You may also wish to check the <a class="reference external" href="http://sourceforge.net/mailarchive/forum.php?forum_name=jython-users">jython-users</a> mailing list archives as many questions and answers can be found there.</p>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr class="footer" />
+<a class="reference external" href="index.txt">View document source</a>.
+
+</div>
+</div>
+</div>
+<div id="navigation"><div class="navcontainer"><ul class="navlist">
+<li class="menutitle">About</li>
+<li class="menupageitem"><a href="index.html">Welcome</a></li> 
+<li class="menupageitem"><a href="downloads.html">Download</a></li> 
+<li class="menupageitem"><a href="http://wiki.python.org/jython/InstallationInstructions">Installation</a></li> 
+<li class="menupageitem"><a href="http://sourceforge.net/mail/?group_id=12867">Mailing Lists</a></li> 
+<li class="menupageitem"><a href="license.html">License</a></li> 
+<li class="menupageitem"><a href="http://www.python.org/psf/">Foundation</a></li> 
+<li class="menupageitem"><a href="oldsites.html">Archived Sites</a></li> 
+<li class="menupageitem"><a href="acknowledgments.html">Acknowledgments</a></li> 
+<li class="menutitle">Documentation</li>
+<li class="menupageitem"><a href="currentdocs.html">Current Docs</a></li> 
+<li class="menupageitem"><a href="http://www.jython.org/devguide/">Core Development</a></li> 
+<li class="menupageitem"><a href="http://www.jython.org/jythonbook/en/1.0">Jython Book</a></li> 
+<li class="menutitle">Wiki links</li>
+<li class="menupageitem"><a href="http://wiki.python.org/jython/">Front page/News</a></li> 
+<li class="menupageitem"><a href="http://wiki.python.org/jython/JythonFaq">FAQ</a></li> 
+<li class="menupageitem"><a href="http://wiki.python.org/jython/WhyJython">Why Jython?</a></li> 
+<li class="menupageitem"><a href="http://wiki.python.org/jython/UserGuide">User Guide</a></li> 
+<li class="menupageitem"><a href="http://wiki.python.org/jython/JythonBibliography">Books and Articles</a></li> 
+<li class="menupageitem"><a href="http://wiki.python.org/jython/JythonMonthly/Newsletters">Jython Monthly</a></li> 
+<li class="menupageitem"><a href="http://wiki.python.org/jython/ReportingBugs">Reporting Bugs</a></li> 
+</ul>
+</div>
+</div>
+<div id="extra">
+<div class="applemenu">
+<div class="silverheader"><a>Twitter Updates</a></div>
+<div class="submenu"  style="height: 375px;">
+<a style="font-size:8pt; color: green;" href="http://www.twitter.com/jython">Follow Jython</a><br/><br/>
+<div id="tweet">
+<br/>
+</div></div>
+<div class="silverheader"><a>Using Jython</a></div>
+<div class="submenu">
+<iframe src="faq.htm" style="border: 0px; width:100%;height:100%"></iframe>
+</div>
+<div class="silverheader"><a>IRC Chat</a></div>
+<div class="submenu">
+<iframe style="border: 0px; width: 100%; height: 100%" src="JythonIrcLogin.html"></iframe>
+</div>
+<div class="silverheader"><a>Developer Information</a></div>
+<div class="submenu">
+<iframe src="developer.htm" style="border: 0px; width:100%; height:100%"></iframe>
+</div>
+</div>
+<br/><br/>
+</div>
+<div id="footer">
+<ul><li><a href="http://wiki.python.org/jython/JythonFaq">About</a></li>
+<li><a href="http://www.jython.org/jythonpodcast/">Jython Podcast</a></li>
+<li><a href="license.html">License</a>
+</ul>
+</div>
+</div></body>
+
+>>> 
+>>> 
+>>> 
+>>> url = 'http://www.jython.org/developers/raymond/bio.txt'
+>>> url.startswith('http://')
+True
+>>> len('http://')
+7
+>>> url[:7]
+'http://'
+>>> url[7:]
+'www.jython.org/developers/raymond/bio.txt'
+>>> url[7:].split('/')
+['www.jython.org', 'developers', 'raymond', 'bio.txt']
+>>> url[7:].split('/')[0]
+'www.jython.org'
+>>> url[7:].split('/')[1:]
+['developers', 'raymond', 'bio.txt']
+>>> 
+>>> url[7:].split('/', 1)
+['www.jython.org', 'developers/raymond/bio.txt']
+>>> host, resource = url[7:].split('/', 1)
+>>> host
+'www.jython.org'
+>>> resource
+'developers/raymond/bio.txt'
+>>> '/' + resource
+'/developers/raymond/bio.txt'
+>>> ================================ RESTART ================================
+>>> 
+HTTP/1.1 200 OK
+Server: nginx
+ETag: "53f8f71a-45c4"
+Accept-Ranges: bytes
+Content-Length: 17860
+Content-Type: text/html
+Last-Modified: Sat, 23 Aug 2014 20:18:34 GMT
+Via: 1.1 sjck-dmz-wsa-8-mgmt.cisco.com:80 (Cisco-WSA/8.5.0-333)
+Connection: close
+
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.12: http://docutils.sourceforge.net/" />
+<title>The Jython Project</title>
+<link rel="stylesheet" href="../cssold/html4css1.css" type="text/css" />
+<link type="text/css" href="css/newstyle.css" rel="stylesheet"> 
+<!--[if lt IE 7]>
+<script defer type="text/javascript" src="css/pngfix.js"></script>
+<![endif]-->
+<script src="css/twitter-1.12.2.js" type="text/javascript" charset="utf-8"></script>
+                <script type="text/javascript" charset="utf-8">
+                getSearchTwitters('tweet', { 
+                  id: 'jython', 
+                  count: 10, 
+                  enableLinks: true, 
+                  ignoreReplies: false, 
+                  clearContents: true,
+                  template: '%text%'
+                });
+                </script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+<script type="text/javascript" src="css/ddaccordion.js">
+/***********************************************
+* Accordion Content script- (c) Dynamic Drive DHTML code library (www.dynamicdrive.com)
+* Visit http://www.dynamicDrive.com for hundreds of DHTML scripts
+* This notice must stay intact for legal use
+***********************************************/
+</script>
+<script type="text/javascript">
+        ddaccordion.init({
+	headerclass: "silverheader", //Shared CSS class name of headers group
+	contentclass: "submenu", //Shared CSS class name of contents group
+	revealtype: "mouseover", //Reveal content when user clicks or onmouseover the header? Valid value: "click", "clickgo", or "mouseover"
+	mouseoverdelay: 200, //if revealtype="mouseover", set delay in milliseconds before header expands onMouseover
+	collapseprev: true, //Collapse previous content (so only one open at any time)? true/false
+	defaultexpanded: [0], //index of content(s) open by default [index1, index2, etc] [] denotes no content
+	onemustopen: true, //Specify whether at least one header should be open always (so never all headers closed)
+	animatedefault: false, //Should contents open by default be animated into view?
+	persiststate: true, //persist state of opened contents within browser session?
+	toggleclass: ["", "selected"], //Two CSS classes to be applied to the header when it's collapsed and expanded, respectively ["class1", "class2"]
+	togglehtml: ["", "", ""], //Additional HTML added to the header when it's collapsed and expanded, respectively  ["position", "html1", "html2"] (see docs)
+	animatespeed: "fast", //speed of animation: integer in milliseconds (ie: 200), or keywords "fast", "normal", or "slow"
+	oninit:function(headers, expandedindices){ //custom code to run when headers have initalized
+		//do nothing
+	},
+	onopenclose:function(header, index, state, isuseractivated){ //custom code to run whenever a header is opened or closed
+		//do nothing
+	}
+            }) 
+        </script>
+</head>
+<body>
+<div id="container">
+<div id="top">
+<div id="header">
+<div id="grouplogo">
+<a href="./" ><img class="logoImage" alt="Jython" style="border: 0px; padding-top: 20px; position:absolute; left: 35px" src="css/jython.png" title="Jython"></a>
+</div>
+<div class="latest_release" style="position:absolute; color:#000; width:180px; top: 15px; right: 30px; padding:0px 10px 10px 30px; font-size:11px; background:url('css/latest_release_bg.png') no-repeat">
+<p style="top: 25px; color:#000">Latest release - 2.5.4rc1<br/>
+<a style="color:#000" href="latest.html">View Release Notes</a><br/>
+Download: <a style="color:#000" href="http://search.maven.org/remotecontent?filepath=org/python/jython-installer/2.5.4-rc1/jython-installer-2.5.4-rc1.jar">.jar</a>
+</div>
+<div class="searchbox">
+<form action="http://www.google.com/search" method="get" class="roundtopsmall">
+<input value="www.jython.org" name="sitesearch" type="hidden"><input size="25" id="searchbox" name="q" id="query" type="text">&nbsp; 
+                    <input name="Search" value="Search" type="submit">
+</form></p>
+</div>
+</div></div>
+<h2 id="topper">Jython: Python for the Java Platform</h2>
+<div id="wrapper">
+<div id="content"><div class="document" id="the-jython-project">
+<h1 class="title">The Jython Project</h1>
+<h2 class="subtitle" id="latest-news">Latest News</h2>
+
+<p><strong>Jython 2.7 Beta 3 Released</strong> (August 2014)</p>
+<p>Please see the <a class="reference external" href="http://hg.python.org/jython/file/744d673392b4/NEWS">NEWS</a>
+file for detailed release notes.</p>
+<p>Read more on <a class="reference external" href="http://fwierzbicki.blogspot.com/2014/08/jython-27-beta3-released.html">Frank Wierzbickis Weblog</a>.</p>
+<p><strong>Jython 2.7 Beta 2 Released</strong> (May 2013)</p>
+<p>Jython 2.7b2 brings us up to language level compatibility with the 2.7 version
+of CPython. We have focused largely on CPython compatibility, and so this
+release of Jython can run more pure Python apps then any previous release.
+Please see the NEWS file for detailed release notes. This is primarily a bugfix
+release, with numerous improvements, including much improvement on Windows
+support.</p>
+<p>Read more on <a class="reference external" href="http://fwierzbicki.blogspot.com/2014/08/jython-27-beta3-released.html">Frank Wierzbickis Weblog</a></p>
+<p><strong>PyDev 3.4.1 Available</strong> (May 2013)</p>
+<p>Please visit the <a class="reference external" href="http://pydev.org">PyDev Site</a> for more information.</p>
+<p><strong>PyDev 3.0 Released</strong> (November 2013)</p>
+<p>From now on, PyDev requires Eclipse 3.7 or 4.3 onwards and Java 7! For older versions, keep using PyDev 2.x.</p>
+<p>Interpreter is now kept up to date with changes to the interpreter, so, pip-installing packages will automatically update internal caches without requiring a manual step.</p>
+<p>Fixed issue connecting to shell for code-completion (which could halt the IDE).
+Please visit the <a class="reference external" href="http://pydev.org">PyDev Site</a> for more information.</p>
+<p><strong>JyNI 2.7-alpha 2 Released</strong> (October 2013)</p>
+<p>JyNI is a compatibility layer with the goal to enable Jython to use native CPython extensions like NumPy or SciPy. This way we aim to enable scientific Python code to run on Jython. Since Java is rather present in industry, while Python is more present in science, JyNI is an important step to lower the cost of using scientific code in industrial environments.</p>
+<p>Our philosophy is to integrate JyNI with Jython and CPython extensions as seamless as possible. So JyNI aims to work without any recompilation of Jython or the desired CPython extensions. It neither requires a customized Jython version, nor customized versions of the CPython extensions (of course your JyNI version must meet the platform your CPython extension was build for). Simply put JyNI.jar on the classpath (along with its native libraries) and Jython should ÒmagicallyÓ be able to load native extensions, as far as the needed Python C-API is already implemented by JyNI.</p>
+<p>Read More at <a class="reference external" href="http://jyni.org">JyNI.org</a></p>
+<p><strong>Jython 2.5.4rc 1 Has Been Released</strong> (February 10, 2013)</p>
+<p>This release fixes numerous bugs since the 2.5.3 release of Jython. Some highlights include:</p>
+<blockquote>
+<p>-The file upload fix for Tomcat and Jetty has been changed</p>
+<p>-Some NullPointerExceptions where fixed.</p>
+</blockquote>
+<p>For more information, see the <a class="reference external" href="http://www.jython.org/latest.html">Release Notes</a>.</p>
+<p><strong>Jython 2.7beta 1 Has Been Released</strong> (February 10, 2013)</p>
+<p>The Jython development team is proud to announce the 2.7beta 1 release!  Jython 2.7b1 brings us up to language level compatibility with the 2.7 version
+of CPython. We have focused largely on CPython compatibility, and so this
+release of Jython can run more pure Python apps then any previous release.</p>
+<p>Some notable new features
+in this release are: a bytearray implementation, a buffer api, memoryview, and a
+bz2 module.  Please see the <a class="reference external" href="http://www.jython.org/latest.html">Release Notes</a> for detailed release notes.</p>
+<p><strong>Jython 2.5.3 Final Has Been Released</strong> (August 13, 2012)</p>
+<p>The Jython development team is proud to announce the final 2.5.3 release!  For a complete listing of changes, please visit the <a class="reference external" href="http://www.jython.org/latest.html">Release Notes</a>.</p>
+<div class="section" id="latest-blogs-and-interesting-stuff">
+<h1>Latest Blogs and Interesting Stuff</h1>
+<p><strong>Jython 101 - A Refreshing Look at a Mature Alternative - Part 2</strong> (May/June 2013)</p>
+<p>Article covering the integration of Jython and Java - Part 2 of 2</p>
+<p>Read <a class="reference external" href="http://www.oraclejavamagazine-digital.com/javamagazine_open/20130506#pg83">Jython 101 - Part 2</a></p>
+<p><strong>Jython 101 - A Refreshing Look at a Mature Alternative</strong> (March/April 2013)</p>
+<p>Article on Jython that was published in Java Magazine - Part 1 of 2</p>
+<p>Read <a class="reference external" href="http://www.oraclejavamagazine-digital.com/javamagazine_open/20130304#pg67">Jython 101 - Part 1</a></p>
+<p><strong>Customizing Jython ProxyMaker</strong> (Wednesday, January 9, 2013)</p>
+<p>I just got a set of patches under &quot;Customizable ProxyMaker&quot; umbrella committed into Jython 2.7. In this post i will try to explain a bit of what Jython's ProxyMaker is and what benefits the ability to customize/override brings for interop with Java.</p>
+<p>Visit Post: <a class="reference external" href="http://darjus.blogspot.com/2013/01/customizing-jython-proxymaker.html">Customizing ProxyMaker</a></p>
+<p><strong>Jython Dev Notes Part 2:  Adding a New Builtin Type</strong> (Monday February 13, 2012)</p>
+<p>Releases of Python (and so releases of Jython) sometimes add new built-in types. In 2.6, a new such buitin is the &quot;bytes&quot; type. In the 2.x series, &quot;bytes&quot; is just a synonym for &quot;str&quot;. In 3.x &quot;bytes&quot; is the name used for 8 bit strings while &quot;str&quot; is a unicode string (and so the &quot;unicode&quot; type disappears in 3.x). This will make it a great example for adding a builtin since there is no added functionality to obscure the basics.  <a class="reference external" href="http://fwierzbicki.blogspot.com/2012/02/jython-dev-notes-part-ii-adding-new.html">Visit Post - Jython Dev Notes Part 2</a></p>
+<p><strong>Jython Dev Notes Part 1:  The Jython Exposer</strong> (Monday January 2, 2012)</p>
+<p>One of my new years resolutions is to make Jython more friendly to new developers. One way to do that is to write up some notes on bits of Jython that are particularly mysterious to newcomers. I've boldly titled this post &quot;Jython dev notes part I&quot; to push myself to create more than one of these :) <a class="reference external" href="http://fwierzbicki.blogspot.com/2012/01/jython-dev-notes-part-i-jython-exposer.html">Visit Post -  Jython Dev Notes Part 1</a></p>
+<p><strong>The Definitive Guide to Jython is Published</strong> (February 6, 2010)</p>
+<p><a class="reference external" href="http://apress.com/book/view/9781430225270">The Definitive Guide to Jython</a> , written by the official Jython team leads, covers the latest Jython 2.5 (or 2.5.x) from the basics to the advanced features. This book begins with a brief introduction to the language and then journeys through Jythons different features and uses.</p>
+<p><a class="reference external" href="http://apress.com/book/view/9781430225270">The Definitive Guide to Jython</a> is organized for beginners as well as advanced users of the language. The book provides a general overview of the Jython language itself, but it also includes intermediate and advanced topics regarding database, web, and GUI applications; frameworks; and integration, concurrency, and parallelism, to name a few.</p>
+<p>This book is available in open-source format at <a class="reference external" href="http://jythonbook.com">jythonbook.com</a>.</p>
+<p><strong>Websphere Application Server Administration Using Jython</strong> (January 30, 2010)</p>
+<p>Utilizing Jython scripting, you can dramatically reduce the effort, resources, and expense associated with managing WebSphere Application Server. WebSphere Application Server Administration Using Jython will show you how.  Read more about it at <a class="reference external" href="http://www.ibmpressbooks.com/bookstore/product.asp?isbn=9780137009527">ibmpressbooks.com</a> today.</p>
+<p><strong>Project Sikuli Released</strong> (January 28, 2010)</p>
+<p>Sikuli is a visual technology to search and automate graphical user interfaces (GUI) using images (screenshots). The first release of Sikuli contains Sikuli Script, a visual scripting API for Jython, and Sikuli IDE, an integrated development environment for writing visual scripts with screenshots easily. Sikuli Script automates anything you see on the screen without internal API's support. You can programmatically control a web page, a desktop application running on Windows/Linux/Mac OS X, or even an iphone application running in an emulator.  For more information, please visit the <a class="reference external" href="http://groups.csail.mit.edu/uid/sikuli/">Sikuli</a> project site.</p>
+<p><strong>Jython Doc Set Updated</strong> (November 08, 2009)</p>
+<p>The Jython <a class="reference external" href="http://jython.org/currentdocs.html">documentation</a> set has been updated to include all modules contained within the Jython standard library.  However, it should be noted that this is still a work in progress since many of these documents have not yet been parsed and tested completely with Jython 2.5.1.  Stay tuned for more updates on the doc set!</p>
+<p>Please report all found bugs to the <a class="reference external" href="http://bugs.jython.org/">jython bug tracker</a>.</p>
+<div class="section" id="jython-2-5-documentation">
+<h2>Jython 2.5 Documentation</h2>
+<p>The documentation for Jython 2.5 is being developed on our <a class="reference external" href="http://wiki.python.org/jython">wiki</a>.  Please help
+Jython by adding content and updating our wiki. As the content matures for 2.5
+it will be pulled back into this website.</p>
+<p>You may also wish to check the <a class="reference external" href="http://sourceforge.net/mailarchive/forum.php?forum_name=jython-users">jython-users</a> mailing list archives as many questions and answers can be found there.</p>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr class="footer" />
+<a class="reference external" href="index.txt">View document source</a>.
+
+</div>
+</div>
+</div>
+<div id="navigation"><div class="navcontainer"><ul class="navlist">
+<li class="menutitle">About</li>
+<li class="menupageitem"><a href="index.html">Welcome</a></li> 
+<li class="menupageitem"><a href="downloads.html">Download</a></li> 
+<li class="menupageitem"><a href="http://wiki.python.org/jython/InstallationInstructions">Installation</a></li> 
+<li class="menupageitem"><a href="http://sourceforge.net/mail/?group_id=12867">Mailing Lists</a></li> 
+<li class="menupageitem"><a href="license.html">License</a></li> 
+<li class="menupageitem"><a href="http://www.python.org/psf/">Foundation</a></li> 
+<li class="menupageitem"><a href="oldsites.html">Archived Sites</a></li> 
+<li class="menupageitem"><a href="acknowledgments.html">Acknowledgments</a></li> 
+<li class="menutitle">Documentation</li>
+<li class="menupageitem"><a href="currentdocs.html">Current Docs</a></li> 
+<li class="menupageitem"><a href="http://www.jython.org/devguide/">Core Development</a></li> 
+<li class="menupageitem"><a href="http://www.jython.org/jythonbook/en/1.0">Jython Book</a></li> 
+<li class="menutitle">Wiki links</li>
+<li class="menupageitem"><a href="http://wiki.python.org/jython/">Front page/News</a></li> 
+<li class="menupageitem"><a href="http://wiki.python.org/jython/JythonFaq">FAQ</a></li> 
+<li class="menupageitem"><a href="http://wiki.python.org/jython/WhyJython">Why Jython?</a></li> 
+<li class="menupageitem"><a href="http://wiki.python.org/jython/UserGuide">User Guide</a></li> 
+<li class="menupageitem"><a href="http://wiki.python.org/jython/JythonBibliography">Books and Articles</a></li> 
+<li class="menupageitem"><a href="http://wiki.python.org/jython/JythonMonthly/Newsletters">Jython Monthly</a></li> 
+<li class="menupageitem"><a href="http://wiki.python.org/jython/ReportingBugs">Reporting Bugs</a></li> 
+</ul>
+</div>
+</div>
+<div id="extra">
+<div class="applemenu">
+<div class="silverheader"><a>Twitter Updates</a></div>
+<div class="submenu"  style="height: 375px;">
+<a style="font-size:8pt; color: green;" href="http://www.twitter.com/jython">Follow Jython</a><br/><br/>
+<div id="tweet">
+<br/>
+</div></div>
+<div class="silverheader"><a>Using Jython</a></div>
+<div class="submenu">
+<iframe src="faq.htm" style="border: 0px; width:100%;height:100%"></iframe>
+</div>
+<div class="silverheader"><a>IRC Chat</a></div>
+<div class="submenu">
+<iframe style="border: 0px; width: 100%; height: 100%" src="JythonIrcLogin.html"></iframe>
+</div>
+<div class="silverheader"><a>Developer Information</a></div>
+<div class="submenu">
+<iframe src="developer.htm" style="border: 0px; width:100%; height:100%"></iframe>
+</div>
+</div>
+<br/><br/>
+</div>
+<div id="footer">
+<ul><li><a href="http://wiki.python.org/jython/JythonFaq">About</a></li>
+<li><a href="http://www.jython.org/jythonpodcast/">Jython Podcast</a></li>
+<li><a href="license.html">License</a>
+</ul>
+</div>
+</div></body>
+
+HTTP/1.1 200 OK
+Date: Thu, 28 Aug 2014 23:42:36 GMT
+Vary: Accept-Encoding
+P3P: CP="There's no P3P policy. Learn why here: http://www.w3.org/P3P/"
+X-Varnish: 700510391 700510169
+X-Served-By: varnish2.develooper.com
+X-Cache: HIT
+X-Cache-Hits: 1
+X-Proxy: proxy2
+Server: NetDNA-cache/2.2
+X-Cache: HIT
+Transfer-Encoding: chunked
+Content-Type: text/html; charset=utf-8
+Last-Modified: Thu, 28 Aug 2014 07:17:39 GMT
+Age: 1493
+Via: 1.1 varnish, 1.1 sjck-dmz-wsa-8-mgmt.cisco.com:80 (Cisco-WSA/8.5.0-333)
+Connection: close
+
+3642
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>The Perl Programming Language - www.perl.org</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+
+    <link rel="shortcut icon" href="//st.pimg.net/perlweb/favicon.v249dfa7.ico" />
+
+
+
+      <link rel="stylesheet" type="text/css" href="//st.pimg.net/perlweb/css/leostyle.v8cd7532.css" /> 
+      <link rel="stylesheet" type="text/css" href="//st.pimg.net/perlweb/css/www.v1c370c5.css" /> 
+
+
+    <meta name="description" content="The Perl Programming Language at Perl.org. Links and other helpful resources for new and experienced Perl programmers." />
+    
+
+    
+
+
+
+</head>
+<body class="section_home">
+
+<div id="header_holder">
+    <div class="sub_holder">
+        <div id="page_image"></div>
+        <h1>
+           <a href="/">The Perl Programming Language</a>
+        </h1>
+        <div id="logo_holder">
+           
+            
+
+            <a href="/"><img src="//st.pimg.net/perlweb/images/camel_head.v25e738a.png" id="logo" alt="Perl, modern programming" height="65" align="right" /></a>
+            
+
+			 <span>www.perl.org</span>
+
+        </div>
+    </div>
+</div>
+
+<div id="nav">
+    <div class="sub_holder">
+        <ul>
+    <li class="selected">
+        <a href="/">Home</a>
+    </li>
+    <li>
+        <a href="/learn.html">Learn</a>
+    </li>
+    <li>
+        <a href="/docs.html">Documentation</a>
+    </li>
+    <li>
+        <a href="/cpan.html">CPAN</a>
+    </li>
+    <li>
+        <a href="/community.html">Community</a>
+    </li>
+    <li>
+        <a href="/contribute.html">Get Involved</a>
+    </li>
+    <li class="sub">
+        <a href="/about.html">About Perl</a>
+    </li>
+    <li class="sub">
+        <a href="/get.html">Download</a>
+    </li>
+</ul>
+
+    </div>
+</div>
+
+<div id="crum_holder">
+    <div id="crum" class="sub_holder">
+        &nbsp;
+    </div>
+</div>
+
+<div id="content_holder">
+    <div id="content" class="sub_holder">
+        <div id="main">
+            
+
+
+
+<div class="masthead">
+	<p class="headline">25,000 extensions on CPAN</p>
+	
+	<p class="strap">That's why we love Perl 5</p>
+	
+	
+	<p class="button"><a href="/get.html" class="download">Download Perl</a></p>
+	
+	
+	<p class="cta"><a href="/get.html">Get started</a></p>
+
+</div>
+
+<p class="intro">Perl 5 is a highly capable, feature-rich programming language with over 26 years of development. <a href="/about.html">More about why we love Perl...</a></p>
+
+<table class="content_table">
+
+    <tr>
+        <td>
+            <div class="module">
+                <a href="/learn.html"><img alt="" src="//st.pimg.net/perlweb/images/icons/learn.v0e1f83c.png" width="45" height="45" /></a>
+                <h4>
+                    <a href="/learn.html">Learning Perl 5</a>
+                </h4>
+                <p>
+                    With free online books, over 25,000 extension modules, and a large developer community, there are many ways to learn Perl 5.
+                </p>
+            </div>
+        </td>
+        <td>
+            <div class="module">
+                <a href="/community.html"><img alt="" src="//st.pimg.net/perlweb/images/icons/community.v03bf8ce.png" width="45" height="45" /></a>
+                <h4>
+                    <a href="/community.html">The Perl Community</a>
+                </h4>
+                <p>
+                    Perl has an active world wide community with over 300 local groups, mailing lists and support/discussion websites.
+                </p>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <div class="module">
+                <a href="/docs.html"><img alt="" src="//st.pimg.net/perlweb/images/icons/docs.v2622a01.png" width="45" height="45" /></a>
+                <h4>
+                    <a href="/docs.html">Documentation</a>
+                </h4>
+                <p>
+                    Core documentation, FAQs and translations.
+                </p>
+            </div>
+        </td>
+        <td>
+            <div class="module">
+                <a href="/contribute.html"><img alt="" src="//st.pimg.net/perlweb/images/icons/cog.v08b9acc.png" width="45" height="45" /></a>
+                <h4>
+                    <a href="/contribute.html">Contribute to Perl</a>
+                </h4>
+                <p>
+                    Perl is being <a href="/dev.html">actively developed</a>. There are many ways to <a href="/contribute.html">get involved</a>.
+                </p>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <div class="module">
+                <a href="/cpan.html"><img alt="" src="//st.pimg.net/perlweb/images/icons/cpan.vdc5be93.png" width="45" height="45" /></a>
+                <h4>
+                    <a href="/cpan.html">CPAN</a>
+                </h4>
+                <p>
+                    The Comprehensive Perl Archive Network (CPAN) has over 25,000 open source distributions available for download.
+                </p>
+            </div>
+        </td>
+        <td>
+            <div class="module">
+                <a href="/events.html"><img alt="" src="//st.pimg.net/perlweb/images/icons/cal.v705acef.png" width="45" height="45" /></a>
+                <h4>
+                    <a href="/events.html">Events and Conferences</a>
+                </h4>
+                <p>
+                    Conferences, social and technical events around the world offer lots of networking and learning opportunities.
+                </p>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <div class="module">
+                <a href="http://www.perl6.org/"><img alt="" src="//st.pimg.net/perlweb/images/icons/perl6.v8ff6c63.png" width="45" height="45" /></a>
+                <h4>
+                    <a href="http://www.perl6.org/">Perl 6</a>
+                </h4>
+                <p>
+                    Perl 6 is a sister language, part of the Perl family. Perl 6 is not production ready yet, you can get involved with its <a href="/dev.html">development</a> though.
+                </p>
+            </div>
+        </td>
+        <td>
+            <div class="module">
+                <a href="http://www.perlfoundation.org/"><img alt="" src="//st.pimg.net/perlweb/images/icons/onion.vee5cb98.png" width="45" height="45" /></a>
+                <h4>
+                    <a href="http://www.perlfoundation.org/">The Perl Foundation</a>
+                </h4>
+                <p>
+                    The Perl Foundation is dedicated to the advancement of the Perl programming language through open discussion, collaboration, design, and code.
+                </p>
+            </div>
+        </td>
+    </tr>
+</table>
+
+<div class="bar">&nbsp; &nbsp; &nbsp; &nbsp;</div>
+
+<table class="content_table">
+  <tr>
+    <td>
+        
+        <ul>
+        
+            <li class="rss round">Latest Uploads to <a href="http://www.cpan.org/">CPAN</a></li>
+        
+            
+                <li class="rss_content"><a href="http://metacpan.org/release/PERLANCAR/Config-IOD-Reader-0.04">Config-IOD-Reader-0.04</a></li>
+                
+                
+            
+                <li class="rss_content"><a href="http://metacpan.org/release/PERLANCAR/IOD-Examples-0.05">IOD-Examples-0.05</a></li>
+                
+                
+            
+                <li class="rss_content"><a href="http://metacpan.org/release/FANGLY/Statistics-R-0.33">Statistics-R-0.33</a></li>
+                
+                
+            
+                <li class="rss_content"><a href="http://metacpan.org/release/PERLANCAR/App-GitUtils-0.04">App-GitUtils-0.04</a></li>
+                
+                
+            
+                <li class="rss_content"><a href="http://metacpan.org/release/PERLANCAR/IOD-0.9.6">IOD-0.9.6</a></li>
+                
+                
+            
+                <li class="rss_content"><a href="http://metacpan.org/release/INGY/no-0.0.1">no-0.0.1</a></li>
+                
+                
+            
+                <li class="rss_content"><a href="http://metacpan.org/release/JONASBN/WWW-DanDomain-0.08">WWW-DanDomain-0.08</a></li>
+                
+                
+            
+                <li class="rss_content"><a href="http://metacpan.org/release/DOHERTY/Dist-Zilla-PluginBundle-Author-DOHERTY-0.38">Dist-Zilla-PluginBundle-Author-DOHERTY-0.38</a></li>
+                
+                
+            
+                <li class="rss_content"><a href="http://metacpan.org/release/DOHERTY/utf8-all-0.014">utf8-all-0.014</a></li>
+                
+                
+            
+                <li class="rss_content"><a href="http://metacpan.org/release/SYOHEX/Text-UnicodeTable-Simple-0.09">Text-UnicodeTable-Simple-0.09</a></li>
+                
+                
+        </ul>
+    </td>
+    <td>
+        
+        <ul>
+        
+            <li class="rss round"><a href="http://perlnews.org/">Perl News</a></li>
+        
+            
+                <li class="rss_content"><a href="http://feedproxy.google.com/~r/PerlNews/~3/GjcRmlWUjVw/">YAPC::Europe live video streams</a></li>
+                
+                
+            
+                <li class="rss_content"><a href="http://feedproxy.google.com/~r/PerlNews/~3/qcUUE5na6oo/">YAPC::NA live video streams and uploads from previous days.</a></li>
+                
+                
+            
+                <li class="rss_content"><a href="http://feedproxy.google.com/~r/PerlNews/~3/6z8qOXUNuk4/">Perl TV over 300 videos</a></li>
+                
+                
+            
+                <li class="rss_content"><a href="http://feedproxy.google.com/~r/PerlNews/~3/0msOToqP6hA/">Perl 5.20 released</a></li>
+                
+                
+            
+                <li class="rss_content"><a href="http://feedproxy.google.com/~r/PerlNews/~3/vo70gN7jeWo/">Perl Track at Open West in Utah</a></li>
+                
+                
+        </ul>
+    </td>
+  </tr>
+</table>
+
+
+        </div>
+        <div id="short_lists" class="short_lists">
+            
+
+            <div class="quick_links">
+        <h4 class="round">
+            Current Perl version
+        </h4>
+        <div class="list">
+        
+        <p><a href="/get.html">5.20.0 - download now</a></p>        
+        
+        </div>
+</div>
+
+
+            <div class="quick_links">
+        <h4 class="round">
+            Find out more
+        </h4>
+        <div class="list">
+        
+        <p><a href="/learn.html">Learn</a></p>        
+        
+        <p><a href="/docs.html">Documentation</a></p>        
+        
+        <p><a href="/community.html">Community</a></p>        
+        
+        <p><a href="/events.html">Events</a></p>        
+        
+        </div>
+</div>
+
+            
+
+            
+<div class="quick_links">
+        <h4 class="round">
+            Tip
+        </h4>
+        <div class="list">
+        <p>
+            <strong>Object Oriented programming</strong>
+            <a href="https://metacpan.org/release/Moose/">Moose</a>
+                (and associated MooseX modules) are a postmodern object system for
+                Perl 5
+        </p>
+    </div>
+</div>
+
+
+            <div id="sponsor">
+        <h4>
+            <a href="/siteinfo.html#sponsors">Sponsor</a>
+        </h4>
+        <p>
+          
+
+
+ <a href="http://develooper.com">
+  <img class="border" border="0" src="//st.pimg.net/perlweb/images/friends/develooperlogo-160t.v5a1f4a3.png" height="36" width="160" alt="Develooper" />Perl Consulting
+  </a>
+
+
+        </p>
+</div>
+
+
+            <div id="spacer_for_google"></div>
+            
+        </div>
+    </div>
+</div>
+<div style="clear:both"></div>
+
+<div id="footer">
+    <div class="sub_holder">
+        
+
+        <p class="sites">
+            &nbsp;When you need <em>Perl</em> think <strong>Perl.org</strong>: <a href="http://www.perl.org/">www</a> | <a href="http://blogs.perl.org/">blogs</a> | <a href="http://jobs.perl.org/">jobs</a> | <a href="http://learn.perl.org/">learn</a> <!-- | <a href="http://lists.perl.org/">lists</a> --> | <a href="http://dev.perl.org/">dev</a>   
+        </p>
+        <p class="copyright">
+            <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/3.0/us/"><img alt="Creative Commons License" style="border-width:0" src="//st.pimg.net/perlweb/images/icons/creativecommons-by-nc-nd-3.0-us-80x15.v072f8cd.png" /></a> © 2002-2014 Perl.org | <a href="/siteinfo.html">Site Info</a>
+        </p>
+
+
+        <div style="clear:both"></div>
+        <div id="google_translate_element"></div>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-50555-1', 'auto');
+  ga('require', 'linkid', 'linkid.js');
+  ga('send', 'pageview');
+</script>
+<script type="text/javascript" src="//st.pimg.net/cdn/libs/jquery/1.7.1/jquery.min.js" charset="UTF-8"></script>
+<script type="text/javascript" src="//st.pimg.net/perlweb/js/jquery.corner.v84b7681.js" charset="UTF-8"></script>
+<script type="text/javascript" src="//st.pimg.net/perlweb/js/leo.v6d3826a.js" charset="UTF-8"></script>
+
+
+
+<script type="text/javascript">
+function googleTranslateElementInit() {
+          new google.translate.TranslateElement({
+            pageLanguage: 'en',
+            autoDisplay: false
+            ,
+            gaTrack: true,
+            gaId: 'UA-50555-1'
+                  }, 'google_translate_element');
+        }
+</script>
+
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" type="text/javascript"></script>
+
+
+
+</body>
+</html>
+
+
+
+0
+
+
+>>> ================================ RESTART ================================
+>>> 
+HTTP/1.1 206 Partial Content
+Server: nginx
+ETag: "53f8f71a-45c4"
+Accept-Ranges: bytes
+Content-Range: bytes 0-200/17860
+Content-Length: 201
+Content-Type: text/html
+Last-Modified: Sat, 23 Aug 2014 20:18:34 GMT
+Via: 1.1 sjck-dmz-wsa-8-mgmt.cisco.com:80 (Cisco-WSA/8.5.0-333)
+Connection: close
+
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xht
+HTTP/1.1 206 Partial Content
+Vary: Accept-Encoding
+P3P: CP="There's no P3P policy. Learn why here: http://www.w3.org/P3P/"
+X-Varnish: 700510391 700510169
+X-Served-By: varnish2.develooper.com
+X-Cache: HIT
+X-Cache-Hits: 1
+X-Proxy: proxy2
+Server: NetDNA-cache/2.2
+X-Cache: HIT
+Content-Range: bytes 0-200/13890
+Content-Length: 201
+Content-Type: text/html; charset=utf-8
+Last-Modified: Thu, 28 Aug 2014 07:17:39 GMT
+Via: 1.1 varnish, 1.1 sjck-dmz-wsa-8-mgmt.cisco.com:80 (Cisco-WSA/8.5.0-333)
+Connection: close
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+   
+>>> ================================ RESTART ================================
+>>> 
+HTTP/1.1 200 OK
+Server: nginx
+Date: Thu, 28 Aug 2014 23:48:48 GMT
+ETag: "53f8f71a-45c4"
+Accept-Ranges: bytes
+Content-Length: 17860
+Content-Type: text/html
+Last-Modified: Sat, 23 Aug 2014 20:18:34 GMT
+Via: 1.1 sjck-dmz-wsa-8-mgmt.cisco.com:80 (Cisco-WSA/8.5.0-333)
+Connection: close
+
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.12: http://docutils.sourceforge.net/" />
+<title>The Jython Project</title>
+<link rel="stylesheet" href="../cssold/html4css1.css" type="text/css" />
+<link type="text/css" href="css/newstyle.css" rel="stylesheet"> 
+<!--[if lt IE 7]>
+<script defer type="text/javascript" src="css/pngfix.js"></script>
+<![endif]-->
+<script src="css/twitter-1.12.2.js" type="text/javascript" charset="utf-8"></script>
+                <script type="text/javascript" charset="utf-8">
+                getSearchTwitters('tweet', { 
+                  id: 'jython', 
+                  count: 10, 
+                  enableLinks: true, 
+                  ignoreReplies: false, 
+                  clearContents: true,
+                  template: '%text%'
+                });
+                </script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+<script type="text/javascript" src="css/ddaccordion.js">
+/***********************************************
+* Accordion Content script- (c) Dynamic Drive DHTML code library (www.dynamicdrive.com)
+* Visit http://www.dynamicDrive.com for hundreds of DHTML scripts
+* This notice must stay intact for legal use
+***********************************************/
+</script>
+<script type="text/javascript">
+        ddaccordion.init({
+	headerclass: "silverheader", //Shared CSS class name of headers group
+	contentclass: "submenu", //Shared CSS class name of contents group
+	revealtype: "mouseover", //Reveal content when user clicks or onmouseover the header? Valid value: "click", "clickgo", or "mouseover"
+	mouseoverdelay: 200, //if revealtype="mouseover", set delay in milliseconds before header expands onMouseover
+	collapseprev: true, //Collapse previous content (so only one open at any time)? true/false
+	defaultexpanded: [0], //index of content(s) open by default [index1, index2, etc] [] denotes no content
+	onemustopen: true, //Specify whether at least one header should be open always (so never all headers closed)
+	animatedefault: false, //Should contents open by default be animated into view?
+	persiststate: true, //persist state of opened contents within browser session?
+	toggleclass: ["", "selected"], //Two CSS classes to be applied to the header when it's collapsed and expanded, respectively ["class1", "class2"]
+	togglehtml: ["", "", ""], //Additional HTML added to the header when it's collapsed and expanded, respectively  ["position", "html1", "html2"] (see docs)
+	animatespeed: "fast", //speed of animation: integer in milliseconds (ie: 200), or keywords "fast", "normal", or "slow"
+	oninit:function(headers, expandedindices){ //custom code to run when headers have initalized
+		//do nothing
+	},
+	onopenclose:function(header, index, state, isuseractivated){ //custom code to run whenever a header is opened or closed
+		//do nothing
+	}
+            }) 
+        </script>
+</head>
+<body>
+<div id="container">
+<div id="top">
+<div id="header">
+<div id="grouplogo">
+<a href="./" ><img class="logoImage" alt="Jython" style="border: 0px; padding-top: 20px; position:absolute; left: 35px" src="css/jython.png" title="Jython"></a>
+</div>
+<div class="latest_release" style="position:absolute; color:#000; width:180px; top: 15px; right: 30px; padding:0px 10px 10px 30px; font-size:11px; background:url('css/latest_release_bg.png') no-repeat">
+<p style="top: 25px; color:#000">Latest release - 2.5.4rc1<br/>
+<a style="color:#000" href="latest.html">View Release Notes</a><br/>
+Download: <a style="color:#000" href="http://search.maven.org/remotecontent?filepath=org/python/jython-installer/2.5.4-rc1/jython-installer-2.5.4-rc1.jar">.jar</a>
+</div>
+<div class="searchbox">
+<form action="http://www.google.com/search" method="get" class="roundtopsmall">
+<input value="www.jython.org" name="sitesearch" type="hidden"><input size="25" id="searchbox" name="q" id="query" type="text">&nbsp; 
+                    <input name="Search" value="Search" type="submit">
+</form></p>
+</div>
+</div></div>
+<h2 id="topper">Jython: Python for the Java Platform</h2>
+<div id="wrapper">
+<div id="content"><div class="document" id="the-jython-project">
+<h1 class="title">The Jython Project</h1>
+<h2 class="subtitle" id="latest-news">Latest News</h2>
+
+<p><strong>Jython 2.7 Beta 3 Released</strong> (August 2014)</p>
+<p>Please see the <a class="reference external" href="http://hg.python.org/jython/file/744d673392b4/NEWS">NEWS</a>
+file for detailed release notes.</p>
+<p>Read more on <a class="reference external" href="http://fwierzbicki.blogspot.com/2014/08/jython-27-beta3-released.html">Frank Wierzbickis Weblog</a>.</p>
+<p><strong>Jython 2.7 Beta 2 Released</strong> (May 2013)</p>
+<p>Jython 2.7b2 brings us up to language level compatibility with the 2.7 version
+of CPython. We have focused largely on CPython compatibility, and so this
+release of Jython can run more pure Python apps then any previous release.
+Please see the NEWS file for detailed release notes. This is primarily a bugfix
+release, with numerous improvements, including much improvement on Windows
+support.</p>
+<p>Read more on <a class="reference external" href="http://fwierzbicki.blogspot.com/2014/08/jython-27-beta3-released.html">Frank Wierzbickis Weblog</a></p>
+<p><strong>PyDev 3.4.1 Available</strong> (May 2013)</p>
+<p>Please visit the <a class="reference external" href="http://pydev.org">PyDev Site</a> for more information.</p>
+<p><strong>PyDev 3.0 Released</strong> (November 2013)</p>
+<p>From now on, PyDev requires Eclipse 3.7 or 4.3 onwards and Java 7! For older versions, keep using PyDev 2.x.</p>
+<p>Interpreter is now kept up to date with changes to the interpreter, so, pip-installing packages will automatically update internal caches without requiring a manual step.</p>
+<p>Fixed issue connecting to shell for code-completion (which could halt the IDE).
+Please visit the <a class="reference external" href="http://pydev.org">PyDev Site</a> for more information.</p>
+<p><strong>JyNI 2.7-alpha 2 Released</strong> (October 2013)</p>
+<p>JyNI is a compatibility layer with the goal to enable Jython to use native CPython extensions like NumPy or SciPy. This way we aim to enable scientific Python code to run on Jython. Since Java is rather present in industry, while Python is more present in science, JyNI is an important step to lower the cost of using scientific code in industrial environments.</p>
+<p>Our philosophy is to integrate JyNI with Jython and CPython extensions as seamless as possible. So JyNI aims to work without any recompilation of Jython or the desired CPython extensions. It neither requires a customized Jython version, nor customized versions of the CPython extensions (of course your JyNI version must meet the platform your CPython extension was build for). Simply put JyNI.jar on the classpath (along with its native libraries) and Jython should ÒmagicallyÓ be able to load native extensions, as far as the needed Python C-API is already implemented by JyNI.</p>
+<p>Read More at <a class="reference external" href="http://jyni.org">JyNI.org</a></p>
+<p><strong>Jython 2.5.4rc 1 Has Been Released</strong> (February 10, 2013)</p>
+<p>This release fixes numerous bugs since the 2.5.3 release of Jython. Some highlights include:</p>
+<blockquote>
+<p>-The file upload fix for Tomcat and Jetty has been changed</p>
+<p>-Some NullPointerExceptions where fixed.</p>
+</blockquote>
+<p>For more information, see the <a class="reference external" href="http://www.jython.org/latest.html">Release Notes</a>.</p>
+<p><strong>Jython 2.7beta 1 Has Been Released</strong> (February 10, 2013)</p>
+<p>The Jython development team is proud to announce the 2.7beta 1 release!  Jython 2.7b1 brings us up to language level compatibility with the 2.7 version
+of CPython. We have focused largely on CPython compatibility, and so this
+release of Jython can run more pure Python apps then any previous release.</p>
+<p>Some notable new features
+in this release are: a bytearray implementation, a buffer api, memoryview, and a
+bz2 module.  Please see the <a class="reference external" href="http://www.jython.org/latest.html">Release Notes</a> for detailed release notes.</p>
+<p><strong>Jython 2.5.3 Final Has Been Released</strong> (August 13, 2012)</p>
+<p>The Jython development team is proud to announce the final 2.5.3 release!  For a complete listing of changes, please visit the <a class="reference external" href="http://www.jython.org/latest.html">Release Notes</a>.</p>
+<div class="section" id="latest-blogs-and-interesting-stuff">
+<h1>Latest Blogs and Interesting Stuff</h1>
+<p><strong>Jython 101 - A Refreshing Look at a Mature Alternative - Part 2</strong> (May/June 2013)</p>
+<p>Article covering the integration of Jython and Java - Part 2 of 2</p>
+<p>Read <a class="reference external" href="http://www.oraclejavamagazine-digital.com/javamagazine_open/20130506#pg83">Jython 101 - Part 2</a></p>
+<p><strong>Jython 101 - A Refreshing Look at a Mature Alternative</strong> (March/April 2013)</p>
+<p>Article on Jython that was published in Java Magazine - Part 1 of 2</p>
+<p>Read <a class="reference external" href="http://www.oraclejavamagazine-digital.com/javamagazine_open/20130304#pg67">Jython 101 - Part 1</a></p>
+<p><strong>Customizing Jython ProxyMaker</strong> (Wednesday, January 9, 2013)</p>
+<p>I just got a set of patches under &quot;Customizable ProxyMaker&quot; umbrella committed into Jython 2.7. In this post i will try to explain a bit of what Jython's ProxyMaker is and what benefits the ability to customize/override brings for interop with Java.</p>
+<p>Visit Post: <a class="reference external" href="http://darjus.blogspot.com/2013/01/customizing-jython-proxymaker.html">Customizing ProxyMaker</a></p>
+<p><strong>Jython Dev Notes Part 2:  Adding a New Builtin Type</strong> (Monday February 13, 2012)</p>
+<p>Releases of Python (and so releases of Jython) sometimes add new built-in types. In 2.6, a new such buitin is the &quot;bytes&quot; type. In the 2.x series, &quot;bytes&quot; is just a synonym for &quot;str&quot;. In 3.x &quot;bytes&quot; is the name used for 8 bit strings while &quot;str&quot; is a unicode string (and so the &quot;unicode&quot; type disappears in 3.x). This will make it a great example for adding a builtin since there is no added functionality to obscure the basics.  <a class="reference external" href="http://fwierzbicki.blogspot.com/2012/02/jython-dev-notes-part-ii-adding-new.html">Visit Post - Jython Dev Notes Part 2</a></p>
+<p><strong>Jython Dev Notes Part 1:  The Jython Exposer</strong> (Monday January 2, 2012)</p>
+<p>One of my new years resolutions is to make Jython more friendly to new developers. One way to do that is to write up some notes on bits of Jython that are particularly mysterious to newcomers. I've boldly titled this post &quot;Jython dev notes part I&quot; to push myself to create more than one of these :) <a class="reference external" href="http://fwierzbicki.blogspot.com/2012/01/jython-dev-notes-part-i-jython-exposer.html">Visit Post -  Jython Dev Notes Part 1</a></p>
+<p><strong>The Definitive Guide to Jython is Published</strong> (February 6, 2010)</p>
+<p><a class="reference external" href="http://apress.com/book/view/9781430225270">The Definitive Guide to Jython</a> , written by the official Jython team leads, covers the latest Jython 2.5 (or 2.5.x) from the basics to the advanced features. This book begins with a brief introduction to the language and then journeys through Jythons different features and uses.</p>
+<p><a class="reference external" href="http://apress.com/book/view/9781430225270">The Definitive Guide to Jython</a> is organized for beginners as well as advanced users of the language. The book provides a general overview of the Jython language itself, but it also includes intermediate and advanced topics regarding database, web, and GUI applications; frameworks; and integration, concurrency, and parallelism, to name a few.</p>
+<p>This book is available in open-source format at <a class="reference external" href="http://jythonbook.com">jythonbook.com</a>.</p>
+<p><strong>Websphere Application Server Administration Using Jython</strong> (January 30, 2010)</p>
+<p>Utilizing Jython scripting, you can dramatically reduce the effort, resources, and expense associated with managing WebSphere Application Server. WebSphere Application Server Administration Using Jython will show you how.  Read more about it at <a class="reference external" href="http://www.ibmpressbooks.com/bookstore/product.asp?isbn=9780137009527">ibmpressbooks.com</a> today.</p>
+<p><strong>Project Sikuli Released</strong> (January 28, 2010)</p>
+<p>Sikuli is a visual technology to search and automate graphical user interfaces (GUI) using images (screenshots). The first release of Sikuli contains Sikuli Script, a visual scripting API for Jython, and Sikuli IDE, an integrated development environment for writing visual scripts with screenshots easily. Sikuli Script automates anything you see on the screen without internal API's support. You can programmatically control a web page, a desktop application running on Windows/Linux/Mac OS X, or even an iphone application running in an emulator.  For more information, please visit the <a class="reference external" href="http://groups.csail.mit.edu/uid/sikuli/">Sikuli</a> project site.</p>
+<p><strong>Jython Doc Set Updated</strong> (November 08, 2009)</p>
+<p>The Jython <a class="reference external" href="http://jython.org/currentdocs.html">documentation</a> set has been updated to include all modules contained within the Jython standard library.  However, it should be noted that this is still a work in progress since many of these documents have not yet been parsed and tested completely with Jython 2.5.1.  Stay tuned for more updates on the doc set!</p>
+<p>Please report all found bugs to the <a class="reference external" href="http://bugs.jython.org/">jython bug tracker</a>.</p>
+<div class="section" id="jython-2-5-documentation">
+<h2>Jython 2.5 Documentation</h2>
+<p>The documentation for Jython 2.5 is being developed on our <a class="reference external" href="http://wiki.python.org/jython">wiki</a>.  Please help
+Jython by adding content and updating our wiki. As the content matures for 2.5
+it will be pulled back into this website.</p>
+<p>You may also wish to check the <a class="reference external" href="http://sourceforge.net/mailarchive/forum.php?forum_name=jython-users">jython-users</a> mailing list archives as many questions and answers can be found there.</p>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr class="footer" />
+<a class="reference external" href="index.txt">View document source</a>.
+
+</div>
+</div>
+</div>
+<div id="navigation"><div class="navcontainer"><ul class="navlist">
+<li class="menutitle">About</li>
+<li class="menupageitem"><a href="index.html">Welcome</a></li> 
+<li class="menupageitem"><a href="downloads.html">Download</a></li> 
+<li class="menupageitem"><a href="http://wiki.python.org/jython/InstallationInstructions">Installation</a></li> 
+<li class="menupageitem"><a href="http://sourceforge.net/mail/?group_id=12867">Mailing Lists</a></li> 
+<li class="menupageitem"><a href="license.html">License</a></li> 
+<li class="menupageitem"><a href="http://www.python.org/psf/">Foundation</a></li> 
+<li class="menupageitem"><a href="oldsites.html">Archived Sites</a></li> 
+<li class="menupageitem"><a href="acknowledgments.html">Acknowledgments</a></li> 
+<li class="menutitle">Documentation</li>
+<li class="menupageitem"><a href="currentdocs.html">Current Docs</a></li> 
+<li class="menupageitem"><a href="http://www.jython.org/devguide/">Core Development</a></li> 
+<li class="menupageitem"><a href="http://www.jython.org/jythonbook/en/1.0">Jython Book</a></li> 
+<li class="menutitle">Wiki links</li>
+<li class="menupageitem"><a href="http://wiki.python.org/jython/">Front page/News</a></li> 
+<li class="menupageitem"><a href="http://wiki.python.org/jython/JythonFaq">FAQ</a></li> 
+<li class="menupageitem"><a href="http://wiki.python.org/jython/WhyJython">Why Jython?</a></li> 
+<li class="menupageitem"><a href="http://wiki.python.org/jython/UserGuide">User Guide</a></li> 
+<li class="menupageitem"><a href="http://wiki.python.org/jython/JythonBibliography">Books and Articles</a></li> 
+<li class="menupageitem"><a href="http://wiki.python.org/jython/JythonMonthly/Newsletters">Jython Monthly</a></li> 
+<li class="menupageitem"><a href="http://wiki.python.org/jython/ReportingBugs">Reporting Bugs</a></li> 
+</ul>
+</div>
+</div>
+<div id="extra">
+<div class="applemenu">
+<div class="silverheader"><a>Twitter Updates</a></div>
+<div class="submenu"  style="height: 375px;">
+<a style="font-size:8pt; color: green;" href="http://www.twitter.com/jython">Follow Jython</a><br/><br/>
+<div id="tweet">
+<br/>
+</div></div>
+<div class="silverheader"><a>Using Jython</a></div>
+<div class="submenu">
+<iframe src="faq.htm" style="border: 0px; width:100%;height:100%"></iframe>
+</div>
+<div class="silverheader"><a>IRC Chat</a></div>
+<div class="submenu">
+<iframe style="border: 0px; width: 100%; height: 100%" src="JythonIrcLogin.html"></iframe>
+</div>
+<div class="silverheader"><a>Developer Information</a></div>
+<div class="submenu">
+<iframe src="developer.htm" style="border: 0px; width:100%; height:100%"></iframe>
+</div>
+</div>
+<br/><br/>
+</div>
+<div id="footer">
+<ul><li><a href="http://wiki.python.org/jython/JythonFaq">About</a></li>
+<li><a href="http://www.jython.org/jythonpodcast/">Jython Podcast</a></li>
+<li><a href="license.html">License</a>
+</ul>
+</div>
+</div></body>
+
+HTTP/1.1 200 OK
+Date: Thu, 28 Aug 2014 23:48:48 GMT
+Vary: Accept-Encoding
+P3P: CP="There's no P3P policy. Learn why here: http://www.w3.org/P3P/"
+X-Varnish: 700510391 700510169
+X-Served-By: varnish2.develooper.com
+X-Cache: HIT
+X-Cache-Hits: 1
+X-Proxy: proxy2
+Server: NetDNA-cache/2.2
+X-Cache: HIT
+Transfer-Encoding: chunked
+Content-Type: text/html; charset=utf-8
+Last-Modified: Thu, 28 Aug 2014 07:17:39 GMT
+Age: 1493
+Via: 1.1 varnish, 1.1 sjck-dmz-wsa-8-mgmt.cisco.com:80 (Cisco-WSA/8.5.0-333)
+Connection: close
+
+3642
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>The Perl Programming Language - www.perl.org</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+
+    <link rel="shortcut icon" href="//st.pimg.net/perlweb/favicon.v249dfa7.ico" />
+
+
+
+      <link rel="stylesheet" type="text/css" href="//st.pimg.net/perlweb/css/leostyle.v8cd7532.css" /> 
+      <link rel="stylesheet" type="text/css" href="//st.pimg.net/perlweb/css/www.v1c370c5.css" /> 
+
+
+    <meta name="description" content="The Perl Programming Language at Perl.org. Links and other helpful resources for new and experienced Perl programmers." />
+    
+
+    
+
+
+
+</head>
+<body class="section_home">
+
+<div id="header_holder">
+    <div class="sub_holder">
+        <div id="page_image"></div>
+        <h1>
+           <a href="/">The Perl Programming Language</a>
+        </h1>
+        <div id="logo_holder">
+           
+            
+
+            <a href="/"><img src="//st.pimg.net/perlweb/images/camel_head.v25e738a.png" id="logo" alt="Perl, modern programming" height="65" align="right" /></a>
+            
+
+			 <span>www.perl.org</span>
+
+        </div>
+    </div>
+</div>
+
+<div id="nav">
+    <div class="sub_holder">
+        <ul>
+    <li class="selected">
+        <a href="/">Home</a>
+    </li>
+    <li>
+        <a href="/learn.html">Learn</a>
+    </li>
+    <li>
+        <a href="/docs.html">Documentation</a>
+    </li>
+    <li>
+        <a href="/cpan.html">CPAN</a>
+    </li>
+    <li>
+        <a href="/community.html">Community</a>
+    </li>
+    <li>
+        <a href="/contribute.html">Get Involved</a>
+    </li>
+    <li class="sub">
+        <a href="/about.html">About Perl</a>
+    </li>
+    <li class="sub">
+        <a href="/get.html">Download</a>
+    </li>
+</ul>
+
+    </div>
+</div>
+
+<div id="crum_holder">
+    <div id="crum" class="sub_holder">
+        &nbsp;
+    </div>
+</div>
+
+<div id="content_holder">
+    <div id="content" class="sub_holder">
+        <div id="main">
+            
+
+
+
+<div class="masthead">
+	<p class="headline">25,000 extensions on CPAN</p>
+	
+	<p class="strap">That's why we love Perl 5</p>
+	
+	
+	<p class="button"><a href="/get.html" class="download">Download Perl</a></p>
+	
+	
+	<p class="cta"><a href="/get.html">Get started</a></p>
+
+</div>
+
+<p class="intro">Perl 5 is a highly capable, feature-rich programming language with over 26 years of development. <a href="/about.html">More about why we love Perl...</a></p>
+
+<table class="content_table">
+
+    <tr>
+        <td>
+            <div class="module">
+                <a href="/learn.html"><img alt="" src="//st.pimg.net/perlweb/images/icons/learn.v0e1f83c.png" width="45" height="45" /></a>
+                <h4>
+                    <a href="/learn.html">Learning Perl 5</a>
+                </h4>
+                <p>
+                    With free online books, over 25,000 extension modules, and a large developer community, there are many ways to learn Perl 5.
+                </p>
+            </div>
+        </td>
+        <td>
+            <div class="module">
+                <a href="/community.html"><img alt="" src="//st.pimg.net/perlweb/images/icons/community.v03bf8ce.png" width="45" height="45" /></a>
+                <h4>
+                    <a href="/community.html">The Perl Community</a>
+                </h4>
+                <p>
+                    Perl has an active world wide community with over 300 local groups, mailing lists and support/discussion websites.
+                </p>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <div class="module">
+                <a href="/docs.html"><img alt="" src="//st.pimg.net/perlweb/images/icons/docs.v2622a01.png" width="45" height="45" /></a>
+                <h4>
+                    <a href="/docs.html">Documentation</a>
+                </h4>
+                <p>
+                    Core documentation, FAQs and translations.
+                </p>
+            </div>
+        </td>
+        <td>
+            <div class="module">
+                <a href="/contribute.html"><img alt="" src="//st.pimg.net/perlweb/images/icons/cog.v08b9acc.png" width="45" height="45" /></a>
+                <h4>
+                    <a href="/contribute.html">Contribute to Perl</a>
+                </h4>
+                <p>
+                    Perl is being <a href="/dev.html">actively developed</a>. There are many ways to <a href="/contribute.html">get involved</a>.
+                </p>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <div class="module">
+                <a href="/cpan.html"><img alt="" src="//st.pimg.net/perlweb/images/icons/cpan.vdc5be93.png" width="45" height="45" /></a>
+                <h4>
+                    <a href="/cpan.html">CPAN</a>
+                </h4>
+                <p>
+                    The Comprehensive Perl Archive Network (CPAN) has over 25,000 open source distributions available for download.
+                </p>
+            </div>
+        </td>
+        <td>
+            <div class="module">
+                <a href="/events.html"><img alt="" src="//st.pimg.net/perlweb/images/icons/cal.v705acef.png" width="45" height="45" /></a>
+                <h4>
+                    <a href="/events.html">Events and Conferences</a>
+                </h4>
+                <p>
+                    Conferences, social and technical events around the world offer lots of networking and learning opportunities.
+                </p>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <div class="module">
+                <a href="http://www.perl6.org/"><img alt="" src="//st.pimg.net/perlweb/images/icons/perl6.v8ff6c63.png" width="45" height="45" /></a>
+                <h4>
+                    <a href="http://www.perl6.org/">Perl 6</a>
+                </h4>
+                <p>
+                    Perl 6 is a sister language, part of the Perl family. Perl 6 is not production ready yet, you can get involved with its <a href="/dev.html">development</a> though.
+                </p>
+            </div>
+        </td>
+        <td>
+            <div class="module">
+                <a href="http://www.perlfoundation.org/"><img alt="" src="//st.pimg.net/perlweb/images/icons/onion.vee5cb98.png" width="45" height="45" /></a>
+                <h4>
+                    <a href="http://www.perlfoundation.org/">The Perl Foundation</a>
+                </h4>
+                <p>
+                    The Perl Foundation is dedicated to the advancement of the Perl programming language through open discussion, collaboration, design, and code.
+                </p>
+            </div>
+        </td>
+    </tr>
+</table>
+
+<div class="bar">&nbsp; &nbsp; &nbsp; &nbsp;</div>
+
+<table class="content_table">
+  <tr>
+    <td>
+        
+        <ul>
+        
+            <li class="rss round">Latest Uploads to <a href="http://www.cpan.org/">CPAN</a></li>
+        
+            
+                <li class="rss_content"><a href="http://metacpan.org/release/PERLANCAR/Config-IOD-Reader-0.04">Config-IOD-Reader-0.04</a></li>
+                
+                
+            
+                <li class="rss_content"><a href="http://metacpan.org/release/PERLANCAR/IOD-Examples-0.05">IOD-Examples-0.05</a></li>
+                
+                
+            
+                <li class="rss_content"><a href="http://metacpan.org/release/FANGLY/Statistics-R-0.33">Statistics-R-0.33</a></li>
+                
+                
+            
+                <li class="rss_content"><a href="http://metacpan.org/release/PERLANCAR/App-GitUtils-0.04">App-GitUtils-0.04</a></li>
+                
+                
+            
+                <li class="rss_content"><a href="http://metacpan.org/release/PERLANCAR/IOD-0.9.6">IOD-0.9.6</a></li>
+                
+                
+            
+                <li class="rss_content"><a href="http://metacpan.org/release/INGY/no-0.0.1">no-0.0.1</a></li>
+                
+                
+            
+                <li class="rss_content"><a href="http://metacpan.org/release/JONASBN/WWW-DanDomain-0.08">WWW-DanDomain-0.08</a></li>
+                
+                
+            
+                <li class="rss_content"><a href="http://metacpan.org/release/DOHERTY/Dist-Zilla-PluginBundle-Author-DOHERTY-0.38">Dist-Zilla-PluginBundle-Author-DOHERTY-0.38</a></li>
+                
+                
+            
+                <li class="rss_content"><a href="http://metacpan.org/release/DOHERTY/utf8-all-0.014">utf8-all-0.014</a></li>
+                
+                
+            
+                <li class="rss_content"><a href="http://metacpan.org/release/SYOHEX/Text-UnicodeTable-Simple-0.09">Text-UnicodeTable-Simple-0.09</a></li>
+                
+                
+        </ul>
+    </td>
+    <td>
+        
+        <ul>
+        
+            <li class="rss round"><a href="http://perlnews.org/">Perl News</a></li>
+        
+            
+                <li class="rss_content"><a href="http://feedproxy.google.com/~r/PerlNews/~3/GjcRmlWUjVw/">YAPC::Europe live video streams</a></li>
+                
+                
+            
+                <li class="rss_content"><a href="http://feedproxy.google.com/~r/PerlNews/~3/qcUUE5na6oo/">YAPC::NA live video streams and uploads from previous days.</a></li>
+                
+                
+            
+                <li class="rss_content"><a href="http://feedproxy.google.com/~r/PerlNews/~3/6z8qOXUNuk4/">Perl TV over 300 videos</a></li>
+                
+                
+            
+                <li class="rss_content"><a href="http://feedproxy.google.com/~r/PerlNews/~3/0msOToqP6hA/">Perl 5.20 released</a></li>
+                
+                
+            
+                <li class="rss_content"><a href="http://feedproxy.google.com/~r/PerlNews/~3/vo70gN7jeWo/">Perl Track at Open West in Utah</a></li>
+                
+                
+        </ul>
+    </td>
+  </tr>
+</table>
+
+
+        </div>
+        <div id="short_lists" class="short_lists">
+            
+
+            <div class="quick_links">
+        <h4 class="round">
+            Current Perl version
+        </h4>
+        <div class="list">
+        
+        <p><a href="/get.html">5.20.0 - download now</a></p>        
+        
+        </div>
+</div>
+
+
+            <div class="quick_links">
+        <h4 class="round">
+            Find out more
+        </h4>
+        <div class="list">
+        
+        <p><a href="/learn.html">Learn</a></p>        
+        
+        <p><a href="/docs.html">Documentation</a></p>        
+        
+        <p><a href="/community.html">Community</a></p>        
+        
+        <p><a href="/events.html">Events</a></p>        
+        
+        </div>
+</div>
+
+            
+
+            
+<div class="quick_links">
+        <h4 class="round">
+            Tip
+        </h4>
+        <div class="list">
+        <p>
+            <strong>Object Oriented programming</strong>
+            <a href="https://metacpan.org/release/Moose/">Moose</a>
+                (and associated MooseX modules) are a postmodern object system for
+                Perl 5
+        </p>
+    </div>
+</div>
+
+
+            <div id="sponsor">
+        <h4>
+            <a href="/siteinfo.html#sponsors">Sponsor</a>
+        </h4>
+        <p>
+          
+
+
+ <a href="http://develooper.com">
+  <img class="border" border="0" src="//st.pimg.net/perlweb/images/friends/develooperlogo-160t.v5a1f4a3.png" height="36" width="160" alt="Develooper" />Perl Consulting
+  </a>
+
+
+        </p>
+</div>
+
+
+            <div id="spacer_for_google"></div>
+            
+        </div>
+    </div>
+</div>
+<div style="clear:both"></div>
+
+<div id="footer">
+    <div class="sub_holder">
+        
+
+        <p class="sites">
+            &nbsp;When you need <em>Perl</em> think <strong>Perl.org</strong>: <a href="http://www.perl.org/">www</a> | <a href="http://blogs.perl.org/">blogs</a> | <a href="http://jobs.perl.org/">jobs</a> | <a href="http://learn.perl.org/">learn</a> <!-- | <a href="http://lists.perl.org/">lists</a> --> | <a href="http://dev.perl.org/">dev</a>   
+        </p>
+        <p class="copyright">
+            <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/3.0/us/"><img alt="Creative Commons License" style="border-width:0" src="//st.pimg.net/perlweb/images/icons/creativecommons-by-nc-nd-3.0-us-80x15.v072f8cd.png" /></a> © 2002-2014 Perl.org | <a href="/siteinfo.html">Site Info</a>
+        </p>
+
+
+        <div style="clear:both"></div>
+        <div id="google_translate_element"></div>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-50555-1', 'auto');
+  ga('require', 'linkid', 'linkid.js');
+  ga('send', 'pageview');
+</script>
+<script type="text/javascript" src="//st.pimg.net/cdn/libs/jquery/1.7.1/jquery.min.js" charset="UTF-8"></script>
+<script type="text/javascript" src="//st.pimg.net/perlweb/js/jquery.corner.v84b7681.js" charset="UTF-8"></script>
+<script type="text/javascript" src="//st.pimg.net/perlweb/js/leo.v6d3826a.js" charset="UTF-8"></script>
+
+
+
+<script type="text/javascript">
+function googleTranslateElementInit() {
+          new google.translate.TranslateElement({
+            pageLanguage: 'en',
+            autoDisplay: false
+            ,
+            gaTrack: true,
+            gaId: 'UA-50555-1'
+                  }, 'google_translate_element');
+        }
+</script>
+
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" type="text/javascript"></script>
+
+
+
+</body>
+</html>
+
+
+
+0
+
+
+>>> 
+>>> 

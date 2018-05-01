@@ -1,0 +1,29 @@
+'''
+Callback style programming and patterns used
+Develop insight into Twisted, Tornado, Diesel, sched and other asyncip
+'''
+
+events = []
+
+def event_loop():
+    while events:
+        task = events.pop(0)
+        task()
+
+
+###################
+
+
+def show_two():
+    print 'Two'
+
+def show_ten():
+    print 'Ten'
+
+
+events.append(show_two)
+events.append(show_ten)
+events.append(show_two)
+
+print events
+event_loop()

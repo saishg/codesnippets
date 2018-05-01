@@ -1,0 +1,2318 @@
+Python 2.7.8 (v2.7.8:ee879c0ffa11, Jun 29 2014, 21:07:35) 
+[GCC 4.2.1 (Apple Inc. build 5666) (dot 3)] on darwin
+Type "copyright", "credits" or "license()" for more information.
+>>> 
+
+>>> x = 10
+>>> # global variables are saved in a dict called globals
+>>> globals()['x']
+10
+>>> globals()['x'] = 11
+>>> x
+11
+>>> dir()
+['__builtins__', '__doc__', '__name__', '__package__', 'x']
+>>> x
+11
+>>> y
+
+Traceback (most recent call last):
+  File "<pyshell#8>", line 1, in <module>
+    y
+NameError: name 'y' is not defined
+>>> import math
+>>> dir()
+['__builtins__', '__doc__', '__name__', '__package__', 'math', 'x']
+>>> math.pi
+3.141592653589793
+>>> math.cos(3.0)
+-0.9899924966004454
+>>> dir()
+['__builtins__', '__doc__', '__name__', '__package__', 'math', 'x']
+>>> dir(math)
+['__doc__', '__file__', '__name__', '__package__', 'acos', 'acosh', 'asin', 'asinh', 'atan', 'atan2', 'atanh', 'ceil', 'copysign', 'cos', 'cosh', 'degrees', 'e', 'erf', 'erfc', 'exp', 'expm1', 'fabs', 'factorial', 'floor', 'fmod', 'frexp', 'fsum', 'gamma', 'hypot', 'isinf', 'isnan', 'ldexp', 'lgamma', 'log', 'log10', 'log1p', 'modf', 'pi', 'pow', 'radians', 'sin', 'sinh', 'sqrt', 'tan', 'tanh', 'trunc']
+>>> math.pi
+3.141592653589793
+>>> 
+>>> x = 10
+>>> import math
+>>> def fun():
+	print 'Woohoo!'
+
+	
+>>> dir()
+['__builtins__', '__doc__', '__name__', '__package__', 'fun', 'math', 'x']
+>>> type(x)
+<type 'int'>
+>>> type(math)
+<type 'module'>
+>>> type(fun)
+<type 'function'>
+>>> class Computer:
+	pass
+
+>>> dir()
+['Computer', '__builtins__', '__doc__', '__name__', '__package__', 'fun', 'math', 'x']
+>>> type(Computer)
+<type 'classobj'>
+>>> type(fun)
+<type 'function'>
+>>> type(math)
+<type 'module'>
+>>> type(x)
+<type 'int'>
+>>> 
+>>> 
+>>> sorted(globals().keys())
+['Computer', '__builtins__', '__doc__', '__name__', '__package__', 'fun', 'math', 'x']
+>>> dir()
+['Computer', '__builtins__', '__doc__', '__name__', '__package__', 'fun', 'math', 'x']
+>>> 
+>>> 
+>>> dir()
+['Computer', '__builtins__', '__doc__', '__name__', '__package__', 'fun', 'math', 'x']
+>>> 
+>>> for name in dir():
+	print name.upper()
+
+	
+COMPUTER
+__BUILTINS__
+__DOC__
+__NAME__
+__PACKAGE__
+FUN
+MATH
+X
+>>> for name in dir():
+	if not name.startswith('__'):
+		print name.upper()
+
+		
+COMPUTER
+FUN
+MATH
+NAME
+X
+>>> print '\n'.join(dir())
+Computer
+__builtins__
+__doc__
+__name__
+__package__
+fun
+math
+name
+x
+>>> print '\t'.join(dir())
+Computer	__builtins__	__doc__	__name__	__package__	fun	math	name	x
+>>> print ', '.join(dir())
+Computer, __builtins__, __doc__, __name__, __package__, fun, math, name, x
+>>> 
+>>> 
+>>> s = dir()
+>>> s
+['Computer', '__builtins__', '__doc__', '__name__', '__package__', 'fun', 'math', 'name', 'x']
+>>> s.pop()
+'x'
+>>> s
+['Computer', '__builtins__', '__doc__', '__name__', '__package__', 'fun', 'math', 'name']
+>>> 
+>>> 
+>>> dir()
+['Computer', '__builtins__', '__doc__', '__name__', '__package__', 'fun', 'math', 'name', 's', 'x']
+>>> x
+10
+>>> globals()['x'] = 11
+>>> x
+11
+>>> del globals()['x']
+>>> dir()
+['Computer', '__builtins__', '__doc__', '__name__', '__package__', 'fun', 'math', 'name', 's']
+>>> x
+
+Traceback (most recent call last):
+  File "<pyshell#64>", line 1, in <module>
+    x
+NameError: name 'x' is not defined
+>>> 
+>>> ================================ RESTART ================================
+>>> import math
+>>> dir()
+['__builtins__', '__doc__', '__name__', '__package__', 'math']
+>>> cos(3.0)
+
+Traceback (most recent call last):
+  File "<pyshell#68>", line 1, in <module>
+    cos(3.0)
+NameError: name 'cos' is not defined
+>>> math.cos(3.0)
+-0.9899924966004454
+>>> ================================ RESTART ================================
+>>> # ALZ ya hafta do to do math is
+>>> import math
+>>> math.cos(3.0 * math.pi * math.sqrt(2.5)) + math.sin(2.5  * math.pi * math.sqrt(3.0))
+0.16861338060695275
+>>> 
+>>> # Assigning words:
+>>> #    x = 10
+>>> #    import math
+>>> #    def fun()
+>>> #    class Computer:
+>>> #    globals()['word'] = value
+>>> 
+>>> ================================ RESTART ================================
+>>> import math
+>>> cos = math.cos
+>>> dir()
+['__builtins__', '__doc__', '__name__', '__package__', 'cos', 'math']
+>>> cos(3.0)
+-0.9899924966004454
+>>> ================================ RESTART ================================
+>>> # ALZ ya hafta do to do math is
+>>> import math
+>>> cos = math.cos
+>>> sin = math.sin
+>>> pi = math.pi
+>>> sqrt = math.sqrt
+>>> cos(3.0 * pi * sqrt(2.5)) + sin(2.5 * pi * sqrt(3.0))
+0.16861338060695275
+>>> ================================ RESTART ================================
+>>> from math import cos
+>>> dir()
+['__builtins__', '__doc__', '__name__', '__package__', 'cos']
+>>> cos(3.0)
+-0.9899924966004454
+>>> ================================ RESTART ================================
+>>> # ALZ ya hafta do to do math is
+>>> from math import cos, sin, pi, sqrt
+>>> cos(3.0 * pi * sqrt(2.5)) + sin(2.5 * pi * sqrt(3.0))
+0.16861338060695275
+>>> 
+>>> import math
+>>> dir(math)
+['__doc__', '__file__', '__name__', '__package__', 'acos', 'acosh', 'asin', 'asinh', 'atan', 'atan2', 'atanh', 'ceil', 'copysign', 'cos', 'cosh', 'degrees', 'e', 'erf', 'erfc', 'exp', 'expm1', 'fabs', 'factorial', 'floor', 'fmod', 'frexp', 'fsum', 'gamma', 'hypot', 'isinf', 'isnan', 'ldexp', 'lgamma', 'log', 'log10', 'log1p', 'modf', 'pi', 'pow', 'radians', 'sin', 'sinh', 'sqrt', 'tan', 'tanh', 'trunc']
+>>> from math import acos, acosh, asin, asinh, atan, atan2
+>>> from math import *
+>>> dir()
+['__builtins__', '__doc__', '__name__', '__package__', 'acos', 'acosh', 'asin', 'asinh', 'atan', 'atan2', 'atanh', 'ceil', 'copysign', 'cos', 'cosh', 'degrees', 'e', 'erf', 'erfc', 'exp', 'expm1', 'fabs', 'factorial', 'floor', 'fmod', 'frexp', 'fsum', 'gamma', 'hypot', 'isinf', 'isnan', 'ldexp', 'lgamma', 'log', 'log10', 'log1p', 'math', 'modf', 'pi', 'pow', 'radians', 'sin', 'sinh', 'sqrt', 'tan', 'tanh', 'trunc']
+>>> exp(2)
+7.38905609893065
+>>> frexp(4.5)
+(0.5625, 3)
+>>> ================================ RESTART ================================
+>>> # ALZ ya hafta do to do math is
+>>> from math import *
+>>> cos(3.0 * pi * sqrt(2.5)) + sin(2.5 * pi * sqrt(3.0))
+0.16861338060695275
+>>> ================================ RESTART ================================
+>>> c = 10
+>>> d = 11
+>>> e = 12
+>>> f = 13
+>>> g = 14
+>>> from math import *
+>>> log(c)
+2.302585092994046
+>>> log(d)
+2.3978952727983707
+>>> log(e)
+1.0
+>>> log(f)
+2.5649493574615367
+>>> log(g)
+2.6390573296152584
+>>> c
+10
+>>> d
+11
+>>> e
+2.718281828459045
+>>> f
+13
+>>> g
+14
+>>> from random import *
+>>> dir()
+['Random', 'SystemRandom', 'WichmannHill', '__builtins__', '__doc__', '__name__', '__package__', 'acos', 'acosh', 'asin', 'asinh', 'atan', 'atan2', 'atanh', 'betavariate', 'c', 'ceil', 'choice', 'copysign', 'cos', 'cosh', 'd', 'degrees', 'e', 'erf', 'erfc', 'exp', 'expm1', 'expovariate', 'f', 'fabs', 'factorial', 'floor', 'fmod', 'frexp', 'fsum', 'g', 'gamma', 'gammavariate', 'gauss', 'getrandbits', 'getstate', 'hypot', 'isinf', 'isnan', 'jumpahead', 'ldexp', 'lgamma', 'log', 'log10', 'log1p', 'lognormvariate', 'modf', 'normalvariate', 'paretovariate', 'pi', 'pow', 'radians', 'randint', 'random', 'randrange', 'sample', 'seed', 'setstate', 'shuffle', 'sin', 'sinh', 'sqrt', 'tan', 'tanh', 'triangular', 'trunc', 'uniform', 'vonmisesvariate', 'weibullvariate']
+>>> 
+>>> from os import *
+>>> getcwd()
+'/Users/raymond/Dropbox/Public/sj93'
+>>> chdir('notes')
+>>> getcwd()
+'/Users/raymond/Dropbox/Public/sj93/notes'
+>>> chdir('..')
+>>> getcwd()
+'/Users/raymond/Dropbox/Public/sj93'
+>>> listdir('notes')
+['__init__.py', 'banner.py', 'BeautifulSoup.py', 'books.json', 'books.xml', 'call_by_object.txt', 'corpus.dat', 'CSRRESTAPI.pdf', 'dayfour.log', 'dayone.log', 'daythree.log', 'daytwo.log', 'dns_servers.json', 'email.txt', 'etag_db.dat', 'etag_db.dir', 'facebook_rest_api.py', 'highlight.py', 'IntroPython.pdf', 'ipv4_int_bri.txt', 'islands.pdf', 'links.txt', 'norvig_corrector.py', 'pexpect.py', 'picirc.py', 'publish.py', 'PythonAwesome.pdf', 'raisin_team.csv', 'Raymond_Hettinger.png', 'Raymond_Hettinger.vcf', 're.txt', 'show_books_json.py', 'show_books_xml.py', 'show_controllers.txt', 'show_ipv4.py', 'stocks.txt', 'team_history.json', 'team_history.txt', 'text_formats.txt', 'vcard.py']
+>>> print '\t'.join(listdir('notes'))
+__init__.py	banner.py	BeautifulSoup.py	books.json	books.xml	call_by_object.txt	corpus.dat	CSRRESTAPI.pdf	dayfour.log	dayone.log	daythree.log	daytwo.log	dns_servers.json	email.txt	etag_db.dat	etag_db.dir	facebook_rest_api.py	highlight.py	IntroPython.pdf	ipv4_int_bri.txt	islands.pdf	links.txt	norvig_corrector.py	pexpect.py	picirc.py	publish.py	PythonAwesome.pdf	raisin_team.csv	Raymond_Hettinger.png	Raymond_Hettinger.vcf	re.txt	show_books_json.py	show_books_xml.py	show_controllers.txt	show_ipv4.py	stocks.txt	team_history.json	team_history.txt	text_formats.txt	vcard.py
+>>> 
+>>> 
+>>> with open('notes/books.json') as f:
+	print f.read()
+
+	
+
+Traceback (most recent call last):
+  File "<pyshell#140>", line 1, in <module>
+    with open('notes/books.json') as f:
+TypeError: function takes at least 2 arguments (1 given)
+>>> 
+>>> from math import sqrt, pi, cos
+>>> from random import randrange
+>>> e = 12
+>>> 
+>>> 
+>>> s = 'hello'
+>>> # objects:  data + type
+>>> type(s)
+<type 'str'>
+>>> dir(str)
+['__add__', '__class__', '__contains__', '__delattr__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__', '__getnewargs__', '__getslice__', '__gt__', '__hash__', '__init__', '__le__', '__len__', '__lt__', '__mod__', '__mul__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__rmod__', '__rmul__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '_formatter_field_name_split', '_formatter_parser', 'capitalize', 'center', 'count', 'decode', 'encode', 'endswith', 'expandtabs', 'find', 'format', 'index', 'isalnum', 'isalpha', 'isdigit', 'islower', 'isspace', 'istitle', 'isupper', 'join', 'ljust', 'lower', 'lstrip', 'partition', 'replace', 'rfind', 'rindex', 'rjust', 'rpartition', 'rsplit', 'rstrip', 'split', 'splitlines', 'startswith', 'strip', 'swapcase', 'title', 'translate', 'upper', 'zfill']
+>>> 
+>>> s.upper()
+'HELLO'
+>>> s.supper()
+
+Traceback (most recent call last):
+  File "<pyshell#153>", line 1, in <module>
+    s.supper()
+AttributeError: 'str' object has no attribute 'supper'
+>>> 
+>>> 
+>>> try:
+	print s.supper()
+except AttributeError:
+	print 'No supper for you'
+
+	
+No supper for you
+>>> f = open('notes/stocks.txt')
+
+Traceback (most recent call last):
+  File "<pyshell#162>", line 1, in <module>
+    f = open('notes/stocks.txt')
+TypeError: function takes at least 2 arguments (1 given)
+>>> ================================ RESTART ================================
+>>> f = open('notes/stocks.txt')
+>>> f = open('notes/stocks.txt', 10, 20, 30)
+
+Traceback (most recent call last):
+  File "<pyshell#164>", line 1, in <module>
+    f = open('notes/stocks.txt', 10, 20, 30)
+TypeError: file() takes at most 3 arguments (4 given)
+>>> f = open('notes/xyzpdqstocks.txt')
+
+Traceback (most recent call last):
+  File "<pyshell#165>", line 1, in <module>
+    f = open('notes/xyzpdqstocks.txt')
+IOError: [Errno 2] No such file or directory: 'notes/xyzpdqstocks.txt'
+>>> ================================ RESTART ================================
+>>> 
+The beautiful red car is 20 long
+The beautiful blue car is 30 long
+The fabulous brown furniture is 40 long
+>>> ================================ RESTART ================================
+>>> 
+The beautiful red car is 20 long
+The beautiful blue car is 30 long
+The fabulous brown furniture is 40 long
+The beautiful red car is 30 long
+>>> ================================ RESTART ================================
+>>> 
+The beautiful red car is 20 long
+The beautiful blue car is 30 long
+The fabulous brown furniture is 40 long
+>>> ================================ RESTART ================================
+>>> 
+The beautiful 20 car is red long
+The beautiful blue car is 30 long
+The fabulous brown furniture is 40 long
+>>> ================================ RESTART ================================
+>>> 
+The beautiful red car is 20 long
+The beautiful blue car is 30 long
+The fabulous brown furniture is 40 long
+>>> ================================ RESTART ================================
+>>> 
+The beautiful red car is 20 long
+The beautiful blue car is 30 long
+The fabulous brown furniture is 40 long
+>>> isinstance(f1, Furn)
+True
+>>> isinstance(f1, Car)
+False
+>>> ================================ RESTART ================================
+>>> 
+The beautiful red car is 20 long
+The beautiful blue car is 30 long
+The fabulous brown furniture is 40 long
+>>> show_furn(c1)
+The fabulous red furniture is 20 long
+>>> ================================ RESTART ================================
+>>> 
+The beautiful red car is 20 long
+The beautiful blue car is 30 long
+The fabulous brown furniture is 40 long
+>>> ow_furn(c1)
+
+Traceback (most recent call last):
+  File "<pyshell#169>", line 1, in <module>
+    ow_furn(c1)
+NameError: name 'ow_furn' is not defined
+>>> 
+>>> 
+>>> 
+>>> dir(c1)
+['__doc__', '__module__', 'color', 'show_car', 'size']
+>>> c1.show_furn()
+
+Traceback (most recent call last):
+  File "<pyshell#174>", line 1, in <module>
+    c1.show_furn()
+AttributeError: Car instance has no attribute 'show_furn'
+>>> ================================ RESTART ================================
+>>> 
+The beautiful red car is 20 long
+The beautiful blue car is 30 long
+The fabulous brown furniture is 40 long
+>>> ================================ RESTART ================================
+>>> 
+The beautiful red car is 20 long
+The beautiful blue car is 30 long
+The fabulous brown furniture is 40 long
+>>> ================================ RESTART ================================
+>>> 
+The beautiful red car is 20 long
+The beautiful blue car is 30 long
+The fabulous brown furniture is 40 long
+
+Traceback (most recent call last):
+  File "/Users/raymond/Dropbox/Public/sj93/oop_demo.py", line 34, in <module>
+    thing.show()
+  File "/Users/raymond/Dropbox/Public/sj93/oop_demo.py", line 10, in show
+    print 'The beautiful %s car is %s long' % (c.color, c.size)
+AttributeError: Car instance has no attribute 'color'
+>>> 30 + 40
+70
+>>> (30).__add__(40)
+70
+>>> ================================ RESTART ================================
+>>> 
+The beautiful red car is 20 long
+The beautiful blue car is 30 long
+The fabulous brown furniture is 40 long
+The beautiful orange car is 35 long
+>>> ================================ RESTART ================================
+>>> 
+The beautiful red car is 20 long
+The beautiful blue car is 30 long
+The fabulous brown furniture is 40 long
+The beautiful orange car is 35 long
+>>> ================================ RESTART ================================
+>>> 
+The beautiful red car is 20 long
+The beautiful blue car is 30 long
+The fabulous brown furniture is 40 long
+The beautiful orange car is 35 long
+>>> ================================ RESTART ================================
+>>> 
+The beautiful red car is 20 long
+The beautiful blue car is 30 long
+The fabulous brown furniture is 40 long
+The beautiful orange car is 35 long
+>>> ================================ RESTART ================================
+>>> 
+The beautiful red car is 20 long
+The beautiful blue car is 30 long
+The fabulous brown furniture is 40 long
+The beautiful orange car is 35 long
+>>> ================================ RESTART ================================
+>>> 
+The beautiful red car is 20 long
+The beautiful blue car is 30 long
+The fabulous brown furniture is 40 long
+The beautiful orange car is 35 long
+>>> dir(c1)
+['__doc__', '__init__', '__module__', 'color', 'show', 'size']
+>>> c1.color
+'red'
+>>> c1.size
+20
+>>> c1.show()
+The beautiful red car is 20 long
+>>> ================================ RESTART ================================
+>>> 
+The beautiful red car is 20 long
+The beautiful blue car is 30 long
+The fabulous brown furniture is 40 long
+The beautiful orange car is 35 long
+>>> c1.color
+'red'
+>>> c2.color
+'blue'
+>>> c1.x
+10
+>>> c2.x
+10
+>>> f1.x
+12
+>>> ================================ RESTART ================================
+>>> 
+The beautiful red car is 20 long
+The beautiful blue car is 30 long
+The fabulous brown furniture is 40 long
+The beautiful orange car is 35 long
+>>> f1.x
+12
+>>> c1.x
+10
+>>> t = Thing('black', 50)
+>>> t.x
+8
+>>> # inst -> class -> parent
+>>> #          x=12     x=8
+>>> # x =14
+>>> 
+>>> 
+>>> c1.x = 14
+>>> 
+>>> c1.x
+14
+>>> c2.x
+10
+>>> Thing.x
+8
+>>> ================================ RESTART ================================
+>>> 
+The beautiful red car is 20 long
+The beautiful blue car is 30 long
+The fabulous brown furniture is 40 long
+The beautiful orange car is 35 long
+>>> 
+>>> 
+>>> 
+>>> Car
+<class __main__.Car at 0x102df68d8>
+>>> c
+
+Traceback (most recent call last):
+  File "<pyshell#204>", line 1, in <module>
+    c
+NameError: name 'c' is not defined
+>>> c1
+<__main__.Car instance at 0x102d5ca28>
+>>> 
+>>> 
+
+
+>>> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+>>> 
+
+
+
+
+
+
+
+
+
+
+>>> Car
+<class __main__.Car at 0x102df68d8>
+>>> c1
+<__main__.Car instance at 0x102d5ca28>
+>>> 
+>>> c2
+<__main__.Car instance at 0x102d5c2d8>
+>>> 
+>>> c1.__class__
+<class __main__.Car at 0x102df68d8>
+>>> c2.__class__
+<class __main__.Car at 0x102df68d8>
+>>> f1.__class__
+<class __main__.Furn at 0x102df6940>
+>>> 
+>>> c1.__dict__
+{'color': 'red', 'size': 20}
+>>> c1.__dict__['color']
+'red'
+>>> c1.color
+'red'
+>>> c1.color = 'reddish'
+>>> c1.__dict__
+{'color': 'reddish', 'size': 20}
+>>> 
+>>> 
+>>> c1.__dict__['color'] = 'brickred'
+>>> c1.color
+'brickred'
+>>> 
+>>> Car.__name__
+'Car'
+>>> from pprint import pprint
+>>> pprint(Car.__dict__)
+{'__doc__': None,
+ '__module__': '__main__',
+ 'show': <function show at 0x1004e1e60>,
+ 'x': 10}
+>>> x = 10
+>>> globals()['x']
+10
+>>> Car.__bases__
+(<class __main__.Thing at 0x1004813f8>,)
+>>> 
+>>> 
+>>> c1.color
+'brickred'
+>>> c1.__dict__['color']
+'brickred'
+>>> 
+>>> c1.show()
+The beautiful brickred car is 20 long
+>>> c1.__class__.__dict__['show'](c1)
+The beautiful brickred car is 20 long
+>>> c1.__init__('black', 90)
+>>> c1.__class__.__bases__[0].__dict__['__init__'](c1, 'black', 90)
+>>> 
+>>> 
+>>> 
+>>> c1.__dict__.keys()
+['color', 'size']
+>>> 
+>>> 
+>>> c1.__class__.__dict__.keys()
+['x', '__module__', '__doc__', 'show']
+>>> 
+>>> c1.__class__.__bases__[0].__dict__.keys()
+['x', '__module__', '__doc__', '__init__']
+>>> 
+>>> dir()
+['Car', 'Furn', 'Thing', '__builtins__', '__doc__', '__file__', '__name__', '__package__', 'c1', 'c2', 'c3', 'f1', 'pprint', 'thing', 'things', 'x']
+>>> dir(c1)
+['__doc__', '__init__', '__module__', 'color', 'show', 'size', 'x']
+>>> c.show()
+
+Traceback (most recent call last):
+  File "<pyshell#256>", line 1, in <module>
+    c.show()
+NameError: name 'c' is not defined
+>>> c1.show()
+The beautiful black car is 90 long
+>>> c1.size
+90
+>>> c1.__class__.__name__
+'Car'
+>>> 
+>>> c1
+<__main__.Car instance at 0x102d5ca28>
+>>> ================================ RESTART ================================
+>>> 
+The beautiful red car is 20 long
+The beautiful blue car is 30 long
+The fabulous brown furniture is 40 long
+The beautiful orange car is 35 long
+>>> 
+>>> 
+>>> c1.__dict__
+{'color': 'red', 'size': 20}
+>>> c1.x = 14
+>>> c1.__dict__
+{'color': 'red', 'x': 14, 'size': 20}
+>>> c1.x
+14
+>>> 
+>>> 
+>>> c2.__dict__
+{'color': 'blue', 'size': 30}
+>>> c2.__class__.__dict__
+{'x': 10, '__module__': '__main__', '__doc__': None, 'show': <function show at 0x1004e1e60>}
+>>> c2.x
+10
+>>> 
+
+>>> 
+>>> 
+>>> def mypow(base, exp):
+	'Return the base to the power of exp'
+	return base ** exp
+
+>>> mypow.__name__
+'mypow'
+>>> mypow.__doc__
+'Return the base to the power of exp'
+>>> 
+>>> help(mypow)
+Help on function mypow in module __main__:
+
+mypow(base, exp)
+    Return the base to the power of exp
+
+>>> def myhelp(func):
+	print 'My custom help (because Raymond took the real one)'
+	print '--------------------------------------------------'
+	print 'Function name:', func.__name__
+	print 'Docstring:'
+	print func.__doc__
+
+	
+>>> myhelp(mypow)
+My custom help (because Raymond took the real one)
+--------------------------------------------------
+Function name: mypow
+Docstring:
+Return the base to the power of exp
+>>> 
+>>> bin(45)
+'0b101101'
+>>> myhelp(bin)
+My custom help (because Raymond took the real one)
+--------------------------------------------------
+Function name: bin
+Docstring:
+bin(number) -> string
+
+Return the binary representation of an integer or long integer.
+>>> ================================ RESTART ================================
+>>> 
+<html>
+<head>
+    <title> Custom Help </title>
+</head>
+<body>
+<h2> Help on function:  <em> pow </em> </h2>
+<hr>
+<pre>
+pow(x, y[, z]) -> number
+
+With two arguments, equivalent to x**y.  With three arguments,
+equivalent to (x**y) % z, but may be more efficient (e.g. for longs).
+</pre>
+</body>
+</html>
+
+>>> dir()
+['__builtins__', '__doc__', '__file__', '__name__', '__package__', 'help_template', 'htmlhelp']
+>>> sorted(globals().keys())
+['__builtins__', '__doc__', '__file__', '__name__', '__package__', 'help_template', 'htmlhelp']
+>>> 
+>>> help(bin)
+Help on built-in function bin in module __builtin__:
+
+bin(...)
+    bin(number) -> string
+    
+    Return the binary representation of an integer or long integer.
+
+>>> myhelp(bin)
+
+Traceback (most recent call last):
+  File "<pyshell#299>", line 1, in <module>
+    myhelp(bin)
+NameError: name 'myhelp' is not defined
+>>> 
+>>> aliases = ["aps", "stripbooks", "popular", "apparel", "electronics", "sporting", "garden", "videogames", "toys-and-games", "jewelry", "digital-text", "digital-music", "prime-digital-music", "watches", "grocery", "hpc", "instant-video", "prime-instant-video", "shop-instant-video", "baby-products", "office-products", "software", "magazines", "tools", "automotive", "misc", "industrial", "mi", "pet-supplies", "digital-music-track", "digital-music-album", "mobile", "mobile-apps", "movies-tv", "music-artist", "music-album", "music-song", "stripbooks-spanish", "electronics-accessories", "pantry", "photo", "audio-video", "computers", "furniture", "kitchen", "audible", "audiobooks", "beauty", "shoes", "arts-crafts", "appliances", "gift-cards", "pets", "outdoor", "lawngarden", "collectibles", "financial", "wine", "fine-art", "fashion", "fashion-womens", "fashion-womens-clothing", "fashion-womens-jewelry", "fashion-womens-shoes", "fashion-womens-watches", "fashion-womens-handbags", "fashion-mens", "fashion-mens-clothing", "fashion-mens-jewelry", "fashion-mens-shoes", "fashion-mens-watches", "fashion-girls", "fashion-girls-clothing", "fashion-girls-jewelry", "fashion-girls-shoes", "fashion-girls-watches", "fashion-boys", "fashion-boys-clothing", "fashion-boys-jewelry", "fashion-boys-shoes", "fashion-boys-watches", "fashion-baby", "fashion-baby-boys", "fashion-baby-girls", "fashion-luggage", "3d-printing", "tradein-aps"]
+>>> 
+>>> print '\n'.join(aliases)
+aps
+stripbooks
+popular
+apparel
+electronics
+sporting
+garden
+videogames
+toys-and-games
+jewelry
+digital-text
+digital-music
+prime-digital-music
+watches
+grocery
+hpc
+instant-video
+prime-instant-video
+shop-instant-video
+baby-products
+office-products
+software
+magazines
+tools
+automotive
+misc
+industrial
+mi
+pet-supplies
+digital-music-track
+digital-music-album
+mobile
+mobile-apps
+movies-tv
+music-artist
+music-album
+music-song
+stripbooks-spanish
+electronics-accessories
+pantry
+photo
+audio-video
+computers
+furniture
+kitchen
+audible
+audiobooks
+beauty
+shoes
+arts-crafts
+appliances
+gift-cards
+pets
+outdoor
+lawngarden
+collectibles
+financial
+wine
+fine-art
+fashion
+fashion-womens
+fashion-womens-clothing
+fashion-womens-jewelry
+fashion-womens-shoes
+fashion-womens-watches
+fashion-womens-handbags
+fashion-mens
+fashion-mens-clothing
+fashion-mens-jewelry
+fashion-mens-shoes
+fashion-mens-watches
+fashion-girls
+fashion-girls-clothing
+fashion-girls-jewelry
+fashion-girls-shoes
+fashion-girls-watches
+fashion-boys
+fashion-boys-clothing
+fashion-boys-jewelry
+fashion-boys-shoes
+fashion-boys-watches
+fashion-baby
+fashion-baby-boys
+fashion-baby-girls
+fashion-luggage
+3d-printing
+tradein-aps
+>>> print aliases
+['aps', 'stripbooks', 'popular', 'apparel', 'electronics', 'sporting', 'garden', 'videogames', 'toys-and-games', 'jewelry', 'digital-text', 'digital-music', 'prime-digital-music', 'watches', 'grocery', 'hpc', 'instant-video', 'prime-instant-video', 'shop-instant-video', 'baby-products', 'office-products', 'software', 'magazines', 'tools', 'automotive', 'misc', 'industrial', 'mi', 'pet-supplies', 'digital-music-track', 'digital-music-album', 'mobile', 'mobile-apps', 'movies-tv', 'music-artist', 'music-album', 'music-song', 'stripbooks-spanish', 'electronics-accessories', 'pantry', 'photo', 'audio-video', 'computers', 'furniture', 'kitchen', 'audible', 'audiobooks', 'beauty', 'shoes', 'arts-crafts', 'appliances', 'gift-cards', 'pets', 'outdoor', 'lawngarden', 'collectibles', 'financial', 'wine', 'fine-art', 'fashion', 'fashion-womens', 'fashion-womens-clothing', 'fashion-womens-jewelry', 'fashion-womens-shoes', 'fashion-womens-watches', 'fashion-womens-handbags', 'fashion-mens', 'fashion-mens-clothing', 'fashion-mens-jewelry', 'fashion-mens-shoes', 'fashion-mens-watches', 'fashion-girls', 'fashion-girls-clothing', 'fashion-girls-jewelry', 'fashion-girls-shoes', 'fashion-girls-watches', 'fashion-boys', 'fashion-boys-clothing', 'fashion-boys-jewelry', 'fashion-boys-shoes', 'fashion-boys-watches', 'fashion-baby', 'fashion-baby-boys', 'fashion-baby-girls', 'fashion-luggage', '3d-printing', 'tradein-aps']
+>>> def mypow(base, exp):
+	'Return the base to the power of exp'
+	return base ** exp
+
+>>> 
+
+>>> 
+
+
+
+
+
+
+
+
+>>> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+>>> def mypow(base, exp):
+	'Return the base to the power of exp'
+	return base ** exp
+
+>>> mypow(10, 20, 30, 40)
+
+Traceback (most recent call last):
+  File "<pyshell#312>", line 1, in <module>
+    mypow(10, 20, 30, 40)
+TypeError: mypow() takes exactly 2 arguments (4 given)
+>>> mypow('hello', 'world')
+
+Traceback (most recent call last):
+  File "<pyshell#313>", line 1, in <module>
+    mypow('hello', 'world')
+  File "<pyshell#311>", line 3, in mypow
+    return base ** exp
+TypeError: unsupported operand type(s) for ** or pow(): 'str' and 'str'
+>>> 
+>>> mypow(20)
+
+Traceback (most recent call last):
+  File "<pyshell#315>", line 1, in <module>
+    mypow(20)
+TypeError: mypow() takes exactly 2 arguments (1 given)
+>>> 
+>>> def mypow(base, exp=1):
+	'Return the base to the power of exp'
+	return base ** exp
+
+>>> mypow(20)
+20
+>>> mypow(20, 2)
+400
+>>> mypow()
+
+Traceback (most recent call last):
+  File "<pyshell#321>", line 1, in <module>
+    mypow()
+TypeError: mypow() takes at least 1 argument (0 given)
+>>> mypow(20, 30, 40)
+
+Traceback (most recent call last):
+  File "<pyshell#322>", line 1, in <module>
+    mypow(20, 30, 40)
+TypeError: mypow() takes at most 2 arguments (3 given)
+>>> 
+>>> 
+>>> 
+>>> 
+>>> def mypow(base, exp):
+	'Return the base to the power of exp'
+	return base ** exp
+
+>>> mypow(2, 5)                     # positional arguments -- order matters
+32
+>>> mypow(exp=5, base=2)            # keyword arguments -- name matters
+32
+>>> mypow(2, exp=5)                 # positional must go before keywords
+32
+>>> 
+>>> 
+>>> arguments = (2, 5)
+>>> arguments[0]
+2
+>>> arguments[1]
+5
+>>> 
+>>> mypow(arguments)
+
+Traceback (most recent call last):
+  File "<pyshell#338>", line 1, in <module>
+    mypow(arguments)
+TypeError: mypow() takes exactly 2 arguments (1 given)
+>>> 
+>>> mypow(arguments[0], arguments[1])
+32
+>>> mypow(*arguments)
+32
+>>> mypow(2, 5)
+32
+>>> arguments = (2, 5, 3)
+>>> arguments = (2, 5, 3, 7)
+>>> mypow(2, 5, 3, 7)
+
+Traceback (most recent call last):
+  File "<pyshell#345>", line 1, in <module>
+    mypow(2, 5, 3, 7)
+TypeError: mypow() takes exactly 2 arguments (4 given)
+>>> mypow(*arguments)
+
+Traceback (most recent call last):
+  File "<pyshell#346>", line 1, in <module>
+    mypow(*arguments)
+TypeError: mypow() takes exactly 2 arguments (4 given)
+>>> 
+>>> 
+>>> 
+>>> mypow(bass=2, expy=5)
+
+Traceback (most recent call last):
+  File "<pyshell#350>", line 1, in <module>
+    mypow(bass=2, expy=5)
+TypeError: mypow() got an unexpected keyword argument 'bass'
+>>> mypow(base=2, exp=5, color='red')
+
+Traceback (most recent call last):
+  File "<pyshell#351>", line 1, in <module>
+    mypow(base=2, exp=5, color='red')
+TypeError: mypow() got an unexpected keyword argument 'color'
+>>> 
+>>> arguments = {'exp': 5, 'base': 2}
+>>> arguments['base']
+2
+>>> arguments['exp']
+5
+>>> mypow(base=2, exp=5)
+32
+>>> mypow(base=arguments['base'], exp=base['exp'])
+
+Traceback (most recent call last):
+  File "<pyshell#357>", line 1, in <module>
+    mypow(base=arguments['base'], exp=base['exp'])
+NameError: name 'base' is not defined
+>>> mypow(base=arguments['base'], exp=arguments['exp'])
+32
+>>> mypow(exp=arguments['exp']. base=arguments['base'])
+SyntaxError: invalid syntax
+>>> mypow(exp=arguments['exp'], base=arguments['base'])
+32
+>>> mypow(**arguments)
+32
+>>> 
+>>> 
+>>> def addemup(a, b):
+	return a + b
+
+>>> addemup(10, 5)
+15
+>>> addemup(10, 5, 3)
+
+Traceback (most recent call last):
+  File "<pyshell#368>", line 1, in <module>
+    addemup(10, 5, 3)
+TypeError: addemup() takes exactly 2 arguments (3 given)
+>>> def addemup(a, b, c=0):
+	return a + b + c
+
+>>> addemup(10, 5)
+15
+>>> addemup(10, 5, 3)
+18
+>>> addemup(10, 5, 3, 1)
+
+Traceback (most recent call last):
+  File "<pyshell#373>", line 1, in <module>
+    addemup(10, 5, 3, 1)
+TypeError: addemup() takes at most 3 arguments (4 given)
+>>> def addemup(a, b, c=0, d=0):
+	return a + b + c + d
+
+>>> addemup(10, 5, 3, 1)
+19
+>>> def f(a, b, *args):
+	print a
+	print b
+	print args
+
+	
+>>> f(10, 20, 30, 40, 50)
+10
+20
+(30, 40, 50)
+>>> 
+>>> # printf(fmt, ...);
+>>> # va_args    va_start   va_end
+>>> def f(a, b, *args, **kwds):
+	print a
+	print b
+	print args
+	print kwds
+
+	
+>>> f(10, 20, 30, 40, 50, x=1, y=2, z=3)
+10
+20
+(30, 40, 50)
+{'y': 2, 'x': 1, 'z': 3}
+>>> 
+>>> 
+>>> 
+>>> def mypow(base, exp):
+	'Return the base to the power of exp'
+	return base ** exp
+
+>>> def logging_pow(*args, **kwds):
+	print 'The pow() function was called with', args, 'and', kwds
+	answer = mypow(*args, **kwds)
+	print 'The answer is', answer
+	return answer
+
+>>> r = logging_pow(2, 5)            # positonal arguments
+The pow() function was called with (2, 5) and {}
+The answer is 32
+>>> 
+>>> r
+32
+>>> r = logging_pow(2, 5, 7)
+The pow() function was called with (2, 5, 7) and {}
+
+Traceback (most recent call last):
+  File "<pyshell#404>", line 1, in <module>
+    r = logging_pow(2, 5, 7)
+  File "<pyshell#400>", line 3, in logging_pow
+    answer = mypow(*args, **kwds)
+TypeError: mypow() takes exactly 2 arguments (3 given)
+>>> r = logging_pow(base=2, expy=5)
+The pow() function was called with () and {'expy': 5, 'base': 2}
+
+Traceback (most recent call last):
+  File "<pyshell#405>", line 1, in <module>
+    r = logging_pow(base=2, expy=5)
+  File "<pyshell#400>", line 3, in logging_pow
+    answer = mypow(*args, **kwds)
+TypeError: mypow() got an unexpected keyword argument 'expy'
+>>> 
+>>> 
+>>> 
+>>> 
+>>> 
+>>> 
+
+
+>>> 
+
+
+
+
+
+
+>>> def logging_pow(*args, **kwds):
+	print 'The pow() function was called with', args, 'and', kwds
+	answer = mypow(*args, **kwds)
+	print 'The answer is', answer
+	return answer
+
+>>> r = logging_pow(2, 5)            # positonal arguments
+The pow() function was called with (2, 5) and {}
+The answer is 32
+>>> r = logging_pow(exp=5, base=2)   # keywords arguments
+The pow() function was called with () and {'base': 2, 'exp': 5}
+The answer is 32
+>>> r = logging_pow(2, exp=5)        # hybrid arguments
+The pow() function was called with (2,) and {'exp': 5}
+The answer is 32
+>>> 
+>>> 
+>>> ================================ RESTART ================================
+>>> 
+
+Traceback (most recent call last):
+  File "/Users/raymond/Dropbox/Public/sj93/class_demo.py", line 20, in <module>
+    animals = [d, e, f, Dog('Rex')]
+TypeError: __init__() takes exactly 3 arguments (2 given)
+>>> ================================ RESTART ================================
+>>> 
+Woof! Fido is barking at the moon.
+Woof! Buddy is barking at the moon.
+Woof! Checkers is barking at the moon.
+Woof! Rex is barking at the moon.
+>>> ================================ RESTART ================================
+>>> 
+Woof! Fido is barking at the moon.
+Woof! Buddy is barking at the moon.
+Woof! Checkers is barking at the moon.
+Woof! Rex is barking at the moon.
+Woof! Fido is barking at the moon.
+>>> Dog.__name__
+'Dog'
+>>> Dog.__dict__.keys()
+['talk', '__module__', '__doc__', '__init__']
+>>> Dog.__bases__
+()
+>>> d.__class__
+<class __main__.Dog at 0x1004813f8>
+>>> d.__dict__
+{'color': 'white', 'name': 'Fido'}
+>>> e.__class__
+<class __main__.Dog at 0x1004813f8>
+>>> e.__dict__
+{'color': 'black', 'name': 'Buddy'}
+>>> f.__class__
+<class __main__.Dog at 0x1004813f8>
+>>> f.__dict__
+{'color': 'spotted', 'name': 'Checkers'}
+>>> ================================ RESTART ================================
+>>> 
+Woof! Fido is barking at the moon.
+Woof! Buddy is barking at the moon.
+Woof! Checkers is barking at the moon.
+Woof! Rex is barking at the moon.
+Woof! Fido is barking at the moon.
+Meow! Socks is purring at the door.
+>>> ================================ RESTART ================================
+>>> 
+Woof! Fido is barking at the moon.
+Woof! Buddy is barking at the moon.
+Woof! Checkers is barking at the moon.
+Woof! Rex is barking at the moon.
+Woof! Fido is barking at the moon.
+Meow! Socks is purring at the door.
+>>> 
+>>> 
+>>> Animal.__name__
+'Animal'
+>>> Animal.__dict__
+{'__module__': '__main__', '__doc__': 'A generic class of critters', '__init__': <function __init__ at 0x1004e1de8>}
+>>> Animal.__bases__
+()
+>>> 
+>>> Animal.__doc__
+'A generic class of critters'
+>>> Animal.__module__
+'__main__'
+>>> 
+>>> 
+>>> c.__class__
+<class __main__.Cat at 0x1036f68d8>
+>>> c.__dict__
+{'color': 'white', 'name': 'Socks'}
+>>> 
+>>> c.name
+'Socks'
+>>> c.color
+'white'
+>>> c.talk()
+Meow! Socks is purring at the door.
+>>> c.__doc__
+'A simple feline class'
+>>> 
+>>> 
+>>> c.__dict__['color'] = 'green'
+>>> c.color
+'green'
+>>> 
+>>> d
+<__main__.Dog instance at 0x10365b200>
+>>> d.name
+'Fido'
+>>> d.color
+'white'
+>>> d.size = 10
+>>> d.__dict__
+{'color': 'white', 'name': 'Fido', 'size': 10}
+>>> e.__dict__
+{'color': 'black', 'name': 'Buddy'}
+>>> 
+>>> c.__dict__
+{'color': 'green', 'name': 'Socks'}
+>>> 
+>>> c.name = 'Sergeant Socks'
+>>> c.name
+'Sergeant Socks'
+>>> 
+>>> c.__class__
+<class __main__.Cat at 0x1036f68d8>
+>>> c.talk()
+Meow! Sergeant Socks is purring at the door.
+>>> 
+>>> c.__class__ = Dog
+>>> c.talk()
+Woof! Sergeant Socks is barking at the moon.
+>>> 
+>>> c.__class__.__dict__['talk'](c)
+Woof! Sergeant Socks is barking at the moon.
+>>> 
+>>> 
+>>> def fetch(dog):
+	print '%s is fetching' % dog.name
+
+	
+>>> d.fetch()
+
+Traceback (most recent call last):
+  File "<pyshell#475>", line 1, in <module>
+    d.fetch()
+AttributeError: Dog instance has no attribute 'fetch'
+>>> globals()['fetch'](d)
+Fido is fetching
+>>> fetch(d)
+Fido is fetching
+>>> Dog.fetch = fetch
+>>> Dog.__dict__
+{'talk': <function talk at 0x103700578>, '__module__': '__main__', '__doc__': 'A simple canine class', '__init__': <function __init__ at 0x1036fee60>, 'fetch': <function fetch at 0x1004e1b90>}
+>>> 
+>>> e.fetch()
+Buddy is fetching
+>>> f.fetch()
+Checkers is fetching
+>>> fetch(d)
+Fido is fetching
+
+>>> 
+>>> 
+>>> s = 'hello'
+>>> len(s)
+5
+>>> s.__len__()
+5
+>>> dir(s)
+['__add__', '__class__', '__contains__', '__delattr__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__', '__getnewargs__', '__getslice__', '__gt__', '__hash__', '__init__', '__le__', '__len__', '__lt__', '__mod__', '__mul__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__rmod__', '__rmul__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '_formatter_field_name_split', '_formatter_parser', 'capitalize', 'center', 'count', 'decode', 'encode', 'endswith', 'expandtabs', 'find', 'format', 'index', 'isalnum', 'isalpha', 'isdigit', 'islower', 'isspace', 'istitle', 'isupper', 'join', 'ljust', 'lower', 'lstrip', 'partition', 'replace', 'rfind', 'rindex', 'rjust', 'rpartition', 'rsplit', 'rstrip', 'split', 'splitlines', 'startswith', 'strip', 'swapcase', 'title', 'translate', 'upper', 'zfill']
+>>> def mylen(obj):
+	return obj.__len__()
+
+>>> mylen('hello')
+5
+>>> mylen([10, 20, 30])
+3
+>>> ================================ RESTART ================================
+>>> 
+Woof! Fido is barking at the moon.
+Woof! Buddy is barking at the moon.
+Woof! Checkers is barking at the moon.
+Woof! Rex is barking at the moon.
+Woof! Fido is barking at the moon.
+Meow! Socks is purring at the door.
+>>> d.name
+'Fido'
+>>> d.color
+'white'
+>>> d.width
+
+Traceback (most recent call last):
+  File "<pyshell#497>", line 1, in <module>
+    d.width
+AttributeError: Dog instance has no attribute 'width'
+>>> 
+>>> len(d)
+
+Traceback (most recent call last):
+  File "<pyshell#499>", line 1, in <module>
+    len(d)
+AttributeError: Dog instance has no attribute '__len__'
+>>> ================================ RESTART ================================
+>>> 
+Woof! Fido is barking at the moon.
+Woof! Buddy is barking at the moon.
+Woof! Checkers is barking at the moon.
+Woof! Rex is barking at the moon.
+Woof! Fido is barking at the moon.
+Meow! Socks is purring at the door.
+>>> d.__len__()
+42
+>>> len(d)
+42
+>>> len(e)
+42
+>>> len(f)
+42
+>>> ================================ RESTART ================================
+>>> 
+Woof! Fido is barking at the moon.
+Woof! Buddy is barking at the moon.
+Woof! Checkers is barking at the moon.
+Woof! Rex is barking at the moon.
+Woof! Fido is barking at the moon.
+Meow! Socks is purring at the door.
+>>> len(d)
+4
+>>> len(e)
+5
+>>> len(f)
+8
+>>> dir(str)
+['__add__', '__class__', '__contains__', '__delattr__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__', '__getnewargs__', '__getslice__', '__gt__', '__hash__', '__init__', '__le__', '__len__', '__lt__', '__mod__', '__mul__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__rmod__', '__rmul__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '_formatter_field_name_split', '_formatter_parser', 'capitalize', 'center', 'count', 'decode', 'encode', 'endswith', 'expandtabs', 'find', 'format', 'index', 'isalnum', 'isalpha', 'isdigit', 'islower', 'isspace', 'istitle', 'isupper', 'join', 'ljust', 'lower', 'lstrip', 'partition', 'replace', 'rfind', 'rindex', 'rjust', 'rpartition', 'rsplit', 'rstrip', 'split', 'splitlines', 'startswith', 'strip', 'swapcase', 'title', 'translate', 'upper', 'zfill']
+>>> dir(unicode)
+['__add__', '__class__', '__contains__', '__delattr__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__', '__getnewargs__', '__getslice__', '__gt__', '__hash__', '__init__', '__le__', '__len__', '__lt__', '__mod__', '__mul__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__rmod__', '__rmul__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '_formatter_field_name_split', '_formatter_parser', 'capitalize', 'center', 'count', 'decode', 'encode', 'endswith', 'expandtabs', 'find', 'format', 'index', 'isalnum', 'isalpha', 'isdecimal', 'isdigit', 'islower', 'isnumeric', 'isspace', 'istitle', 'isupper', 'join', 'ljust', 'lower', 'lstrip', 'partition', 'replace', 'rfind', 'rindex', 'rjust', 'rpartition', 'rsplit', 'rstrip', 'split', 'splitlines', 'startswith', 'strip', 'swapcase', 'title', 'translate', 'upper', 'zfill']
+>>> s = 'hello'
+>>> s[1]
+'e'
+>>> t = [10, 20, 30, 40, 50]
+>>> t[1]
+20
+>>> s.__getitem__(1)
+'e'
+>>> t.__getitem__(1)
+20
+>>> dir(str)
+['__add__', '__class__', '__contains__', '__delattr__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__', '__getnewargs__', '__getslice__', '__gt__', '__hash__', '__init__', '__le__', '__len__', '__lt__', '__mod__', '__mul__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__rmod__', '__rmul__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '_formatter_field_name_split', '_formatter_parser', 'capitalize', 'center', 'count', 'decode', 'encode', 'endswith', 'expandtabs', 'find', 'format', 'index', 'isalnum', 'isalpha', 'isdigit', 'islower', 'isspace', 'istitle', 'isupper', 'join', 'ljust', 'lower', 'lstrip', 'partition', 'replace', 'rfind', 'rindex', 'rjust', 'rpartition', 'rsplit', 'rstrip', 'split', 'splitlines', 'startswith', 'strip', 'swapcase', 'title', 'translate', 'upper', 'zfill']
+>>> dir(list)
+['__add__', '__class__', '__contains__', '__delattr__', '__delitem__', '__delslice__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__', '__getslice__', '__gt__', '__hash__', '__iadd__', '__imul__', '__init__', '__iter__', '__le__', '__len__', '__lt__', '__mul__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__reversed__', '__rmul__', '__setattr__', '__setitem__', '__setslice__', '__sizeof__', '__str__', '__subclasshook__', 'append', 'count', 'extend', 'index', 'insert', 'pop', 'remove', 'reverse', 'sort']
+>>> ', '__getitem__',
+SyntaxError: invalid syntax
+>>> 
+>>> 
+>>> 
+>>> d[2]
+
+Traceback (most recent call last):
+  File "<pyshell#521>", line 1, in <module>
+    d[2]
+AttributeError: Dog instance has no attribute '__getitem__'
+>>> ================================ RESTART ================================
+>>> 
+Woof! Fido is barking at the moon.
+Woof! Buddy is barking at the moon.
+Woof! Checkers is barking at the moon.
+Woof! Rex is barking at the moon.
+Woof! Fido is barking at the moon.
+Meow! Socks is purring at the door.
+>>> d[2]
+42
+>>> e[5]
+42
+>>> d.__getitem__(2)
+42
+>>> e.__getitem__(5)
+42
+>>> ================================ RESTART ================================
+>>> 
+Woof! Fido is barking at the moon.
+Woof! Buddy is barking at the moon.
+Woof! Checkers is barking at the moon.
+Woof! Rex is barking at the moon.
+Woof! Fido is barking at the moon.
+Meow! Socks is purring at the door.
+>>> d[2]
+222
+>>> e[5]
+555
+>>> d.__len__()
+4
+>>> e.__getitem__(2)
+222
+>>> len(d)
+4
+>>> len(e)
+5
+>>> e.__getitem__(2)
+222
+>>> e.__class__
+<class __main__.Dog at 0x102ef6940>
+>>> e.__class__.__dict__
+{'__module__': '__main__', '__getitem__': <function __getitem__ at 0x102f00668>, '__len__': <function __len__ at 0x102f005f0>, '__init__': <function __init__ at 0x102efee60>, '__doc__': 'A simple canine class', 'talk': <function talk at 0x102f00578>}
+>>> e.__class__.__dict__['__getitem__']
+<function __getitem__ at 0x102f00668>
+>>> e.__class__.__dict__['__getitem__'](e, 2)
+222
+>>> ================================ RESTART ================================
+>>> 
+Woof! Fido is barking at the moon.
+Woof! Buddy is barking at the moon.
+Woof! Checkers is barking at the moon.
+Woof! Rex is barking at the moon.
+Woof! Fido is barking at the moon.
+Meow! Socks is purring at the door.
+>>> e[2]
+
+Traceback (most recent call last):
+  File "<pyshell#537>", line 1, in <module>
+    e[2]
+TypeError: __getitem__() takes exactly 1 argument (2 given)
+>>> ================================ RESTART ================================
+>>> 
+Woof! Fido is barking at the moon.
+Woof! Buddy is barking at the moon.
+Woof! Checkers is barking at the moon.
+Woof! Rex is barking at the moon.
+Woof! Fido is barking at the moon.
+Meow! Socks is purring at the door.
+>>> ================================ RESTART ================================
+>>> 
+Woof! Fido is barking at the moon.
+Woof! Buddy is barking at the moon.
+Woof! Checkers is barking at the moon.
+Woof! Rex is barking at the moon.
+Woof! Fido is barking at the moon.
+Meow! Socks is purring at the door.
+>>> s = 'hello'
+>>> len(s)
+5
+>>> s[0]
+'h'
+>>> s[5]
+
+Traceback (most recent call last):
+  File "<pyshell#541>", line 1, in <module>
+    s[5]
+IndexError: string index out of range
+>>> # s is a member of class that has __len__ and __getitem__
+>>> # s[0], s[1], ..., s[len(s)-1], IndexError
+>>> # Such as class is said to be a sequence
+>>> 
+>>> s = [10, 20, 30]
+>>> len(s)
+3
+>>> s[0]
+10
+>>> s[1]
+20
+>>> s[2]
+30
+>>> s[3]
+
+Traceback (most recent call last):
+  File "<pyshell#551>", line 1, in <module>
+    s[3]
+IndexError: list index out of range
+>>> 
+>>> 
+>>> len(d)
+4
+>>> d[0]
+0
+>>> d[1]
+111
+>>> d[2]
+222
+>>> d[3]
+333
+>>> d[3]
+333
+>>> d[4]
+444
+>>> d[5]
+555
+>>> ================================ RESTART ================================
+>>> 
+Woof! Fido is barking at the moon.
+Woof! Buddy is barking at the moon.
+Woof! Checkers is barking at the moon.
+Woof! Rex is barking at the moon.
+Woof! Fido is barking at the moon.
+Meow! Socks is purring at the door.
+>>> d[2]
+222
+>>> d[8]
+
+Traceback (most recent call last):
+  File "<pyshell#563>", line 1, in <module>
+    d[8]
+  File "/Users/raymond/Dropbox/Public/sj93/class_demo.py", line 34, in __getitem__
+    raise IndexError('Oops, I did it again')
+IndexError: Oops, I did it again
+>>> ================================ RESTART ================================
+>>> 
+Woof! Fido is barking at the moon.
+Woof! Buddy is barking at the moon.
+Woof! Checkers is barking at the moon.
+Woof! Rex is barking at the moon.
+Woof! Fido is barking at the moon.
+Meow! Socks is purring at the door.
+>>> d[8]
+
+Traceback (most recent call last):
+  File "<pyshell#564>", line 1, in <module>
+    d[8]
+  File "/Users/raymond/Dropbox/Public/sj93/class_demo.py", line 34, in __getitem__
+    raise IndexError('Out of range')
+IndexError: Out of range
+>>> 
+>>> 
+>>> 
+>>> # Things sequences can do
+>>> i = 0
+>>> while True:
+	try:
+		value = s[i]
+	except IndexError:
+		break
+	print value
+	i += 1
+
+	
+
+Traceback (most recent call last):
+  File "<pyshell#578>", line 3, in <module>
+    value = s[i]
+NameError: name 's' is not defined
+>>> s = 'hello'
+>>> i = 0
+>>> while True:
+	try:
+		value = s[i]
+	except IndexError:
+		break
+	print value
+	i += 1
+
+	
+h
+e
+l
+l
+o
+>>> s = [10, 20, 30]
+>>> i = 0
+>>> while True:
+	try:
+		value = s[i]
+	except IndexError:
+		break
+	print value
+	i += 1
+
+	
+10
+20
+30
+>>> # All sequences are iterable
+>>> # The above logic is built-into for-loops
+>>> for c in 'hello':
+	print c
+
+	
+h
+e
+l
+l
+o
+>>> for x in [10, 20, 30]:
+	print x
+
+	
+10
+20
+30
+>>> ================================ RESTART ================================
+>>> 
+Woof! Fido is barking at the moon.
+Woof! Buddy is barking at the moon.
+Woof! Checkers is barking at the moon.
+Woof! Rex is barking at the moon.
+Woof! Fido is barking at the moon.
+Meow! Socks is purring at the door.
+>>> for x in d:
+	print x
+
+	
+0
+111
+222
+333
+>>> d[0]
+0
+>>> d[1]
+111
+>>> d[2]
+222
+>>> d[3]
+333
+>>> d[4]
+
+Traceback (most recent call last):
+  File "<pyshell#601>", line 1, in <module>
+    d[4]
+  File "/Users/raymond/Dropbox/Public/sj93/class_demo.py", line 34, in __getitem__
+    raise IndexError('Out of range')
+IndexError: Out of range
+>>> 
+>>> 
+>>> def mysum(seq):
+	total = 0
+	for x in seq:
+		total += x
+	return total
+
+>>> mysum([10, 20, 30])
+60
+>>> mysum(d)
+666
+>>> mysum(e)
+1110
+>>> open('notes/stocks.txt')
+<open file 'notes/stocks.txt', mode 'r' at 0x102d48660>
+>>> for line in open('notes/stocks.txt'):
+	print line,
+
+	
+CSCO,100,18.04
+WLP,200,45.03
+CSCO,150,19.05
+MSFT,250,80.56
+IBM,500,22.01
+WLP,250,44.23
+GOOG,200,501.45
+CSCO,175,19.56
+MSFT,75,80.81
+GOOG,300,502.65
+IBM,150,25.01
+>>> 
+>>> 
+>>> set(open('notes/stocks.txt'))
+set(['IBM,500,22.01\n', 'MSFT,75,80.81\n', 'WLP,250,44.23\n', 'GOOG,200,501.45\n', 'CSCO,100,18.04\n', 'WLP,200,45.03\n', 'MSFT,250,80.56\n', 'CSCO,175,19.56\n', 'IBM,150,25.01\n', 'GOOG,300,502.65\n', 'CSCO,150,19.05\n'])
+>>> sorted(set(open('notes/stocks.txt')))
+['CSCO,100,18.04\n', 'CSCO,150,19.05\n', 'CSCO,175,19.56\n', 'GOOG,200,501.45\n', 'GOOG,300,502.65\n', 'IBM,150,25.01\n', 'IBM,500,22.01\n', 'MSFT,250,80.56\n', 'MSFT,75,80.81\n', 'WLP,200,45.03\n', 'WLP,250,44.23\n']
+>>> # cat notes/stocks.txt | sort | uniq
+>>> print '\n'.join(sorted(set(open('notes/stocks.txt'))))
+CSCO,100,18.04
+
+CSCO,150,19.05
+
+CSCO,175,19.56
+
+GOOG,200,501.45
+
+GOOG,300,502.65
+
+IBM,150,25.01
+
+IBM,500,22.01
+
+MSFT,250,80.56
+
+MSFT,75,80.81
+
+WLP,200,45.03
+
+WLP,250,44.23
+
+>>> print ''.join(sorted(set(open('notes/stocks.txt'))))
+CSCO,100,18.04
+CSCO,150,19.05
+CSCO,175,19.56
+GOOG,200,501.45
+GOOG,300,502.65
+IBM,150,25.01
+IBM,500,22.01
+MSFT,250,80.56
+MSFT,75,80.81
+WLP,200,45.03
+WLP,250,44.23
+
+>>> def square(x):
+	'Return a value times itself'
+	return x * x
+
+>>> type(square)
+<type 'function'>
+>>> square.__name__
+'square'
+>>> # The name given a birth
+>>> f = square                # The = sign NEVER makes a copy; it creates an new reference
+>>> id(square)
+4344373328
+>>> hex(id(square))
+'0x102f1e050'
+>>> hex(id(f))
+'0x102f1e050'
+>>> 
+>>> id(square) == id(f)
+True
+>>> square is f
+True
+>>> f.__name__
+'square'
+>>> f.__name__ = 'TheFunctionFormerlyKnownAsSquare'
+>>> square.__name_
+
+Traceback (most recent call last):
+  File "<pyshell#640>", line 1, in <module>
+    square.__name_
+AttributeError: 'function' object has no attribute '__name_'
+>>> square.__name__
+'TheFunctionFormerlyKnownAsSquare'
+>>> 
+>>> 
+>>> type(name)
+
+Traceback (most recent call last):
+  File "<pyshell#644>", line 1, in <module>
+    type(name)
+NameError: name 'name' is not defined
+>>> type(square)
+<type 'function'>
+>>> dir(square)
+['__call__', '__class__', '__closure__', '__code__', '__defaults__', '__delattr__', '__dict__', '__doc__', '__format__', '__get__', '__getattribute__', '__globals__', '__hash__', '__init__', '__module__', '__name__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', 'func_closure', 'func_code', 'func_defaults', 'func_dict', 'func_doc', 'func_globals', 'func_name']
+>>> square.__class__
+<type 'function'>
+>>> square.__doc__
+'Return a value times itself'
+>>> square.__code__.co_code
+'|\x00\x00|\x00\x00\x14S'
+>>> map(ord, _)
+[124, 0, 0, 124, 0, 0, 20, 83]
+>>> from dis import dis
+>>> dis(square)
+  3           0 LOAD_FAST                0 (x)
+              3 LOAD_FAST                0 (x)
+              6 BINARY_MULTIPLY     
+              7 RETURN_VALUE        
+>>> 
+>>> s = 'hello'
+>>> s[1]
+'e'
+>>> s.__getitem__(1)
+'e'
+>>> square(5)
+25
+>>> square.__call__(5)
+25
+>>> d('fetch')
+
+Traceback (most recent call last):
+  File "<pyshell#659>", line 1, in <module>
+    d('fetch')
+AttributeError: Dog instance has no __call__ method
+>>> ================================ RESTART ================================
+>>> 
+Woof! Fido is barking at the moon.
+Woof! Buddy is barking at the moon.
+Woof! Checkers is barking at the moon.
+Woof! Rex is barking at the moon.
+Woof! Fido is barking at the moon.
+Meow! Socks is purring at the door.
+>>> d('fetch')
+'Fido is fetching'
+>>> d('get color')
+'Fido is white'
+>>> d('owner')
+'Raymond'
+>>> d('vaccinations')
+
+Traceback (most recent call last):
+  File "<pyshell#663>", line 1, in <module>
+    d('vaccinations')
+  File "/Users/raymond/Dropbox/Public/sj93/class_demo.py", line 45, in __call__
+    raise ValueError('Unknown action')
+ValueError: Unknown action
+>>> 
+>>> 
+>>> 
+>>> 
+>>> 
+>>> 
+>>> 
+
+
+>>> 
+
+
+
+
+
+
+
+
+
+
+>>> 
+
+
+
+>>> 
+>>> # All objects have upto TWO ways to display themselves.
+>>> # For displaying an object to an end-user, we need a pretty way.
+>>> # For displaying an object to a programmer, we need an informative way.
+>>> 
+>>> # The pretty way uses __str__, pronounced "stir", short for "string"
+>>> # The informative way uses __repr__, pronounced "repper", short for "representation"
+>>> 
+>>> # The "print" keywords displays to end-users, so it uses __str__
+>>> # The ">>> " interactive prompt displays to programmers, so it uses __repr__
+>>> 
+>>> # Wrinkles:
+>>> # Sometimes, the pretty way and the informative way are the same.
+>>> # There is a default __str__ and __repr__ already provided,
+>>> # BUT it is the same for both, and it is neither pretty, nor informative.
+>>> 
+>>> print 30 + 40
+70
+>>> 30 + 40
+70
+>>> print 'hello' + ' world'
+hello world
+>>> 'hello' + ' world'
+'hello world'
+>>> xyz = 10
+>>> 
+>>> 
+>>> print 'xyz'
+xyz
+>>> print xyz
+10
+>>> 
+>>> 
+>>> print 30 + 40
+70
+>>> print "7" + "0"
+70
+>>> (30 + 40) * 5
+350
+>>> ("7" + "0") * 5
+'7070707070'
+>>> 
+>>> 30 + 40
+70
+>>> "7" + "0"
+'70'
+>>> 
+>>> print d
+<__main__.Dog instance at 0x10255bbd8>
+>>> d
+<__main__.Dog instance at 0x10255bbd8>
+>>> ================================ RESTART ================================
+>>> 
+Woof! Fido is barking at the moon.
+Woof! Buddy is barking at the moon.
+Woof! Checkers is barking at the moon.
+Woof! Rex is barking at the moon.
+Woof! Fido is barking at the moon.
+Meow! Socks is purring at the door.
+>>> 
+>>> print d
+I am a dog named Fido
+>>> d
+<__main__.Dog instance at 0x102e5bbd8>
+>>> ================================ RESTART ================================
+>>> 
+Woof! Fido is barking at the moon.
+Woof! Buddy is barking at the moon.
+Woof! Checkers is barking at the moon.
+Woof! Rex is barking at the moon.
+Woof! Fido is barking at the moon.
+Meow! Socks is purring at the door.
+>>> 
+>>> 
+>>> 
+>>> 
+>>> d
+<__main__.Dog instance at 0x10255bbd8>
+>>> animals
+[<__main__.Dog instance at 0x10255bbd8>, <__main__.Dog instance at 0x10255b200>, <__main__.Dog instance at 0x10255b170>, <__main__.Dog instance at 0x102559f38>, <__main__.Dog instance at 0x10255bbd8>, <__main__.Cat instance at 0x10255c2d8>]
+>>> 
+>>> # Best practice for __repr__:  If possible, it should like how the instance got created in the first place, or at least, how it COULD have been created
+>>> 
+>>> "hello" + ''' world'''
+'hello world'
+>>> 'hello world'
+'hello world'
+>>> 30 + 40
+70
+>>> 70
+70
+>>> ================================ RESTART ================================
+>>> 
+Woof! Fido is barking at the moon.
+Woof! Buddy is barking at the moon.
+Woof! Checkers is barking at the moon.
+Woof! Rex is barking at the moon.
+Woof! Fido is barking at the moon.
+Meow! Socks is purring at the door.
+>>> 
+>>> 
+>>> print d
+I am a dog named Fido
+>>> d
+Dog(Fido, white)
+>>> ================================ RESTART ================================
+>>> 
+Woof! Fido is barking at the moon.
+Woof! Buddy is barking at the moon.
+Woof! Checkers is barking at the moon.
+Woof! Rex is barking at the moon.
+Woof! Fido is barking at the moon.
+Meow! Socks is purring at the door.
+>>> d
+Dog(Fido, white)
+>>> Dog(Fido, white)
+Dog(Rex, purple)
+>>> 
+>>> 
+>>> name = 'Fido'
+>>> type(name)
+<type 'str'>
+>>> print name
+Fido
+>>> name
+'Fido'
+>>> ================================ RESTART ================================
+>>> 
+Woof! Fido is barking at the moon.
+Woof! Buddy is barking at the moon.
+Woof! Checkers is barking at the moon.
+Woof! Rex is barking at the moon.
+Woof! Fido is barking at the moon.
+Meow! Socks is purring at the door.
+>>> d
+Dog('Fido', 'white')
+>>> 
+>>> animals
+[Dog('Fido', 'white'), Dog('Buddy', 'black'), Dog('Checkers', 'spotted'), Dog('Rex', 'brown'), Dog('Fido', 'white'), <__main__.Cat instance at 0x102e5c2d8>]
+>>> ================================ RESTART ================================
+>>> 
+Woof! Fido is barking at the moon.
+Woof! Buddy is barking at the moon.
+Woof! Checkers is barking at the moon.
+Woof! Rex is barking at the moon.
+Woof! Fido is barking at the moon.
+Meow! Socks is purring at the door.
+>>> animals
+[Dog('Fido', 'white'), Dog('Buddy', 'black'), Dog('Checkers', 'spotted'), Dog('Rex', 'brown'), Dog('Fido', 'white'), Cat('Socks', 'white')]
+>>> d.__class__
+<class __main__.Dog at 0x102ef6940>
+>>> d.__class__.__name__
+'Dog'
+>>> c.__class__.__name__
+'Cat'
+>>> ================================ RESTART ================================
+>>> 
+Woof! Fido is barking at the moon.
+Woof! Buddy is barking at the moon.
+Woof! Checkers is barking at the moon.
+Woof! Rex is barking at the moon.
+Woof! Fido is barking at the moon.
+Meow! Socks is purring at the door.
+>>> animals
+[Dog('Fido', 'white'), Dog('Buddy', 'black'), Dog('Checkers', 'spotted'), Dog('Rex', 'brown'), Dog('Fido', 'white'), Cat('Socks', 'white')]
+>>> ================================ RESTART ================================
+>>> 
+Woof! Fido is barking at the moon.
+Woof! Buddy is barking at the moon.
+Woof! Checkers is barking at the moon.
+Woof! Rex is barking at the moon.
+Woof! Fido is barking at the moon.
+Meow! Socks is purring at the door.
+>>> d
+'Dog'('Fido', 'white')
+>>> ================================ RESTART ================================
+>>> 
+Woof! Fido is barking at the moon.
+Woof! Buddy is barking at the moon.
+Woof! Checkers is barking at the moon.
+Woof! Rex is barking at the moon.
+Woof! Fido is barking at the moon.
+Meow! Socks is purring at the door.
+>>> 
+>>> 
+>>> print 'The answer is {0} today'.format(123456789)
+The answer is 123456789 today
+>>> print 'The answer is {0:,} today'.format(123456789)
+The answer is 123,456,789 today
+>>> ================================ RESTART ================================
+>>> 
+Woof! Fido is barking at the moon.
+Woof! Buddy is barking at the moon.
+Woof! Checkers is barking at the moon.
+Woof! Rex is barking at the moon.
+Woof! Fido is barking at the moon.
+Meow! Socks is purring at the door.
+>>> animals
+[Dog('Fido', 'white'), Dog('Buddy', 'black'), Dog('Checkers', 'spotted'), Dog('Rex', 'brown'), Dog('Fido', 'white'), Cat('Socks', 'white')]
+>>> 
+>>> 
+>>> 
+>>> ================================ RESTART ================================
+>>> 
+Woof! Fido is barking at the moon.
+Woof! Buddy is barking at the moon.
+Woof! Checkers is barking at the moon.
+Woof! Rex is barking at the moon.
+Woof! Fido is barking at the moon.
+Meow! Socks is purring at the door.
+>>> sorted(globals().keys())
+['Animal', 'Cat', 'Dog', '__builtins__', '__doc__', '__file__', '__name__', '__package__', 'animal', 'animals', 'c', 'd', 'e', 'f']
+>>> dir()
+['Animal', 'Cat', 'Dog', '__builtins__', '__doc__', '__file__', '__name__', '__package__', 'animal', 'animals', 'c', 'd', 'e', 'f']
+>>> print __doc__
+ Give a typical OOP example.
+    Clarify how wide-open the implementation is.
+    Show the most common magic methods (special methods).
+
+>>> print __name__
+__main__
+>>> c
+Cat('Socks', 'white')
+>>> d
+Dog('Fido', 'white')
+>>> e
+Dog('Buddy', 'black')
+>>> f
+Dog('Checkers', 'spotted')
+
+>>> 
+>>> # Globals:
+>>> #  __name__  __doc__
+>>> #  Animal  Cat  Dog
+>>> #  c d e f
+>>> 
+>>> # Animal
+>>> #  __name__ __bases__  __dict__
+>>> #  __module__ __doc__  __init__
+>>> #  __repr__
+>>> 
+>>> Animal.__name__
+'Animal'
+>>> Animal.__bases__
+()
+>>> Animal.__module__
+'__main__'
+>>> Animal.__doc__
+'A generic class of critters'
+>>> Animal.__init__
+<unbound method Animal.__init__>
+>>> Animal.__repr__
+<unbound method Animal.__repr__>
+>>> # Cat
+>>> #   __name__ __bases__ __dict__
+>>> #   __module__ __doc__ tal
+>>> 
+>>> # Dog
+>>> #   __name__ __bases__ __dict__
+>>> #   __module__ __doc__ tal
+>>> 
+>>> Cat.__doc__
+'A simple feline class'
+>>> Dog.__doc__
+'A simple canine class'
+>>> Cat.talk
+<unbound method Cat.talk>
+>>> Dog.Talk
+
+Traceback (most recent call last):
+  File "<pyshell#791>", line 1, in <module>
+    Dog.Talk
+AttributeError: class Dog has no attribute 'Talk'
+>>> Dog.talk
+<unbound method Dog.talk>
+>>> 
+>>> 
+>>> # c
+>>> #   __class__ __dict__
+>>> #   name color
+>>> 
+>>> c.__class__
+<class __main__.Cat at 0x102df68d8>
+>>> c.__dict__
+{'color': 'white', 'name': 'Socks'}
+>>> c.name
+'Socks'
+>>> c.color
+'white'
+>>> 
+>>> # d
+>>> #   __class__ __dict__
+>>> #   name color
+>>> d.__class__
+<class __main__.Dog at 0x102df6940>
+>>> d.__dict__
+{'color': 'white', 'name': 'Fido'}
+>>> d.name
+'Fido'
+>>> d.color
+'white'
+>>> ================================ RESTART ================================
+>>> 
+25
+>>> ================================ RESTART ================================
+>>> 
+25
+121
+>>> ================================ RESTART ================================
+>>> 
+25
+121
+10
+>>> 
+>>> dir(int)
+['__abs__', '__add__', '__and__', '__class__', '__cmp__', '__coerce__', '__delattr__', '__div__', '__divmod__', '__doc__', '__float__', '__floordiv__', '__format__', '__getattribute__', '__getnewargs__', '__hash__', '__hex__', '__index__', '__init__', '__int__', '__invert__', '__long__', '__lshift__', '__mod__', '__mul__', '__neg__', '__new__', '__nonzero__', '__oct__', '__or__', '__pos__', '__pow__', '__radd__', '__rand__', '__rdiv__', '__rdivmod__', '__reduce__', '__reduce_ex__', '__repr__', '__rfloordiv__', '__rlshift__', '__rmod__', '__rmul__', '__ror__', '__rpow__', '__rrshift__', '__rshift__', '__rsub__', '__rtruediv__', '__rxor__', '__setattr__', '__sizeof__', '__str__', '__sub__', '__subclasshook__', '__truediv__', '__trunc__', '__xor__', 'bit_length', 'conjugate', 'denominator', 'imag', 'numerator', 'real']
+>>> 2(5)
+
+Traceback (most recent call last):
+  File "<pyshell#813>", line 1, in <module>
+    2(5)
+TypeError: 'int' object is not callable
+>>> 
+>>> 
+>>> 
+>>> ================================ RESTART ================================
+>>> 
+Woof! Fido is barking at the moon.
+Woof! Buddy is barking at the moon.
+Woof! Checkers is barking at the moon.
+Woof! Rex is barking at the moon.
+Woof! Fido is barking at the moon.
+Meow! Socks is purring at the door.
+>>> d
+Dog('Fido', 'white')
+>>> d('fetch')
+'Fido is fetching'
+>>> # Dog.__call__(d)
+>>> type(d)
+<type 'instance'>
+>>> 
+>>> type(Dog)
+<type 'classobj'>
+>>> dir(type(Dog))
+['__call__', '__class__', '__delattr__', '__doc__', '__format__', '__getattribute__', '__hash__', '__init__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__']
+>>> 
+>>> 
+>>> d.talk()
+Woof! Fido is barking at the moon.
+>>> d.__class__.__dict__['talk']
+<function talk at 0x102f005f0>
+>>> dir(_)
+['__call__', '__class__', '__closure__', '__code__', '__defaults__', '__delattr__', '__dict__', '__doc__', '__format__', '__get__', '__getattribute__', '__globals__', '__hash__', '__init__', '__module__', '__name__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', 'func_closure', 'func_code', 'func_defaults', 'func_dict', 'func_doc', 'func_globals', 'func_name']
+>>> d.__class__.__dict__['talk'].__call__(d)
+Woof! Fido is barking at the moon.
+>>> Dog('Ripper', 'orange')
+Dog('Ripper', 'orange')
+>>> type(Dog).__call__()
+
+Traceback (most recent call last):
+  File "<pyshell#831>", line 1, in <module>
+    type(Dog).__call__()
+TypeError: descriptor '__call__' of 'classobj' object needs an argument
+>>> type(Dog).__call__(Dog)
+
+Traceback (most recent call last):
+  File "<pyshell#832>", line 1, in <module>
+    type(Dog).__call__(Dog)
+TypeError: __init__() takes exactly 3 arguments (1 given)
+>>> type(Dog).__call__(Dog, 'Ripper', 'orang'e')
+		   
+SyntaxError: invalid syntax
+>>> type(Dog).__call__(Dog, 'Ripper', 'orange')
+Dog('Ripper', 'orange')
+>>> ================================ RESTART ================================
+>>> 
+>>> id(f)
+4300086160
+>>> id(g)
+4300086760
+>>> id(h)
+4300086880
+>>> f.__name__
+'f'
+>>> g.__name__
+'g'
+>>> h.__name__
+'h'
+>>> f.__code__
+<code object f at 0x1004d5d30, file "/Users/raymond/Dropbox/Public/sj93/tmp2.py", line 1>
+>>> g.__code__
+<code object g at 0x1004eb030, file "/Users/raymond/Dropbox/Public/sj93/tmp2.py", line 4>
+>>> ================================ RESTART ================================
+>>> 
+>>> ================================ RESTART ================================
+>>> 
+>>> f(10)
+
+Traceback (most recent call last):
+  File "<pyshell#843>", line 1, in <module>
+    f(10)
+  File "/Users/raymond/Dropbox/Public/sj93/tmp2.py", line 2, in f
+    return x * x / 0
+ZeroDivisionError: integer division or modulo by zero
+>>> g(10)
+
+Traceback (most recent call last):
+  File "<pyshell#844>", line 1, in <module>
+    g(10)
+  File "/Users/raymond/Dropbox/Public/sj93/tmp2.py", line 5, in g
+    return x * x / 0
+ZeroDivisionError: integer division or modulo by zero
+>>> f.__code__.co_code
+'|\x00\x00|\x00\x00\x14d\x01\x00\x15S'
+>>> g.__code__.co_code
+'|\x00\x00|\x00\x00\x14d\x01\x00\x15S'
+>>> id(f.__code__.co_code)
+4351914648
+>>> id(g.__code__.co_code)
+4351914704
+>>> 
+>>> 
+>>> import urlllib
+
+Traceback (most recent call last):
+  File "<pyshell#851>", line 1, in <module>
+    import urlllib
+ImportError: No module named urlllib
+u
+>>> import urllib
+>>> urlllib.urlopen('http://example.com/fun?x=10&y=20')      # GET Request
+
+Traceback (most recent call last):
+  File "<pyshell#853>", line 1, in <module>
+    urlllib.urlopen('http://example.com/fun?x=10&y=20')      # GET Request
+NameError: name 'urlllib' is not defined
+>>> urllib.urlopen('http://example.com/fun?x=10&y=20')      # GET Request
+<addinfourl at 4353140568 whose fp = <socket._fileobject object at 0x1044543d0>>
+>>> urllib.urlopen('http://example.com/fun', {'x': 10, 'y': 20})      # POST Request
+
+Traceback (most recent call last):
+  File "<pyshell#855>", line 1, in <module>
+    urllib.urlopen('http://example.com/fun', {'x': 10, 'y': 20})      # POST Request
+  File "/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/urllib.py", line 89, in urlopen
+    return opener.open(url, data)
+  File "/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/urllib.py", line 210, in open
+    return getattr(self, name)(url, data)
+  File "/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/urllib.py", line 345, in open_http
+    h.endheaders(data)
+  File "/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/httplib.py", line 991, in endheaders
+    self._send_output(message_body)
+  File "/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/httplib.py", line 848, in _send_output
+    self.send(message_body)
+  File "/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/httplib.py", line 820, in send
+    self.sock.sendall(data)
+  File "/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/socket.py", line 224, in meth
+    return getattr(self._sock,name)(*args)
+TypeError: must be string or buffer, not dict
+>>> 
+>>> 
+>>> 
+>>> 
+>>> ================================ RESTART ================================
+>>> x = 10
+>>> globals()['x']
+10
+>>> 
+>>> def f(x):
+	y = x + 1
+	print locals()
+	return y
+
+>>> f(5)
+{'y': 6, 'x': 5}
+6
+>>> globals()['x']
+10
+>>> 
+>>> 
+>>> def f(x):
+	if x == 0:
+		return 0
+	y = f(x - 1) + 1
+	print locals()
+	return y
+
+>>> f(4)
+{'y': 1, 'x': 1}
+{'y': 2, 'x': 2}
+{'y': 3, 'x': 3}
+{'y': 4, 'x': 4}
+4
+>>> 
+>>> 
+>>> 
+>>> 
+>>> 
+>>> ================================ RESTART ================================
+>>> x = 10
+>>> locals().keys()
+['__builtins__', '__package__', 'x', '__name__', '__doc__']
+>>> globals().keys()
+['__builtins__', '__package__', 'x', '__name__', '__doc__']
+>>> dir(__builtins__)
+['ArithmeticError', 'AssertionError', 'AttributeError', 'BaseException', 'BufferError', 'BytesWarning', 'DeprecationWarning', 'EOFError', 'Ellipsis', 'EnvironmentError', 'Exception', 'False', 'FloatingPointError', 'FutureWarning', 'GeneratorExit', 'IOError', 'ImportError', 'ImportWarning', 'IndentationError', 'IndexError', 'KeyError', 'KeyboardInterrupt', 'LookupError', 'MemoryError', 'NameError', 'None', 'NotImplemented', 'NotImplementedError', 'OSError', 'OverflowError', 'PendingDeprecationWarning', 'ReferenceError', 'RuntimeError', 'RuntimeWarning', 'StandardError', 'StopIteration', 'SyntaxError', 'SyntaxWarning', 'SystemError', 'SystemExit', 'TabError', 'True', 'TypeError', 'UnboundLocalError', 'UnicodeDecodeError', 'UnicodeEncodeError', 'UnicodeError', 'UnicodeTranslateError', 'UnicodeWarning', 'UserWarning', 'ValueError', 'Warning', 'ZeroDivisionError', '_', '__debug__', '__doc__', '__import__', '__name__', '__package__', 'abs', 'all', 'any', 'apply', 'basestring', 'bin', 'bool', 'buffer', 'bytearray', 'bytes', 'callable', 'chr', 'classmethod', 'cmp', 'coerce', 'compile', 'complex', 'copyright', 'credits', 'delattr', 'dict', 'dir', 'divmod', 'enumerate', 'eval', 'execfile', 'exit', 'file', 'filter', 'float', 'format', 'frozenset', 'getattr', 'globals', 'hasattr', 'hash', 'help', 'hex', 'id', 'input', 'int', 'intern', 'isinstance', 'issubclass', 'iter', 'len', 'license', 'list', 'locals', 'long', 'map', 'max', 'memoryview', 'min', 'next', 'object', 'oct', 'open', 'ord', 'pow', 'print', 'property', 'quit', 'range', 'raw_input', 'reduce', 'reload', 'repr', 'reversed', 'round', 'set', 'setattr', 'slice', 'sorted', 'staticmethod', 'str', 'sum', 'super', 'tuple', 'type', 'unichr', 'unicode', 'vars', 'xrange', 'zip']
+>>> locals() == globals()
+True
+>>> locals()
+{'__builtins__': <module '__builtin__' (built-in)>, '__package__': None, 'x': 10, '__name__': '__main__', '__doc__': None}
+>>> 
+>>> 
+>>> 

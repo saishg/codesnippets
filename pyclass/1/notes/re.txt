@@ -1,0 +1,42 @@
+abcd                Exact match
+a.cd                Dot matches any one character     axcd
+[aeiou]             Match any lowercase vowel
+[^aeiou]            Match anything that isn't a lower vowel
+[A-Za-z0-9,]        Character ranges
+abc|def             Match either abc or def
+
+a+                  One or more      a{1,}
+a?                  Zero or one      a{0,1}
+a*                  Zero or more     a{0,}
+a{m,n}              From m to n, inclusive
+
+\s                  Any space character   \n \r \t space formfeed(vertical tab)
+\S                  Any non-space
+\w                  [A-Za-z0-9_]
+\W                  [^A-Za-z0-9_]
+\d                  [0-9]
+\D                  [^0-9]
+
+\b                  word boundary
+^                   beginning of string
+$                   end of string
+
+re.findall(pattern, string)  --> all matching strings in a list
+re.search(pattern, string)   --> match object or None
+re.match(pattern, string)    --> match object
+re.sub                       --> substitution and replacing
+
+match objects
+-------------
+start()
+end()
+span()
+group(0)
+groups()
+
+Hints:
+    * patterns should raw strings r''
+    * always start with findall() and move to search()
+    * start with a small pattern and build-up one step at a time
+
+

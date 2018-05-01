@@ -1,0 +1,3628 @@
+Python 2.7.8 (v2.7.8:ee879c0ffa11, Jun 29 2014, 21:07:35) 
+[GCC 4.2.1 (Apple Inc. build 5666) (dot 3)] on darwin
+Type "copyright", "credits" or "license()" for more information.
+>>> 
+
+>>> # templating
+>>> # string interpolation
+>>> # two styles:  like C and Java
+>>> # another is like C# (new-style formatting)
+>>> 
+>>> print 'Mr. %s %s is feeling %s today' % ('Raymond', 'Hettinger', 'happy')
+Mr. Raymond Hettinger is feeling happy today
+>>> 
+>>> print 'The answer is %s today' % 10
+The answer is 10 today
+>>> print 'The answer is %s today' % 2 ** 5
+The answer is 32 today
+>>> print 'The answer is %s today' % 2 * 5
+The answer is 2 todayThe answer is 2 todayThe answer is 2 todayThe answer is 2 todayThe answer is 2 today
+>>> print ('The answer is %s today' % 2) * 5
+The answer is 2 todayThe answer is 2 todayThe answer is 2 todayThe answer is 2 todayThe answer is 2 today
+>>> print 'The answer is %s today' % (2 * 5)
+The answer is 10 today
+>>> 
+>>> 
+>>> 32 % 7
+4
+>>> 
+>>> 
+>>> print 'The answer is {0} today but was {1} yesterday'.format(10, 20)
+The answer is 10 today but was 20 yesterday
+>>> print 'The answer is {1} today but was {0} yesterday'.format(10, 20)
+The answer is 20 today but was 10 yesterday
+>>> print 'The answer is {1} today but was {1} yesterday'.format(10, 20)
+The answer is 20 today but was 20 yesterday
+>>> 
+>>> print 'The answer is {new} today but was {old} yesterday'.format( \
+	new = 10, old = 20)
+The answer is 10 today but was 20 yesterday
+>>> 
+>>> 
+>>> f = open('notes/stocks.txt')
+>>> data = f.read()
+>>> type(data)
+<type 'str'>
+>>> f.close()
+>>> 
+>>> with open('notes/stocks.txt') as f:
+	print f.read()
+
+	
+CSCO,100,18.04
+WLP,200,45.03
+CSCO,150,19.05
+MSFT,250,80.56
+IBM,500,22.01
+WLP,250,44.23
+GOOG,200,501.45
+CSCO,175,19.56
+MSFT,75,80.81
+GOOG,300,502.65
+IBM,150,25.01
+
+>>> f
+<closed file 'notes/stocks.txt', mode 'r' at 0x102e5f420>
+>>> f = open('tmp.txt', 'w')
+>>> f.write('Good\nMorning\nSan Jose!\n')
+>>> f.flush()
+>>> f.close()
+>>> 
+>>> 
+>>> ================================ RESTART ================================
+>>> 
+BEGIN:VCARD
+VERSION:3.0
+N:Hettinger;Raymond
+FN:Raymond Hettinger
+ORG:Raisins R Us, Inc
+TITLE:VP Raisin Smushing
+TEL;TYPE=WORK,VOICE:559-555-1212
+LABEL;TYPE=WORK:100 Flat Grape Dr
+Fresno, CA 95555
+United States of America
+EMAIL;TYPE=PREF,INTERNET:raymond@example.com
+REV:2014-04-24T19:52:43Z
+END:VCARD
+
+BEGIN:VCARD
+VERSION:3.0
+N:Thomas;Mary
+FN:Mary Thomas
+ORG:Raisins R Us, Inc
+TITLE:Sr. Associate Raisin Design
+TEL;TYPE=WORK,VOICE:559-555-2300
+LABEL;TYPE=WORK:100 Flat Grape Dr
+Fresno, CA 95555
+United States of America
+EMAIL;TYPE=PREF,INTERNET:mary@example.com
+REV:2014-04-24T19:52:43Z
+END:VCARD
+
+BEGIN:VCARD
+VERSION:3.0
+N:Davis;Harold
+FN:Harold Davis
+ORG:Raisins R Us, Inc
+TITLE:Chief Raisin Picker
+TEL;TYPE=WORK,VOICE:559-555-2318
+LABEL;TYPE=WORK:100 Flat Grape Dr
+Fresno, CA 95555
+United States of America
+EMAIL;TYPE=PREF,INTERNET:harold@example.com
+REV:2014-04-24T19:52:43Z
+END:VCARD
+
+BEGIN:VCARD
+VERSION:3.0
+N:Masterson;Martin
+FN:Martin Masterson
+ORG:Raisins R Us, Inc
+TITLE:Asst Raisin Smusher
+TEL;TYPE=WORK,VOICE:559-555-2348
+LABEL;TYPE=WORK:100 Flat Grape Dr
+Fresno, CA 95555
+United States of America
+EMAIL;TYPE=PREF,INTERNET:martin@example.com
+REV:2014-04-24T19:52:43Z
+END:VCARD
+
+BEGIN:VCARD
+VERSION:3.0
+N:Jones;David
+FN:David Jones
+ORG:Raisins R Us, Inc
+TITLE:Grape Ager
+TEL;TYPE=WORK,VOICE:559-555-2379
+LABEL;TYPE=WORK:100 Flat Grape Dr
+Fresno, CA 95555
+United States of America
+EMAIL;TYPE=PREF,INTERNET:david@example.com
+REV:2014-04-24T19:52:43Z
+END:VCARD
+
+BEGIN:VCARD
+VERSION:3.0
+N:Zapata;Luis
+FN:Luis Zapata
+ORG:Raisins R Us, Inc
+TITLE:VP Grape Sales
+TEL;TYPE=WORK,VOICE:559-555-2301
+LABEL;TYPE=WORK:100 Flat Grape Dr
+Fresno, CA 95555
+United States of America
+EMAIL;TYPE=PREF,INTERNET:luis@example.com
+REV:2014-04-24T19:52:43Z
+END:VCARD
+
+BEGIN:VCARD
+VERSION:3.0
+N:Gunter;Fritz
+FN:Fritz Gunter
+ORG:Raisins R Us, Inc
+TITLE:Grape Smusher
+TEL;TYPE=WORK,VOICE:559-555-2333
+LABEL;TYPE=WORK:100 Flat Grape Dr
+Fresno, CA 95555
+United States of America
+EMAIL;TYPE=PREF,INTERNET:fritz@example.com
+REV:2014-04-24T19:52:43Z
+END:VCARD
+
+BEGIN:VCARD
+VERSION:3.0
+N:Pichon;Esmerela
+FN:Esmerela Pichon
+ORG:Raisins R Us, Inc
+TITLE:Head Raisin Counter
+TEL;TYPE=WORK,VOICE:559-555-2397
+LABEL;TYPE=WORK:100 Flat Grape Dr
+Fresno, CA 95555
+United States of America
+EMAIL;TYPE=PREF,INTERNET:esmerelda@example.com
+REV:2014-04-24T19:52:43Z
+END:VCARD
+
+BEGIN:VCARD
+VERSION:3.0
+N:Blain;Marilyn
+FN:Marilyn Blain
+ORG:Raisins R Us, Inc
+TITLE:Raisin Packager
+TEL;TYPE=WORK,VOICE:559-555-6565
+LABEL;TYPE=WORK:100 Flat Grape Dr
+Fresno, CA 95555
+United States of America
+EMAIL;TYPE=PREF,INTERNET:marilyn@example.com
+REV:2014-04-24T19:52:43Z
+END:VCARD
+
+BEGIN:VCARD
+VERSION:3.0
+N:Marks;Blair
+FN:Blair Marks
+ORG:Raisins R Us, Inc
+TITLE:VP Investor Relations
+TEL;TYPE=WORK,VOICE:559-555-6513
+LABEL;TYPE=WORK:100 Flat Grape Dr
+Fresno, CA 95555
+United States of America
+EMAIL;TYPE=PREF,INTERNET:blair@example.com
+REV:2014-04-24T19:52:43Z
+END:VCARD
+
+BEGIN:VCARD
+VERSION:3.0
+N:Schmidt;Gertrude
+FN:Gertrude Schmidt
+ORG:Raisins R Us, Inc
+TITLE:VP Business Development
+TEL;TYPE=WORK,VOICE:559-555-6700
+LABEL;TYPE=WORK:100 Flat Grape Dr
+Fresno, CA 95555
+United States of America
+EMAIL;TYPE=PREF,INTERNET:gertrude@example.com
+REV:2014-04-24T19:52:43Z
+END:VCARD
+
+>>> ================================ RESTART ================================
+>>> 
+>>> ================================ RESTART ================================
+>>> 
+>>> ================================ RESTART ================================
+>>> 
+>>> ================================ RESTART ================================
+>>> 
+>>> ================================ RESTART ================================
+>>> 
+>>> import qr
+
+Traceback (most recent call last):
+  File "<pyshell#41>", line 1, in <module>
+    import qr
+ImportError: No module named qr
+>>> import urllib
+>>> u = urllib.urlopen('http://www.perl.org')
+>>> dir(u)
+['__doc__', '__init__', '__iter__', '__module__', '__repr__', 'close', 'code', 'fileno', 'fp', 'getcode', 'geturl', 'headers', 'info', 'next', 'read', 'readline', 'readlines', 'url']
+>>> page = u.read()
+>>> type(page)
+<type 'str'>
+>>> len(page)
+13860
+>>> print page[:300]
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>The Perl Programming Language - www.perl.org</title>
+    <meta http-equiv="Content-Type" co
+>>> 
+>>> d = {'action': 'view image', 'product': 'A_13$5', 'user': 'Raymond Hettinger'}
+>>> type(d)
+<type 'dict'>
+>>> d['action']
+'view image'
+>>> d['user']
+'Raymond Hettinger'
+>>> 
+>>> urllib.urlencode(d)
+'action=view+image&product=A_13%245&user=Raymond+Hettinger'
+>>> 
+>>> 
+>>> 'hello' + ' world'
+'hello world'
+>>> 
+>>> 'http://example.com/funstuff?' + urllib.urlencode(d)
+'http://example.com/funstuff?action=view+image&product=A_13%245&user=Raymond+Hettinger'
+>>> ================================ RESTART ================================
+>>> 
+https://graph.facebook.com/raymondh
+>>> ================================ RESTART ================================
+>>> 
+>>> dir(urllib)
+['ContentTooShortError', 'FancyURLopener', 'MAXFTPCACHE', 'URLopener', '__all__', '__builtins__', '__doc__', '__file__', '__name__', '__package__', '__version__', '_asciire', '_ftperrors', '_get_proxies', '_get_proxy_settings', '_have_ssl', '_hexdig', '_hextochr', '_hostprog', '_is_unicode', '_localhost', '_noheaders', '_nportprog', '_passwdprog', '_portprog', '_queryprog', '_safe_map', '_safe_quoters', '_tagprog', '_thishost', '_typeprog', '_urlopener', '_userprog', '_valueprog', 'addbase', 'addclosehook', 'addinfo', 'addinfourl', 'always_safe', 'base64', 'basejoin', 'c', 'ftpcache', 'ftperrors', 'ftpwrapper', 'getproxies', 'getproxies_environment', 'getproxies_macosx_sysconf', 'i', 'localhost', 'noheaders', 'os', 'pathname2url', 'proxy_bypass', 'proxy_bypass_environment', 'proxy_bypass_macosx_sysconf', 'quote', 'quote_plus', 're', 'reporthook', 'socket', 'splitattr', 'splithost', 'splitnport', 'splitpasswd', 'splitport', 'splitquery', 'splittag', 'splittype', 'splituser', 'splitvalue', 'ssl', 'string', 'sys', 'test1', 'thishost', 'time', 'toBytes', 'unquote', 'unquote_plus', 'unwrap', 'url2pathname', 'urlcleanup', 'urlencode', 'urlopen', 'urlretrieve']
+>>> help(urllib)
+Help on module urllib:
+
+NAME
+    urllib - Open an arbitrary URL.
+
+FILE
+    /Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/urllib.py
+
+MODULE DOCS
+    http://docs.python.org/library/urllib
+
+DESCRIPTION
+    See the following document for more info on URLs:
+    "Names and Addresses, URIs, URLs, URNs, URCs", at
+    http://www.w3.org/pub/WWW/Addressing/Overview.html
+    
+    See also the HTTP spec (from which the error codes are derived):
+    "HTTP - Hypertext Transfer Protocol", at
+    http://www.w3.org/pub/WWW/Protocols/
+    
+    Related standards and specs:
+    - RFC1808: the "relative URL" spec. (authoritative status)
+    - RFC1738 - the "URL standard". (authoritative status)
+    - RFC1630 - the "URI spec". (informational status)
+    
+    The object returned by URLopener().open(file) will differ per
+    protocol.  All you know is that is has methods read(), readline(),
+    readlines(), fileno(), close() and info().  The read*(), fileno()
+    and close() methods work like those of open files.
+    The info() method returns a mimetools.Message object which can be
+    used to query various info about the object, if available.
+    (mimetools.Message objects are queried with the getheader() method.)
+
+CLASSES
+    URLopener
+        FancyURLopener
+    
+    class FancyURLopener(URLopener)
+     |  Derived class with handlers for errors we can handle (perhaps).
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, *args, **kwargs)
+     |  
+     |  get_user_passwd(self, host, realm, clear_cache=0)
+     |  
+     |  http_error_301(self, url, fp, errcode, errmsg, headers, data=None)
+     |      Error 301 -- also relocated (permanently).
+     |  
+     |  http_error_302(self, url, fp, errcode, errmsg, headers, data=None)
+     |      Error 302 -- relocated (temporarily).
+     |  
+     |  http_error_303(self, url, fp, errcode, errmsg, headers, data=None)
+     |      Error 303 -- also relocated (essentially identical to 302).
+     |  
+     |  http_error_307(self, url, fp, errcode, errmsg, headers, data=None)
+     |      Error 307 -- relocated, but turn POST into error.
+     |  
+     |  http_error_401(self, url, fp, errcode, errmsg, headers, data=None)
+     |      Error 401 -- authentication required.
+     |      This function supports Basic authentication only.
+     |  
+     |  http_error_407(self, url, fp, errcode, errmsg, headers, data=None)
+     |      Error 407 -- proxy authentication required.
+     |      This function supports Basic authentication only.
+     |  
+     |  http_error_default(self, url, fp, errcode, errmsg, headers)
+     |      Default error handling -- don't raise an exception.
+     |  
+     |  prompt_user_passwd(self, host, realm)
+     |      Override this in a GUI environment!
+     |  
+     |  redirect_internal(self, url, fp, errcode, errmsg, headers, data)
+     |  
+     |  retry_http_basic_auth(self, url, realm, data=None)
+     |  
+     |  retry_https_basic_auth(self, url, realm, data=None)
+     |  
+     |  retry_proxy_http_basic_auth(self, url, realm, data=None)
+     |  
+     |  retry_proxy_https_basic_auth(self, url, realm, data=None)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from URLopener:
+     |  
+     |  __del__(self)
+     |  
+     |  addheader(self, *args)
+     |      Add a header to be used by the HTTP interface only
+     |      e.g. u.addheader('Accept', 'sound/basic')
+     |  
+     |  cleanup(self)
+     |  
+     |  close(self)
+     |  
+     |  http_error(self, url, fp, errcode, errmsg, headers, data=None)
+     |      Handle http errors.
+     |      Derived class can override this, or provide specific handlers
+     |      named http_error_DDD where DDD is the 3-digit error code.
+     |  
+     |  open(self, fullurl, data=None)
+     |      Use URLopener().open(file) instead of open(file, 'r').
+     |  
+     |  open_data(self, url, data=None)
+     |      Use "data" URL.
+     |  
+     |  open_file(self, url)
+     |      Use local file or FTP depending on form of URL.
+     |  
+     |  open_ftp(self, url)
+     |      Use FTP protocol.
+     |  
+     |  open_http(self, url, data=None)
+     |      Use HTTP protocol.
+     |  
+     |  open_https(self, url, data=None)
+     |      Use HTTPS protocol.
+     |  
+     |  open_local_file(self, url)
+     |      Use local file.
+     |  
+     |  open_unknown(self, fullurl, data=None)
+     |      Overridable interface to open unknown URL type.
+     |  
+     |  open_unknown_proxy(self, proxy, fullurl, data=None)
+     |      Overridable interface to open unknown URL type.
+     |  
+     |  retrieve(self, url, filename=None, reporthook=None, data=None)
+     |      retrieve(url) returns (filename, headers) for a local object
+     |      or (tempfilename, headers) for a remote object.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes inherited from URLopener:
+     |  
+     |  version = 'Python-urllib/1.17'
+    
+    class URLopener
+     |  Class to open URLs.
+     |  This is a class rather than just a subroutine because we may need
+     |  more than one set of global protocol-specific options.
+     |  Note -- this is a base class for those who don't want the
+     |  automatic handling of errors type 302 (relocated) and 401
+     |  (authorization needed).
+     |  
+     |  Methods defined here:
+     |  
+     |  __del__(self)
+     |  
+     |  __init__(self, proxies=None, **x509)
+     |      # Constructor
+     |  
+     |  addheader(self, *args)
+     |      Add a header to be used by the HTTP interface only
+     |      e.g. u.addheader('Accept', 'sound/basic')
+     |  
+     |  cleanup(self)
+     |  
+     |  close(self)
+     |  
+     |  http_error(self, url, fp, errcode, errmsg, headers, data=None)
+     |      Handle http errors.
+     |      Derived class can override this, or provide specific handlers
+     |      named http_error_DDD where DDD is the 3-digit error code.
+     |  
+     |  http_error_default(self, url, fp, errcode, errmsg, headers)
+     |      Default error handler: close the connection and raise IOError.
+     |  
+     |  open(self, fullurl, data=None)
+     |      Use URLopener().open(file) instead of open(file, 'r').
+     |  
+     |  open_data(self, url, data=None)
+     |      Use "data" URL.
+     |  
+     |  open_file(self, url)
+     |      Use local file or FTP depending on form of URL.
+     |  
+     |  open_ftp(self, url)
+     |      Use FTP protocol.
+     |  
+     |  open_http(self, url, data=None)
+     |      Use HTTP protocol.
+     |  
+     |  open_https(self, url, data=None)
+     |      Use HTTPS protocol.
+     |  
+     |  open_local_file(self, url)
+     |      Use local file.
+     |  
+     |  open_unknown(self, fullurl, data=None)
+     |      Overridable interface to open unknown URL type.
+     |  
+     |  open_unknown_proxy(self, proxy, fullurl, data=None)
+     |      Overridable interface to open unknown URL type.
+     |  
+     |  retrieve(self, url, filename=None, reporthook=None, data=None)
+     |      retrieve(url) returns (filename, headers) for a local object
+     |      or (tempfilename, headers) for a remote object.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes defined here:
+     |  
+     |  version = 'Python-urllib/1.17'
+
+FUNCTIONS
+    basejoin = urljoin(base, url, allow_fragments=True)
+        Join a base URL and a possibly relative URL to form an absolute
+        interpretation of the latter.
+    
+    ftperrors()
+        Return the set of errors raised by the FTP class.
+    
+    getproxies()
+    
+    localhost()
+        Return the IP address of the magic hostname 'localhost'.
+    
+    pathname2url(pathname)
+        OS-specific conversion from a file system path to a relative URL
+        of the 'file' scheme; not recommended for general use.
+    
+    quote(s, safe='/')
+        quote('abc def') -> 'abc%20def'
+        
+        Each part of a URL, e.g. the path info, the query, etc., has a
+        different set of reserved characters that must be quoted.
+        
+        RFC 2396 Uniform Resource Identifiers (URI): Generic Syntax lists
+        the following reserved characters.
+        
+        reserved    = ";" | "/" | "?" | ":" | "@" | "&" | "=" | "+" |
+                      "$" | ","
+        
+        Each of these characters is reserved in some component of a URL,
+        but not necessarily in all of them.
+        
+        By default, the quote function is intended for quoting the path
+        section of a URL.  Thus, it will not encode '/'.  This character
+        is reserved, but in typical usage the quote function is being
+        called on a path where the existing slash characters are used as
+        reserved characters.
+    
+    quote_plus(s, safe='')
+        Quote the query fragment of a URL; replacing ' ' with '+'
+    
+    splitattr(url)
+        splitattr('/path;attr1=value1;attr2=value2;...') ->
+        '/path', ['attr1=value1', 'attr2=value2', ...].
+    
+    splithost(url)
+        splithost('//host[:port]/path') --> 'host[:port]', '/path'.
+    
+    splitnport(host, defport=-1)
+        Split host and port, returning numeric port.
+        Return given default port if no ':' found; defaults to -1.
+        Return numerical port if a valid number are found after ':'.
+        Return None if ':' but not a valid number.
+    
+    splitpasswd(user)
+        splitpasswd('user:passwd') -> 'user', 'passwd'.
+    
+    splitport(host)
+        splitport('host:port') --> 'host', 'port'.
+    
+    splitquery(url)
+        splitquery('/path?query') --> '/path', 'query'.
+    
+    splittag(url)
+        splittag('/path#tag') --> '/path', 'tag'.
+    
+    splittype(url)
+        splittype('type:opaquestring') --> 'type', 'opaquestring'.
+    
+    splituser(host)
+        splituser('user[:passwd]@host[:port]') --> 'user[:passwd]', 'host[:port]'.
+    
+    splitvalue(attr)
+        splitvalue('attr=value') --> 'attr', 'value'.
+    
+    thishost()
+        Return the IP address of the current host.
+    
+    unquote(s)
+        unquote('abc%20def') -> 'abc def'.
+    
+    unquote_plus(s)
+        unquote('%7e/abc+def') -> '~/abc def'
+    
+    unwrap(url)
+        unwrap('<URL:type://host/path>') --> 'type://host/path'.
+    
+    url2pathname(pathname)
+        OS-specific conversion from a relative URL of the 'file' scheme
+        to a file system path; not recommended for general use.
+    
+    urlcleanup()
+    
+    urlencode(query, doseq=0)
+        Encode a sequence of two-element tuples or dictionary into a URL query string.
+        
+        If any values in the query arg are sequences and doseq is true, each
+        sequence element is converted to a separate parameter.
+        
+        If the query arg is a sequence of two-element tuples, the order of the
+        parameters in the output will match the order of parameters in the
+        input.
+    
+    urlopen(url, data=None, proxies=None)
+        Create a file-like object for the specified URL to read from.
+    
+    urlretrieve(url, filename=None, reporthook=None, data=None)
+
+DATA
+    __all__ = ['urlopen', 'URLopener', 'FancyURLopener', 'urlretrieve', 'u...
+    __version__ = '1.17'
+
+VERSION
+    1.17
+
+
+>>> ================================ RESTART ================================
+>>> 
+>>> dir(u)
+['__doc__', '__init__', '__iter__', '__module__', '__repr__', 'close', 'code', 'fileno', 'fp', 'getcode', 'geturl', 'headers', 'info', 'next', 'read', 'readline', 'readlines', 'url']
+>>> help(u)
+Help on instance of addinfourl in module urllib:
+
+class addinfourl(addbase)
+ |  class to add info() and geturl() methods to an open file.
+ |  
+ |  Methods defined here:
+ |  
+ |  __init__(self, fp, headers, url, code=None)
+ |  
+ |  getcode(self)
+ |  
+ |  geturl(self)
+ |  
+ |  info(self)
+ |  
+ |  ----------------------------------------------------------------------
+ |  Methods inherited from addbase:
+ |  
+ |  __repr__(self)
+ |  
+ |  close(self)
+
+>>> type(page)
+<type 'str'>
+>>> len(page)
+193
+>>> print page
+{"id":"562805507","first_name":"Raymond","gender":"male","last_name":"Hettinger","link":"https:\/\/www.facebook.com\/raymondh","locale":"en_US","name":"Raymond Hettinger","username":"raymondh"}
+>>> ================================ RESTART ================================
+>>> 
+>>> # parse means convert a string into useful Python objects
+>>> type(person)
+<type 'dict'>
+>>> person.keys()
+[u'username', u'first_name', u'last_name', u'name', u'locale', u'gender', u'link', u'id']
+>>> person.values()
+[u'raymondh', u'Raymond', u'Hettinger', u'Raymond Hettinger', u'en_US', u'male', u'https://www.facebook.com/raymondh', u'562805507']
+>>> persons.items()
+
+Traceback (most recent call last):
+  File "<pyshell#72>", line 1, in <module>
+    persons.items()
+NameError: name 'persons' is not defined
+>>> person.items()
+[(u'username', u'raymondh'), (u'first_name', u'Raymond'), (u'last_name', u'Hettinger'), (u'name', u'Raymond Hettinger'), (u'locale', u'en_US'), (u'gender', u'male'), (u'link', u'https://www.facebook.com/raymondh'), (u'id', u'562805507')]
+>>> ================================ RESTART ================================
+>>> 
+Raymond Hettinger is a male
+>>> ================================ RESTART ================================
+>>> 
+Raymond Hettinger is a male.
+>>> ================================ RESTART ================================
+>>> 
+>>> show_person('raymondh')
+Raymond Hettinger is a male.
+>>> ================================ RESTART ================================
+>>> 
+Raymond Hettinger is a male.
+Mark Zuckerberg is a male.
+>>> ================================ RESTART ================================
+>>> 
+Raymond Hettinger is a male.
+Mark Zuckerberg is a male.
+>>> ================================ RESTART ================================
+>>> import facebook_rest_api
+>>> facebook_rest_api.__name__
+'facebook_rest_api'
+>>> facebook_rest_api.__doc__
+'Demonstrate typical use of a REST API, in this case we access Facebook'
+>>> facebook_rest_api.show_person('raymond')
+Raymond Cooper is a male.
+>>> import this
+The Zen of Python, by Tim Peters
+
+Beautiful is better than ugly.
+Explicit is better than implicit.
+Simple is better than complex.
+Complex is better than complicated.
+Flat is better than nested.
+Sparse is better than dense.
+Readability counts.
+Special cases aren't special enough to break the rules.
+Although practicality beats purity.
+Errors should never pass silently.
+Unless explicitly silenced.
+In the face of ambiguity, refuse the temptation to guess.
+There should be one-- and preferably only one --obvious way to do it.
+Although that way may not be obvious at first unless you're Dutch.
+Now is better than never.
+Although never is often better than *right* now.
+If the implementation is hard to explain, it's a bad idea.
+If the implementation is easy to explain, it may be a good idea.
+Namespaces are one honking great idea -- let's do more of those!
+>>> ================================ RESTART ================================
+>>> 
+
+Traceback (most recent call last):
+  File "/Users/raymond/Dropbox/Public/sj93/vcard.py", line 34, in <module>
+    print urllib.urlencode(query)
+NameError: name 'urllib' is not defined
+>>> ================================ RESTART ================================
+>>> 
+chl=BEGIN%3AVCARD%0AVERSION%3A3.0%0AN%3ASchmidt%3BGertrude%0AFN%3AGertrude+Schmidt%0AORG%3ARaisins+R+Us%2C+Inc%0ATITLE%3AVP+Business+Development%0ATEL%3BTYPE%3DWORK%2CVOICE%3A559-555-6700%0ALABEL%3BTYPE%3DWORK%3A100+Flat+Grape+Dr%0AFresno%2C+CA+95555%0AUnited+States+of+America%0AEMAIL%3BTYPE%3DPREF%2CINTERNET%3Agertrude%40example.com%0AREV%3A2014-04-24T19%3A52%3A43Z%0AEND%3AVCARD%0A&chs=300x300&cht=qr
+>>> ================================ RESTART ================================
+>>> 
+https://chart.googleapis.com/chart?chl=BEGIN%3AVCARD%0AVERSION%3A3.0%0AN%3ASchmidt%3BGertrude%0AFN%3AGertrude+Schmidt%0AORG%3ARaisins+R+Us%2C+Inc%0ATITLE%3AVP+Business+Development%0ATEL%3BTYPE%3DWORK%2CVOICE%3A559-555-6700%0ALABEL%3BTYPE%3DWORK%3A100+Flat+Grape+Dr%0AFresno%2C+CA+95555%0AUnited+States+of+America%0AEMAIL%3BTYPE%3DPREF%2CINTERNET%3Agertrude%40example.com%0AREV%3A2014-04-24T19%3A52%3A43Z%0AEND%3AVCARD%0A&chs=300x300&cht=qr
+>>> ================================ RESTART ================================
+>>> 
+https://chart.googleapis.com/chart?chl=BEGIN%3AVCARD%0AVERSION%3A3.0%0AN%3ASchmidt%3BGertrude%0AFN%3AGertrude+Schmidt%0AORG%3ARaisins+R+Us%2C+Inc%0ATITLE%3AVP+Business+Development%0ATEL%3BTYPE%3DWORK%2CVOICE%3A559-555-6700%0ALABEL%3BTYPE%3DWORK%3A100+Flat+Grape+Dr%0AFresno%2C+CA+95555%0AUnited+States+of+America%0AEMAIL%3BTYPE%3DPREF%2CINTERNET%3Agertrude%40example.com%0AREV%3A2014-04-24T19%3A52%3A43Z%0AEND%3AVCARD%0A&chs=300x300&cht=qr
+>>> ================================ RESTART ================================
+>>> 
+
+Traceback (most recent call last):
+  File "/Users/raymond/Dropbox/Public/sj93/vcard.py", line 33, in <module>
+    link = website + filename
+NameError: name 'filename' is not defined
+>>> ================================ RESTART ================================
+>>> 
+https://chart.googleapis.com/chart?chl=https%3A%2F%2Fdl.dropboxusercontent.com%2Fu%2F3967849%2Fvcard%2FGertrude_Schmidt.vcf&chs=300x300&cht=qr
+>>> ================================ RESTART ================================
+>>> 
+>>> ================================ RESTART ================================
+>>> 
+>>> d = {}
+>>> type(d)
+<type 'dict'>
+>>> # dict literal notation -- custom syntax for creating dictionaries
+>>> d = dict()
+>>> type(d)
+<type 'dict'>
+>>> # dict constructor called by name
+>>> 
+>>> d = {10: 'ten', 20: 'twenty', 30: 'thirty'}
+>>> n = 20
+>>> print 'You have earned %s Raymond dollars' % d[n]
+You have earned twenty Raymond dollars
+>>> 
+>>> d = dict(raymond='mac', rachel='pc', matthew='vtech')
+>>> d
+{'matthew': 'vtech', 'rachel': 'pc', 'raymond': 'mac'}
+>>> 
+>>> # dictionaries are unordered collections
+>>> # this means they don't remember insertion order
+>>> # however, they are highly ordered internal for high-speed lookup
+>>> 
+>>> # nonplussed -> stunned in submission, not knowing how to react
+>>> 
+>>> # dicts do high lookups from key->value, but would be really slow for value->key
+>>> 
+>>> 2 ** 10
+1024
+>>> 2 ** 20
+1048576
+>>> 2 ** 30
+1073741824
+>>> 2 ** 29
+536870912
+>>> 2 ** 28
+268435456
+>>> # sorting (n log n)  300M * 28 -> 9B
+>>> # bisecting (log n)    28
+>>> 
+>>> 
+>>> # hashing (n)       300M
+>>> # lookup  (1)         2
+>>> 
+>>> 
+>>> dict(one=1, two=2, three=3, four=4, five=5, six=6, seven=7)
+{'four': 4, 'seven': 7, 'one': 1, 'five': 5, 'six': 6, 'three': 3, 'two': 2}
+>>> 
+>>> # sorting and bisecting can do two things that hashing can't do.
+>>> # inexact matches in ranges
+>>> 
+>>> cuts = [60, 70, 80, 90]
+>>> from bisect import *
+>>> bisect(cuts, 55)
+0
+>>> bisect(cuts, 65)
+1
+>>> bisect(cuts, 75)
+2
+>>> grade = 'FDCBA'
+>>> score = 85
+>>> i = bisect(cuts, score)
+>>> grade[i]
+'B'
+>>> 
+>>> grade[bisects(cuts, 70)]
+
+Traceback (most recent call last):
+  File "<pyshell#130>", line 1, in <module>
+    grade[bisects(cuts, 70)]
+NameError: name 'bisects' is not defined
+>>> grade[bisect(cuts, 70)]
+'C'
+>>> grade[bisect(cuts, 69)]
+'D'
+>>> grade[bisect(cuts, 15)]
+'F'
+>>> grade[bisect(cuts, 95)]
+'A'
+>>> # < 10,000    0%
+>>> # < 20,000   10%
+>>> 
+>>> i = 2
+>>> grade
+'FDCBA'
+>>> grade[i]
+'C'
+>>> grade[i-1]
+'D'
+>>> grade[i+1]
+'B'
+>>> # gobsmacked -> stunned in submission, not knowing how to react
+>>> 
+>>> 
+>>> # dicts have unique keys but may have repeated values
+>>> 
+>>> d
+{'matthew': 'vtech', 'rachel': 'pc', 'raymond': 'mac'}
+>>> d['tbd'] = 'vtech'
+>>> 
+>>> d
+{'matthew': 'vtech', 'rachel': 'pc', 'raymond': 'mac', 'tbd': 'vtech'}
+>>> 
+>>> d.keys()
+['matthew', 'rachel', 'raymond', 'tbd']
+>>> d.values()
+['vtech', 'pc', 'mac', 'vtech']
+>>> d.items()
+[('matthew', 'vtech'), ('rachel', 'pc'), ('raymond', 'mac'), ('tbd', 'vtech')]
+>>> 
+>>> item = ('matthew', 'vtech')
+>>> type(item)
+<type 'tuple'>
+>>> name = item[0]
+>>> computer = item[1]
+>>> 
+>>> name, computer = item
+>>> 
+>>> for item in d.items():
+	name, computer = item
+	if computer == 'vtech':
+		print name
+
+		
+matthew
+tbd
+>>> span = dict(one='uno', two='dos', three='tres', four='quatro')
+>>> 
+>>> span['two']
+'dos'
+>>> 
+>>> eng = {}
+>>> for e, s in span.items():
+	 eng[s] = e
+
+	 
+>>> eng
+{'dos': 'two', 'tres': 'three', 'quatro': 'four', 'uno': 'one'}
+>>> 
+>>> span['two']
+'dos'
+>>> eng['tres']
+'three'
+>>> 
+>>> eng[span['one']]
+'one'
+>>> 
+>>> 
+>>> 
+>>> span = {}
+>>> span['free'] = ['libre', 'gratis']
+>>> 
+>>> 
+>>> eng = {}
+>>> eng['libre'] = 'free'
+>>> eng['gratis'] = 'free'
+>>> 
+>>> 
+>>> span['free']
+['libre', 'gratis']
+>>> eng['gratis']
+'free'
+>>> 
+>>> 
+>>> eng['gratis'] = 'free as in beer'
+>>> 
+>>> 
+>>> d
+{'matthew': 'vtech', 'rachel': 'pc', 'raymond': 'mac', 'tbd': 'vtech'}
+>>> 'matthew' in d
+True
+>>> 'matthew' not in d
+False
+>>> 'raymond' in d
+True
+>>> 
+>>> 'vtech' in d.values()
+True
+>>> # Can ya ______ in Python? Yes!
+>>> # Should ya ______ in Python? No!
+>>> 
+>>> hash('Raymond')
+9209434560778162597
+>>> dir(d)
+['__class__', '__cmp__', '__contains__', '__delattr__', '__delitem__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__', '__gt__', '__hash__', '__init__', '__iter__', '__le__', '__len__', '__lt__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__setitem__', '__sizeof__', '__str__', '__subclasshook__', 'clear', 'copy', 'fromkeys', 'get', 'has_key', 'items', 'iteritems', 'iterkeys', 'itervalues', 'keys', 'pop', 'popitem', 'setdefault', 'update', 'values', 'viewitems', 'viewkeys', 'viewvalues']
+>>> d.has_key('Raymond')
+False
+>>> d
+{'matthew': 'vtech', 'rachel': 'pc', 'raymond': 'mac', 'tbd': 'vtech'}
+>>> d.has_key('raymond')
+True
+>>> 'raymond' in d
+True
+>>> 
+>>> 
+>>> s = ['wake up', 'kiss spouse', 'eat breakfast', 'go to work', 'study python', 'go to bed']
+>>> s[0]
+'wake up'
+>>> s[1]
+'kiss spouse'
+>>> # lists are ordered collections, they remember the insertion order
+>>> 
+>>> for action in s:
+	print action.title()
+
+	
+Wake Up
+Kiss Spouse
+Eat Breakfast
+Go To Work
+Study Python
+Go To Bed
+>>> 
+>>> 
+>>> 
+>>> 
+>>> s.append('Dream about Python')
+>>> s
+['wake up', 'kiss spouse', 'eat breakfast', 'go to work', 'study python', 'go to bed', 'Dream about Python']
+>>> 
+>>> s.sort()
+>>> s
+['Dream about Python', 'eat breakfast', 'go to bed', 'go to work', 'kiss spouse', 'study python', 'wake up']
+>>> 
+>>> # lists are mutable, just like dicts.  they can be changed
+>>> s[0] = 'dream about studying python'
+>>> s
+['dream about studying python', 'eat breakfast', 'go to bed', 'go to work', 'kiss spouse', 'study python', 'wake up']
+>>> d.pop()
+
+Traceback (most recent call last):
+  File "<pyshell#240>", line 1, in <module>
+    d.pop()
+TypeError: pop expected at least 1 arguments, got 0
+>>> s.pop()
+'wake up'
+>>> s
+['dream about studying python', 'eat breakfast', 'go to bed', 'go to work', 'kiss spouse', 'study python']
+>>> s.pop(0)
+'dream about studying python'
+>>> s
+['eat breakfast', 'go to bed', 'go to work', 'kiss spouse', 'study python']
+>>> 
+>>> # lists are designed to efficiently append and pop from the right side
+>>> 
+>>> 
+>>> s = [10, 20, 30]
+>>> t = (10, 20, 30)
+>>> 
+>>> # type
+>>> type(s)
+<type 'list'>
+>>> type(t)
+<type 'tuple'>
+>>> 
+>>> # sizeable
+>>> len(s)
+3
+>>> len(t)
+3
+>>> # indexable
+>>> s[1]
+20
+>>> t[1]
+20
+>>> # sliceable
+>>> s[:2]
+[10, 20]
+>>> t[:2]
+(10, 20)
+>>> 
+>>> # differ on mutability
+>>> s[1] = 111
+>>> s
+[10, 111, 30]
+>>> t[1] = 111
+
+Traceback (most recent call last):
+  File "<pyshell#269>", line 1, in <module>
+    t[1] = 111
+TypeError: 'tuple' object does not support item assignment
+>>> 
+>>> 
+>>> # A technical difference:  lists are mutable and tuples are immutable
+>>> # list can do:  append, pop, sort, reverse
+>>> # tuple's: are slightly more efficient and they are hashable (usable a dict key)
+>>> 
+>>> t = ('Raymond', 'Hettinger')
+>>> s = ['Raymond', 'Hettinger']
+>>> 
+>>> d = {}
+>>> d[t] = 'Python programmer'
+>>> d
+{('Raymond', 'Hettinger'): 'Python programmer'}
+>>> d[s] =
+SyntaxError: invalid syntax
+>>> d[s] = 'Ruby Programmer'
+
+Traceback (most recent call last):
+  File "<pyshell#283>", line 1, in <module>
+    d[s] = 'Ruby Programmer'
+TypeError: unhashable type: 'list'
+>>> 
+>>> 
+>>> 
+>>> # Cultural difference:
+>>> # are extrinsic, not instrinsic
+>>> # lists are for looping
+>>> # tuples are like structs in C or like record in database
+>>> 
+>>> s = [10, 5, 17, 4, 25]
+>>> # homogeniety has to do with the data type AND with the meaning
+>>> #  apples oranges  freewaynumber  nameofaperson   trademark
+>>> sum(s)
+61
+>>> s = (10, 5, 17, 4, 25)
+>>> sum(t)
+
+Traceback (most recent call last):
+  File "<pyshell#297>", line 1, in <module>
+    sum(t)
+TypeError: unsupported operand type(s) for +: 'int' and 'str'
+>>> t = (10, 5, 17, 4, 25)
+>>> sum(t)
+61
+>>> s = [10, 5, 17, 4, 25]
+>>> for x in s:
+	print x**2
+
+	
+100
+25
+289
+16
+625
+>>> 
+>>> person = ('Raymond', 'Hettinger', 0x32, 'python@rcn.com')
+>>> #           str        str         int       str
+>>> #         fname       lname       age      email
+>>> 
+>>> # struct Person {char *fname, char *lname, int age, char *email};
+>>> # CREATE TABLE Persons (fname TEXT, lname TEXT, age INTEGER, email TEXT);
+>>> 
+>>> person = ['Raymond', 'Hettinger', 0x32, 'python@rcn.com']
+>>> 
+>>> 
+>>> 
+>>> person = ('Raymond', 'Hettinger', 0x32, 'python@rcn.com')
+>>> 
+>>> print 'Mr. %s %s is %s years old. Contact at %s' % person
+Mr. Raymond Hettinger is 50 years old. Contact at python@rcn.com
+>>> # string interpolation takes in a tuple and unpacks it into separate fields
+>>> 
+>>> person = ['Raymond', 'Hettinger', 0x32, 'python@rcn.com']
+>>> print 'Mr. %s %s is %s years old. Contact at %s' % person
+
+Traceback (most recent call last):
+  File "<pyshell#322>", line 1, in <module>
+    print 'Mr. %s %s is %s years old. Contact at %s' % person
+TypeError: not enough arguments for format string
+>>> 
+>>> # string interpolation treats lists differently, it doesn't unpack them
+>>> print 'The answer is %s today' % person
+The answer is ['Raymond', 'Hettinger', 50, 'python@rcn.com'] today
+>>> print 'The answer is %s today' % (person[0], person[1], person[2], person[3])
+
+Traceback (most recent call last):
+  File "<pyshell#326>", line 1, in <module>
+    print 'The answer is %s today' % (person[0], person[1], person[2], person[3])
+TypeError: not all arguments converted during string formatting
+>>> print 'Mr. %s %s is %s years old. Contact at %s' % (person[0], person[1], person[2], person[3])
+Mr. Raymond Hettinger is 50 years old. Contact at python@rcn.com
+>>> 
+>>> 
+>>> 
+>>> 
+>>> 
+>>> # Column Oriented Text (two ways to parse it)
+>>> # JSON and practice dict skills
+>>> # XML for data analysis
+>>> 
+>>> # :10
+>>> 
+>>> ================================ RESTART ================================
+>>> 
+Interface                      IP-Address      Status                Protocol
+Loopback0                      51.51.51.51     Up                    Up
+MgmtEth0/RSP0/CPU0/0           1.20.30.40      Up                    Up
+MgmtEth0/RSP0/CPU0/1           unassigned      Down                  Down
+MgmtEth0/RSP1/CPU0/0           unassigned      Up                    Up
+MgmtEth0/RSP1/CPU0/1           unassigned      Down                  Down
+HundredGigE0/1/0/0             unassigned      Shutdown              Down
+HundredGigE0/1/0/1             unassigned      Shutdown              Down
+TenGigE0/2/0/0                 unassigned      Down                  Down
+TenGigE0/2/0/1                 unassigned      Down                  Down
+TenGigE0/2/0/2                 unassigned      Down                  Down
+TenGigE0/2/0/3                 unassigned      Down                  Down
+TenGigE0/2/0/4                 unassigned      Down                  Down
+TenGigE0/2/0/5                 unassigned      Down                  Down
+TenGigE0/2/0/6                 unassigned      Down                  Down
+TenGigE0/2/0/7                 unassigned      Down                  Down
+GigabitEthernet0/3/0/0         121.1.1.1       Up                    Up
+GigabitEthernet0/3/0/1         unassigned      Up                    Up
+GigabitEthernet0/3/0/2         unassigned      Down                  Down
+GigabitEthernet0/3/0/3         unassigned      Up                    Up
+GigabitEthernet0/3/0/4         unassigned      Down                  Down
+GigabitEthernet0/3/0/5         unassigned      Down                  Down
+GigabitEthernet0/3/0/6         unassigned      Down                  Down
+GigabitEthernet0/3/0/7         unassigned      Down                  Down
+GigabitEthernet0/3/0/8         unassigned      Down                  Down
+GigabitEthernet0/3/0/9         unassigned      Down                  Down
+GigabitEthernet0/3/0/10        unassigned      Down                  Down
+GigabitEthernet0/3/0/11        unassigned      Down                  Down
+GigabitEthernet0/3/0/12        unassigned      Down                  Down
+GigabitEthernet0/3/0/13        unassigned      Down                  Down
+GigabitEthernet0/3/0/14        unassigned      Down                  Down
+GigabitEthernet0/3/0/15        unassigned      Down                  Down
+GigabitEthernet0/3/0/16        unassigned      Down                  Down
+GigabitEthernet0/3/0/17        unassigned      Down                  Down
+GigabitEthernet0/3/0/18        unassigned      Down                  Down
+GigabitEthernet0/3/0/19        unassigned      Down                  Down
+TenGigE0/3/1/0                 unassigned      Up                    Up
+TenGigE0/3/1/1                 unassigned      Down                  Down
+TenGigE0/3/1/2                 unassigned      Down                  Down
+TenGigE0/3/1/3                 unassigned      Up                    Up
+GigabitEthernet0/4/0/0         unassigned      Down                  Down
+TenGigE0/4/0/0                 unassigned      Up                    Up
+GigabitEthernet0/4/0/1         unassigned      Down                  Down
+TenGigE0/4/0/1                 unassigned      Down                  Down
+GigabitEthernet0/4/0/2         unassigned      Down                  Down
+GigabitEthernet0/4/0/3         unassigned      Down                  Down
+GigabitEthernet0/4/0/4         unassigned      Down                  Down
+GigabitEthernet0/4/0/5         unassigned      Down                  Down
+GigabitEthernet0/4/0/6         unassigned      Down                  Down
+GigabitEthernet0/4/0/7         unassigned      Down                  Down
+GigabitEthernet0/4/0/8         unassigned      Down                  Down
+GigabitEthernet0/4/0/9         unassigned      Down                  Down
+GigabitEthernet0/4/0/10        unassigned      Down                  Down
+GigabitEthernet0/4/0/11        unassigned      Down                  Down
+GigabitEthernet0/4/0/12        unassigned      Down                  Down
+GigabitEthernet0/4/0/13        unassigned      Down                  Down
+GigabitEthernet0/4/0/14        unassigned      Down                  Down
+GigabitEthernet0/4/0/15        unassigned      Down                  Down
+GigabitEthernet0/4/0/16        unassigned      Down                  Down
+GigabitEthernet0/4/0/17        unassigned      Down                  Down
+GigabitEthernet0/4/0/18        unassigned      Down                  Down
+GigabitEthernet0/4/0/19        unassigned      Down                  Down
+FortyGigE0/5/0/0               unassigned      Shutdown              Down
+FortyGigE0/5/0/1               unassigned      Shutdown              Down
+TenGigE0/5/1/0                 unassigned      Shutdown              Down
+TenGigE0/5/1/1                 111.1.1.1       Up                    Up
+GigabitEthernet0/7/0/0         unassigned      Down                  Down
+GigabitEthernet0/7/0/1         unassigned      Down                  Down
+GigabitEthernet0/7/0/2         unassigned      Down                  Down
+GigabitEthernet0/7/0/3         unassigned      Down                  Down
+GigabitEthernet0/7/0/4         unassigned      Down                  Down
+GigabitEthernet0/7/0/5         unassigned      Down                  Down
+GigabitEthernet0/7/0/6         unassigned      Down                  Down
+GigabitEthernet0/7/0/7         unassigned      Down                  Down
+GigabitEthernet0/7/0/8         unassigned      Down                  Down
+GigabitEthernet0/7/0/9         unassigned      Down                  Down
+GigabitEthernet0/7/0/10        unassigned      Down                  Down
+GigabitEthernet0/7/0/11        unassigned      Down                  Down
+GigabitEthernet0/7/0/12        unassigned      Down                  Down
+GigabitEthernet0/7/0/13        unassigned      Down                  Down
+GigabitEthernet0/7/0/14        unassigned      Down                  Down
+GigabitEthernet0/7/0/15        unassigned      Up                    Up
+GigabitEthernet0/7/0/16        unassigned      Down                  Down
+GigabitEthernet0/7/0/17        unassigned      Down                  Down
+GigabitEthernet0/7/0/18        unassigned      Down                  Down
+GigabitEthernet0/7/0/19        unassigned      Down                  Down
+GigabitEthernet0/7/0/20        unassigned      Down                  Down
+GigabitEthernet0/7/0/21        unassigned      Down                  Down
+GigabitEthernet0/7/0/22        unassigned      Down                  Down
+GigabitEthernet0/7/0/23        unassigned      Down                  Down
+GigabitEthernet0/7/0/24        unassigned      Down                  Down
+GigabitEthernet0/7/0/25        unassigned      Down                  Down
+GigabitEthernet0/7/0/26        unassigned      Down                  Down
+GigabitEthernet0/7/0/27        unassigned      Down                  Down
+GigabitEthernet0/7/0/28        unassigned      Down                  Down
+GigabitEthernet0/7/0/29        unassigned      Down                  Down
+GigabitEthernet0/7/0/30        unassigned      Down                  Down
+GigabitEthernet0/7/0/31        unassigned      Down                  Down
+GigabitEthernet0/7/0/32        unassigned      Down                  Down
+GigabitEthernet0/7/0/33        unassigned      Down                  Down
+GigabitEthernet0/7/0/34        unassigned      Down                  Down
+GigabitEthernet0/7/0/35        unassigned      Down                  Down
+GigabitEthernet0/7/0/36        unassigned      Down                  Down
+GigabitEthernet0/7/0/37        unassigned      Down                  Down
+GigabitEthernet0/7/0/38        unassigned      Down                  Down
+GigabitEthernet0/7/0/39        unassigned      Down                  Down
+
+>>> ================================ RESTART ================================
+>>> 
+Interface                      IP-Address      Status                Protocol
+
+Loopback0                      51.51.51.51     Up                    Up
+
+MgmtEth0/RSP0/CPU0/0           1.20.30.40      Up                    Up
+
+MgmtEth0/RSP0/CPU0/1           unassigned      Down                  Down
+
+MgmtEth0/RSP1/CPU0/0           unassigned      Up                    Up
+
+MgmtEth0/RSP1/CPU0/1           unassigned      Down                  Down
+
+HundredGigE0/1/0/0             unassigned      Shutdown              Down
+
+HundredGigE0/1/0/1             unassigned      Shutdown              Down
+
+TenGigE0/2/0/0                 unassigned      Down                  Down
+
+TenGigE0/2/0/1                 unassigned      Down                  Down
+
+TenGigE0/2/0/2                 unassigned      Down                  Down
+
+TenGigE0/2/0/3                 unassigned      Down                  Down
+
+TenGigE0/2/0/4                 unassigned      Down                  Down
+
+TenGigE0/2/0/5                 unassigned      Down                  Down
+
+TenGigE0/2/0/6                 unassigned      Down                  Down
+
+TenGigE0/2/0/7                 unassigned      Down                  Down
+
+GigabitEthernet0/3/0/0         121.1.1.1       Up                    Up
+
+GigabitEthernet0/3/0/1         unassigned      Up                    Up
+
+GigabitEthernet0/3/0/2         unassigned      Down                  Down
+
+GigabitEthernet0/3/0/3         unassigned      Up                    Up
+
+GigabitEthernet0/3/0/4         unassigned      Down                  Down
+
+GigabitEthernet0/3/0/5         unassigned      Down                  Down
+
+GigabitEthernet0/3/0/6         unassigned      Down                  Down
+
+GigabitEthernet0/3/0/7         unassigned      Down                  Down
+
+GigabitEthernet0/3/0/8         unassigned      Down                  Down
+
+GigabitEthernet0/3/0/9         unassigned      Down                  Down
+
+GigabitEthernet0/3/0/10        unassigned      Down                  Down
+
+GigabitEthernet0/3/0/11        unassigned      Down                  Down
+
+GigabitEthernet0/3/0/12        unassigned      Down                  Down
+
+GigabitEthernet0/3/0/13        unassigned      Down                  Down
+
+GigabitEthernet0/3/0/14        unassigned      Down                  Down
+
+GigabitEthernet0/3/0/15        unassigned      Down                  Down
+
+GigabitEthernet0/3/0/16        unassigned      Down                  Down
+
+GigabitEthernet0/3/0/17        unassigned      Down                  Down
+
+GigabitEthernet0/3/0/18        unassigned      Down                  Down
+
+GigabitEthernet0/3/0/19        unassigned      Down                  Down
+
+TenGigE0/3/1/0                 unassigned      Up                    Up
+
+TenGigE0/3/1/1                 unassigned      Down                  Down
+
+TenGigE0/3/1/2                 unassigned      Down                  Down
+
+TenGigE0/3/1/3                 unassigned      Up                    Up
+
+GigabitEthernet0/4/0/0         unassigned      Down                  Down
+
+TenGigE0/4/0/0                 unassigned      Up                    Up
+
+GigabitEthernet0/4/0/1         unassigned      Down                  Down
+
+TenGigE0/4/0/1                 unassigned      Down                  Down
+
+GigabitEthernet0/4/0/2         unassigned      Down                  Down
+
+GigabitEthernet0/4/0/3         unassigned      Down                  Down
+
+GigabitEthernet0/4/0/4         unassigned      Down                  Down
+
+GigabitEthernet0/4/0/5         unassigned      Down                  Down
+
+GigabitEthernet0/4/0/6         unassigned      Down                  Down
+
+GigabitEthernet0/4/0/7         unassigned      Down                  Down
+
+GigabitEthernet0/4/0/8         unassigned      Down                  Down
+
+GigabitEthernet0/4/0/9         unassigned      Down                  Down
+
+GigabitEthernet0/4/0/10        unassigned      Down                  Down
+
+GigabitEthernet0/4/0/11        unassigned      Down                  Down
+
+GigabitEthernet0/4/0/12        unassigned      Down                  Down
+
+GigabitEthernet0/4/0/13        unassigned      Down                  Down
+
+GigabitEthernet0/4/0/14        unassigned      Down                  Down
+
+GigabitEthernet0/4/0/15        unassigned      Down                  Down
+
+GigabitEthernet0/4/0/16        unassigned      Down                  Down
+
+GigabitEthernet0/4/0/17        unassigned      Down                  Down
+
+GigabitEthernet0/4/0/18        unassigned      Down                  Down
+
+GigabitEthernet0/4/0/19        unassigned      Down                  Down
+
+FortyGigE0/5/0/0               unassigned      Shutdown              Down
+
+FortyGigE0/5/0/1               unassigned      Shutdown              Down
+
+TenGigE0/5/1/0                 unassigned      Shutdown              Down
+
+TenGigE0/5/1/1                 111.1.1.1       Up                    Up
+
+GigabitEthernet0/7/0/0         unassigned      Down                  Down
+
+GigabitEthernet0/7/0/1         unassigned      Down                  Down
+
+GigabitEthernet0/7/0/2         unassigned      Down                  Down
+
+GigabitEthernet0/7/0/3         unassigned      Down                  Down
+
+GigabitEthernet0/7/0/4         unassigned      Down                  Down
+
+GigabitEthernet0/7/0/5         unassigned      Down                  Down
+
+GigabitEthernet0/7/0/6         unassigned      Down                  Down
+
+GigabitEthernet0/7/0/7         unassigned      Down                  Down
+
+GigabitEthernet0/7/0/8         unassigned      Down                  Down
+
+GigabitEthernet0/7/0/9         unassigned      Down                  Down
+
+GigabitEthernet0/7/0/10        unassigned      Down                  Down
+
+GigabitEthernet0/7/0/11        unassigned      Down                  Down
+
+GigabitEthernet0/7/0/12        unassigned      Down                  Down
+
+GigabitEthernet0/7/0/13        unassigned      Down                  Down
+
+GigabitEthernet0/7/0/14        unassigned      Down                  Down
+
+GigabitEthernet0/7/0/15        unassigned      Up                    Up
+
+GigabitEthernet0/7/0/16        unassigned      Down                  Down
+
+GigabitEthernet0/7/0/17        unassigned      Down                  Down
+
+GigabitEthernet0/7/0/18        unassigned      Down                  Down
+
+GigabitEthernet0/7/0/19        unassigned      Down                  Down
+
+GigabitEthernet0/7/0/20        unassigned      Down                  Down
+
+GigabitEthernet0/7/0/21        unassigned      Down                  Down
+
+GigabitEthernet0/7/0/22        unassigned      Down                  Down
+
+GigabitEthernet0/7/0/23        unassigned      Down                  Down
+
+GigabitEthernet0/7/0/24        unassigned      Down                  Down
+
+GigabitEthernet0/7/0/25        unassigned      Down                  Down
+
+GigabitEthernet0/7/0/26        unassigned      Down                  Down
+
+GigabitEthernet0/7/0/27        unassigned      Down                  Down
+
+GigabitEthernet0/7/0/28        unassigned      Down                  Down
+
+GigabitEthernet0/7/0/29        unassigned      Down                  Down
+
+GigabitEthernet0/7/0/30        unassigned      Down                  Down
+
+GigabitEthernet0/7/0/31        unassigned      Down                  Down
+
+GigabitEthernet0/7/0/32        unassigned      Down                  Down
+
+GigabitEthernet0/7/0/33        unassigned      Down                  Down
+
+GigabitEthernet0/7/0/34        unassigned      Down                  Down
+
+GigabitEthernet0/7/0/35        unassigned      Down                  Down
+
+GigabitEthernet0/7/0/36        unassigned      Down                  Down
+
+GigabitEthernet0/7/0/37        unassigned      Down                  Down
+
+GigabitEthernet0/7/0/38        unassigned      Down                  Down
+
+GigabitEthernet0/7/0/39        unassigned      Down                  Down
+
+>>> ================================ RESTART ================================
+>>> 
+Interface                      IP-Address      Status                Protocol
+Loopback0                      51.51.51.51     Up                    Up
+MgmtEth0/RSP0/CPU0/0           1.20.30.40      Up                    Up
+MgmtEth0/RSP0/CPU0/1           unassigned      Down                  Down
+MgmtEth0/RSP1/CPU0/0           unassigned      Up                    Up
+MgmtEth0/RSP1/CPU0/1           unassigned      Down                  Down
+HundredGigE0/1/0/0             unassigned      Shutdown              Down
+HundredGigE0/1/0/1             unassigned      Shutdown              Down
+TenGigE0/2/0/0                 unassigned      Down                  Down
+TenGigE0/2/0/1                 unassigned      Down                  Down
+TenGigE0/2/0/2                 unassigned      Down                  Down
+TenGigE0/2/0/3                 unassigned      Down                  Down
+TenGigE0/2/0/4                 unassigned      Down                  Down
+TenGigE0/2/0/5                 unassigned      Down                  Down
+TenGigE0/2/0/6                 unassigned      Down                  Down
+TenGigE0/2/0/7                 unassigned      Down                  Down
+GigabitEthernet0/3/0/0         121.1.1.1       Up                    Up
+GigabitEthernet0/3/0/1         unassigned      Up                    Up
+GigabitEthernet0/3/0/2         unassigned      Down                  Down
+GigabitEthernet0/3/0/3         unassigned      Up                    Up
+GigabitEthernet0/3/0/4         unassigned      Down                  Down
+GigabitEthernet0/3/0/5         unassigned      Down                  Down
+GigabitEthernet0/3/0/6         unassigned      Down                  Down
+GigabitEthernet0/3/0/7         unassigned      Down                  Down
+GigabitEthernet0/3/0/8         unassigned      Down                  Down
+GigabitEthernet0/3/0/9         unassigned      Down                  Down
+GigabitEthernet0/3/0/10        unassigned      Down                  Down
+GigabitEthernet0/3/0/11        unassigned      Down                  Down
+GigabitEthernet0/3/0/12        unassigned      Down                  Down
+GigabitEthernet0/3/0/13        unassigned      Down                  Down
+GigabitEthernet0/3/0/14        unassigned      Down                  Down
+GigabitEthernet0/3/0/15        unassigned      Down                  Down
+GigabitEthernet0/3/0/16        unassigned      Down                  Down
+GigabitEthernet0/3/0/17        unassigned      Down                  Down
+GigabitEthernet0/3/0/18        unassigned      Down                  Down
+GigabitEthernet0/3/0/19        unassigned      Down                  Down
+TenGigE0/3/1/0                 unassigned      Up                    Up
+TenGigE0/3/1/1                 unassigned      Down                  Down
+TenGigE0/3/1/2                 unassigned      Down                  Down
+TenGigE0/3/1/3                 unassigned      Up                    Up
+GigabitEthernet0/4/0/0         unassigned      Down                  Down
+TenGigE0/4/0/0                 unassigned      Up                    Up
+GigabitEthernet0/4/0/1         unassigned      Down                  Down
+TenGigE0/4/0/1                 unassigned      Down                  Down
+GigabitEthernet0/4/0/2         unassigned      Down                  Down
+GigabitEthernet0/4/0/3         unassigned      Down                  Down
+GigabitEthernet0/4/0/4         unassigned      Down                  Down
+GigabitEthernet0/4/0/5         unassigned      Down                  Down
+GigabitEthernet0/4/0/6         unassigned      Down                  Down
+GigabitEthernet0/4/0/7         unassigned      Down                  Down
+GigabitEthernet0/4/0/8         unassigned      Down                  Down
+GigabitEthernet0/4/0/9         unassigned      Down                  Down
+GigabitEthernet0/4/0/10        unassigned      Down                  Down
+GigabitEthernet0/4/0/11        unassigned      Down                  Down
+GigabitEthernet0/4/0/12        unassigned      Down                  Down
+GigabitEthernet0/4/0/13        unassigned      Down                  Down
+GigabitEthernet0/4/0/14        unassigned      Down                  Down
+GigabitEthernet0/4/0/15        unassigned      Down                  Down
+GigabitEthernet0/4/0/16        unassigned      Down                  Down
+GigabitEthernet0/4/0/17        unassigned      Down                  Down
+GigabitEthernet0/4/0/18        unassigned      Down                  Down
+GigabitEthernet0/4/0/19        unassigned      Down                  Down
+FortyGigE0/5/0/0               unassigned      Shutdown              Down
+FortyGigE0/5/0/1               unassigned      Shutdown              Down
+TenGigE0/5/1/0                 unassigned      Shutdown              Down
+TenGigE0/5/1/1                 111.1.1.1       Up                    Up
+GigabitEthernet0/7/0/0         unassigned      Down                  Down
+GigabitEthernet0/7/0/1         unassigned      Down                  Down
+GigabitEthernet0/7/0/2         unassigned      Down                  Down
+GigabitEthernet0/7/0/3         unassigned      Down                  Down
+GigabitEthernet0/7/0/4         unassigned      Down                  Down
+GigabitEthernet0/7/0/5         unassigned      Down                  Down
+GigabitEthernet0/7/0/6         unassigned      Down                  Down
+GigabitEthernet0/7/0/7         unassigned      Down                  Down
+GigabitEthernet0/7/0/8         unassigned      Down                  Down
+GigabitEthernet0/7/0/9         unassigned      Down                  Down
+GigabitEthernet0/7/0/10        unassigned      Down                  Down
+GigabitEthernet0/7/0/11        unassigned      Down                  Down
+GigabitEthernet0/7/0/12        unassigned      Down                  Down
+GigabitEthernet0/7/0/13        unassigned      Down                  Down
+GigabitEthernet0/7/0/14        unassigned      Down                  Down
+GigabitEthernet0/7/0/15        unassigned      Up                    Up
+GigabitEthernet0/7/0/16        unassigned      Down                  Down
+GigabitEthernet0/7/0/17        unassigned      Down                  Down
+GigabitEthernet0/7/0/18        unassigned      Down                  Down
+GigabitEthernet0/7/0/19        unassigned      Down                  Down
+GigabitEthernet0/7/0/20        unassigned      Down                  Down
+GigabitEthernet0/7/0/21        unassigned      Down                  Down
+GigabitEthernet0/7/0/22        unassigned      Down                  Down
+GigabitEthernet0/7/0/23        unassigned      Down                  Down
+GigabitEthernet0/7/0/24        unassigned      Down                  Down
+GigabitEthernet0/7/0/25        unassigned      Down                  Down
+GigabitEthernet0/7/0/26        unassigned      Down                  Down
+GigabitEthernet0/7/0/27        unassigned      Down                  Down
+GigabitEthernet0/7/0/28        unassigned      Down                  Down
+GigabitEthernet0/7/0/29        unassigned      Down                  Down
+GigabitEthernet0/7/0/30        unassigned      Down                  Down
+GigabitEthernet0/7/0/31        unassigned      Down                  Down
+GigabitEthernet0/7/0/32        unassigned      Down                  Down
+GigabitEthernet0/7/0/33        unassigned      Down                  Down
+GigabitEthernet0/7/0/34        unassigned      Down                  Down
+GigabitEthernet0/7/0/35        unassigned      Down                  Down
+GigabitEthernet0/7/0/36        unassigned      Down                  Down
+GigabitEthernet0/7/0/37        unassigned      Down                  Down
+GigabitEthernet0/7/0/38        unassigned      Down                  Down
+GigabitEthernet0/7/0/39        unassigned      Down                  Down
+>>> line
+'GigabitEthernet0/7/0/39        unassigned      Down                  Down\n'
+>>> line.rstrip()
+'GigabitEthernet0/7/0/39        unassigned      Down                  Down'
+>>> ================================ RESTART ================================
+>>> 
+Interface                      IP-Address      Status                Protocol
+
+Loopback0                      51.51.51.51     Up                    Up
+
+MgmtEth0/RSP0/CPU0/0           1.20.30.40      Up                    Up
+
+MgmtEth0/RSP0/CPU0/1           unassigned      Down                  Down
+
+MgmtEth0/RSP1/CPU0/0           unassigned      Up                    Up
+
+MgmtEth0/RSP1/CPU0/1           unassigned      Down                  Down
+
+HundredGigE0/1/0/0             unassigned      Shutdown              Down
+
+HundredGigE0/1/0/1             unassigned      Shutdown              Down
+
+TenGigE0/2/0/0                 unassigned      Down                  Down
+
+TenGigE0/2/0/1                 unassigned      Down                  Down
+
+TenGigE0/2/0/2                 unassigned      Down                  Down
+
+TenGigE0/2/0/3                 unassigned      Down                  Down
+
+TenGigE0/2/0/4                 unassigned      Down                  Down
+
+TenGigE0/2/0/5                 unassigned      Down                  Down
+
+TenGigE0/2/0/6                 unassigned      Down                  Down
+
+TenGigE0/2/0/7                 unassigned      Down                  Down
+
+GigabitEthernet0/3/0/0         121.1.1.1       Up                    Up
+
+GigabitEthernet0/3/0/1         unassigned      Up                    Up
+
+GigabitEthernet0/3/0/2         unassigned      Down                  Down
+
+GigabitEthernet0/3/0/3         unassigned      Up                    Up
+
+GigabitEthernet0/3/0/4         unassigned      Down                  Down
+
+GigabitEthernet0/3/0/5         unassigned      Down                  Down
+
+GigabitEthernet0/3/0/6         unassigned      Down                  Down
+
+GigabitEthernet0/3/0/7         unassigned      Down                  Down
+
+GigabitEthernet0/3/0/8         unassigned      Down                  Down
+
+GigabitEthernet0/3/0/9         unassigned      Down                  Down
+
+GigabitEthernet0/3/0/10        unassigned      Down                  Down
+
+GigabitEthernet0/3/0/11        unassigned      Down                  Down
+
+GigabitEthernet0/3/0/12        unassigned      Down                  Down
+
+GigabitEthernet0/3/0/13        unassigned      Down                  Down
+
+GigabitEthernet0/3/0/14        unassigned      Down                  Down
+
+GigabitEthernet0/3/0/15        unassigned      Down                  Down
+
+GigabitEthernet0/3/0/16        unassigned      Down                  Down
+
+GigabitEthernet0/3/0/17        unassigned      Down                  Down
+
+GigabitEthernet0/3/0/18        unassigned      Down                  Down
+
+GigabitEthernet0/3/0/19        unassigned      Down                  Down
+
+TenGigE0/3/1/0                 unassigned      Up                    Up
+
+TenGigE0/3/1/1                 unassigned      Down                  Down
+
+TenGigE0/3/1/2                 unassigned      Down                  Down
+
+TenGigE0/3/1/3                 unassigned      Up                    Up
+
+GigabitEthernet0/4/0/0         unassigned      Down                  Down
+
+TenGigE0/4/0/0                 unassigned      Up                    Up
+
+GigabitEthernet0/4/0/1         unassigned      Down                  Down
+
+TenGigE0/4/0/1                 unassigned      Down                  Down
+
+GigabitEthernet0/4/0/2         unassigned      Down                  Down
+
+GigabitEthernet0/4/0/3         unassigned      Down                  Down
+
+GigabitEthernet0/4/0/4         unassigned      Down                  Down
+
+GigabitEthernet0/4/0/5         unassigned      Down                  Down
+
+GigabitEthernet0/4/0/6         unassigned      Down                  Down
+
+GigabitEthernet0/4/0/7         unassigned      Down                  Down
+
+GigabitEthernet0/4/0/8         unassigned      Down                  Down
+
+GigabitEthernet0/4/0/9         unassigned      Down                  Down
+
+GigabitEthernet0/4/0/10        unassigned      Down                  Down
+
+GigabitEthernet0/4/0/11        unassigned      Down                  Down
+
+GigabitEthernet0/4/0/12        unassigned      Down                  Down
+
+GigabitEthernet0/4/0/13        unassigned      Down                  Down
+
+GigabitEthernet0/4/0/14        unassigned      Down                  Down
+
+GigabitEthernet0/4/0/15        unassigned      Down                  Down
+
+GigabitEthernet0/4/0/16        unassigned      Down                  Down
+
+GigabitEthernet0/4/0/17        unassigned      Down                  Down
+
+GigabitEthernet0/4/0/18        unassigned      Down                  Down
+
+GigabitEthernet0/4/0/19        unassigned      Down                  Down
+
+FortyGigE0/5/0/0               unassigned      Shutdown              Down
+
+FortyGigE0/5/0/1               unassigned      Shutdown              Down
+
+TenGigE0/5/1/0                 unassigned      Shutdown              Down
+
+TenGigE0/5/1/1                 111.1.1.1       Up                    Up
+
+GigabitEthernet0/7/0/0         unassigned      Down                  Down
+
+GigabitEthernet0/7/0/1         unassigned      Down                  Down
+
+GigabitEthernet0/7/0/2         unassigned      Down                  Down
+
+GigabitEthernet0/7/0/3         unassigned      Down                  Down
+
+GigabitEthernet0/7/0/4         unassigned      Down                  Down
+
+GigabitEthernet0/7/0/5         unassigned      Down                  Down
+
+GigabitEthernet0/7/0/6         unassigned      Down                  Down
+
+GigabitEthernet0/7/0/7         unassigned      Down                  Down
+
+GigabitEthernet0/7/0/8         unassigned      Down                  Down
+
+GigabitEthernet0/7/0/9         unassigned      Down                  Down
+
+GigabitEthernet0/7/0/10        unassigned      Down                  Down
+
+GigabitEthernet0/7/0/11        unassigned      Down                  Down
+
+GigabitEthernet0/7/0/12        unassigned      Down                  Down
+
+GigabitEthernet0/7/0/13        unassigned      Down                  Down
+
+GigabitEthernet0/7/0/14        unassigned      Down                  Down
+
+GigabitEthernet0/7/0/15        unassigned      Up                    Up
+
+GigabitEthernet0/7/0/16        unassigned      Down                  Down
+
+GigabitEthernet0/7/0/17        unassigned      Down                  Down
+
+GigabitEthernet0/7/0/18        unassigned      Down                  Down
+
+GigabitEthernet0/7/0/19        unassigned      Down                  Down
+
+GigabitEthernet0/7/0/20        unassigned      Down                  Down
+
+GigabitEthernet0/7/0/21        unassigned      Down                  Down
+
+GigabitEthernet0/7/0/22        unassigned      Down                  Down
+
+GigabitEthernet0/7/0/23        unassigned      Down                  Down
+
+GigabitEthernet0/7/0/24        unassigned      Down                  Down
+
+GigabitEthernet0/7/0/25        unassigned      Down                  Down
+
+GigabitEthernet0/7/0/26        unassigned      Down                  Down
+
+GigabitEthernet0/7/0/27        unassigned      Down                  Down
+
+GigabitEthernet0/7/0/28        unassigned      Down                  Down
+
+GigabitEthernet0/7/0/29        unassigned      Down                  Down
+
+GigabitEthernet0/7/0/30        unassigned      Down                  Down
+
+GigabitEthernet0/7/0/31        unassigned      Down                  Down
+
+GigabitEthernet0/7/0/32        unassigned      Down                  Down
+
+GigabitEthernet0/7/0/33        unassigned      Down                  Down
+
+GigabitEthernet0/7/0/34        unassigned      Down                  Down
+
+GigabitEthernet0/7/0/35        unassigned      Down                  Down
+
+GigabitEthernet0/7/0/36        unassigned      Down                  Down
+
+GigabitEthernet0/7/0/37        unassigned      Down                  Down
+
+GigabitEthernet0/7/0/38        unassigned      Down                  Down
+
+GigabitEthernet0/7/0/39        unassigned      Down                  Down
+
+>>> line
+'GigabitEthernet0/7/0/39        unassigned      Down                  Down\n'
+>>> ================================ RESTART ================================
+>>> 
+Interface                      IP-Address      Status                Protocol
+Loopback0                      51.51.51.51     Up                    Up
+MgmtEth0/RSP0/CPU0/0           1.20.30.40      Up                    Up
+MgmtEth0/RSP0/CPU0/1           unassigned      Down                  Down
+MgmtEth0/RSP1/CPU0/0           unassigned      Up                    Up
+MgmtEth0/RSP1/CPU0/1           unassigned      Down                  Down
+HundredGigE0/1/0/0             unassigned      Shutdown              Down
+HundredGigE0/1/0/1             unassigned      Shutdown              Down
+TenGigE0/2/0/0                 unassigned      Down                  Down
+TenGigE0/2/0/1                 unassigned      Down                  Down
+TenGigE0/2/0/2                 unassigned      Down                  Down
+TenGigE0/2/0/3                 unassigned      Down                  Down
+TenGigE0/2/0/4                 unassigned      Down                  Down
+TenGigE0/2/0/5                 unassigned      Down                  Down
+TenGigE0/2/0/6                 unassigned      Down                  Down
+TenGigE0/2/0/7                 unassigned      Down                  Down
+GigabitEthernet0/3/0/0         121.1.1.1       Up                    Up
+GigabitEthernet0/3/0/1         unassigned      Up                    Up
+GigabitEthernet0/3/0/2         unassigned      Down                  Down
+GigabitEthernet0/3/0/3         unassigned      Up                    Up
+GigabitEthernet0/3/0/4         unassigned      Down                  Down
+GigabitEthernet0/3/0/5         unassigned      Down                  Down
+GigabitEthernet0/3/0/6         unassigned      Down                  Down
+GigabitEthernet0/3/0/7         unassigned      Down                  Down
+GigabitEthernet0/3/0/8         unassigned      Down                  Down
+GigabitEthernet0/3/0/9         unassigned      Down                  Down
+GigabitEthernet0/3/0/10        unassigned      Down                  Down
+GigabitEthernet0/3/0/11        unassigned      Down                  Down
+GigabitEthernet0/3/0/12        unassigned      Down                  Down
+GigabitEthernet0/3/0/13        unassigned      Down                  Down
+GigabitEthernet0/3/0/14        unassigned      Down                  Down
+GigabitEthernet0/3/0/15        unassigned      Down                  Down
+GigabitEthernet0/3/0/16        unassigned      Down                  Down
+GigabitEthernet0/3/0/17        unassigned      Down                  Down
+GigabitEthernet0/3/0/18        unassigned      Down                  Down
+GigabitEthernet0/3/0/19        unassigned      Down                  Down
+TenGigE0/3/1/0                 unassigned      Up                    Up
+TenGigE0/3/1/1                 unassigned      Down                  Down
+TenGigE0/3/1/2                 unassigned      Down                  Down
+TenGigE0/3/1/3                 unassigned      Up                    Up
+GigabitEthernet0/4/0/0         unassigned      Down                  Down
+TenGigE0/4/0/0                 unassigned      Up                    Up
+GigabitEthernet0/4/0/1         unassigned      Down                  Down
+TenGigE0/4/0/1                 unassigned      Down                  Down
+GigabitEthernet0/4/0/2         unassigned      Down                  Down
+GigabitEthernet0/4/0/3         unassigned      Down                  Down
+GigabitEthernet0/4/0/4         unassigned      Down                  Down
+GigabitEthernet0/4/0/5         unassigned      Down                  Down
+GigabitEthernet0/4/0/6         unassigned      Down                  Down
+GigabitEthernet0/4/0/7         unassigned      Down                  Down
+GigabitEthernet0/4/0/8         unassigned      Down                  Down
+GigabitEthernet0/4/0/9         unassigned      Down                  Down
+GigabitEthernet0/4/0/10        unassigned      Down                  Down
+GigabitEthernet0/4/0/11        unassigned      Down                  Down
+GigabitEthernet0/4/0/12        unassigned      Down                  Down
+GigabitEthernet0/4/0/13        unassigned      Down                  Down
+GigabitEthernet0/4/0/14        unassigned      Down                  Down
+GigabitEthernet0/4/0/15        unassigned      Down                  Down
+GigabitEthernet0/4/0/16        unassigned      Down                  Down
+GigabitEthernet0/4/0/17        unassigned      Down                  Down
+GigabitEthernet0/4/0/18        unassigned      Down                  Down
+GigabitEthernet0/4/0/19        unassigned      Down                  Down
+FortyGigE0/5/0/0               unassigned      Shutdown              Down
+FortyGigE0/5/0/1               unassigned      Shutdown              Down
+TenGigE0/5/1/0                 unassigned      Shutdown              Down
+TenGigE0/5/1/1                 111.1.1.1       Up                    Up
+GigabitEthernet0/7/0/0         unassigned      Down                  Down
+GigabitEthernet0/7/0/1         unassigned      Down                  Down
+GigabitEthernet0/7/0/2         unassigned      Down                  Down
+GigabitEthernet0/7/0/3         unassigned      Down                  Down
+GigabitEthernet0/7/0/4         unassigned      Down                  Down
+GigabitEthernet0/7/0/5         unassigned      Down                  Down
+GigabitEthernet0/7/0/6         unassigned      Down                  Down
+GigabitEthernet0/7/0/7         unassigned      Down                  Down
+GigabitEthernet0/7/0/8         unassigned      Down                  Down
+GigabitEthernet0/7/0/9         unassigned      Down                  Down
+GigabitEthernet0/7/0/10        unassigned      Down                  Down
+GigabitEthernet0/7/0/11        unassigned      Down                  Down
+GigabitEthernet0/7/0/12        unassigned      Down                  Down
+GigabitEthernet0/7/0/13        unassigned      Down                  Down
+GigabitEthernet0/7/0/14        unassigned      Down                  Down
+GigabitEthernet0/7/0/15        unassigned      Up                    Up
+GigabitEthernet0/7/0/16        unassigned      Down                  Down
+GigabitEthernet0/7/0/17        unassigned      Down                  Down
+GigabitEthernet0/7/0/18        unassigned      Down                  Down
+GigabitEthernet0/7/0/19        unassigned      Down                  Down
+GigabitEthernet0/7/0/20        unassigned      Down                  Down
+GigabitEthernet0/7/0/21        unassigned      Down                  Down
+GigabitEthernet0/7/0/22        unassigned      Down                  Down
+GigabitEthernet0/7/0/23        unassigned      Down                  Down
+GigabitEthernet0/7/0/24        unassigned      Down                  Down
+GigabitEthernet0/7/0/25        unassigned      Down                  Down
+GigabitEthernet0/7/0/26        unassigned      Down                  Down
+GigabitEthernet0/7/0/27        unassigned      Down                  Down
+GigabitEthernet0/7/0/28        unassigned      Down                  Down
+GigabitEthernet0/7/0/29        unassigned      Down                  Down
+GigabitEthernet0/7/0/30        unassigned      Down                  Down
+GigabitEthernet0/7/0/31        unassigned      Down                  Down
+GigabitEthernet0/7/0/32        unassigned      Down                  Down
+GigabitEthernet0/7/0/33        unassigned      Down                  Down
+GigabitEthernet0/7/0/34        unassigned      Down                  Down
+GigabitEthernet0/7/0/35        unassigned      Down                  Down
+GigabitEthernet0/7/0/36        unassigned      Down                  Down
+GigabitEthernet0/7/0/37        unassigned      Down                  Down
+GigabitEthernet0/7/0/38        unassigned      Down                  Down
+GigabitEthernet0/7/0/39        unassigned      Down                  Down
+>>> ================================ RESTART ================================
+>>> 
+['Interface', 'IP-Address', 'Status', 'Protocol']
+['Loopback0', '51.51.51.51', 'Up', 'Up']
+['MgmtEth0/RSP0/CPU0/0', '1.20.30.40', 'Up', 'Up']
+['MgmtEth0/RSP0/CPU0/1', 'unassigned', 'Down', 'Down']
+['MgmtEth0/RSP1/CPU0/0', 'unassigned', 'Up', 'Up']
+['MgmtEth0/RSP1/CPU0/1', 'unassigned', 'Down', 'Down']
+['HundredGigE0/1/0/0', 'unassigned', 'Shutdown', 'Down']
+['HundredGigE0/1/0/1', 'unassigned', 'Shutdown', 'Down']
+['TenGigE0/2/0/0', 'unassigned', 'Down', 'Down']
+['TenGigE0/2/0/1', 'unassigned', 'Down', 'Down']
+['TenGigE0/2/0/2', 'unassigned', 'Down', 'Down']
+['TenGigE0/2/0/3', 'unassigned', 'Down', 'Down']
+['TenGigE0/2/0/4', 'unassigned', 'Down', 'Down']
+['TenGigE0/2/0/5', 'unassigned', 'Down', 'Down']
+['TenGigE0/2/0/6', 'unassigned', 'Down', 'Down']
+['TenGigE0/2/0/7', 'unassigned', 'Down', 'Down']
+['GigabitEthernet0/3/0/0', '121.1.1.1', 'Up', 'Up']
+['GigabitEthernet0/3/0/1', 'unassigned', 'Up', 'Up']
+['GigabitEthernet0/3/0/2', 'unassigned', 'Down', 'Down']
+['GigabitEthernet0/3/0/3', 'unassigned', 'Up', 'Up']
+['GigabitEthernet0/3/0/4', 'unassigned', 'Down', 'Down']
+['GigabitEthernet0/3/0/5', 'unassigned', 'Down', 'Down']
+['GigabitEthernet0/3/0/6', 'unassigned', 'Down', 'Down']
+['GigabitEthernet0/3/0/7', 'unassigned', 'Down', 'Down']
+['GigabitEthernet0/3/0/8', 'unassigned', 'Down', 'Down']
+['GigabitEthernet0/3/0/9', 'unassigned', 'Down', 'Down']
+['GigabitEthernet0/3/0/10', 'unassigned', 'Down', 'Down']
+['GigabitEthernet0/3/0/11', 'unassigned', 'Down', 'Down']
+['GigabitEthernet0/3/0/12', 'unassigned', 'Down', 'Down']
+['GigabitEthernet0/3/0/13', 'unassigned', 'Down', 'Down']
+['GigabitEthernet0/3/0/14', 'unassigned', 'Down', 'Down']
+['GigabitEthernet0/3/0/15', 'unassigned', 'Down', 'Down']
+['GigabitEthernet0/3/0/16', 'unassigned', 'Down', 'Down']
+['GigabitEthernet0/3/0/17', 'unassigned', 'Down', 'Down']
+['GigabitEthernet0/3/0/18', 'unassigned', 'Down', 'Down']
+['GigabitEthernet0/3/0/19', 'unassigned', 'Down', 'Down']
+['TenGigE0/3/1/0', 'unassigned', 'Up', 'Up']
+['TenGigE0/3/1/1', 'unassigned', 'Down', 'Down']
+['TenGigE0/3/1/2', 'unassigned', 'Down', 'Down']
+['TenGigE0/3/1/3', 'unassigned', 'Up', 'Up']
+['GigabitEthernet0/4/0/0', 'unassigned', 'Down', 'Down']
+['TenGigE0/4/0/0', 'unassigned', 'Up', 'Up']
+['GigabitEthernet0/4/0/1', 'unassigned', 'Down', 'Down']
+['TenGigE0/4/0/1', 'unassigned', 'Down', 'Down']
+['GigabitEthernet0/4/0/2', 'unassigned', 'Down', 'Down']
+['GigabitEthernet0/4/0/3', 'unassigned', 'Down', 'Down']
+['GigabitEthernet0/4/0/4', 'unassigned', 'Down', 'Down']
+['GigabitEthernet0/4/0/5', 'unassigned', 'Down', 'Down']
+['GigabitEthernet0/4/0/6', 'unassigned', 'Down', 'Down']
+['GigabitEthernet0/4/0/7', 'unassigned', 'Down', 'Down']
+['GigabitEthernet0/4/0/8', 'unassigned', 'Down', 'Down']
+['GigabitEthernet0/4/0/9', 'unassigned', 'Down', 'Down']
+['GigabitEthernet0/4/0/10', 'unassigned', 'Down', 'Down']
+['GigabitEthernet0/4/0/11', 'unassigned', 'Down', 'Down']
+['GigabitEthernet0/4/0/12', 'unassigned', 'Down', 'Down']
+['GigabitEthernet0/4/0/13', 'unassigned', 'Down', 'Down']
+['GigabitEthernet0/4/0/14', 'unassigned', 'Down', 'Down']
+['GigabitEthernet0/4/0/15', 'unassigned', 'Down', 'Down']
+['GigabitEthernet0/4/0/16', 'unassigned', 'Down', 'Down']
+['GigabitEthernet0/4/0/17', 'unassigned', 'Down', 'Down']
+['GigabitEthernet0/4/0/18', 'unassigned', 'Down', 'Down']
+['GigabitEthernet0/4/0/19', 'unassigned', 'Down', 'Down']
+['FortyGigE0/5/0/0', 'unassigned', 'Shutdown', 'Down']
+['FortyGigE0/5/0/1', 'unassigned', 'Shutdown', 'Down']
+['TenGigE0/5/1/0', 'unassigned', 'Shutdown', 'Down']
+['TenGigE0/5/1/1', '111.1.1.1', 'Up', 'Up']
+['GigabitEthernet0/7/0/0', 'unassigned', 'Down', 'Down']
+['GigabitEthernet0/7/0/1', 'unassigned', 'Down', 'Down']
+['GigabitEthernet0/7/0/2', 'unassigned', 'Down', 'Down']
+['GigabitEthernet0/7/0/3', 'unassigned', 'Down', 'Down']
+['GigabitEthernet0/7/0/4', 'unassigned', 'Down', 'Down']
+['GigabitEthernet0/7/0/5', 'unassigned', 'Down', 'Down']
+['GigabitEthernet0/7/0/6', 'unassigned', 'Down', 'Down']
+['GigabitEthernet0/7/0/7', 'unassigned', 'Down', 'Down']
+['GigabitEthernet0/7/0/8', 'unassigned', 'Down', 'Down']
+['GigabitEthernet0/7/0/9', 'unassigned', 'Down', 'Down']
+['GigabitEthernet0/7/0/10', 'unassigned', 'Down', 'Down']
+['GigabitEthernet0/7/0/11', 'unassigned', 'Down', 'Down']
+['GigabitEthernet0/7/0/12', 'unassigned', 'Down', 'Down']
+['GigabitEthernet0/7/0/13', 'unassigned', 'Down', 'Down']
+['GigabitEthernet0/7/0/14', 'unassigned', 'Down', 'Down']
+['GigabitEthernet0/7/0/15', 'unassigned', 'Up', 'Up']
+['GigabitEthernet0/7/0/16', 'unassigned', 'Down', 'Down']
+['GigabitEthernet0/7/0/17', 'unassigned', 'Down', 'Down']
+['GigabitEthernet0/7/0/18', 'unassigned', 'Down', 'Down']
+['GigabitEthernet0/7/0/19', 'unassigned', 'Down', 'Down']
+['GigabitEthernet0/7/0/20', 'unassigned', 'Down', 'Down']
+['GigabitEthernet0/7/0/21', 'unassigned', 'Down', 'Down']
+['GigabitEthernet0/7/0/22', 'unassigned', 'Down', 'Down']
+['GigabitEthernet0/7/0/23', 'unassigned', 'Down', 'Down']
+['GigabitEthernet0/7/0/24', 'unassigned', 'Down', 'Down']
+['GigabitEthernet0/7/0/25', 'unassigned', 'Down', 'Down']
+['GigabitEthernet0/7/0/26', 'unassigned', 'Down', 'Down']
+['GigabitEthernet0/7/0/27', 'unassigned', 'Down', 'Down']
+['GigabitEthernet0/7/0/28', 'unassigned', 'Down', 'Down']
+['GigabitEthernet0/7/0/29', 'unassigned', 'Down', 'Down']
+['GigabitEthernet0/7/0/30', 'unassigned', 'Down', 'Down']
+['GigabitEthernet0/7/0/31', 'unassigned', 'Down', 'Down']
+['GigabitEthernet0/7/0/32', 'unassigned', 'Down', 'Down']
+['GigabitEthernet0/7/0/33', 'unassigned', 'Down', 'Down']
+['GigabitEthernet0/7/0/34', 'unassigned', 'Down', 'Down']
+['GigabitEthernet0/7/0/35', 'unassigned', 'Down', 'Down']
+['GigabitEthernet0/7/0/36', 'unassigned', 'Down', 'Down']
+['GigabitEthernet0/7/0/37', 'unassigned', 'Down', 'Down']
+['GigabitEthernet0/7/0/38', 'unassigned', 'Down', 'Down']
+['GigabitEthernet0/7/0/39', 'unassigned', 'Down', 'Down']
+>>> ================================ RESTART ================================
+>>> 
+IP-Address Interface
+51.51.51.51 Loopback0
+1.20.30.40 MgmtEth0/RSP0/CPU0/0
+unassigned MgmtEth0/RSP0/CPU0/1
+unassigned MgmtEth0/RSP1/CPU0/0
+unassigned MgmtEth0/RSP1/CPU0/1
+unassigned HundredGigE0/1/0/0
+unassigned HundredGigE0/1/0/1
+unassigned TenGigE0/2/0/0
+unassigned TenGigE0/2/0/1
+unassigned TenGigE0/2/0/2
+unassigned TenGigE0/2/0/3
+unassigned TenGigE0/2/0/4
+unassigned TenGigE0/2/0/5
+unassigned TenGigE0/2/0/6
+unassigned TenGigE0/2/0/7
+121.1.1.1 GigabitEthernet0/3/0/0
+unassigned GigabitEthernet0/3/0/1
+unassigned GigabitEthernet0/3/0/2
+unassigned GigabitEthernet0/3/0/3
+unassigned GigabitEthernet0/3/0/4
+unassigned GigabitEthernet0/3/0/5
+unassigned GigabitEthernet0/3/0/6
+unassigned GigabitEthernet0/3/0/7
+unassigned GigabitEthernet0/3/0/8
+unassigned GigabitEthernet0/3/0/9
+unassigned GigabitEthernet0/3/0/10
+unassigned GigabitEthernet0/3/0/11
+unassigned GigabitEthernet0/3/0/12
+unassigned GigabitEthernet0/3/0/13
+unassigned GigabitEthernet0/3/0/14
+unassigned GigabitEthernet0/3/0/15
+unassigned GigabitEthernet0/3/0/16
+unassigned GigabitEthernet0/3/0/17
+unassigned GigabitEthernet0/3/0/18
+unassigned GigabitEthernet0/3/0/19
+unassigned TenGigE0/3/1/0
+unassigned TenGigE0/3/1/1
+unassigned TenGigE0/3/1/2
+unassigned TenGigE0/3/1/3
+unassigned GigabitEthernet0/4/0/0
+unassigned TenGigE0/4/0/0
+unassigned GigabitEthernet0/4/0/1
+unassigned TenGigE0/4/0/1
+unassigned GigabitEthernet0/4/0/2
+unassigned GigabitEthernet0/4/0/3
+unassigned GigabitEthernet0/4/0/4
+unassigned GigabitEthernet0/4/0/5
+unassigned GigabitEthernet0/4/0/6
+unassigned GigabitEthernet0/4/0/7
+unassigned GigabitEthernet0/4/0/8
+unassigned GigabitEthernet0/4/0/9
+unassigned GigabitEthernet0/4/0/10
+unassigned GigabitEthernet0/4/0/11
+unassigned GigabitEthernet0/4/0/12
+unassigned GigabitEthernet0/4/0/13
+unassigned GigabitEthernet0/4/0/14
+unassigned GigabitEthernet0/4/0/15
+unassigned GigabitEthernet0/4/0/16
+unassigned GigabitEthernet0/4/0/17
+unassigned GigabitEthernet0/4/0/18
+unassigned GigabitEthernet0/4/0/19
+unassigned FortyGigE0/5/0/0
+unassigned FortyGigE0/5/0/1
+unassigned TenGigE0/5/1/0
+111.1.1.1 TenGigE0/5/1/1
+unassigned GigabitEthernet0/7/0/0
+unassigned GigabitEthernet0/7/0/1
+unassigned GigabitEthernet0/7/0/2
+unassigned GigabitEthernet0/7/0/3
+unassigned GigabitEthernet0/7/0/4
+unassigned GigabitEthernet0/7/0/5
+unassigned GigabitEthernet0/7/0/6
+unassigned GigabitEthernet0/7/0/7
+unassigned GigabitEthernet0/7/0/8
+unassigned GigabitEthernet0/7/0/9
+unassigned GigabitEthernet0/7/0/10
+unassigned GigabitEthernet0/7/0/11
+unassigned GigabitEthernet0/7/0/12
+unassigned GigabitEthernet0/7/0/13
+unassigned GigabitEthernet0/7/0/14
+unassigned GigabitEthernet0/7/0/15
+unassigned GigabitEthernet0/7/0/16
+unassigned GigabitEthernet0/7/0/17
+unassigned GigabitEthernet0/7/0/18
+unassigned GigabitEthernet0/7/0/19
+unassigned GigabitEthernet0/7/0/20
+unassigned GigabitEthernet0/7/0/21
+unassigned GigabitEthernet0/7/0/22
+unassigned GigabitEthernet0/7/0/23
+unassigned GigabitEthernet0/7/0/24
+unassigned GigabitEthernet0/7/0/25
+unassigned GigabitEthernet0/7/0/26
+unassigned GigabitEthernet0/7/0/27
+unassigned GigabitEthernet0/7/0/28
+unassigned GigabitEthernet0/7/0/29
+unassigned GigabitEthernet0/7/0/30
+unassigned GigabitEthernet0/7/0/31
+unassigned GigabitEthernet0/7/0/32
+unassigned GigabitEthernet0/7/0/33
+unassigned GigabitEthernet0/7/0/34
+unassigned GigabitEthernet0/7/0/35
+unassigned GigabitEthernet0/7/0/36
+unassigned GigabitEthernet0/7/0/37
+unassigned GigabitEthernet0/7/0/38
+unassigned GigabitEthernet0/7/0/39
+>>> # a projection
+>>> # filtering
+>>> ================================ RESTART ================================
+>>> 
+>>> status
+'Down'
+>>> ================================ RESTART ================================
+>>> 
+51.51.51.51 Loopback0
+1.20.30.40 MgmtEth0/RSP0/CPU0/0
+unassigned MgmtEth0/RSP1/CPU0/0
+121.1.1.1 GigabitEthernet0/3/0/0
+unassigned GigabitEthernet0/3/0/1
+unassigned GigabitEthernet0/3/0/3
+unassigned TenGigE0/3/1/0
+unassigned TenGigE0/3/1/3
+unassigned TenGigE0/4/0/0
+111.1.1.1 TenGigE0/5/1/1
+unassigned GigabitEthernet0/7/0/15
+>>> ================================ RESTART ================================
+>>> 
+51.51.51.51 Loopback0
+1.20.30.40 MgmtEth0/RSP0/CPU0/0
+unassigned MgmtEth0/RSP1/CPU0/0
+121.1.1.1 GigabitEthernet0/3/0/0
+unassigned GigabitEthernet0/3/0/1
+unassigned GigabitEthernet0/3/0/3
+unassigned TenGigE0/3/1/0
+unassigned TenGigE0/3/1/3
+unassigned TenGigE0/4/0/0
+111.1.1.1 TenGigE0/5/1/1
+unassigned GigabitEthernet0/7/0/15
+>>> ================================ RESTART ================================
+>>> 
+    51.51.51.51 Loopback0
+     1.20.30.40 MgmtEth0/RSP0/CPU0/0
+     unassigned MgmtEth0/RSP1/CPU0/0
+      121.1.1.1 GigabitEthernet0/3/0/0
+     unassigned GigabitEthernet0/3/0/1
+     unassigned GigabitEthernet0/3/0/3
+     unassigned TenGigE0/3/1/0
+     unassigned TenGigE0/3/1/3
+     unassigned TenGigE0/4/0/0
+      111.1.1.1 TenGigE0/5/1/1
+     unassigned GigabitEthernet0/7/0/15
+>>> ================================ RESTART ================================
+>>> 
+51.51.51.51     Loopback0
+1.20.30.40      MgmtEth0/RSP0/CPU0/0
+unassigned      MgmtEth0/RSP1/CPU0/0
+121.1.1.1       GigabitEthernet0/3/0/0
+unassigned      GigabitEthernet0/3/0/1
+unassigned      GigabitEthernet0/3/0/3
+unassigned      TenGigE0/3/1/0
+unassigned      TenGigE0/3/1/3
+unassigned      TenGigE0/4/0/0
+111.1.1.1       TenGigE0/5/1/1
+unassigned      GigabitEthernet0/7/0/15
+>>> ================================ RESTART ================================
+>>> 
+51.51.51.51     Loopback0
+1.20.30.40      MgmtEth0/RSP0/CPU0/0
+unassigned      MgmtEth0/RSP1/CPU0/0
+121.1.1.1       GigabitEthernet0/3/0/0
+unassigned      GigabitEthernet0/3/0/1
+unassigned      GigabitEthernet0/3/0/3
+unassigned      TenGigE0/3/1/0
+unassigned      TenGigE0/3/1/3
+unassigned      TenGigE0/4/0/0
+111.1.1.1       TenGigE0/5/1/1
+unassigned      GigabitEthernet0/7/0/15
+>>> ================================ RESTART ================================
+>>> 
+51.51.51.51     Loopback0
+1.20.30.40      MgmtEth0/RSP0/CPU0/0
+unassigned      MgmtEth0/RSP1/CPU0/0
+121.1.1.1       GigabitEthernet0/3/0/0
+unassigned      GigabitEthernet0/3/0/1
+unassigned      GigabitEthernet0/3/0/3
+unassigned      TenGigE0/3/1/0
+unassigned      TenGigE0/3/1/3
+unassigned      TenGigE0/4/0/0
+111.1.1.1       TenGigE0/5/1/1
+unassigned      GigabitEthernet0/7/0/15
+>>> ================================ RESTART ================================
+>>> 
+>>> type(catalog)
+<type 'dict'>
+>>> ================================ RESTART ================================
+>>> 
+Task 1:  Show the book identifiers
+[u'bk103', u'bk102', u'bk101', u'bk107', u'bk106', u'bk105', u'bk104', u'bk109', u'bk108', u'bk110', u'bk111', u'bk112']
+>>> ================================ RESTART ================================
+>>> 
+Task 1:  Show the book identifiers
+bk103
+bk102
+bk101
+bk107
+bk106
+bk105
+bk104
+bk109
+bk108
+bk110
+bk111
+bk112
+>>> ================================ RESTART ================================
+>>> 
+Task 1:  Show the book identifiers
+bk101
+bk102
+bk103
+bk104
+bk105
+bk106
+bk107
+bk108
+bk109
+bk110
+bk111
+bk112
+>>> ================================ RESTART ================================
+>>> 
+Task 1:  Show the book identifiers
+bk101
+bk102
+bk103
+bk104
+bk105
+bk106
+bk107
+bk108
+bk109
+bk110
+bk111
+bk112
+>>> ================================ RESTART ================================
+>>> 
+Task 1:  Show the book identifiers
+bk101
+bk102
+bk103
+bk104
+bk105
+bk106
+bk107
+bk108
+bk109
+bk110
+bk111
+bk112
+Task 2:  Show titles of all books
+{u'description': u'After the collapse of a nanotechnology \n      society in England, the young survivors lay the \n      foundation for a new society.', u'author': u'Corets, Eva', u'price': 5.95, u'title': u'Maeve Ascendant', u'publish_date': u'2000-11-17', u'genre': u'Fantasy'}
+{u'description': u'A former architect battles corporate zombies, \n      an evil sorceress, and her own childhood to become queen \n      of the world.', u'author': u'Ralls, Kim', u'price': 5.95, u'title': u'Midnight Rain', u'publish_date': u'2000-12-16', u'genre': u'Fantasy'}
+{u'description': u'An in-depth look at creating applications \n      with XML.', u'author': u'Gambardella, Matthew', u'price': 44.95, u'title': u"XML Developer's Guide", u'publish_date': u'2000-10-01', u'genre': u'Computer'}
+{u'description': u'A deep sea diver finds true love twenty \n      thousand leagues beneath the sea.', u'author': u'Thurman, Paula', u'price': 4.95, u'title': u'Splish Splash', u'publish_date': u'2000-11-02', u'genre': u'Romance'}
+{u'description': u'When Carla meets Paul at an ornithology \n      conference, tempers fly as feathers get ruffled.', u'author': u'Randall, Cynthia', u'price': 4.95, u'title': u'Lover Birds', u'publish_date': u'2000-09-02', u'genre': u'Romance'}
+{u'description': u"The two daughters of Maeve, half-sisters, \n      battle one another for control of England. Sequel to \n      Oberon's Legacy.", u'author': u'Corets, Eva', u'price': 5.95, u'title': u'The Sundered Grail', u'publish_date': u'2001-09-10', u'genre': u'Fantasy'}
+{u'description': u'In post-apocalypse England, the mysterious \n      agent known only as Oberon helps to create a new life \n      for the inhabitants of London. Sequel to Maeve \n      Ascendant.', u'author': u'Corets, Eva', u'price': 5.95, u'title': u"Oberon's Legacy", u'publish_date': u'2001-03-10', u'genre': u'Fantasy'}
+{u'description': u'After an inadvertant trip through a Heisenberg\n      Uncertainty Device, James Salway discovers the problems \n      of being quantum.', u'author': u'Kress, Peter', u'price': 6.95, u'title': u'Paradox Lost', u'publish_date': u'2000-11-02', u'genre': u'Science Fiction'}
+{u'description': u'An anthology of horror stories about roaches,\n      centipedes, scorpions  and other insects.', u'author': u'Knorr, Stefan', u'price': 4.95, u'title': u'Creepy Crawlies', u'publish_date': u'2000-12-06', u'genre': u'Horror'}
+{u'description': u"Microsoft's .NET initiative is explored in \n      detail in this deep programmer's reference.", u'author': u"O'Brien, Tim", u'price': 36.95, u'title': u'Microsoft .NET: The Programming Bible', u'publish_date': u'2000-12-09', u'genre': u'Computer'}
+{u'description': u'The Microsoft MSXML3 parser is covered in \n      detail, with attention to XML DOM interfaces, XSLT processing, \n      SAX and more.', u'author': u"O'Brien, Tim", u'price': 36.95, u'title': u'MSXML3: A Comprehensive Guide', u'publish_date': u'2000-12-01', u'genre': u'Computer'}
+{u'description': u'Microsoft Visual Studio 7 is explored in depth,\n      looking at how Visual Basic, Visual C++, C#, and ASP+ are \n      integrated into a comprehensive development \n      environment.', u'author': u'Galos, Mike', u'price': 49.95, u'title': u'Visual Studio 7: A Comprehensive Guide', u'publish_date': u'2001-04-16', u'genre': u'Computer'}
+>>> ================================ RESTART ================================
+>>> 
+Task 1:  Show the book identifiers
+bk101
+bk102
+bk103
+bk104
+bk105
+bk106
+bk107
+bk108
+bk109
+bk110
+bk111
+bk112
+Task 2:  Show titles of all books
+Maeve Ascendant
+Midnight Rain
+XML Developer's Guide
+Splish Splash
+Lover Birds
+The Sundered Grail
+Oberon's Legacy
+Paradox Lost
+Creepy Crawlies
+Microsoft .NET: The Programming Bible
+MSXML3: A Comprehensive Guide
+Visual Studio 7: A Comprehensive Guide
+>>> ================================ RESTART ================================
+>>> 
+Task 1:  Show the book identifiers
+bk101
+bk102
+bk103
+bk104
+bk105
+bk106
+bk107
+bk108
+bk109
+bk110
+bk111
+bk112
+Task 2:  Show titles of all books
+Maeve Ascendant
+Midnight Rain
+XML Developer's Guide
+Splish Splash
+Lover Birds
+The Sundered Grail
+Oberon's Legacy
+Paradox Lost
+Creepy Crawlies
+Microsoft .NET: The Programming Bible
+MSXML3: A Comprehensive Guide
+Visual Studio 7: A Comprehensive Guide
+Task 3:  Title and description of bk105
+{u'description': u"The two daughters of Maeve, half-sisters, \n      battle one another for control of England. Sequel to \n      Oberon's Legacy.", u'author': u'Corets, Eva', u'price': 5.95, u'title': u'The Sundered Grail', u'publish_date': u'2001-09-10', u'genre': u'Fantasy'}
+>>> ================================ RESTART ================================
+>>> 
+Task 1:  Show the book identifiers
+bk101
+bk102
+bk103
+bk104
+bk105
+bk106
+bk107
+bk108
+bk109
+bk110
+bk111
+bk112
+Task 2:  Show titles of all books
+Maeve Ascendant
+Midnight Rain
+XML Developer's Guide
+Splish Splash
+Lover Birds
+The Sundered Grail
+Oberon's Legacy
+Paradox Lost
+Creepy Crawlies
+Microsoft .NET: The Programming Bible
+MSXML3: A Comprehensive Guide
+Visual Studio 7: A Comprehensive Guide
+Task 3:  Title and description of bk105
+The Sundered Grail
+The two daughters of Maeve, half-sisters, 
+      battle one another for control of England. Sequel to 
+      Oberon's Legacy.
+>>> ================================ RESTART ================================
+>>> 
+Task 1:  Show the book identifiers
+bk101
+bk102
+bk103
+bk104
+bk105
+bk106
+bk107
+bk108
+bk109
+bk110
+bk111
+bk112
+Task 2:  Show titles of all books
+Maeve Ascendant
+Midnight Rain
+XML Developer's Guide
+Splish Splash
+Lover Birds
+The Sundered Grail
+Oberon's Legacy
+Paradox Lost
+Creepy Crawlies
+Microsoft .NET: The Programming Bible
+MSXML3: A Comprehensive Guide
+Visual Studio 7: A Comprehensive Guide
+Task 3:  Title and description of bk105
+The Sundered Grail
+The two daughters of Maeve, half-sisters, 
+      battle one another for control of England. Sequel to 
+      Oberon's Legacy.
+Task 4:  Author and price of computer books
+Fantasy
+Fantasy
+Computer
+Romance
+Romance
+Fantasy
+Fantasy
+Science Fiction
+Horror
+Computer
+Computer
+Computer
+>>> ================================ RESTART ================================
+>>> 
+Task 1:  Show the book identifiers
+bk101
+bk102
+bk103
+bk104
+bk105
+bk106
+bk107
+bk108
+bk109
+bk110
+bk111
+bk112
+Task 2:  Show titles of all books
+Maeve Ascendant
+Midnight Rain
+XML Developer's Guide
+Splish Splash
+Lover Birds
+The Sundered Grail
+Oberon's Legacy
+Paradox Lost
+Creepy Crawlies
+Microsoft .NET: The Programming Bible
+MSXML3: A Comprehensive Guide
+Visual Studio 7: A Comprehensive Guide
+Task 3:  Title and description of bk105
+The Sundered Grail
+The two daughters of Maeve, half-sisters, 
+      battle one another for control of England. Sequel to 
+      Oberon's Legacy.
+Task 4:  Author and price of computer books
+>>> ================================ RESTART ================================
+>>> 
+Task 1:  Show the book identifiers
+bk101
+bk102
+bk103
+bk104
+bk105
+bk106
+bk107
+bk108
+bk109
+bk110
+bk111
+bk112
+Task 2:  Show titles of all books
+Maeve Ascendant
+Midnight Rain
+XML Developer's Guide
+Splish Splash
+Lover Birds
+The Sundered Grail
+Oberon's Legacy
+Paradox Lost
+Creepy Crawlies
+Microsoft .NET: The Programming Bible
+MSXML3: A Comprehensive Guide
+Visual Studio 7: A Comprehensive Guide
+Task 3:  Title and description of bk105
+The Sundered Grail
+The two daughters of Maeve, half-sisters, 
+      battle one another for control of England. Sequel to 
+      Oberon's Legacy.
+Task 4:  Author and price of computer books
+{u'description': u'An in-depth look at creating applications \n      with XML.', u'author': u'Gambardella, Matthew', u'price': 44.95, u'title': u"XML Developer's Guide", u'publish_date': u'2000-10-01', u'genre': u'Computer'}
+{u'description': u"Microsoft's .NET initiative is explored in \n      detail in this deep programmer's reference.", u'author': u"O'Brien, Tim", u'price': 36.95, u'title': u'Microsoft .NET: The Programming Bible', u'publish_date': u'2000-12-09', u'genre': u'Computer'}
+{u'description': u'The Microsoft MSXML3 parser is covered in \n      detail, with attention to XML DOM interfaces, XSLT processing, \n      SAX and more.', u'author': u"O'Brien, Tim", u'price': 36.95, u'title': u'MSXML3: A Comprehensive Guide', u'publish_date': u'2000-12-01', u'genre': u'Computer'}
+{u'description': u'Microsoft Visual Studio 7 is explored in depth,\n      looking at how Visual Basic, Visual C++, C#, and ASP+ are \n      integrated into a comprehensive development \n      environment.', u'author': u'Galos, Mike', u'price': 49.95, u'title': u'Visual Studio 7: A Comprehensive Guide', u'publish_date': u'2001-04-16', u'genre': u'Computer'}
+>>> ================================ RESTART ================================
+>>> 
+Task 1:  Show the book identifiers
+bk101
+bk102
+bk103
+bk104
+bk105
+bk106
+bk107
+bk108
+bk109
+bk110
+bk111
+bk112
+Task 2:  Show titles of all books
+Maeve Ascendant
+Midnight Rain
+XML Developer's Guide
+Splish Splash
+Lover Birds
+The Sundered Grail
+Oberon's Legacy
+Paradox Lost
+Creepy Crawlies
+Microsoft .NET: The Programming Bible
+MSXML3: A Comprehensive Guide
+Visual Studio 7: A Comprehensive Guide
+Task 3:  Title and description of bk105
+The Sundered Grail
+The two daughters of Maeve, half-sisters, 
+      battle one another for control of England. Sequel to 
+      Oberon's Legacy.
+Task 4:  Author and price of computer books
+Gambardella, Matthew
+44.95
+
+O'Brien, Tim
+36.95
+
+O'Brien, Tim
+36.95
+
+Galos, Mike
+49.95
+
+>>> ================================ RESTART ================================
+>>> 
+Task 1:  Show the book identifiers
+bk101
+bk102
+bk103
+bk104
+bk105
+bk106
+bk107
+bk108
+bk109
+bk110
+bk111
+bk112
+Task 2:  Show titles of all books
+Maeve Ascendant
+Midnight Rain
+XML Developer's Guide
+Splish Splash
+Lover Birds
+The Sundered Grail
+Oberon's Legacy
+Paradox Lost
+Creepy Crawlies
+Microsoft .NET: The Programming Bible
+MSXML3: A Comprehensive Guide
+Visual Studio 7: A Comprehensive Guide
+Task 3:  Title and description of bk105
+The Sundered Grail
+The two daughters of Maeve, half-sisters, 
+      battle one another for control of England. Sequel to 
+      Oberon's Legacy.
+Task 4:  Author and price of computer books
+Gambardella, Matthew
+44.95
+
+O'Brien, Tim
+36.95
+
+O'Brien, Tim
+36.95
+
+Galos, Mike
+49.95
+
+Task 5:  All metadata for bk104
+DESCRIPTION
+In post-apocalypse England, the mysterious 
+      agent known only as Oberon helps to create a new life 
+      for the inhabitants of London. Sequel to Maeve 
+      Ascendant.
+
+AUTHOR
+Corets, Eva
+
+PRICE
+5.95
+
+TITLE
+Oberon's Legacy
+
+PUBLISH_DATE
+2001-03-10
+
+GENRE
+Fantasy
+
+>>> ================================ RESTART ================================
+>>> 
+>>> catalog
+<xml.etree.ElementTree.ElementTree object at 0x103227850>
+>>> ================================ RESTART ================================
+>>> 
+>>> catalog
+<Element 'catalog' at 0x10322c090>
+>>> ================================ RESTART ================================
+>>> 
+Task 1:  Show the book identifiers
+<Element 'book' at 0x102f290d0>
+<Element 'book' at 0x102f29550>
+<Element 'book' at 0x102f29710>
+<Element 'book' at 0x102f298d0>
+<Element 'book' at 0x102f29a90>
+<Element 'book' at 0x102f29c50>
+<Element 'book' at 0x102f29e10>
+<Element 'book' at 0x102f29fd0>
+<Element 'book' at 0x102f351d0>
+<Element 'book' at 0x102f35390>
+<Element 'book' at 0x102f35550>
+<Element 'book' at 0x102f35710>
+>>> ================================ RESTART ================================
+>>> 
+Task 1:  Show the book identifiers
+bk101
+bk102
+bk103
+bk104
+bk105
+bk106
+bk107
+bk108
+bk109
+bk110
+bk111
+bk112
+>>> catalog.__class__
+<class 'xml.etree.ElementTree.Element'>
+>>> ================================ RESTART ================================
+>>> 
+Task 1:  Show the book identifiers
+bk101
+bk102
+bk103
+bk104
+bk105
+bk106
+bk107
+bk108
+bk109
+bk110
+bk111
+bk112
+Task 2:  Show the book titles
+<Element 'book' at 0x102f0c0d0>
+<Element 'book' at 0x102f0c550>
+<Element 'book' at 0x102f0c710>
+<Element 'book' at 0x102f0c8d0>
+<Element 'book' at 0x102f0ca90>
+<Element 'book' at 0x102f0cc50>
+<Element 'book' at 0x102f0ce10>
+<Element 'book' at 0x102f0cfd0>
+<Element 'book' at 0x102f341d0>
+<Element 'book' at 0x102f34390>
+<Element 'book' at 0x102f34550>
+<Element 'book' at 0x102f34710>
+>>> ================================ RESTART ================================
+>>> 
+Task 1:  Show the book identifiers
+bk101
+bk102
+bk103
+bk104
+bk105
+bk106
+bk107
+bk108
+bk109
+bk110
+bk111
+bk112
+Task 2:  Show the book titles
+<Element 'title' at 0x102e0c290>
+<Element 'title' at 0x102e0c5d0>
+<Element 'title' at 0x102e0c790>
+<Element 'title' at 0x102e0c950>
+<Element 'title' at 0x102e0cb10>
+<Element 'title' at 0x102e0ccd0>
+<Element 'title' at 0x102e0ce90>
+<Element 'title' at 0x103237090>
+<Element 'title' at 0x103237250>
+<Element 'title' at 0x103237410>
+<Element 'title' at 0x1032375d0>
+<Element 'title' at 0x103237790>
+>>> ================================ RESTART ================================
+>>> 
+Task 1:  Show the book identifiers
+bk101
+bk102
+bk103
+bk104
+bk105
+bk106
+bk107
+bk108
+bk109
+bk110
+bk111
+bk112
+Task 2:  Show the book titles
+title
+title
+title
+title
+title
+title
+title
+title
+title
+title
+title
+title
+>>> ================================ RESTART ================================
+>>> 
+Task 1:  Show the book identifiers
+bk101
+bk102
+bk103
+bk104
+bk105
+bk106
+bk107
+bk108
+bk109
+bk110
+bk111
+bk112
+Task 2:  Show the book titles
+XML Developer's Guide
+Midnight Rain
+Maeve Ascendant
+Oberon's Legacy
+The Sundered Grail
+Lover Birds
+Splish Splash
+Creepy Crawlies
+Paradox Lost
+Microsoft .NET: The Programming Bible
+MSXML3: A Comprehensive Guide
+Visual Studio 7: A Comprehensive Guide
+>>> ================================ RESTART ================================
+>>> 
+Task 1:  Show the book identifiers
+bk101
+bk102
+bk103
+bk104
+bk105
+bk106
+bk107
+bk108
+bk109
+bk110
+bk111
+bk112
+Task 2:  Show the book titles
+XML Developer's Guide
+Midnight Rain
+Maeve Ascendant
+Oberon's Legacy
+The Sundered Grail
+Lover Birds
+Splish Splash
+Creepy Crawlies
+Paradox Lost
+Microsoft .NET: The Programming Bible
+MSXML3: A Comprehensive Guide
+Visual Studio 7: A Comprehensive Guide
+<Element 'title' at 0x102f292d0>
+<Element 'title' at 0x102f29610>
+<Element 'title' at 0x102f297d0>
+<Element 'title' at 0x102f29990>
+<Element 'title' at 0x102f29b50>
+<Element 'title' at 0x102f29d10>
+<Element 'title' at 0x102f29ed0>
+<Element 'title' at 0x102f340d0>
+<Element 'title' at 0x102f34290>
+<Element 'title' at 0x102f34450>
+<Element 'title' at 0x102f34610>
+<Element 'title' at 0x102f347d0>
+>>> ================================ RESTART ================================
+>>> 
+Task 1:  Show the book identifiers
+bk101
+bk102
+bk103
+bk104
+bk105
+bk106
+bk107
+bk108
+bk109
+bk110
+bk111
+bk112
+Task 2:  Show the book titles
+XML Developer's Guide
+Midnight Rain
+Maeve Ascendant
+Oberon's Legacy
+The Sundered Grail
+Lover Birds
+Splish Splash
+Creepy Crawlies
+Paradox Lost
+Microsoft .NET: The Programming Bible
+MSXML3: A Comprehensive Guide
+Visual Studio 7: A Comprehensive Guide
+XML Developer's Guide
+Midnight Rain
+Maeve Ascendant
+Oberon's Legacy
+The Sundered Grail
+Lover Birds
+Splish Splash
+Creepy Crawlies
+Paradox Lost
+Microsoft .NET: The Programming Bible
+MSXML3: A Comprehensive Guide
+Visual Studio 7: A Comprehensive Guide
+>>> ================================ RESTART ================================
+>>> 
+Task 1:  Show the book identifiers
+bk101
+bk102
+bk103
+bk104
+bk105
+bk106
+bk107
+bk108
+bk109
+bk110
+bk111
+bk112
+Task 2:  Show the book titles
+XML Developer's Guide
+Midnight Rain
+Maeve Ascendant
+Oberon's Legacy
+The Sundered Grail
+Lover Birds
+Splish Splash
+Creepy Crawlies
+Paradox Lost
+Microsoft .NET: The Programming Bible
+MSXML3: A Comprehensive Guide
+Visual Studio 7: A Comprehensive Guide
+>>> ================================ RESTART ================================
+>>> 
+Task 1:  Show the book identifiers
+bk101
+bk102
+bk103
+bk104
+bk105
+bk106
+bk107
+bk108
+bk109
+bk110
+bk111
+bk112
+Task 2:  Show the book titles
+XML Developer's Guide
+Midnight Rain
+Maeve Ascendant
+Oberon's Legacy
+The Sundered Grail
+Lover Birds
+Splish Splash
+Creepy Crawlies
+Paradox Lost
+Microsoft .NET: The Programming Bible
+MSXML3: A Comprehensive Guide
+Visual Studio 7: A Comprehensive Guide
+Task 3:  Show title and desc of bk107
+bk101
+bk102
+bk103
+bk104
+bk105
+bk106
+bk107
+bk108
+bk109
+bk110
+bk111
+bk112
+>>> ================================ RESTART ================================
+>>> 
+Task 1:  Show the book identifiers
+bk101
+bk102
+bk103
+bk104
+bk105
+bk106
+bk107
+bk108
+bk109
+bk110
+bk111
+bk112
+Task 2:  Show the book titles
+XML Developer's Guide
+Midnight Rain
+Maeve Ascendant
+Oberon's Legacy
+The Sundered Grail
+Lover Birds
+Splish Splash
+Creepy Crawlies
+Paradox Lost
+Microsoft .NET: The Programming Bible
+MSXML3: A Comprehensive Guide
+Visual Studio 7: A Comprehensive Guide
+Task 3:  Show title and desc of bk107
+<Element 'book' at 0x102f29e50>
+>>> ================================ RESTART ================================
+>>> 
+Task 1:  Show the book identifiers
+bk101
+bk102
+bk103
+bk104
+bk105
+bk106
+bk107
+bk108
+bk109
+bk110
+bk111
+bk112
+Task 2:  Show the book titles
+XML Developer's Guide
+Midnight Rain
+Maeve Ascendant
+Oberon's Legacy
+The Sundered Grail
+Lover Birds
+Splish Splash
+Creepy Crawlies
+Paradox Lost
+Microsoft .NET: The Programming Bible
+MSXML3: A Comprehensive Guide
+Visual Studio 7: A Comprehensive Guide
+Task 3:  Show title and desc of bk107
+<Element 'title' at 0x10322ced0>
+>>> ================================ RESTART ================================
+>>> 
+Task 1:  Show the book identifiers
+bk101
+bk102
+bk103
+bk104
+bk105
+bk106
+bk107
+bk108
+bk109
+bk110
+bk111
+bk112
+Task 2:  Show the book titles
+XML Developer's Guide
+Midnight Rain
+Maeve Ascendant
+Oberon's Legacy
+The Sundered Grail
+Lover Birds
+Splish Splash
+Creepy Crawlies
+Paradox Lost
+Microsoft .NET: The Programming Bible
+MSXML3: A Comprehensive Guide
+Visual Studio 7: A Comprehensive Guide
+Task 3:  Show title and desc of bk107
+Splish Splash
+>>> ================================ RESTART ================================
+>>> 
+Task 1:  Show the book identifiers
+bk101
+bk102
+bk103
+bk104
+bk105
+bk106
+bk107
+bk108
+bk109
+bk110
+bk111
+bk112
+Task 2:  Show the book titles
+XML Developer's Guide
+Midnight Rain
+Maeve Ascendant
+Oberon's Legacy
+The Sundered Grail
+Lover Birds
+Splish Splash
+Creepy Crawlies
+Paradox Lost
+Microsoft .NET: The Programming Bible
+MSXML3: A Comprehensive Guide
+Visual Studio 7: A Comprehensive Guide
+Task 3:  Show title and desc of bk107
+Splish Splash
+
+Traceback (most recent call last):
+  File "/Users/raymond/Dropbox/Public/sj93/show_books_xml.py", line 45, in <module>
+    print book.find('desc').text
+AttributeError: 'NoneType' object has no attribute 'text'
+>>> ================================ RESTART ================================
+>>> 
+Task 1:  Show the book identifiers
+bk101
+bk102
+bk103
+bk104
+bk105
+bk106
+bk107
+bk108
+bk109
+bk110
+bk111
+bk112
+Task 2:  Show the book titles
+XML Developer's Guide
+Midnight Rain
+Maeve Ascendant
+Oberon's Legacy
+The Sundered Grail
+Lover Birds
+Splish Splash
+Creepy Crawlies
+Paradox Lost
+Microsoft .NET: The Programming Bible
+MSXML3: A Comprehensive Guide
+Visual Studio 7: A Comprehensive Guide
+Task 3:  Show title and desc of bk107
+Splish Splash
+A deep sea diver finds true love twenty 
+      thousand leagues beneath the sea.
+>>> ================================ RESTART ================================
+>>> 
+Task 1:  Show the book identifiers
+bk101
+bk102
+bk103
+bk104
+bk105
+bk106
+bk107
+bk108
+bk109
+bk110
+bk111
+bk112
+Task 2:  Show the book titles
+XML Developer's Guide
+Midnight Rain
+Maeve Ascendant
+Oberon's Legacy
+The Sundered Grail
+Lover Birds
+Splish Splash
+Creepy Crawlies
+Paradox Lost
+Microsoft .NET: The Programming Bible
+MSXML3: A Comprehensive Guide
+Visual Studio 7: A Comprehensive Guide
+Task 3:  Show title and desc of bk107
+Splish Splash
+A deep sea diver finds true love twenty 
+      thousand leagues beneath the sea.
+<Element 'book' at 0x102f0ce10>
+>>> ================================ RESTART ================================
+>>> 
+Task 1:  Show the book identifiers
+bk101
+bk102
+bk103
+bk104
+bk105
+bk106
+bk107
+bk108
+bk109
+bk110
+bk111
+bk112
+Task 2:  Show the book titles
+XML Developer's Guide
+Midnight Rain
+Maeve Ascendant
+Oberon's Legacy
+The Sundered Grail
+Lover Birds
+Splish Splash
+Creepy Crawlies
+Paradox Lost
+Microsoft .NET: The Programming Bible
+MSXML3: A Comprehensive Guide
+Visual Studio 7: A Comprehensive Guide
+Task 3:  Show title and desc of bk107
+Splish Splash
+A deep sea diver finds true love twenty 
+      thousand leagues beneath the sea.
+>>> ================================ RESTART ================================
+>>> 
+Task 1:  Show the book identifiers
+bk101
+bk102
+bk103
+bk104
+bk105
+bk106
+bk107
+bk108
+bk109
+bk110
+bk111
+bk112
+Task 2:  Show the book titles
+XML Developer's Guide
+Midnight Rain
+Maeve Ascendant
+Oberon's Legacy
+The Sundered Grail
+Lover Birds
+Splish Splash
+Creepy Crawlies
+Paradox Lost
+Microsoft .NET: The Programming Bible
+MSXML3: A Comprehensive Guide
+Visual Studio 7: A Comprehensive Guide
+Task 3:  Show title and desc of bk107
+Splish Splash
+A deep sea diver finds true love twenty 
+      thousand leagues beneath the sea.
+Task 4:  Show author and price of computer books
+<Element 'book' at 0x10260c0d0>
+<Element 'book' at 0x10260c550>
+<Element 'book' at 0x10260c710>
+<Element 'book' at 0x10260c8d0>
+<Element 'book' at 0x10260ca90>
+<Element 'book' at 0x10260cc50>
+<Element 'book' at 0x10260ce10>
+<Element 'book' at 0x10260cfd0>
+<Element 'book' at 0x1026351d0>
+<Element 'book' at 0x102635390>
+<Element 'book' at 0x102635550>
+<Element 'book' at 0x102635710>
+>>> ================================ RESTART ================================
+>>> 
+Task 1:  Show the book identifiers
+bk101
+bk102
+bk103
+bk104
+bk105
+bk106
+bk107
+bk108
+bk109
+bk110
+bk111
+bk112
+Task 2:  Show the book titles
+XML Developer's Guide
+Midnight Rain
+Maeve Ascendant
+Oberon's Legacy
+The Sundered Grail
+Lover Birds
+Splish Splash
+Creepy Crawlies
+Paradox Lost
+Microsoft .NET: The Programming Bible
+MSXML3: A Comprehensive Guide
+Visual Studio 7: A Comprehensive Guide
+Task 3:  Show title and desc of bk107
+Splish Splash
+A deep sea diver finds true love twenty 
+      thousand leagues beneath the sea.
+Task 4:  Show author and price of computer books
+Computer
+Fantasy
+Fantasy
+Fantasy
+Fantasy
+Romance
+Romance
+Horror
+Science Fiction
+Computer
+Computer
+Computer
+>>> ================================ RESTART ================================
+>>> 
+Task 1:  Show the book identifiers
+bk101
+bk102
+bk103
+bk104
+bk105
+bk106
+bk107
+bk108
+bk109
+bk110
+bk111
+bk112
+Task 2:  Show the book titles
+XML Developer's Guide
+Midnight Rain
+Maeve Ascendant
+Oberon's Legacy
+The Sundered Grail
+Lover Birds
+Splish Splash
+Creepy Crawlies
+Paradox Lost
+Microsoft .NET: The Programming Bible
+MSXML3: A Comprehensive Guide
+Visual Studio 7: A Comprehensive Guide
+Task 3:  Show title and desc of bk107
+Splish Splash
+A deep sea diver finds true love twenty 
+      thousand leagues beneath the sea.
+Task 4:  Show author and price of computer books
+>>> ================================ RESTART ================================
+>>> 
+Task 1:  Show the book identifiers
+bk101
+bk102
+bk103
+bk104
+bk105
+bk106
+bk107
+bk108
+bk109
+bk110
+bk111
+bk112
+Task 2:  Show the book titles
+XML Developer's Guide
+Midnight Rain
+Maeve Ascendant
+Oberon's Legacy
+The Sundered Grail
+Lover Birds
+Splish Splash
+Creepy Crawlies
+Paradox Lost
+Microsoft .NET: The Programming Bible
+MSXML3: A Comprehensive Guide
+Visual Studio 7: A Comprehensive Guide
+Task 3:  Show title and desc of bk107
+Splish Splash
+A deep sea diver finds true love twenty 
+      thousand leagues beneath the sea.
+Task 4:  Show author and price of computer books
+<Element 'book' at 0x102f0c0d0>
+<Element 'book' at 0x102f35390>
+<Element 'book' at 0x102f35550>
+<Element 'book' at 0x102f35710>
+>>> ================================ RESTART ================================
+>>> 
+Task 1:  Show the book identifiers
+bk101
+bk102
+bk103
+bk104
+bk105
+bk106
+bk107
+bk108
+bk109
+bk110
+bk111
+bk112
+Task 2:  Show the book titles
+XML Developer's Guide
+Midnight Rain
+Maeve Ascendant
+Oberon's Legacy
+The Sundered Grail
+Lover Birds
+Splish Splash
+Creepy Crawlies
+Paradox Lost
+Microsoft .NET: The Programming Bible
+MSXML3: A Comprehensive Guide
+Visual Studio 7: A Comprehensive Guide
+Task 3:  Show title and desc of bk107
+Splish Splash
+A deep sea diver finds true love twenty 
+      thousand leagues beneath the sea.
+Task 4:  Show author and price of computer books
+Gambardella, Matthew
+44.95
+
+O'Brien, Tim
+36.95
+
+O'Brien, Tim
+36.95
+
+Galos, Mike
+49.95
+
+>>> ================================ RESTART ================================
+>>> 
+Task 1:  Show the book identifiers
+bk101
+bk102
+bk103
+bk104
+bk105
+bk106
+bk107
+bk108
+bk109
+bk110
+bk111
+bk112
+Task 2:  Show the book titles
+XML Developer's Guide
+Midnight Rain
+Maeve Ascendant
+Oberon's Legacy
+The Sundered Grail
+Lover Birds
+Splish Splash
+Creepy Crawlies
+Paradox Lost
+Microsoft .NET: The Programming Bible
+MSXML3: A Comprehensive Guide
+Visual Studio 7: A Comprehensive Guide
+Task 3:  Show title and desc of bk107
+Splish Splash
+A deep sea diver finds true love twenty 
+      thousand leagues beneath the sea.
+Task 4:  Show author and price of computer books
+Gambardella, Matthew
+44.95
+
+O'Brien, Tim
+36.95
+
+O'Brien, Tim
+36.95
+
+Galos, Mike
+49.95
+
+Task 5:  Show all metadata for bk104
+<Element 'book' at 0x102f0c8d0>
+>>> ================================ RESTART ================================
+>>> 
+Task 1:  Show the book identifiers
+bk101
+bk102
+bk103
+bk104
+bk105
+bk106
+bk107
+bk108
+bk109
+bk110
+bk111
+bk112
+Task 2:  Show the book titles
+XML Developer's Guide
+Midnight Rain
+Maeve Ascendant
+Oberon's Legacy
+The Sundered Grail
+Lover Birds
+Splish Splash
+Creepy Crawlies
+Paradox Lost
+Microsoft .NET: The Programming Bible
+MSXML3: A Comprehensive Guide
+Visual Studio 7: A Comprehensive Guide
+Task 3:  Show title and desc of bk107
+Splish Splash
+A deep sea diver finds true love twenty 
+      thousand leagues beneath the sea.
+Task 4:  Show author and price of computer books
+Gambardella, Matthew
+44.95
+
+O'Brien, Tim
+36.95
+
+O'Brien, Tim
+36.95
+
+Galos, Mike
+49.95
+
+Task 5:  Show all metadata for bk104
+<Element 'author' at 0x102f0c910>
+<Element 'title' at 0x102f0c950>
+<Element 'genre' at 0x102f0c990>
+<Element 'price' at 0x102f0c9d0>
+<Element 'publish_date' at 0x102f0ca10>
+<Element 'description' at 0x102f0ca50>
+>>> ================================ RESTART ================================
+>>> 
+Task 1:  Show the book identifiers
+bk101
+bk102
+bk103
+bk104
+bk105
+bk106
+bk107
+bk108
+bk109
+bk110
+bk111
+bk112
+Task 2:  Show the book titles
+XML Developer's Guide
+Midnight Rain
+Maeve Ascendant
+Oberon's Legacy
+The Sundered Grail
+Lover Birds
+Splish Splash
+Creepy Crawlies
+Paradox Lost
+Microsoft .NET: The Programming Bible
+MSXML3: A Comprehensive Guide
+Visual Studio 7: A Comprehensive Guide
+Task 3:  Show title and desc of bk107
+Splish Splash
+A deep sea diver finds true love twenty 
+      thousand leagues beneath the sea.
+Task 4:  Show author and price of computer books
+Gambardella, Matthew
+44.95
+
+O'Brien, Tim
+36.95
+
+O'Brien, Tim
+36.95
+
+Galos, Mike
+49.95
+
+Task 5:  Show all metadata for bk104
+AUTHOR
+Corets, Eva
+
+TITLE
+Oberon's Legacy
+
+GENRE
+Fantasy
+
+PRICE
+5.95
+
+PUBLISH_DATE
+2001-03-10
+
+DESCRIPTION
+In post-apocalypse England, the mysterious 
+      agent known only as Oberon helps to create a new life 
+      for the inhabitants of London. Sequel to Maeve 
+      Ascendant.
+
+>>> 
+>>> 
+>>> 
+>>> 30 + 40
+70
+>>> 3 + 3 + 3 + 3 + 3
+15
+>>> 3 * 5
+15
+>>> 'hello' + ' world'
+'hello world'
+>>> 'x' + 'x' + 'x' + 'x' + 'x'
+'xxxxx'
+>>> 'x' * 5
+'xxxxx'
+>>> 2 + 3*4
+14
+>>> 'x' + 'y'*5
+'xyyyyy'
+>>> print '=' * 20 + ' The Tale of Two Cities ' + '=' * 20
+==================== The Tale of Two Cities ====================
+>>> 
+>>> [10, 20] + [30, 40, 50]
+[10, 20, 30, 40, 50]
+>>> [10] + [10] + [10] + [10] + [10]
+[10, 10, 10, 10, 10]
+>>> [10] * 5
+[10, 10, 10, 10, 10]
+>>> [0] * 50
+[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+>>> 
+>>> # The real truth:  All top level operators, keywords, and functions
+>>> # are dumb as dirt.  All they know is someone to do their work.
+>>> 
+>>> 30 + 40
+70
+>>> (30).__add__(40)
+70
+>>> dir(int)
+['__abs__', '__add__', '__and__', '__class__', '__cmp__', '__coerce__', '__delattr__', '__div__', '__divmod__', '__doc__', '__float__', '__floordiv__', '__format__', '__getattribute__', '__getnewargs__', '__hash__', '__hex__', '__index__', '__init__', '__int__', '__invert__', '__long__', '__lshift__', '__mod__', '__mul__', '__neg__', '__new__', '__nonzero__', '__oct__', '__or__', '__pos__', '__pow__', '__radd__', '__rand__', '__rdiv__', '__rdivmod__', '__reduce__', '__reduce_ex__', '__repr__', '__rfloordiv__', '__rlshift__', '__rmod__', '__rmul__', '__ror__', '__rpow__', '__rrshift__', '__rshift__', '__rsub__', '__rtruediv__', '__rxor__', '__setattr__', '__sizeof__', '__str__', '__sub__', '__subclasshook__', '__truediv__', '__trunc__', '__xor__', 'bit_length', 'conjugate', 'denominator', 'imag', 'numerator', 'real']
+>>> 'hello' + ' world'
+'hello world'
+>>> 'hello'.__add__(' world')
+'hello world'
+>>> dir(str)
+['__add__', '__class__', '__contains__', '__delattr__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__', '__getnewargs__', '__getslice__', '__gt__', '__hash__', '__init__', '__le__', '__len__', '__lt__', '__mod__', '__mul__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__rmod__', '__rmul__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '_formatter_field_name_split', '_formatter_parser', 'capitalize', 'center', 'count', 'decode', 'encode', 'endswith', 'expandtabs', 'find', 'format', 'index', 'isalnum', 'isalpha', 'isdigit', 'islower', 'isspace', 'istitle', 'isupper', 'join', 'ljust', 'lower', 'lstrip', 'partition', 'replace', 'rfind', 'rindex', 'rjust', 'rpartition', 'rsplit', 'rstrip', 'split', 'splitlines', 'startswith', 'strip', 'swapcase', 'title', 'translate', 'upper', 'zfill']
+>>> [10, 20] + [30, 40, 50]
+[10, 20, 30, 40, 50]
+>>> [10, 20].__add__([30, 40, 50])
+[10, 20, 30, 40, 50]
+>>> # The objects are smart, not the keywords, functions, or operators
+>>> 
+>>> 30 * 50
+1500
+>>> (30).__mul__(50)
+1500
+>>> 'hello' * 5
+'hellohellohellohellohello'
+>>> 'hello'.__mul__(5)
+'hellohellohellohellohello'
+>>> dir(str)
+['__add__', '__class__', '__contains__', '__delattr__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__', '__getnewargs__', '__getslice__', '__gt__', '__hash__', '__init__', '__le__', '__len__', '__lt__', '__mod__', '__mul__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__rmod__', '__rmul__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '_formatter_field_name_split', '_formatter_parser', 'capitalize', 'center', 'count', 'decode', 'encode', 'endswith', 'expandtabs', 'find', 'format', 'index', 'isalnum', 'isalpha', 'isdigit', 'islower', 'isspace', 'istitle', 'isupper', 'join', 'ljust', 'lower', 'lstrip', 'partition', 'replace', 'rfind', 'rindex', 'rjust', 'rpartition', 'rsplit', 'rstrip', 'split', 'splitlines', 'startswith', 'strip', 'swapcase', 'title', 'translate', 'upper', 'zfill']
+>>> dir(list)
+['__add__', '__class__', '__contains__', '__delattr__', '__delitem__', '__delslice__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__', '__getslice__', '__gt__', '__hash__', '__iadd__', '__imul__', '__init__', '__iter__', '__le__', '__len__', '__lt__', '__mul__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__reversed__', '__rmul__', '__setattr__', '__setitem__', '__setslice__', '__sizeof__', '__str__', '__subclasshook__', 'append', 'count', 'extend', 'index', 'insert', 'pop', 'remove', 'reverse', 'sort']
+>>> [10] * 5
+[10, 10, 10, 10, 10]
+>>> [10].__mul__(5)
+[10, 10, 10, 10, 10]
+>>> 
+
+>>> 
+>>> ================================ RESTART ================================
+>>> 
+=============================== Source: http://dl.dropbox.com/u/3967849/sj93/links.txt ==============================
+                                    Starting download at Tue Aug 26 17:35:28 2014                                    
+200* OK               https://dl.dropbox.com/u/3967849/shared/call_by_object.txt --> notes/call_by_object.txt  (current) 
+200  OK               https://dl.dropbox.com/u/3967849/sj93/daythree.log      --> notes/daythree.log        (current) 
+304  NOT MODIFIED     https://dl.dropbox.com/u/3967849/sj93/facebook_rest_api.py
+304  NOT MODIFIED     https://dl.dropbox.com/u/3967849/sj93/vcard.py
+200  OK               https://dl.dropbox.com/u/3967849/sj93/dayfour.log       --> notes/dayfour.log         (current) 
+304  NOT MODIFIED     https://dl.dropbox.com/u/3967849/shared/banner.py
+304  NOT MODIFIED     https://dl.dropbox.com/u/3967849/shared/highlight.py
+304  NOT MODIFIED     https://dl.dropbox.com/u/3967849/shared/Raymond_Hettinger.png
+200* OK               https://dl.dropbox.com/u/3967849/sj93/text_formats.txt  --> notes/text_formats.txt    (current) 
+304  NOT MODIFIED     https://dl.dropbox.com/u/3967849/sj93/show_books_xml.py
+304  NOT MODIFIED     https://dl.dropbox.com/u/3967849/sj93/show_ipv4.py
+304  NOT MODIFIED     https://dl.dropbox.com/u/3967849/shared/Raymond_Hettinger.vcf
+304  NOT MODIFIED     https://dl.dropbox.com/u/3967849/sj93/show_books_json.py
+304  NOT MODIFIED     https://dl.dropbox.com/u/3967849/shared/publish.py
+304  NOT MODIFIED     https://dl.dropbox.com/u/3967849/shared/norvig_corrector.py
+304  NOT MODIFIED     https://dl.dropbox.com/u/3967849/shared/picirc.py
+304  NOT MODIFIED     https://dl.dropbox.com/u/3967849/shared/__init__.py
+200* OK               https://dl.dropbox.com/u/3967849/sj93/links.txt         --> notes/links.txt           (current) 
+304  NOT MODIFIED     https://dl.dropbox.com/u/3967849/shared/PythonAwesome.pdf
+304  NOT MODIFIED     https://dl.dropbox.com/u/3967849/shared/islands.pdf
+304  NOT MODIFIED     https://dl.dropbox.com/u/3967849/shared/IntroPython.pdf
+304  NOT MODIFIED     https://dl.dropbox.com/u/3967849/shared/BeautifulSoup.py
+200* OK               https://dl.dropbox.com/u/3967849/sj93/daytwo.log        --> notes/daytwo.log          (current) 
+304  NOT MODIFIED     https://dl.dropbox.com/u/3967849/shared/corpus.dat
+200* OK               https://dl.dropbox.com/u/3967849/sj93/dayone.log        --> notes/dayone.log          (current) 
+200* OK               https://dl.dropbox.com/u/3967849/shared/ipv4_int_bri.txt --> notes/ipv4_int_bri.txt    (current) 
+304  NOT MODIFIED     https://dl.dropbox.com/u/3967849/shared/pexpect.py
+304  NOT MODIFIED     https://dl.dropbox.com/u/3967849/shared/dns_servers.json
+200* OK               https://dl.dropbox.com/u/3967849/shared/books.xml       --> notes/books.xml           (current) 
+304  NOT MODIFIED     https://dl.dropbox.com/u/3967849/shared/team_history.json
+304  NOT MODIFIED     https://dl.dropbox.com/u/3967849/shared/email.txt
+304  NOT MODIFIED     https://dl.dropbox.com/u/3967849/shared/team_history.txt
+200* OK               https://dl.dropbox.com/u/3967849/shared/re.txt          --> notes/re.txt              (current) 
+304  NOT MODIFIED     https://dl.dropbox.com/u/3967849/shared/raisin_team.csv
+304  NOT MODIFIED     https://dl.dropbox.com/u/3967849/shared/stocks.txt
+304  NOT MODIFIED     https://dl.dropbox.com/u/3967849/shared/CSRRESTAPI.pdf
+200* OK               https://dl.dropbox.com/u/3967849/shared/books.json      --> notes/books.json          (current) 
+304  NOT MODIFIED     https://dl.dropbox.com/u/3967849/shared/show_controllers.txt
+>>> ================================ RESTART ================================
+>>> 
+=============================== Source: http://dl.dropbox.com/u/3967849/sj93/links.txt ==============================
+                                    Starting download at Tue Aug 26 17:35:39 2014                                    
+304  NOT MODIFIED     https://dl.dropbox.com/u/3967849/shared/Raymond_Hettinger.png
+304  NOT MODIFIED     https://dl.dropbox.com/u/3967849/shared/picirc.py
+304  NOT MODIFIED     https://dl.dropbox.com/u/3967849/sj93/show_ipv4.py
+304  NOT MODIFIED     https://dl.dropbox.com/u/3967849/sj93/show_books_json.py
+200* OK               https://dl.dropbox.com/u/3967849/sj93/text_formats.txt  --> notes/text_formats.txt    (current) 
+304  NOT MODIFIED     https://dl.dropbox.com/u/3967849/shared/publish.py
+200  OK               https://dl.dropbox.com/u/3967849/sj93/daythree.log      --> notes/daythree.log        (current) 
+304  NOT MODIFIED     https://dl.dropbox.com/u/3967849/sj93/show_books_xml.py
+304  NOT MODIFIED     https://dl.dropbox.com/u/3967849/shared/Raymond_Hettinger.vcf
+304  NOT MODIFIED     https://dl.dropbox.com/u/3967849/shared/banner.py
+200  OK               https://dl.dropbox.com/u/3967849/sj93/dayfour.log       --> notes/dayfour.log         (current) 
+304  NOT MODIFIED     https://dl.dropbox.com/u/3967849/shared/norvig_corrector.py
+304  NOT MODIFIED     https://dl.dropbox.com/u/3967849/shared/highlight.py
+304  NOT MODIFIED     https://dl.dropbox.com/u/3967849/shared/BeautifulSoup.py
+304  NOT MODIFIED     https://dl.dropbox.com/u/3967849/shared/__init__.py
+304  NOT MODIFIED     https://dl.dropbox.com/u/3967849/shared/islands.pdf
+304  NOT MODIFIED     https://dl.dropbox.com/u/3967849/shared/IntroPython.pdf
+304  NOT MODIFIED     https://dl.dropbox.com/u/3967849/shared/corpus.dat
+200* OK               https://dl.dropbox.com/u/3967849/shared/call_by_object.txt --> notes/call_by_object.txt  (current) 
+200* OK               https://dl.dropbox.com/u/3967849/sj93/daytwo.log        --> notes/daytwo.log          (current) 
+304  NOT MODIFIED     https://dl.dropbox.com/u/3967849/shared/PythonAwesome.pdf
+200* OK               https://dl.dropbox.com/u/3967849/sj93/links.txt         --> notes/links.txt           (current) 
+200* OK               https://dl.dropbox.com/u/3967849/sj93/dayone.log        --> notes/dayone.log          (current) 
+304  NOT MODIFIED     https://dl.dropbox.com/u/3967849/shared/show_controllers.txt
+304  NOT MODIFIED     https://dl.dropbox.com/u/3967849/shared/pexpect.py
+304  NOT MODIFIED     https://dl.dropbox.com/u/3967849/shared/raisin_team.csv
+200* OK               https://dl.dropbox.com/u/3967849/shared/re.txt          --> notes/re.txt              (current) 
+200* OK               https://dl.dropbox.com/u/3967849/shared/ipv4_int_bri.txt --> notes/ipv4_int_bri.txt    (current) 
+304  NOT MODIFIED     https://dl.dropbox.com/u/3967849/shared/stocks.txt
+304  NOT MODIFIED     https://dl.dropbox.com/u/3967849/shared/email.txt
+200* OK               https://dl.dropbox.com/u/3967849/shared/books.xml       --> notes/books.xml           (current) 
+304  NOT MODIFIED     https://dl.dropbox.com/u/3967849/shared/team_history.json
+304  NOT MODIFIED     https://dl.dropbox.com/u/3967849/shared/team_history.txt
+304  NOT MODIFIED     https://dl.dropbox.com/u/3967849/shared/dns_servers.json
+304  NOT MODIFIED     https://dl.dropbox.com/u/3967849/sj93/facebook_rest_api.py
+304  NOT MODIFIED     https://dl.dropbox.com/u/3967849/shared/CSRRESTAPI.pdf
+200* OK               https://dl.dropbox.com/u/3967849/shared/books.json      --> notes/books.json          (current) 
+304  NOT MODIFIED     https://dl.dropbox.com/u/3967849/sj93/vcard.py
+>>> 
